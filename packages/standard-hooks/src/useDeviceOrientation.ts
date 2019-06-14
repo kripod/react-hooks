@@ -12,11 +12,12 @@ export default function useDeviceOrientation() {
   });
 
   useEffect(
-    eventListenerEffect(window, 'deviceorientation', ((
-      event: DeviceOrientationEvent,
-    ) => {
-      setOrientation(event);
-    }) as EventListener),
+    () =>
+      eventListenerEffect(window, 'deviceorientation', ((
+        event: DeviceOrientationEvent,
+      ) => {
+        setOrientation(event);
+      }) as EventListener),
     [],
   );
 

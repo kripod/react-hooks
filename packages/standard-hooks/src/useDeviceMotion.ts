@@ -10,9 +10,12 @@ export default function useDeviceMotion() {
   });
 
   useEffect(
-    eventListenerEffect(window, 'devicemotion', ((event: DeviceMotionEvent) => {
-      setMotion(event);
-    }) as EventListener),
+    () =>
+      eventListenerEffect(window, 'devicemotion', ((
+        event: DeviceMotionEvent,
+      ) => {
+        setMotion(event);
+      }) as EventListener),
     [],
   );
 

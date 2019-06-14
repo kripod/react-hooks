@@ -16,14 +16,15 @@ export default function useEventListener(
 
   useEffect(
     target
-      ? eventListenerEffect(
-          target,
-          type,
-          event => {
-            if (savedCallback.current) savedCallback.current(event);
-          },
-          options,
-        )
+      ? () =>
+          eventListenerEffect(
+            target,
+            type,
+            event => {
+              if (savedCallback.current) savedCallback.current(event);
+            },
+            options,
+          )
       : () => {},
     [options, target, type],
   );
