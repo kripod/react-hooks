@@ -45,10 +45,11 @@
     "eslint-plugin-react": "^7.13.0",
     "eslint-plugin-react-hooks": "^1.6.0",
     "jest": "^24.8.0",
-    "jest-dom": "^3.5.0",
     "prettier": "^1.18.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-hooks-testing-library": "^0.5.1",
+    "react-test-renderer": "^16.8.6",
     "ts-jest": "^24.0.2",
     "typescript": "^3.5.1"
   }
