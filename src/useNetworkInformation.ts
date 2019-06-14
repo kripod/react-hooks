@@ -7,11 +7,12 @@ export default function useNetworkInformation() {
   );
 
   useEffect(
-    navigator.connection
-      ? eventListenerEffect(navigator.connection, 'change', () => {
-          setNetworkInformation(navigator.connection);
-        })
-      : () => {},
+    () =>
+      navigator.connection
+        ? eventListenerEffect(navigator.connection, 'change', () => {
+            setNetworkInformation(navigator.connection);
+          })
+        : () => {},
     [],
   );
 

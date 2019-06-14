@@ -11,9 +11,10 @@ export default function useDocumentVisibility() {
   );
 
   useEffect(
-    eventListenerEffect(document, 'visibilitychange', () => {
-      setVisibility(document.visibilityState as StandardVisibilityState);
-    }),
+    () =>
+      eventListenerEffect(document, 'visibilitychange', () => {
+        setVisibility(document.visibilityState as StandardVisibilityState);
+      }),
     [],
   );
 
