@@ -1,0 +1,46 @@
+{
+  "name": "standard-hooks",
+  "version": "0.0.0",
+  "description": "Essential set of React Hooks for convenient Web API consumption.",
+  "repository": "https://github.com/kripod/standard-hooks",
+  "author": "Kristóf Poduszló <kripod@protonmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "format": "prettier --ignore-path .gitignore --write \"**/*.{ts,json,yml,md}\"",
+    "lint": "eslint --ignore-path .gitignore \"**/*.ts\"",
+    "type-check": "tsc --noEmit"
+  },
+  "@pika/pack": {
+    "pipeline": [
+      [
+        "@pika/plugin-ts-standard-pkg"
+      ],
+      [
+        "@pika/plugin-build-web"
+      ]
+    ]
+  },
+  "peerDependencies": {
+    "react": ">=16.8"
+  },
+  "dependencies": {
+    "network-information-types": "^0.1.0"
+  },
+  "devDependencies": {
+    "@pika/plugin-build-web": "^0.4.0",
+    "@pika/plugin-ts-standard-pkg": "^0.4.0",
+    "@types/react": "^16.8.19",
+    "@typescript-eslint/eslint-plugin": "^1.10.2",
+    "@typescript-eslint/parser": "^1.10.2",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-prettier": "^4.3.0",
+    "eslint-plugin-import": "^2.17.3",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-react": "^7.13.0",
+    "eslint-plugin-react-hooks": "^1.6.0",
+    "prettier": "^1.18.2",
+    "typescript": "^3.5.1"
+  }
+}

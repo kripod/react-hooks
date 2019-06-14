@@ -1,0 +1,24 @@
+{
+  "root": true,
+  "plugins": ["react-hooks"],
+  "extends": [
+    "airbnb",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:import/typescript",
+    "plugin:prettier/recommended",
+    "prettier/@typescript-eslint",
+    "prettier/react"
+  ],
+  "env": {
+    "browser": true
+  },
+  "rules": {
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "import/no-unresolved": [
+      "error",
+      { "ignore": ["react"], "commonjs": true, "caseSensitive": true }
+    ],
+    "@typescript-eslint/explicit-function-return-type": "off"
+  }
+}

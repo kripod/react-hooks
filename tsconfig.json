@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "target": "es2019", // TODO: Use `esnext`
+    "module": "esnext",
+    "moduleResolution": "node",
+    "types": ["./node_modules/network-information-types"]
+  }
+}

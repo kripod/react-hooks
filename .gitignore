@@ -1,0 +1,8 @@
+# Logs
+*.log*
+
+# Dependency directories
+node_modules/
+
+# Build output
+pkg/
