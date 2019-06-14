@@ -1,0 +1,16 @@
+{
+  // Enable automatic file formatting and fixing
+  "editor.formatOnSave": true,
+  "eslint.autoFixOnSave": true,
+
+  // Use ESLint for TypeScript code
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    { "language": "typescript", "autoFix": true },
+    { "language": "typescriptreact", "autoFix": true }
+  ],
+
+  // Use workspace version of TypeScript instead of the one built-in
+  "typescript.tsdk": "node_modules/typescript/lib"
+}
