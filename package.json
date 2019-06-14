@@ -6,8 +6,9 @@
   "author": "Kristóf Poduszló <kripod@protonmail.com>",
   "license": "MIT",
   "scripts": {
-    "format": "prettier --ignore-path .gitignore --write \"**/*.{ts,json,yml,md}\"",
-    "lint": "eslint --ignore-path .gitignore \"**/*.ts\"",
+    "format": "prettier --ignore-path .gitignore --write \"**/*.{ts,tsx,js,json,yml,md}\"",
+    "lint": "eslint --ignore-path .gitignore \"**/*.{ts,tsx,js}\"",
+    "test": "jest",
     "type-check": "tsc --noEmit"
   },
   "@pika/pack": {
@@ -29,6 +30,8 @@
   "devDependencies": {
     "@pika/plugin-build-web": "^0.4.0",
     "@pika/plugin-ts-standard-pkg": "^0.4.0",
+    "@testing-library/react": "^8.0.1",
+    "@types/jest": "^24.0.14",
     "@types/react": "^16.8.19",
     "@typescript-eslint/eslint-plugin": "^1.10.2",
     "@typescript-eslint/parser": "^1.10.2",
@@ -36,11 +39,17 @@
     "eslint-config-airbnb": "^17.1.0",
     "eslint-config-prettier": "^4.3.0",
     "eslint-plugin-import": "^2.17.3",
+    "eslint-plugin-jest": "^22.6.4",
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-prettier": "^3.1.0",
     "eslint-plugin-react": "^7.13.0",
     "eslint-plugin-react-hooks": "^1.6.0",
+    "jest": "^24.8.0",
+    "jest-dom": "^3.5.0",
     "prettier": "^1.18.2",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "ts-jest": "^24.0.2",
     "typescript": "^3.5.1"
   }
 }
