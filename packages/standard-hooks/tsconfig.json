@@ -4,6 +4,9 @@
     "target": "es2019", // TODO: Use `esnext`
     "module": "esnext",
     "moduleResolution": "node",
-    "types": ["./node_modules/network-information-types"]
-  }
+    "jsx": "react",
+    "esModuleInterop": true,
+    "types": ["./node_modules/jest", "./node_modules/network-information-types"]
+  },
+  "exclude": ["**/*.test.{ts,tsx}"]
 }
