@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { canUseDOM, eventListenerEffect } from './utils';
+import { canUseDOM, managedEventListener } from './utils';
 
 type StandardVisibilityState = Exclude<VisibilityState, 'prerender'>;
 
@@ -12,7 +12,7 @@ export default function useDocumentVisibility() {
 
   useEffect(
     () =>
-      eventListenerEffect(document, 'visibilitychange', () => {
+      managedEventListener(document, 'visibilitychange', () => {
         setVisibility(document.visibilityState as StandardVisibilityState);
       }),
     [],

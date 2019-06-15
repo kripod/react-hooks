@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { eventListenerEffect } from './utils';
+import { managedEventListener } from './utils';
 
 export default function useDeviceMotion() {
   const [motion, setMotion] = useState<Omit<DeviceMotionEvent, keyof Event>>({
@@ -11,7 +11,7 @@ export default function useDeviceMotion() {
 
   useEffect(
     () =>
-      eventListenerEffect(window, 'devicemotion', ((
+      managedEventListener(window, 'devicemotion', ((
         event: DeviceMotionEvent,
       ) => {
         setMotion(event);

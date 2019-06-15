@@ -1,15 +1,15 @@
 import { useEffect, useState } from 'react';
-import { canUseDOM, eventListenerEffect } from './utils';
+import { canUseDOM, managedEventListener } from './utils';
 
 export default function useNetworkAvailability() {
   const [online, setOnline] = useState(canUseDOM ? navigator.onLine : true);
 
   useEffect(() => {
     const destructors = [
-      eventListenerEffect(window, 'offline', () => {
+      managedEventListener(window, 'offline', () => {
         setOnline(false);
       }),
-      eventListenerEffect(window, 'online', () => {
+      managedEventListener(window, 'online', () => {
         setOnline(true);
       }),
     ];

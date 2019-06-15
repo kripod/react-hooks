@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { eventListenerEffect } from './utils';
+import { managedEventListener } from './utils';
 
 export default function useDeviceOrientation() {
   const [orientation, setOrientation] = useState<
@@ -13,7 +13,7 @@ export default function useDeviceOrientation() {
 
   useEffect(
     () =>
-      eventListenerEffect(window, 'deviceorientation', ((
+      managedEventListener(window, 'deviceorientation', ((
         event: DeviceOrientationEvent,
       ) => {
         setOrientation(event);
