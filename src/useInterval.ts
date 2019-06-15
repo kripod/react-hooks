@@ -15,7 +15,7 @@ export default function useInterval(
     if (delayMs == null) return () => {};
 
     function handleTick() {
-      if (savedCallback.current) savedCallback.current();
+      (savedCallback.current as (() => void))(); // TODO: as typeof callback
     }
 
     const id = setInterval(handleTick, delayMs);
