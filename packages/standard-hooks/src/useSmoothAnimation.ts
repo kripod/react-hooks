@@ -5,11 +5,11 @@ export default function useSmoothAnimation(callback: FrameRequestCallback) {
   const tickingRef = useRef(false);
   return () => {
     if (!tickingRef.current) {
-      tickingRef.current = true;
       requestAnimationFrame(timeStamp => {
         callback(timeStamp);
         tickingRef.current = false;
       });
+      tickingRef.current = true;
     }
   };
 }
