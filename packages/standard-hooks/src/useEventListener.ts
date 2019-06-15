@@ -20,7 +20,7 @@ export default function useEventListener(
         target,
         type,
         event => {
-          (savedCallback.current as EventListener)(event);
+          (savedCallback.current as EventListener)(event); // TODO: as typeof callback
         },
         options,
       ),
