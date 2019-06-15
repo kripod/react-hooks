@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
-import { eventListenerEffect } from './utils';
+import { managedEventListener } from './utils';
 
 export default function useMousePosition() {
   const [position, setPosition] = useState([0, 0]);
 
   useEffect(
     () =>
-      eventListenerEffect(window, 'mousemove', ((event: MouseEvent) => {
+      managedEventListener(window, 'mousemove', ((event: MouseEvent) => {
         setPosition([event.clientX, event.clientY]);
       }) as EventListener),
     [],

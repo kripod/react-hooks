@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { canUseDOM, eventListenerEffect } from './utils';
+import { canUseDOM, managedEventListener } from './utils';
 
 export default function useEventListener(
   type: string,
@@ -17,7 +17,7 @@ export default function useEventListener(
   useEffect(
     target
       ? () =>
-          eventListenerEffect(
+          managedEventListener(
             target,
             type,
             event => {

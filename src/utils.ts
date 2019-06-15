@@ -1,6 +1,6 @@
 export const canUseDOM = typeof window !== 'undefined';
 
-export function eventListenerEffect(
+export function managedEventListener(
   target: EventTarget,
   type: string,
   callback: EventListener,

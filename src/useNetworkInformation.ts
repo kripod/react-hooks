@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { canUseDOM, eventListenerEffect } from './utils';
+import { canUseDOM, managedEventListener } from './utils';
 
 export default function useNetworkInformation() {
   const [networkInformation, setNetworkInformation] = useState(
@@ -9,7 +9,7 @@ export default function useNetworkInformation() {
   useEffect(
     () =>
       navigator.connection
-        ? eventListenerEffect(navigator.connection, 'change', () => {
+        ? managedEventListener(navigator.connection, 'change', () => {
             setNetworkInformation(navigator.connection);
           })
         : () => {},
