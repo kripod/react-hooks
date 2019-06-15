@@ -1,10 +1,10 @@
 import { useEffect, useRef } from 'react';
-import { canUseDOM, managedEventListener } from './utils';
+import { managedEventListener } from './utils';
 
 export default function useEventListener(
   type: string,
   callback: EventListener,
-  target: EventTarget | undefined = canUseDOM ? window : undefined,
+  target: EventTarget = globalThis,
   options?: boolean | AddEventListenerOptions,
 ) {
   // Based on the implementation of `useInterval`
@@ -15,17 +15,15 @@ export default function useEventListener(
   }, [callback]);
 
   useEffect(
-    target
-      ? () =>
-          managedEventListener(
-            target,
-            type,
-            event => {
-              if (savedCallback.current) savedCallback.current(event);
-            },
-            options,
-          )
-      : () => {},
+    () =>
+      managedEventListener(
+        target,
+        type,
+        event => {
+          (savedCallback.current as EventListener)(event);
+        },
+        options,
+      ),
     [options, target, type],
   );
 }
