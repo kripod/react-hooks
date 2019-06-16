@@ -2,7 +2,7 @@ import { fireEvent } from '@testing-library/react';
 import { act, renderHook } from 'react-hooks-testing-library';
 import { useWindowScrollPosition } from '.';
 
-test('change window scroll position', async () => {
+test('change window scroll position', () => {
   const { result, waitForNextUpdate, unmount } = renderHook(() =>
     useWindowScrollPosition(),
   );
