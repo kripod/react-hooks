@@ -27,7 +27,6 @@ Essential set of [React Hooks][] for convenient [Web API][] consumption.
 - **Utilities**
   - [`useEventListener`](#useeventlistener)
   - [`useInterval`](#useinterval)
-  - [`useSmoothAnimation`](#usesmoothanimation)
 
 ### `useDeviceMotion`
 
@@ -160,7 +159,7 @@ const Example = () => {
 
 Tracks [`Window`](https://developer.mozilla.org/docs/Web/API/Window) scroll position. Defaults to `[0, 0]`.
 
-> 🚀 _Debounced by [`useSmoothAnimation`](#usesmoothanimation) to improve performance._
+> 🚀 _Debounced by [`requestAnimationFrame`](https://developer.mozilla.org/docs/Web/API/Window/requestAnimationFrame) to improve performance._
 
 #### Return value
 
@@ -182,7 +181,7 @@ const Example = () => {
 
 Tracks [`Window`](https://developer.mozilla.org/docs/Web/API/Window) dimensions. Defaults to `[0, 0]`.
 
-> 🚀 _Debounced by [`useSmoothAnimation`](#usesmoothanimation) to improve performance._
+> 🚀 _Debounced by [`requestAnimationFrame`](https://developer.mozilla.org/docs/Web/API/Window/requestAnimationFrame) to improve performance._
 
 #### Return value
 
@@ -251,40 +250,6 @@ const Example = () => {
   useInterval(() => {
     // Custom logic executed in each second
   }, 1000);
-
-  // ...
-};
-```
-
-### `useSmoothAnimation`
-
-Creates a debounced function using [`requestAnimationFrame`](https://developer.mozilla.org/docs/Web/API/Window/requestAnimationFrame).
-
-> 💡 _This hook should be used to avoid framerate drops caused by too frequent state updates._
-
-> ⚠️ _Unmissable events shall not be debounced, as they may not be raised upon every occasion._
-
-#### Parameters
-
-- `callback: (timeStamp: DOMHigh​ResTime​Stamp) => void` — Method to execute only before repaints.
-
-#### Return value
-
-`() => void`
-
-#### Usage
-
-```jsx
-import { useSmoothAnimation } from 'standard-hooks';
-
-// Similar to the implementation of `useWindowScrollPosition`
-const Example = () => {
-  const handleScroll = useSmoothAnimation(() => {
-    // ...
-  });
-
-  // Scroll events can fire at a high rate
-  useEventListener('scroll', handleScroll);
 
   // ...
 };
