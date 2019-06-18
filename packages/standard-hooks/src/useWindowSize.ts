@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { canUseDOM, managedEventListener, smoothAnimation } from './utils';
+import { canUseDOM, managedEventListener } from './utils';
 
 export default function useWindowSize() {
   const [size, setSize] = useState(
@@ -8,13 +8,9 @@ export default function useWindowSize() {
 
   useEffect(
     () =>
-      managedEventListener(
-        window,
-        'resize',
-        smoothAnimation(() => {
-          setSize([window.innerWidth, window.innerHeight]);
-        }),
-      ),
+      managedEventListener(window, 'resize', () => {
+        setSize([window.innerWidth, window.innerHeight]);
+      }),
     [],
   );
 

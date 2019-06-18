@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { canUseDOM, managedEventListener, smoothAnimation } from './utils';
+import { canUseDOM, managedEventListener } from './utils';
 
 export default function useWindowScrollPosition() {
   const [position, setPosition] = useState(
@@ -8,13 +8,9 @@ export default function useWindowScrollPosition() {
 
   useEffect(
     () =>
-      managedEventListener(
-        window,
-        'scroll',
-        smoothAnimation(() => {
-          setPosition([window.scrollX, window.scrollY]);
-        }),
-      ),
+      managedEventListener(window, 'scroll', () => {
+        setPosition([window.scrollX, window.scrollY]);
+      }),
     [],
   );
 

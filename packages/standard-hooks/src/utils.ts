@@ -11,17 +11,3 @@ export function managedEventListener(
     target.removeEventListener(type, callback, options);
   };
 }
-
-export function smoothAnimation(callback: FrameRequestCallback) {
-  // Details: https://www.html5rocks.com/en/tutorials/speed/animations/
-  let ticking = false;
-  return () => {
-    if (!ticking) {
-      requestAnimationFrame(timeStamp => {
-        callback(timeStamp);
-        ticking = false;
-      });
-      ticking = true;
-    }
-  };
-}
