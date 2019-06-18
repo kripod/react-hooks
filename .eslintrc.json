@@ -1,11 +1,12 @@
 {
   "root": true,
-  "plugins": ["react-hooks"],
+  "plugins": ["jsdoc", "react-hooks"],
   "extends": [
     "airbnb",
     "plugin:@typescript-eslint/recommended",
     "plugin:import/typescript",
     "plugin:jest/recommended",
+    "plugin:jsdoc/recommended",
     "plugin:prettier/recommended",
     "prettier/@typescript-eslint",
     "prettier/react"
