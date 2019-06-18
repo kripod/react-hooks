@@ -28,6 +28,10 @@ Essential set of [React Hooks][] for convenient [Web API][] consumption.
   - [`useEventListener`](#useeventlistener)
   - [`useInterval`](#useinterval)
 
+> 🚀 _High frequency events should be handled by a [debounced or throttled](https://css-tricks.com/debouncing-throttling-explained-examples/) method to avoid layout thrashing._
+
+---
+
 ### `useDeviceMotion`
 
 Tracks acceleration and rotation rate of the device. Defaults to an instance of [`DeviceMotionEventInit`](https://w3c.github.io/deviceorientation/#dictdef-devicemotioneventinit).
@@ -159,8 +163,6 @@ const Example = () => {
 
 Tracks [`Window`](https://developer.mozilla.org/docs/Web/API/Window) scroll position. Defaults to `[0, 0]`.
 
-> 🚀 _Debounced by [`requestAnimationFrame`](https://developer.mozilla.org/docs/Web/API/Window/requestAnimationFrame) to improve performance._
-
 #### Return value
 
 `[x: number, y: number]`
@@ -180,8 +182,6 @@ const Example = () => {
 ### `useWindowSize`
 
 Tracks [`Window`](https://developer.mozilla.org/docs/Web/API/Window) dimensions. Defaults to `[0, 0]`.
-
-> 🚀 _Debounced by [`requestAnimationFrame`](https://developer.mozilla.org/docs/Web/API/Window/requestAnimationFrame) to improve performance._
 
 #### Return value
 
