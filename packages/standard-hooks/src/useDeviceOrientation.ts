@@ -1,15 +1,15 @@
 import { useEffect, useState } from 'react';
 import { managedEventListener } from './utils';
 
+const initialState: Omit<DeviceOrientationEvent, keyof Event> = {
+  alpha: null,
+  beta: null,
+  gamma: null,
+  absolute: false,
+};
+
 export default function useDeviceOrientation() {
-  const [orientation, setOrientation] = useState<
-    Omit<DeviceOrientationEvent, keyof Event>
-  >({
-    alpha: null,
-    beta: null,
-    gamma: null,
-    absolute: false,
-  });
+  const [orientation, setOrientation] = useState(initialState);
 
   useEffect(
     () =>
