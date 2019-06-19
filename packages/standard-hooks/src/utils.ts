@@ -11,3 +11,10 @@ export function managedEventListener(
     target.removeEventListener(type, callback, options);
   };
 }
+
+export function managedInterval(callback: () => void, delayMs: number) {
+  const id = setInterval(callback, delayMs);
+  return () => {
+    clearInterval(id);
+  };
+}
