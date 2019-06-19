@@ -8,7 +8,7 @@ import { managedEventListener, useEventCallback } from './utils';
  *
  * @param type Name of event (case-sensitive).
  * @param callback Method to execute whenever the event fires.
- * @param target Target to listen on, possibly a DOM element or a remote service connector.
+ * @param [target=window] Target to listen on, possibly a DOM element or a remote service connector.
  * @param options Additional listener characteristics.
  *
  * @example
@@ -24,16 +24,14 @@ import { managedEventListener, useEventCallback } from './utils';
 export default function useEventListener(
   type: string,
   callback: EventListener,
-  target: EventTarget = globalThis,
+  target?: EventTarget,
   options?: boolean | AddEventListenerOptions,
 ) {
   // Based on the implementation of `useInterval`
   const savedCallback = useEventCallback(callback);
 
-  useEffect(() => managedEventListener(target, type, savedCallback, options), [
-    options,
-    savedCallback,
-    target,
-    type,
-  ]);
+  useEffect(
+    () => managedEventListener(target || window, type, savedCallback, options),
+    [options, savedCallback, target, type],
+  );
 }
