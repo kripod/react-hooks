@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react';
+import { managedInterval } from './utils';
 
 export default function useInterval(
   callback: () => void,
@@ -18,9 +19,6 @@ export default function useInterval(
       (savedCallback.current as (() => void))(); // TODO: as typeof callback
     }
 
-    const id = setInterval(handleTick, delayMs);
-    return () => {
-      clearInterval(id);
-    };
+    return managedInterval(handleTick, delayMs);
   }, [delayMs]);
 }
