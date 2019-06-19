@@ -11,7 +11,9 @@ const initialState: Omit<DeviceMotionEvent, keyof Event> = {
 /**
  * Tracks acceleration and rotation rate of the device.
  *
- * @returns {DeviceMotionEvent} Defaults to an instance of [`DeviceMotionEventInit`](https://w3c.github.io/deviceorientation/#dictdef-devicemotioneventinit) constructed without parameters.
+ * @returns {DeviceMotionEvent} An instance of [`DeviceMotionEventInit`](https://w3c.github.io/deviceorientation/#dictdef-devicemotioneventinit), constructed without parameters by default.
+ * @see [`DeviceMotionEvent`](https://developer.mozilla.org/docs/Web/API/DeviceMotionEvent)
+ *
  * @example
  * const Example = () => {
  *   const { acceleration, rotationRate, interval } = useDeviceMotion();
