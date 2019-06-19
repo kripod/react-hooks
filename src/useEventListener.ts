@@ -8,7 +8,7 @@ import { managedEventListener, useEventCallback } from './utils';
  *
  * @param type Name of event (case-sensitive).
  * @param callback Method to execute whenever the event fires.
- * @param target Target to listen on, possibly an element or a remote API service.
+ * @param target Target to listen on, possibly a DOM element or a remote service connector.
  * @param options Additional listener characteristics.
  *
  * @example
