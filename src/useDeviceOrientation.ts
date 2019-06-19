@@ -11,7 +11,9 @@ const initialState: Omit<DeviceOrientationEvent, keyof Event> = {
 /**
  * Tracks physical orientation of the device.
  *
- * @returns {DeviceOrientationEvent} Defaults to an instance of [`DeviceOrientationEventInit`](https://w3c.github.io/deviceorientation/#dictdef-deviceorientationeventinit) constructed without parameters.
+ * @returns {DeviceOrientationEvent} An instance of [`DeviceOrientationEventInit`](https://w3c.github.io/deviceorientation/#dictdef-deviceorientationeventinit), constructed without parameters by default.
+ * @see [`DeviceOrientationEvent`](https://developer.mozilla.org/docs/Web/API/DeviceOrientationEvent)
+ *
  * @example
  * const Example = () => {
  *   const { alpha, beta, gamma, absolute } = useDeviceOrientation();

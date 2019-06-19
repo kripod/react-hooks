@@ -2,10 +2,10 @@ import { useEffect, useState } from 'react';
 import { canUseDOM, managedEventListener } from './utils';
 
 /**
- * Tracks readiness of the current document.
+ * Tracks loading state of the page.
  *
- * @returns {DocumentReadyState} Defaults to `'loading'`.
- * @see https://developer.mozilla.org/docs/Web/API/Document/readyState
+ * @returns {DocumentReadyState} Readiness of the `document`, which is `'loading'` by default.
+ * @see [`Document.readyState`](https://developer.mozilla.org/docs/Web/API/Document/readyState)
  *
  * @example
  * const Example = () => {
