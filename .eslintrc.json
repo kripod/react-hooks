@@ -27,6 +27,7 @@
         "optionalDependencies": false
       }
     ],
+    "jsdoc/no-undefined-types": "off",
     "@typescript-eslint/explicit-function-return-type": "off",
     "react/jsx-filename-extension": ["error", { "extensions": [".tsx"] }]
   }
