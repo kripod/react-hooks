@@ -1,5 +1,5 @@
-import { useEffect, useRef } from 'react';
-import { managedEventListener } from './utils';
+import { useEffect } from 'react';
+import { managedEventListener, useEventCallback } from './utils';
 
 export default function useEventListener(
   type: string,
@@ -8,22 +8,12 @@ export default function useEventListener(
   options?: boolean | AddEventListenerOptions,
 ) {
   // Based on the implementation of `useInterval`
-  const savedCallback = useRef<typeof callback>();
+  const savedCallback = useEventCallback(callback);
 
-  useEffect(() => {
-    savedCallback.current = callback;
-  }, [callback]);
-
-  useEffect(
-    () =>
-      managedEventListener(
-        target,
-        type,
-        event => {
-          (savedCallback.current as EventListener)(event); // TODO: as typeof callback
-        },
-        options,
-      ),
-    [options, target, type],
-  );
+  useEffect(() => managedEventListener(target, type, savedCallback, options), [
+    options,
+    savedCallback,
+    target,
+    type,
+  ]);
 }
