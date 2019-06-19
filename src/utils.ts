@@ -1,3 +1,5 @@
+import { useCallback, useEffect, useRef } from 'react';
+
 export const canUseDOM = typeof window !== 'undefined';
 
 export function managedEventListener(
@@ -17,4 +19,15 @@ export function managedInterval(callback: () => void, delayMs: number) {
   return () => {
     clearInterval(id);
   };
+}
+
+export function useEventCallback<T extends Function>(callback: T) {
+  // Source: https://reactjs.org/docs/hooks-faq.html#how-to-read-an-often-changing-value-from-usecallback
+  const ref = useRef<T>();
+
+  useEffect(() => {
+    ref.current = callback;
+  }, [callback]);
+
+  return useCallback((...args) => (ref.current as T)(...args), [ref]);
 }
