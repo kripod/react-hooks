@@ -29,5 +29,7 @@ export function useEventCallback<T extends Function>(callback: T) {
     ref.current = callback;
   }, [callback]);
 
-  return useCallback((...args) => (ref.current as T)(...args), [ref]);
+  return (useCallback((...args) => (ref.current as T)(...args), [
+    ref,
+  ]) as unknown) as T;
 }
