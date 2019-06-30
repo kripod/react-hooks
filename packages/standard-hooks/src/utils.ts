@@ -6,7 +6,7 @@ export function managedEventListener(
   target: EventTarget,
   type: string,
   callback: EventListener,
-  options?: boolean | AddEventListenerOptions,
+  options?: AddEventListenerOptions,
 ) {
   target.addEventListener(type, callback, options);
   return () => {

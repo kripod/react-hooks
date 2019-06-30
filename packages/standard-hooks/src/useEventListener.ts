@@ -25,7 +25,7 @@ export default function useEventListener(
   type: string,
   callback: EventListener,
   target?: EventTarget,
-  options?: boolean | AddEventListenerOptions,
+  options?: AddEventListenerOptions,
 ) {
   // Based on the implementation of `useInterval`
   const savedCallback = useEventCallback(callback);
