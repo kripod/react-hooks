@@ -1,9 +1,9 @@
 import { fireEvent } from '@testing-library/react';
-import { act, renderHook } from 'react-hooks-testing-library';
+import { act, renderHook } from '@testing-library/react-hooks';
 import { useWindowScrollPosition } from '.';
 
 test('change window scroll position', () => {
-  const { result, unmount } = renderHook(() => useWindowScrollPosition());
+  const { result } = renderHook(() => useWindowScrollPosition());
   expect(result.current.join()).toBe('0,0');
 
   act(() => {
@@ -13,5 +13,4 @@ test('change window scroll position', () => {
   });
 
   expect(result.current.join()).toBe('123,456');
-  unmount();
 });
