@@ -15,9 +15,6 @@
   "env": {
     "browser": true
   },
-  "globals": {
-    "globalThis": true
-  },
   "rules": {
     "import/no-extraneous-dependencies": [
       "error",
