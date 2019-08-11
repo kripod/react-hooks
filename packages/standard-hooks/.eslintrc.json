@@ -1,8 +1,9 @@
 {
   "root": true,
-  "plugins": ["jsdoc", "react-hooks"],
+  "plugins": ["jsdoc"],
   "extends": [
     "airbnb",
+    "airbnb/hooks",
     "plugin:@typescript-eslint/recommended",
     "plugin:import/typescript",
     "plugin:jest/recommended",
@@ -18,8 +19,6 @@
     "globalThis": true
   },
   "rules": {
-    "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn",
     "import/no-extraneous-dependencies": [
       "error",
       {
@@ -27,6 +26,8 @@
         "optionalDependencies": false
       }
     ],
+    "jsdoc/require-jsdoc": "off",
+    "jsdoc/require-param-type": "off",
     "jsdoc/no-undefined-types": "off",
     "@typescript-eslint/explicit-function-return-type": "off",
     "react/jsx-filename-extension": ["error", { "extensions": [".tsx"] }]
