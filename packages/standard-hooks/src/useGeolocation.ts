@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
  *
  * @param options Additional watching options.
  *
- * @returns {Position | undefined} An instance of `Position`, or `undefined` when data cannot be obtained.
+ * @returns {Position | undefined} An instance of `Position`, or `undefined` when data is unavailable.
  * @see [`Position`](https://developer.mozilla.org/docs/Web/API/Position)
  *
  * @example
