@@ -26,7 +26,7 @@ export default function useNetworkInformation() {
         ? managedEventListener(navigator.connection, 'change', () => {
             setNetworkInformation(navigator.connection);
           })
-        : () => {},
+        : undefined,
     [],
   );
 

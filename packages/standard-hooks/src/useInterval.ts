@@ -26,7 +26,7 @@ export default function useInterval(
 
   useEffect(
     () =>
-      delayMs != null ? managedInterval(savedCallback, delayMs) : () => {},
+      delayMs != null ? managedInterval(savedCallback, delayMs) : undefined,
     [delayMs, savedCallback],
   );
 }
