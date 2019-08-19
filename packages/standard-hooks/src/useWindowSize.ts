@@ -13,7 +13,7 @@ import { canUseDOM, managedEventListener } from './utils';
  * };
  */
 export default function useWindowSize() {
-  const [size, setSize] = useState(
+  const [size, setSize] = useState<[number, number]>(
     canUseDOM ? [window.innerWidth, window.innerHeight] : [0, 0],
   );
 
