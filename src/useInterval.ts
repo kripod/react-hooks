@@ -1,6 +1,22 @@
 import { useEffect } from 'react';
 import { managedInterval, useEventCallback } from './utils';
 
+/**
+ * Repeatedly calls a function with a fixed time delay between each call.
+ *
+ * 📝 Timings may be inherently inaccurate, due to the implementation of [`setInterval`](https://developer.mozilla.org/docs/Web/API/WindowOrWorkerGlobalScope/setInterval) under the hood.
+ *
+ * @param callback Method to execute periodically.
+ * @param delayMs Time, in milliseconds, to wait between executions of the specified function. Set to `null` for pausing.
+ *
+ * @example
+ * const Example = () => {
+ *   useInterval(() => {
+ *     // Custom logic to execute each second
+ *   }, 1000);
+ *   // ...
+ * };
+ */
 export default function useInterval(
   callback: () => void,
   delayMs: number | null,
