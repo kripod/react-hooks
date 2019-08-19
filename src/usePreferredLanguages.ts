@@ -8,7 +8,6 @@ function getPreferredLanguages() {
 /**
  * Tracks preferred languages of the user.
  *
- * @param defaultValue Fallback value used when preferences are unavailable.
  * @returns {string[]} An array of [BCP 47](https://tools.ietf.org/html/bcp47) language tags, ordered by preference with the most preferred language first.
  *
  * @example
@@ -17,9 +16,9 @@ function getPreferredLanguages() {
  *   // ...
  * };
  */
-export default function usePreferredLanguages(defaultValue = ['en-US']) {
+export default function usePreferredLanguages() {
   const [languages, setLanguages] = useState(
-    canUseDOM ? getPreferredLanguages() : defaultValue,
+    canUseDOM ? getPreferredLanguages() : ['en-US', 'en'],
   );
 
   useEffect(
