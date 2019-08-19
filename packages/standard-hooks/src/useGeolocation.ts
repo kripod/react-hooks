@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
  * Tracks geolocation of the device.
  *
  * @param options Additional watching options.
+ * @param errorCallback Method to execute in case of an error.
  *
  * @returns {Position | undefined} An instance of `Position`, or `undefined` when data is unavailable.
  * @see [`Position`](https://developer.mozilla.org/docs/Web/API/Position)
@@ -18,20 +19,20 @@ import { useEffect, useState } from 'react';
  */
 export default function useGeolocation(
   options?: PositionOptions,
-  // TODO: errorCallback?: PositionErrorCallback,
+  errorCallback?: PositionErrorCallback,
 ) {
   const [position, setPosition] = useState<Position>();
 
   useEffect(() => {
     const id = navigator.geolocation.watchPosition(
       setPosition,
-      undefined,
+      errorCallback,
       options,
     );
     return () => {
       navigator.geolocation.clearWatch(id);
     };
-  }, [options]);
+  }, [errorCallback, options]);
 
   return position;
 }
