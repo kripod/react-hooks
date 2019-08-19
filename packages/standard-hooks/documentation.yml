@@ -1,0 +1,19 @@
+toc:
+  - name: Sensors
+    children:
+      - useDeviceMotion
+      - useDeviceOrientation
+      - useDocumentReadiness
+      - useDocumentVisibility
+      - useGeolocation
+      - useMousePosition
+      - useNetworkAvailability
+      - useNetworkInformation
+      - usePreferredLanguages
+      - useWindowScrollPosition
+      - useWindowSize
+  - name: Utilities
+    children:
+      - useEventListener
+      - useInterval
+      - useStorage
