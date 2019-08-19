@@ -4,7 +4,7 @@ import { managedInterval, useEventCallback } from './utils';
 /**
  * Repeatedly calls a function with a fixed time delay between each call.
  *
- * 📝 Timings may be inherently inaccurate, due to the implementation of [`setInterval`](https://developer.mozilla.org/docs/Web/API/WindowOrWorkerGlobalScope/setInterval) under the hood.
+ * 📝 _Timings may be inherently inaccurate, due to the implementation of [`setInterval`](https://developer.mozilla.org/docs/Web/API/WindowOrWorkerGlobalScope/setInterval) under the hood._
  *
  * @param callback Method to execute periodically.
  * @param delayMs Time, in milliseconds, to wait between executions of the specified function. Set to `null` for pausing.
