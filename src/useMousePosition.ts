@@ -13,7 +13,7 @@ import { managedEventListener } from './utils';
  * };
  */
 export default function useMousePosition() {
-  const [position, setPosition] = useState([0, 0]);
+  const [position, setPosition] = useState<[number, number]>([0, 0]);
 
   useEffect(
     () =>
