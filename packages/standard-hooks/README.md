@@ -306,4 +306,13 @@ const Example = () => {
 
 ## Performance tips
 
-- High frequency events _(e.g. scrolling or mouse movements)_ should be handled by a [debounced or throttled](https://css-tricks.com/debouncing-throttling-explained-examples/) method to avoid layout thrashing.
+- Avoid layout thrashing by [debouncing or throttling](https://css-tricks.com/debouncing-throttling-explained-examples/) high frequency events, e.g. scrolling or mouse movements
+- Move non-primitive hook parameters to an outer scope or memoize them with [`useMemo`](https://reactjs.org/docs/hooks-reference.html#usememo), e.g.:
+
+  ```tsx
+  const geolocationOptions = { enableHighAccuracy: true };
+  const Example = () => {
+    const geolocation = useGeolocation(geolocationOptions);
+    // ...
+  };
+  ```
