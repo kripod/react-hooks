@@ -1,5 +1,7 @@
 import { useCallback, useEffect, useRef } from 'react';
 
+export type EventArgs<T> = Omit<T, keyof Event>;
+
 export const canUseDOM = typeof window !== 'undefined';
 
 export function managedEventListener(

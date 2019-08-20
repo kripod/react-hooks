@@ -17,7 +17,7 @@ type StandardVisibilityState = Exclude<VisibilityState, 'prerender'>;
  *   }
  * };
  */
-export default function useDocumentVisibility() {
+export default function useDocumentVisibility(): StandardVisibilityState {
   const [visibility, setVisibility] = useState(
     canUseDOM
       ? (document.visibilityState as StandardVisibilityState)

@@ -14,7 +14,9 @@ import { canUseDOM, managedEventListener } from './utils';
  *   // ...
  * };
  */
-export default function useNetworkInformation() {
+export default function useNetworkInformation():
+  | NetworkInformation
+  | undefined {
   const [networkInformation, setNetworkInformation] = useState(
     canUseDOM ? navigator.connection : undefined,
   );

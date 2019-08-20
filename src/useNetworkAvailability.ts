@@ -14,7 +14,7 @@ import { canUseDOM, managedEventListener } from './utils';
  *   // ...
  * };
  */
-export default function useNetworkAvailability() {
+export default function useNetworkAvailability(): boolean {
   const [online, setOnline] = useState(canUseDOM ? navigator.onLine : true);
 
   useEffect(() => {

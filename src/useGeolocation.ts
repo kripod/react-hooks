@@ -19,7 +19,7 @@ import { useEffect, useState } from 'react';
 export default function useGeolocation(
   options?: PositionOptions,
   errorCallback?: PositionErrorCallback,
-) {
+): Position | undefined {
   const [position, setPosition] = useState<Position>();
 
   useEffect(() => {

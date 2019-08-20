@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
-import { managedEventListener } from './utils';
+import { EventArgs, managedEventListener } from './utils';
 
 // Source: https://w3c.github.io/deviceorientation/#dictdef-deviceorientationeventinit
-const initialState: Omit<DeviceOrientationEvent, keyof Event> = {
+const initialState: EventArgs<DeviceOrientationEvent> = {
   alpha: null,
   beta: null,
   gamma: null,
@@ -20,7 +20,9 @@ const initialState: Omit<DeviceOrientationEvent, keyof Event> = {
  *   // ...
  * };
  */
-export default function useDeviceOrientation() {
+export default function useDeviceOrientation(): EventArgs<
+  DeviceOrientationEvent
+> {
   const [orientation, setOrientation] = useState(initialState);
 
   useEffect(

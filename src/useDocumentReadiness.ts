@@ -15,7 +15,7 @@ import { canUseDOM, managedEventListener } from './utils';
  *   }
  * };
  */
-export default function useDocumentReadiness() {
+export default function useDocumentReadiness(): DocumentReadyState {
   const [readiness, setReadiness] = useState(
     canUseDOM ? document.readyState : 'loading',
   );

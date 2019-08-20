@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
-import { managedEventListener } from './utils';
+import { EventArgs, managedEventListener } from './utils';
 
 // Source: https://w3c.github.io/deviceorientation/#dictdef-devicemotioneventinit
-const initialState: Omit<DeviceMotionEvent, keyof Event> = {
+const initialState: EventArgs<DeviceMotionEvent> = {
   acceleration: null,
   accelerationIncludingGravity: null,
   rotationRate: null,
@@ -20,7 +20,7 @@ const initialState: Omit<DeviceMotionEvent, keyof Event> = {
  *   // ...
  * };
  */
-export default function useDeviceMotion() {
+export default function useDeviceMotion(): EventArgs<DeviceMotionEvent> {
   const [motion, setMotion] = useState(initialState);
 
   useEffect(

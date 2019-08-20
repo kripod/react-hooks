@@ -5,6 +5,8 @@ function getPreferredLanguages() {
   return navigator.languages || [navigator.language];
 }
 
+// TODO: Use `readonly string[]` instead of `ReadonlyArray<string>`
+
 /**
  * Tracks preferred languages of the user.
  *
@@ -16,7 +18,7 @@ function getPreferredLanguages() {
  *   // ...
  * };
  */
-export default function usePreferredLanguages() {
+export default function usePreferredLanguages(): ReadonlyArray<string> {
   const [languages, setLanguages] = useState(
     canUseDOM ? getPreferredLanguages() : ['en-US', 'en'],
   );
