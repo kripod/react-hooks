@@ -2,11 +2,12 @@ import { useReducer } from 'react';
 
 export default function useStorage(
   key: string,
+  defaultValue: string | null = null,
   storage = localStorage,
   errorCallback?: (error: DOMException) => void,
 ) {
   return useReducer(
-    (_, value) => {
+    (_, value: string | null) => {
       if (value != null) {
         try {
           storage.setItem(key, value);
@@ -19,6 +20,9 @@ export default function useStorage(
       return value;
     },
     key,
-    storage.getItem,
+    initialKey => {
+      const value = storage.getItem(initialKey);
+      return value != null ? value : defaultValue; // TODO: value ?? defaultValue
+    },
   );
 }
