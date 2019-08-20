@@ -6,7 +6,7 @@ type StandardVisibilityState = Exclude<VisibilityState, 'prerender'>;
 /**
  * Tracks visibility of the page.
  *
- * @returns {VisibilityState} Visibility state of the `document`, which is `'visible'` by default.
+ * @returns Visibility state of the [`document`](https://developer.mozilla.org/docs/Web/API/Document), which is `'visible'` by default.
  * @see [`Document.visibilityState`](https://developer.mozilla.org/docs/Web/API/Document/visibilityState)
  *
  * @example

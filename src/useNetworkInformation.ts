@@ -6,8 +6,7 @@ import { canUseDOM, managedEventListener } from './utils';
  *
  * ⚗️ _The underlying technology is experimental. Please be aware about browser compatibility before using this in production._
  *
- * @returns {NetworkInformation | undefined} An instance of `NetworkInformation`, or `undefined` when data is unavailable.
- * @see [`NetworkInformation`](https://developer.mozilla.org/docs/Web/API/NetworkInformation)
+ * @returns A [`NetworkInformation`](https://developer.mozilla.org/docs/Web/API/NetworkInformation) instance, or `undefined` when data is unavailable.
  *
  * @example
  * const Example = () => {

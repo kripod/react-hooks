@@ -4,10 +4,9 @@ import { useEffect, useState } from 'react';
  * Tracks geolocation of the device.
  *
  * @param options Additional watching options.
- * @param errorCallback Method to execute in case of an error.
+ * @param errorCallback Method to execute in case of an error, with a [`PositionError`](https://developer.mozilla.org/docs/Web/API/PositionError) parameter.
  *
- * @returns {Position | undefined} An instance of `Position`, or `undefined` when data is unavailable.
- * @see [`Position`](https://developer.mozilla.org/docs/Web/API/Position)
+ * @returns A [`Position`](https://developer.mozilla.org/docs/Web/API/Position) instance, or `undefined` when data is unavailable.
  *
  * @example
  * const Example = () => {

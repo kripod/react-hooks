@@ -4,7 +4,7 @@ import { canUseDOM, managedEventListener } from './utils';
 /**
  * Tracks window size.
  *
- * @returns {[number, number]} Dimensions `[width, height]`, falling back to `[0, 0]` when unavailable.
+ * @returns Dimensions `[width, height]`, falling back to `[0, 0]` when unavailable.
  *
  * @example
  * const Example = () => {
