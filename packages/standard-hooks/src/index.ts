@@ -1,10 +1,14 @@
 export { default as useDeviceMotion } from './useDeviceMotion';
 export { default as useDeviceOrientation } from './useDeviceOrientation';
+export { default as useDocumentReadiness } from './useDocumentReadiness';
 export { default as useDocumentVisibility } from './useDocumentVisibility';
 export { default as useEventListener } from './useEventListener';
+export { default as useGeolocation } from './useGeolocation';
 export { default as useInterval } from './useInterval';
 export { default as useMousePosition } from './useMousePosition';
 export { default as useNetworkAvailability } from './useNetworkAvailability';
 export { default as useNetworkInformation } from './useNetworkInformation';
+export { default as usePreferredLanguages } from './usePreferredLanguages';
+export { default as useStorage } from './useStorage';
 export { default as useWindowScrollPosition } from './useWindowScrollPosition';
 export { default as useWindowSize } from './useWindowSize';
