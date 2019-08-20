@@ -37,9 +37,7 @@ Essential set of [React Hooks][] for convenient [Web API][] consumption.
 
 #### useDeviceMotion
 
-[src/useDeviceMotion.ts:23-37](https://github.com/kripod/standard-hooks/blob/6bc258635e4b62dbfd346ab1fc921921e4476215/src/useDeviceMotion.ts#L23-L37 'Source code on GitHub')
-
-- **See: [`DeviceMotionEvent`](https://developer.mozilla.org/docs/Web/API/DeviceMotionEvent)**
+[src/useDeviceMotion.ts:23-37](https://github.com/kripod/standard-hooks/blob/6592da14f2edac33fba87d575e1c3dda167a8faf/src/useDeviceMotion.ts#L23-L37 'Source code on GitHub')
 
 Tracks acceleration and rotation rate of the device.
 
@@ -52,13 +50,11 @@ const Example = () => {
 };
 ```
 
-Returns **DeviceMotionEvent** An instance of [`DeviceMotionEventInit`](https://w3c.github.io/deviceorientation/#dictdef-devicemotioneventinit), constructed without parameters by default.
+Returns **EventArgs&lt;DeviceMotionEvent>** Own properties of the last received [`DeviceMotionEvent`](https://developer.mozilla.org/docs/Web/API/DeviceMotionEvent).
 
 #### useDeviceOrientation
 
-[src/useDeviceOrientation.ts:23-37](https://github.com/kripod/standard-hooks/blob/6bc258635e4b62dbfd346ab1fc921921e4476215/src/useDeviceOrientation.ts#L23-L37 'Source code on GitHub')
-
-- **See: [`DeviceOrientationEvent`](https://developer.mozilla.org/docs/Web/API/DeviceOrientationEvent)**
+[src/useDeviceOrientation.ts:23-39](https://github.com/kripod/standard-hooks/blob/6592da14f2edac33fba87d575e1c3dda167a8faf/src/useDeviceOrientation.ts#L23-L39 'Source code on GitHub')
 
 Tracks physical orientation of the device.
 
@@ -71,11 +67,11 @@ const Example = () => {
 };
 ```
 
-Returns **DeviceOrientationEvent** An instance of [`DeviceOrientationEventInit`](https://w3c.github.io/deviceorientation/#dictdef-deviceorientationeventinit), constructed without parameters by default.
+Returns **EventArgs&lt;DeviceOrientationEvent>** Own properties of the last received [`DeviceOrientationEvent`](https://developer.mozilla.org/docs/Web/API/DeviceOrientationEvent).
 
 #### useDocumentReadiness
 
-[src/useDocumentReadiness.ts:18-32](https://github.com/kripod/standard-hooks/blob/6bc258635e4b62dbfd346ab1fc921921e4476215/src/useDocumentReadiness.ts#L18-L32 'Source code on GitHub')
+[src/useDocumentReadiness.ts:18-32](https://github.com/kripod/standard-hooks/blob/6592da14f2edac33fba87d575e1c3dda167a8faf/src/useDocumentReadiness.ts#L18-L32 'Source code on GitHub')
 
 - **See: [`Document.readyState`](https://developer.mozilla.org/docs/Web/API/Document/readyState)**
 
@@ -92,11 +88,11 @@ const Example = () => {
 };
 ```
 
-Returns **DocumentReadyState** Readiness of the `document`, which is `'loading'` by default.
+Returns **DocumentReadyState** Readiness of the [`document`](https://developer.mozilla.org/docs/Web/API/Document), which is `'loading'` by default.
 
 #### useDocumentVisibility
 
-[src/useDocumentVisibility.ts:20-36](https://github.com/kripod/standard-hooks/blob/6bc258635e4b62dbfd346ab1fc921921e4476215/src/useDocumentVisibility.ts#L20-L36 'Source code on GitHub')
+[src/useDocumentVisibility.ts:20-36](https://github.com/kripod/standard-hooks/blob/6592da14f2edac33fba87d575e1c3dda167a8faf/src/useDocumentVisibility.ts#L20-L36 'Source code on GitHub')
 
 - **See: [`Document.visibilityState`](https://developer.mozilla.org/docs/Web/API/Document/visibilityState)**
 
@@ -113,19 +109,18 @@ const Example = () => {
 };
 ```
 
-Returns **VisibilityState** Visibility state of the `document`, which is `'visible'` by default.
+Returns **StandardVisibilityState** Visibility state of the [`document`](https://developer.mozilla.org/docs/Web/API/Document), which is `'visible'` by default.
 
 #### useGeolocation
 
-[src/useGeolocation.ts:19-37](https://github.com/kripod/standard-hooks/blob/6bc258635e4b62dbfd346ab1fc921921e4476215/src/useGeolocation.ts#L19-L37 'Source code on GitHub')
-
-- **See: [`Position`](https://developer.mozilla.org/docs/Web/API/Position)**
+[src/useGeolocation.ts:19-37](https://github.com/kripod/standard-hooks/blob/6592da14f2edac33fba87d575e1c3dda167a8faf/src/useGeolocation.ts#L19-L37 'Source code on GitHub')
 
 Tracks geolocation of the device.
 
 ##### Parameters
 
 - `options` **PositionOptions?** Additional watching options.
+- `errorCallback` **PositionErrorCallback?** Method to execute in case of an error, with a [`PositionError`](https://developer.mozilla.org/docs/Web/API/PositionError) parameter.
 
 ##### Examples
 
@@ -138,11 +133,11 @@ const Example = () => {
 };
 ```
 
-Returns **(Position | [undefined](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/undefined))** An instance of `Position`, or `undefined` when data is unavailable.
+Returns **(Position | [undefined](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/undefined))** A [`Position`](https://developer.mozilla.org/docs/Web/API/Position) instance, or `undefined` when data is unavailable.
 
 #### useMousePosition
 
-[src/useMousePosition.ts:15-27](https://github.com/kripod/standard-hooks/blob/6bc258635e4b62dbfd346ab1fc921921e4476215/src/useMousePosition.ts#L15-L27 'Source code on GitHub')
+[src/useMousePosition.ts:15-27](https://github.com/kripod/standard-hooks/blob/6592da14f2edac33fba87d575e1c3dda167a8faf/src/useMousePosition.ts#L15-L27 'Source code on GitHub')
 
 Tracks mouse position.
 
@@ -159,7 +154,7 @@ Returns **\[[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference
 
 #### useNetworkAvailability
 
-[src/useNetworkAvailability.ts:17-38](https://github.com/kripod/standard-hooks/blob/6bc258635e4b62dbfd346ab1fc921921e4476215/src/useNetworkAvailability.ts#L17-L38 'Source code on GitHub')
+[src/useNetworkAvailability.ts:17-38](https://github.com/kripod/standard-hooks/blob/6592da14f2edac33fba87d575e1c3dda167a8faf/src/useNetworkAvailability.ts#L17-L38 'Source code on GitHub')
 
 Tracks information about the network's availability.
 
@@ -178,9 +173,7 @@ Returns **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/
 
 #### useNetworkInformation
 
-[src/useNetworkInformation.ts:18-34](https://github.com/kripod/standard-hooks/blob/6bc258635e4b62dbfd346ab1fc921921e4476215/src/useNetworkInformation.ts#L18-L34 'Source code on GitHub')
-
-- **See: [`NetworkInformation`](https://developer.mozilla.org/docs/Web/API/NetworkInformation)**
+[src/useNetworkInformation.ts:17-35](https://github.com/kripod/standard-hooks/blob/6592da14f2edac33fba87d575e1c3dda167a8faf/src/useNetworkInformation.ts#L17-L35 'Source code on GitHub')
 
 Tracks information about the device's network connection.
 
@@ -195,17 +188,13 @@ const Example = () => {
 };
 ```
 
-Returns **(NetworkInformation | [undefined](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/undefined))** An instance of `NetworkInformation`, or `undefined` when data is unavailable.
+Returns **(NetworkInformation | [undefined](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/undefined))** A [`NetworkInformation`](https://developer.mozilla.org/docs/Web/API/NetworkInformation) instance, or `undefined` when data is unavailable.
 
 #### usePreferredLanguages
 
-[src/usePreferredLanguages.ts:20-34](https://github.com/kripod/standard-hooks/blob/6bc258635e4b62dbfd346ab1fc921921e4476215/src/usePreferredLanguages.ts#L20-L34 'Source code on GitHub')
+[src/usePreferredLanguages.ts:21-35](https://github.com/kripod/standard-hooks/blob/6592da14f2edac33fba87d575e1c3dda167a8faf/src/usePreferredLanguages.ts#L21-L35 'Source code on GitHub')
 
 Tracks preferred languages of the user.
-
-##### Parameters
-
-- `defaultValue` Fallback value used when preferences are unavailable. (optional, default `['en-US']`)
 
 ##### Examples
 
@@ -216,11 +205,11 @@ const Example = () => {
 };
 ```
 
-Returns **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>** An array of [BCP 47](https://tools.ietf.org/html/bcp47) language tags, ordered by preference with the most preferred language first.
+Returns **ReadonlyArray&lt;[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>** An array of [BCP 47](https://tools.ietf.org/html/bcp47) language tags, ordered by preference with the most preferred language first.
 
 #### useWindowScrollPosition
 
-[src/useWindowScrollPosition.ts:15-29](https://github.com/kripod/standard-hooks/blob/6bc258635e4b62dbfd346ab1fc921921e4476215/src/useWindowScrollPosition.ts#L15-L29 'Source code on GitHub')
+[src/useWindowScrollPosition.ts:15-29](https://github.com/kripod/standard-hooks/blob/6592da14f2edac33fba87d575e1c3dda167a8faf/src/useWindowScrollPosition.ts#L15-L29 'Source code on GitHub')
 
 Tracks window scroll position.
 
@@ -237,7 +226,7 @@ Returns **\[[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference
 
 #### useWindowSize
 
-[src/useWindowSize.ts:15-29](https://github.com/kripod/standard-hooks/blob/6bc258635e4b62dbfd346ab1fc921921e4476215/src/useWindowSize.ts#L15-L29 'Source code on GitHub')
+[src/useWindowSize.ts:15-29](https://github.com/kripod/standard-hooks/blob/6592da14f2edac33fba87d575e1c3dda167a8faf/src/useWindowSize.ts#L15-L29 'Source code on GitHub')
 
 Tracks window size.
 
@@ -256,7 +245,7 @@ Returns **\[[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference
 
 #### useEventListener
 
-[src/useEventListener.ts:22-35](https://github.com/kripod/standard-hooks/blob/6bc258635e4b62dbfd346ab1fc921921e4476215/src/useEventListener.ts#L22-L35 'Source code on GitHub')
+[src/useEventListener.ts:22-35](https://github.com/kripod/standard-hooks/blob/6592da14f2edac33fba87d575e1c3dda167a8faf/src/useEventListener.ts#L22-L35 'Source code on GitHub')
 
 - **See: [Event reference on MDN](https://developer.mozilla.org/en-US/docs/Web/Events)**
 
@@ -282,7 +271,7 @@ const Example = () => {
 
 #### useInterval
 
-[src/useInterval.ts:20-32](https://github.com/kripod/standard-hooks/blob/6bc258635e4b62dbfd346ab1fc921921e4476215/src/useInterval.ts#L20-L32 'Source code on GitHub')
+[src/useInterval.ts:20-32](https://github.com/kripod/standard-hooks/blob/6592da14f2edac33fba87d575e1c3dda167a8faf/src/useInterval.ts#L20-L32 'Source code on GitHub')
 
 Repeatedly calls a function with a fixed time delay between each call.
 
