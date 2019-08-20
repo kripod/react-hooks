@@ -6,7 +6,7 @@ import { canUseDOM, managedEventListener } from './utils';
  *
  * ⚠️ _This attribute is [inherently unreliable](https://html.spec.whatwg.org/multipage/offline.html#navigator.online). A computer can be connected to a network without having internet access._
  *
- * @returns {boolean} `false` if the user agent is definitely offline, or `true` if the user agent might be online.
+ * @returns `false` if the user agent is definitely offline, or `true` if the user agent might be online.
  *
  * @example
  * const Example = () => {

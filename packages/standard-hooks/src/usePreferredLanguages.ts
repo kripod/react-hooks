@@ -8,7 +8,7 @@ function getPreferredLanguages() {
 /**
  * Tracks preferred languages of the user.
  *
- * @returns {string[]} An array of [BCP 47](https://tools.ietf.org/html/bcp47) language tags, ordered by preference with the most preferred language first.
+ * @returns An array of [BCP 47](https://tools.ietf.org/html/bcp47) language tags, ordered by preference with the most preferred language first.
  *
  * @example
  * const Example = () => {

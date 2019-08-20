@@ -4,7 +4,7 @@ import { canUseDOM, managedEventListener } from './utils';
 /**
  * Tracks loading state of the page.
  *
- * @returns {DocumentReadyState} Readiness of the `document`, which is `'loading'` by default.
+ * @returns Readiness of the [`document`](https://developer.mozilla.org/docs/Web/API/Document), which is `'loading'` by default.
  * @see [`Document.readyState`](https://developer.mozilla.org/docs/Web/API/Document/readyState)
  *
  * @example

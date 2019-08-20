@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { managedEventListener } from './utils';
 
+// Source: https://w3c.github.io/deviceorientation/#dictdef-devicemotioneventinit
 const initialState: Omit<DeviceMotionEvent, keyof Event> = {
   acceleration: null,
   accelerationIncludingGravity: null,
@@ -11,8 +12,7 @@ const initialState: Omit<DeviceMotionEvent, keyof Event> = {
 /**
  * Tracks acceleration and rotation rate of the device.
  *
- * @returns {DeviceMotionEvent} An instance of [`DeviceMotionEventInit`](https://w3c.github.io/deviceorientation/#dictdef-devicemotioneventinit), constructed without parameters by default.
- * @see [`DeviceMotionEvent`](https://developer.mozilla.org/docs/Web/API/DeviceMotionEvent)
+ * @returns Own properties of the last received [`DeviceMotionEvent`](https://developer.mozilla.org/docs/Web/API/DeviceMotionEvent).
  *
  * @example
  * const Example = () => {

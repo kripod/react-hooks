@@ -4,7 +4,7 @@ import { canUseDOM, managedEventListener } from './utils';
 /**
  * Tracks window scroll position.
  *
- * @returns {[number, number]} Coordinates `[x, y]`, falling back to `[0, 0]` when unavailable.
+ * @returns Coordinates `[x, y]`, falling back to `[0, 0]` when unavailable.
  *
  * @example
  * const Example = () => {
