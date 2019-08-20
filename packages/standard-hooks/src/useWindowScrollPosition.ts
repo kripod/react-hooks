@@ -12,8 +12,8 @@ import { canUseDOM, managedEventListener } from './utils';
  *   // ...
  * };
  */
-export default function useWindowScrollPosition(): [number, number] {
-  const [position, setPosition] = useState<[number, number]>(
+export default function useWindowScrollPosition(): Readonly<[number, number]> {
+  const [position, setPosition] = useState<Readonly<[number, number]>>(
     canUseDOM ? [window.scrollX, window.scrollY] : [0, 0],
   );
 

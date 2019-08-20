@@ -12,8 +12,8 @@ import { managedEventListener } from './utils';
  *   // ...
  * };
  */
-export default function useMousePosition(): [number, number] {
-  const [position, setPosition] = useState<[number, number]>([0, 0]);
+export default function useMousePosition(): Readonly<[number, number]> {
+  const [position, setPosition] = useState<Readonly<[number, number]>>([0, 0]);
 
   useEffect(
     () =>
