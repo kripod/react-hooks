@@ -5,7 +5,6 @@ import { useEffect, useState } from 'react';
  *
  * @param options Additional watching options.
  * @param errorCallback Method to execute in case of an error, with a [`PositionError`](https://developer.mozilla.org/docs/Web/API/PositionError) parameter.
- *
  * @returns A [`Position`](https://developer.mozilla.org/docs/Web/API/Position) instance, or `undefined` when data is unavailable.
  *
  * @example
