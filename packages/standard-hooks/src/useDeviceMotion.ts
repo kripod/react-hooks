@@ -12,7 +12,7 @@ const initialState: EventArgs<DeviceMotionEvent> = {
 /**
  * Tracks acceleration and rotation rate of the device.
  *
- * @returns Own properties of the last received [`DeviceMotionEvent`](https://developer.mozilla.org/docs/Web/API/DeviceMotionEvent).
+ * @returns Own properties of the last corresponding event.
  *
  * @example
  * const Example = () => {
