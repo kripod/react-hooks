@@ -9,6 +9,12 @@ import { useReducer } from 'react';
  * @param errorCallback Method to execute in case of an error, e.g. when the storage quota has been exceeded.
  * @returns A statefully stored value, and a function to update it. Update value to `null` for removal from the storage object.
  *
+ * @example
+ * const Example = () => {
+ *   const [name, setName] = useStorage('name', 'Anonymous');
+ *   // ...
+ * };
+ *
  * @see [`useState` hook](https://reactjs.org/docs/hooks-reference.html#usestate), which exposes a similar interface
  */
 export default function useStorage(
