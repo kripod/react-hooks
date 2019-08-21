@@ -25,17 +25,18 @@ export default function useStorage(
 ): [string | null, (value: React.SetStateAction<string | null>) => void] {
   return useReducer(
     (prevValue: string | null, update: React.SetStateAction<string | null>) => {
-      const value = typeof update === 'function' ? update(prevValue) : update;
-      if (value != null) {
+      const nextValue =
+        typeof update === 'function' ? update(prevValue) : update;
+      if (nextValue != null) {
         try {
-          storage.setItem(key, value);
+          storage.setItem(key, nextValue);
         } catch (error) {
           if (errorCallback) errorCallback(error);
         }
       } else {
         storage.removeItem(key);
       }
-      return value;
+      return nextValue;
     },
     key,
     initialKey => {
