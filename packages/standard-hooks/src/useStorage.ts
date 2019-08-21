@@ -22,9 +22,10 @@ export default function useStorage(
   defaultValue: string | null = null,
   storage = localStorage,
   errorCallback?: (error: DOMException) => void,
-) {
+): [string | null, (value: React.SetStateAction<string | null>) => void] {
   return useReducer(
-    (_, value: string | null) => {
+    (prevValue: string | null, update: React.SetStateAction<string | null>) => {
+      const value = typeof update === 'function' ? update(prevValue) : update;
       if (value != null) {
         try {
           storage.setItem(key, value);
