@@ -12,7 +12,7 @@ const initialState: EventArgs<DeviceOrientationEvent> = {
 /**
  * Tracks physical orientation of the device.
  *
- * @returns Own properties of the last received [`DeviceOrientationEvent`](https://developer.mozilla.org/docs/Web/API/DeviceOrientationEvent).
+ * @returns Own properties of the last corresponding event.
  *
  * @example
  * const Example = () => {
