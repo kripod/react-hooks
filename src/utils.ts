@@ -4,15 +4,23 @@ export type EventArgs<T> = Omit<T, keyof Event>;
 
 export const canUseDOM = typeof window !== 'undefined';
 
-export function managedEventListener(
+export function managedEventListener<T extends Event>(
   target: EventTarget,
   type: string,
-  callback: EventListener,
+  callback: (event: T) => void,
   options?: AddEventListenerOptions,
 ) {
-  target.addEventListener(type, callback, options);
+  target.addEventListener(
+    type,
+    (callback as unknown) as EventListener,
+    options,
+  );
   return () => {
-    target.removeEventListener(type, callback, options);
+    target.removeEventListener(
+      type,
+      (callback as unknown) as EventListener,
+      options,
+    );
   };
 }
 

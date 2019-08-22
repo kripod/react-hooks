@@ -27,11 +27,13 @@ export default function useDeviceOrientation(): EventArgs<
 
   useEffect(
     () =>
-      managedEventListener(window, 'deviceorientation', ((
-        event: DeviceOrientationEvent,
-      ) => {
-        setOrientation(event);
-      }) as EventListener),
+      managedEventListener(
+        window,
+        'deviceorientation',
+        (event: DeviceOrientationEvent) => {
+          setOrientation(event);
+        },
+      ),
     [],
   );
 
