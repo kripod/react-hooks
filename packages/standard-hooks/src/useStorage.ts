@@ -1,5 +1,14 @@
 import { useReducer } from 'react';
 
+type JSONProperty = string | number | boolean | JSONArray | JSONObject | null;
+
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
+interface JSONArray extends Array<JSONProperty> {}
+
+interface JSONObject {
+  [key: string]: JSONProperty;
+}
+
 /**
  * Stores a key/value pair statefully.
  *
@@ -7,7 +16,7 @@ import { useReducer } from 'react';
  * @param defaultValue Value used when no item exists with the given key.
  * @param storage Storage object, which stays intact through page loads.
  * @param errorCallback Method to execute in case of an error, e.g. when the storage quota has been exceeded.
- * @returns A statefully stored value, and a function to update it. Update value to `null` for removal from the storage object.
+ * @returns {[D, React.Dispatch<React.SetStateAction<D>>]} A statefully stored value, and a function to update it. Update value to `null` for removal from the storage object.
  *
  * @example
  * const Example = () => {
@@ -17,19 +26,20 @@ import { useReducer } from 'react';
  *
  * @see [`useState` hook](https://reactjs.org/docs/hooks-reference.html#usestate), which exposes a similar interface
  */
-export default function useStorage(
+export default function useStorage<D>(
   key: string,
-  defaultValue: string | null = null,
+  defaultValue: D | null = null,
   storage = localStorage,
   errorCallback?: (error: DOMException) => void,
-): [string | null, (value: React.SetStateAction<string | null>) => void] {
-  return useReducer(
-    (prevValue: string | null, update: React.SetStateAction<string | null>) => {
+) {
+  type V = Extract<D, JSONProperty>;
+  return useReducer<React.Reducer<V, React.SetStateAction<V>>, typeof key>(
+    (prevValue, update) => {
       const nextValue =
         typeof update === 'function' ? update(prevValue) : update;
       if (nextValue != null) {
         try {
-          storage.setItem(key, nextValue);
+          storage.setItem(key, JSON.stringify(nextValue));
         } catch (error) {
           if (errorCallback) errorCallback(error);
         }
@@ -40,8 +50,10 @@ export default function useStorage(
     },
     key,
     initialKey => {
-      const value = storage.getItem(initialKey);
-      return value != null ? value : defaultValue; // TODO: value ?? defaultValue
+      const serializedValue = storage.getItem(initialKey);
+      return serializedValue != null
+        ? JSON.parse(serializedValue)
+        : defaultValue;
     },
   );
 }
