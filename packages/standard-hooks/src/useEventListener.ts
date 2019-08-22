@@ -19,9 +19,9 @@ import { managedEventListener, useEventCallback } from './utils';
  *
  * @see [Event reference on MDN](https://developer.mozilla.org/en-US/docs/Web/Events)
  */
-export default function useEventListener(
+export default function useEventListener<T extends Event>(
   type: string,
-  callback: EventListener,
+  callback: (event: T) => void,
   target?: EventTarget,
   options?: AddEventListenerOptions,
 ) {
