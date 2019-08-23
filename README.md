@@ -38,7 +38,7 @@ Essential set of [React Hooks][] for convenient [Web API][] consumption.
 
 #### useDeviceMotion
 
-[src/useDeviceMotion.ts:23-37](https://github.com/kripod/standard-hooks/blob/6d8e67ed5c7db06b4e93082b07254b27c3e216c8/src/useDeviceMotion.ts#L23-L37 'Source code on GitHub')
+[src/useDeviceMotion.ts:23-35](https://github.com/kripod/standard-hooks/blob/91f6819ea354242fae54ec04c5f2b7327535b3ce/src/useDeviceMotion.ts#L23-L35 'Source code on GitHub')
 
 Tracks acceleration and rotation rate of the device.
 
@@ -55,7 +55,7 @@ Returns **EventArgs&lt;[DeviceMotionEvent](https://developer.mozilla.org/docs/We
 
 #### useDeviceOrientation
 
-[src/useDeviceOrientation.ts:23-39](https://github.com/kripod/standard-hooks/blob/6d8e67ed5c7db06b4e93082b07254b27c3e216c8/src/useDeviceOrientation.ts#L23-L39 'Source code on GitHub')
+[src/useDeviceOrientation.ts:23-37](https://github.com/kripod/standard-hooks/blob/91f6819ea354242fae54ec04c5f2b7327535b3ce/src/useDeviceOrientation.ts#L23-L37 'Source code on GitHub')
 
 Tracks physical orientation of the device.
 
@@ -72,7 +72,7 @@ Returns **EventArgs&lt;[DeviceOrientationEvent](https://developer.mozilla.org/do
 
 #### useDocumentReadiness
 
-[src/useDocumentReadiness.ts:17-31](https://github.com/kripod/standard-hooks/blob/6d8e67ed5c7db06b4e93082b07254b27c3e216c8/src/useDocumentReadiness.ts#L17-L31 'Source code on GitHub')
+[src/useDocumentReadiness.ts:17-31](https://github.com/kripod/standard-hooks/blob/91f6819ea354242fae54ec04c5f2b7327535b3ce/src/useDocumentReadiness.ts#L17-L31 'Source code on GitHub')
 
 Tracks loading state of the page.
 
@@ -91,7 +91,7 @@ Returns **[DocumentReadyState](https://developer.mozilla.org/docs/Web/API/Docume
 
 #### useDocumentVisibility
 
-[src/useDocumentVisibility.ts:19-35](https://github.com/kripod/standard-hooks/blob/6d8e67ed5c7db06b4e93082b07254b27c3e216c8/src/useDocumentVisibility.ts#L19-L35 'Source code on GitHub')
+[src/useDocumentVisibility.ts:19-35](https://github.com/kripod/standard-hooks/blob/91f6819ea354242fae54ec04c5f2b7327535b3ce/src/useDocumentVisibility.ts#L19-L35 'Source code on GitHub')
 
 Tracks visibility of the page.
 
@@ -106,11 +106,11 @@ const Example = () => {
 };
 ```
 
-Returns **StandardVisibilityState** Visibility state of the [`document`](https://developer.mozilla.org/docs/Web/API/Document), which is `'visible'` by default.
+Returns **[VisibilityState](https://developer.mozilla.org/docs/Web/API/Document/visibilityState)** Visibility state of the [`document`](https://developer.mozilla.org/docs/Web/API/Document), which is `'visible'` by default.
 
 #### useGeolocation
 
-[src/useGeolocation.ts:18-36](https://github.com/kripod/standard-hooks/blob/6d8e67ed5c7db06b4e93082b07254b27c3e216c8/src/useGeolocation.ts#L18-L36 'Source code on GitHub')
+[src/useGeolocation.ts:18-36](https://github.com/kripod/standard-hooks/blob/91f6819ea354242fae54ec04c5f2b7327535b3ce/src/useGeolocation.ts#L18-L36 'Source code on GitHub')
 
 Tracks geolocation of the device.
 
@@ -134,7 +134,7 @@ Returns **([Position](https://developer.mozilla.org/docs/Web/API/Position) \| [u
 
 #### useMousePosition
 
-[src/useMousePosition.ts:15-27](https://github.com/kripod/standard-hooks/blob/6d8e67ed5c7db06b4e93082b07254b27c3e216c8/src/useMousePosition.ts#L15-L27 'Source code on GitHub')
+[src/useMousePosition.ts:15-27](https://github.com/kripod/standard-hooks/blob/91f6819ea354242fae54ec04c5f2b7327535b3ce/src/useMousePosition.ts#L15-L27 'Source code on GitHub')
 
 Tracks mouse position.
 
@@ -151,7 +151,7 @@ Returns **Readonly&lt;\[[number](https://developer.mozilla.org/docs/Web/JavaScri
 
 #### useNetworkAvailability
 
-[src/useNetworkAvailability.ts:17-38](https://github.com/kripod/standard-hooks/blob/6d8e67ed5c7db06b4e93082b07254b27c3e216c8/src/useNetworkAvailability.ts#L17-L38 'Source code on GitHub')
+[src/useNetworkAvailability.ts:17-38](https://github.com/kripod/standard-hooks/blob/91f6819ea354242fae54ec04c5f2b7327535b3ce/src/useNetworkAvailability.ts#L17-L38 'Source code on GitHub')
 
 Tracks information about the network's availability.
 
@@ -170,7 +170,7 @@ Returns **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/
 
 #### useNetworkInformation
 
-[src/useNetworkInformation.ts:17-35](https://github.com/kripod/standard-hooks/blob/6d8e67ed5c7db06b4e93082b07254b27c3e216c8/src/useNetworkInformation.ts#L17-L35 'Source code on GitHub')
+[src/useNetworkInformation.ts:17-35](https://github.com/kripod/standard-hooks/blob/91f6819ea354242fae54ec04c5f2b7327535b3ce/src/useNetworkInformation.ts#L17-L35 'Source code on GitHub')
 
 Tracks information about the device's network connection.
 
@@ -189,7 +189,7 @@ Returns **([NetworkInformation](https://developer.mozilla.org/docs/Web/API/Netwo
 
 #### usePreferredLanguages
 
-[src/usePreferredLanguages.ts:21-35](https://github.com/kripod/standard-hooks/blob/6d8e67ed5c7db06b4e93082b07254b27c3e216c8/src/usePreferredLanguages.ts#L21-L35 'Source code on GitHub')
+[src/usePreferredLanguages.ts:21-35](https://github.com/kripod/standard-hooks/blob/91f6819ea354242fae54ec04c5f2b7327535b3ce/src/usePreferredLanguages.ts#L21-L35 'Source code on GitHub')
 
 Tracks preferred languages of the user.
 
@@ -206,7 +206,7 @@ Returns **ReadonlyArray&lt;[string](https://developer.mozilla.org/docs/Web/JavaS
 
 #### useWindowScrollPosition
 
-[src/useWindowScrollPosition.ts:15-29](https://github.com/kripod/standard-hooks/blob/6d8e67ed5c7db06b4e93082b07254b27c3e216c8/src/useWindowScrollPosition.ts#L15-L29 'Source code on GitHub')
+[src/useWindowScrollPosition.ts:15-29](https://github.com/kripod/standard-hooks/blob/91f6819ea354242fae54ec04c5f2b7327535b3ce/src/useWindowScrollPosition.ts#L15-L29 'Source code on GitHub')
 
 Tracks window scroll position.
 
@@ -223,7 +223,7 @@ Returns **Readonly&lt;\[[number](https://developer.mozilla.org/docs/Web/JavaScri
 
 #### useWindowSize
 
-[src/useWindowSize.ts:15-29](https://github.com/kripod/standard-hooks/blob/6d8e67ed5c7db06b4e93082b07254b27c3e216c8/src/useWindowSize.ts#L15-L29 'Source code on GitHub')
+[src/useWindowSize.ts:15-29](https://github.com/kripod/standard-hooks/blob/91f6819ea354242fae54ec04c5f2b7327535b3ce/src/useWindowSize.ts#L15-L29 'Source code on GitHub')
 
 Tracks window size.
 
@@ -242,7 +242,7 @@ Returns **Readonly&lt;\[[number](https://developer.mozilla.org/docs/Web/JavaScri
 
 #### useEventListener
 
-[src/useEventListener.ts:22-35](https://github.com/kripod/standard-hooks/blob/6d8e67ed5c7db06b4e93082b07254b27c3e216c8/src/useEventListener.ts#L22-L35 'Source code on GitHub')
+[src/useEventListener.ts:26-42](https://github.com/kripod/standard-hooks/blob/91f6819ea354242fae54ec04c5f2b7327535b3ce/src/useEventListener.ts#L26-L42 'Source code on GitHub')
 
 - **See: [Event reference on MDN](https://developer.mozilla.org/en-US/docs/Web/Events)**
 
@@ -250,9 +250,9 @@ Listens to an event while the enclosing component is mounted.
 
 ##### Parameters
 
-- `type` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** Name of event (case-sensitive).
-- `callback` **[EventListener](https://developer.mozilla.org/docs/Web/API/EventListener)** Method to execute whenever the event fires.
-- `target` **[EventTarget](https://developer.mozilla.org/docs/Web/API/EventTarget)?** Target to listen on, possibly a DOM element or a remote service connector. (optional, default `window`)
+- `type` **K** Name of event (case-sensitive).
+- `callback` **EventListenerCallback&lt;T, K>** Method to execute whenever the event fires.
+- `target` **T?** Target to listen on, possibly a DOM element or a remote service connector. (optional, default `window`)
 - `options` **AddEventListenerOptions?** Additional listener characteristics.
 
 ##### Examples
@@ -268,7 +268,7 @@ const Example = () => {
 
 #### useInterval
 
-[src/useInterval.ts:20-32](https://github.com/kripod/standard-hooks/blob/6d8e67ed5c7db06b4e93082b07254b27c3e216c8/src/useInterval.ts#L20-L32 'Source code on GitHub')
+[src/useInterval.ts:20-32](https://github.com/kripod/standard-hooks/blob/91f6819ea354242fae54ec04c5f2b7327535b3ce/src/useInterval.ts#L20-L32 'Source code on GitHub')
 
 Repeatedly calls a function with a fixed time delay between each call.
 
@@ -292,7 +292,7 @@ const Example = () => {
 
 #### useStorage
 
-[src/useStorage.ts:20-47](https://github.com/kripod/standard-hooks/blob/6d8e67ed5c7db06b4e93082b07254b27c3e216c8/src/useStorage.ts#L20-L47 'Source code on GitHub')
+[src/useStorage.ts:29-63](https://github.com/kripod/standard-hooks/blob/91f6819ea354242fae54ec04c5f2b7327535b3ce/src/useStorage.ts#L29-L63 'Source code on GitHub')
 
 - **See: [`useState` hook](https://reactjs.org/docs/hooks-reference.html#usestate), which exposes a similar interface**
 
@@ -301,7 +301,7 @@ Stores a key/value pair statefully.
 ##### Parameters
 
 - `key` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** Identifier to associate the stored value with.
-- `defaultValue` **([string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String) | null)** Value used when no item exists with the given key. (optional, default `null`)
+- `defaultValue` **(D | null)** Value used when no item exists with the given key. (optional, default `null`)
 - `storage` Storage object, which stays intact through page loads. (optional, default `localStorage`)
 - `errorCallback` **function (error: DOMException): void?** Method to execute in case of an error, e.g. when the storage quota has been exceeded.
 
@@ -314,7 +314,7 @@ const Example = () => {
 };
 ```
 
-Returns **\[([string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String) | null), function (value: React.SetStateAction&lt;([string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String) | null)>): void]** A statefully stored value, and a function to update it. Update value to `null` for removal from the storage object.
+Returns **\[D, React.Dispatch&lt;React.SetStateAction&lt;D>>]** A statefully stored value, and a function to update it. Update value to `null` for removal from the storage object and resetting it to `defaultValue`.
 
 ## Performance tips
 
