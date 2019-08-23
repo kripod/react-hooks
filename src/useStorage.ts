@@ -28,7 +28,7 @@ interface JSONObject {
  */
 export default function useStorage<D>(
   key: string,
-  initialValue?: Extract<D, JSONProperty> | (() => Extract<D, JSONProperty>),
+  initialValue?: D | (() => D),
   storage = localStorage,
   errorCallback?: (error: DOMException) => void,
 ) {
@@ -59,7 +59,9 @@ export default function useStorage<D>(
         }
       }
 
-      return typeof initialValue === 'function' ? initialValue() : initialValue;
+      return typeof initialValue === 'function'
+        ? (initialValue as () => V)()
+        : initialValue;
     },
   );
 }
