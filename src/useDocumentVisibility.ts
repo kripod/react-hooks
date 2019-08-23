@@ -6,7 +6,7 @@ type StandardVisibilityState = Exclude<VisibilityState, 'prerender'>;
 /**
  * Tracks visibility of the page.
  *
- * @returns Visibility state of the [`document`](https://developer.mozilla.org/docs/Web/API/Document), which is `'visible'` by default.
+ * @returns {VisibilityState} Visibility state of the [`document`](https://developer.mozilla.org/docs/Web/API/Document), which is `'visible'` by default.
  *
  * @example
  * const Example = () => {
@@ -16,7 +16,7 @@ type StandardVisibilityState = Exclude<VisibilityState, 'prerender'>;
  *   }
  * };
  */
-export default function useDocumentVisibility(): StandardVisibilityState {
+export default function useDocumentVisibility() {
   const [visibility, setVisibility] = useState(
     canUseDOM
       ? (document.visibilityState as StandardVisibilityState)
