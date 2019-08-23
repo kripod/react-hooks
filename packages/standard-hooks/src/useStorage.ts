@@ -16,7 +16,7 @@ interface JSONObject {
  * @param defaultValue Value used when no item exists with the given key.
  * @param storage Storage object, which stays intact through page loads.
  * @param errorCallback Method to execute in case of an error, e.g. when the storage quota has been exceeded.
- * @returns {[D, React.Dispatch<React.SetStateAction<D>>]} A statefully stored value, and a function to update it. Update value to `null` for removal from the storage object.
+ * @returns {[D, React.Dispatch<React.SetStateAction<D>>]} A statefully stored value, and a function to update it. Update value to `null` for removal from the storage object and resetting it to `defaultValue`.
  *
  * @example
  * const Example = () => {
@@ -45,6 +45,7 @@ export default function useStorage<D>(
         }
       } else {
         storage.removeItem(key);
+        return defaultValue as V;
       }
       return nextValue;
     },
