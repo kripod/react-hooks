@@ -33,22 +33,25 @@ export default function useStorage<D>(
   errorCallback?: (error: DOMException) => void,
 ) {
   type V = Extract<D | null, JSONProperty>;
+
   return useReducer<React.Reducer<V, React.SetStateAction<V>>, typeof key>(
     (prevValue, update) => {
       const nextValue =
         typeof update === 'function' ? update(prevValue) : update;
-      if (nextValue != null) {
-        try {
-          storage.setItem(key, JSON.stringify(nextValue));
-        } catch (error) {
-          if (errorCallback) errorCallback(error);
-        }
-      } else {
+
+      if (nextValue == null) {
         storage.removeItem(key);
         return defaultValue as V;
       }
+
+      try {
+        storage.setItem(key, JSON.stringify(nextValue));
+      } catch (error) {
+        if (errorCallback) errorCallback(error);
+      }
       return nextValue;
     },
+
     key,
     initialKey => {
       const serializedValue = storage.getItem(initialKey);
