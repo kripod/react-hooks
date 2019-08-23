@@ -32,7 +32,7 @@ export default function useStorage<D>(
   storage = localStorage,
   errorCallback?: (error: DOMException) => void,
 ) {
-  type V = Extract<D, JSONProperty>;
+  type V = Extract<D | null, JSONProperty>;
   return useReducer<React.Reducer<V, React.SetStateAction<V>>, typeof key>(
     (prevValue, update) => {
       const nextValue =
