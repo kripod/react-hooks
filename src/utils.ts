@@ -1,26 +1,24 @@
 import { useCallback, useEffect, useRef } from 'react';
 
 export type EventArgs<T> = Omit<T, keyof Event>;
-
-// TODO: Avoid specifying event maps one by one
-type ExtractFrom<T, K> = K extends keyof T ? T[K] : never;
-export type EventListenerCallback<T, K> = T extends Window
-  ? (event: ExtractFrom<WindowEventMap, K>) => void
-  : (T extends Document
-      ? (event: ExtractFrom<DocumentEventMap, K>) => void
-      : EventListener);
+export type EventMap<T> = T extends Window
+  ? WindowEventMap
+  : (T extends Document ? DocumentEventMap : { [key: string]: Event });
 
 export const canUseDOM = typeof window !== 'undefined';
 
-export function managedEventListener<T extends EventTarget, K extends string>(
+export function managedEventListener<
+  T extends EventTarget,
+  K extends keyof EventMap<T> & string
+>(
   target: T,
   type: K,
-  callback: EventListenerCallback<T, K>,
+  callback: (event: EventMap<T>[K]) => void,
   options?: AddEventListenerOptions,
 ) {
-  target.addEventListener(type, callback, options);
+  target.addEventListener(type, callback as EventListener, options);
   return () => {
-    target.removeEventListener(type, callback, options);
+    target.removeEventListener(type, callback as EventListener, options);
   };
 }
 

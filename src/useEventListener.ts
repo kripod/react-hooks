@@ -1,9 +1,5 @@
 import { useEffect } from 'react';
-import {
-  EventListenerCallback,
-  managedEventListener,
-  useEventCallback,
-} from './utils';
+import { EventMap, managedEventListener, useEventCallback } from './utils';
 
 /**
  * Listens to an event while the enclosing component is mounted.
@@ -25,10 +21,10 @@ import {
  */
 export default function useEventListener<
   T extends EventTarget,
-  K extends string
+  K extends keyof EventMap<T> & string
 >(
   type: K,
-  callback: EventListenerCallback<T, K>,
+  callback: (event: EventMap<T>[K]) => void,
   target?: T,
   options?: AddEventListenerOptions,
 ) {
