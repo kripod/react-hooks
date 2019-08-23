@@ -16,7 +16,7 @@ interface JSONObject {
  * @param defaultValue Value used when no item exists with the given key.
  * @param storage Storage object, which stays intact through page loads.
  * @param errorCallback Method to execute in case of an error, e.g. when the storage quota has been exceeded.
- * @returns {[D, React.Dispatch<React.SetStateAction<D>>]} A statefully stored value, and a function to update it. Update value to `null` for removal from the storage object and resetting it to `defaultValue`.
+ * @returns {[D, React.Dispatch<React.SetStateAction<D>>]} A statefully stored value, and a function to update it.
  *
  * @example
  * const Example = () => {
@@ -28,21 +28,16 @@ interface JSONObject {
  */
 export default function useStorage<D>(
   key: string,
-  defaultValue: D | null = null,
+  defaultValue?: D,
   storage = localStorage,
   errorCallback?: (error: DOMException) => void,
 ) {
-  type V = Extract<D | null, JSONProperty>;
+  type V = Extract<D, JSONProperty>;
 
   return useReducer<React.Reducer<V, React.SetStateAction<V>>, typeof key>(
     (prevValue, update) => {
       const nextValue =
         typeof update === 'function' ? update(prevValue) : update;
-
-      if (nextValue == null) {
-        storage.removeItem(key);
-        return defaultValue as V;
-      }
 
       try {
         storage.setItem(key, JSON.stringify(nextValue));
