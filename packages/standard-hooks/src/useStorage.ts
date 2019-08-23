@@ -13,7 +13,7 @@ interface JSONObject {
  * Stores a key/value pair statefully.
  *
  * @param key Identifier to associate the stored value with.
- * @param defaultValue Value used when no item exists with the given key. Lazy initialization is available by using a function which returns the desired value.
+ * @param initialValue Value used when no item exists with the given key. Lazy initialization is available by using a function which returns the desired value.
  * @param storage Storage object, which stays intact through page loads.
  * @param errorCallback Method to execute in case of an error, e.g. when the storage quota has been exceeded.
  * @returns {[D, React.Dispatch<React.SetStateAction<D>>]} A statefully stored value, and a function to update it.
@@ -28,7 +28,7 @@ interface JSONObject {
  */
 export default function useStorage<D>(
   key: string,
-  defaultValue?: Extract<D, JSONProperty> | (() => Extract<D, JSONProperty>),
+  initialValue?: Extract<D, JSONProperty> | (() => Extract<D, JSONProperty>),
   storage = localStorage,
   errorCallback?: (error: DOMException) => void,
 ) {
@@ -59,7 +59,7 @@ export default function useStorage<D>(
         }
       }
 
-      return typeof defaultValue === 'function' ? defaultValue() : defaultValue;
+      return typeof initialValue === 'function' ? initialValue() : initialValue;
     },
   );
 }
