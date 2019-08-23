@@ -1,5 +1,9 @@
 import { useEffect } from 'react';
-import { managedEventListener, useEventCallback } from './utils';
+import {
+  EventListenerCallback,
+  managedEventListener,
+  useEventCallback,
+} from './utils';
 
 /**
  * Listens to an event while the enclosing component is mounted.
@@ -19,10 +23,13 @@ import { managedEventListener, useEventCallback } from './utils';
  *
  * @see [Event reference on MDN](https://developer.mozilla.org/en-US/docs/Web/Events)
  */
-export default function useEventListener<T extends Event>(
-  type: string,
-  callback: (event: T) => void,
-  target?: EventTarget,
+export default function useEventListener<
+  T extends EventTarget,
+  K extends string
+>(
+  type: K,
+  callback: EventListenerCallback<T, K>,
+  target?: T,
   options?: AddEventListenerOptions,
 ) {
   // Based on the implementation of `useInterval`

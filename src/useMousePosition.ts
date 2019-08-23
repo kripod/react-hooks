@@ -17,7 +17,7 @@ export default function useMousePosition(): Readonly<[number, number]> {
 
   useEffect(
     () =>
-      managedEventListener(window, 'mousemove', (event: MouseEvent) => {
+      managedEventListener(window, 'mousemove', event => {
         setPosition([event.clientX, event.clientY]);
       }),
     [],
