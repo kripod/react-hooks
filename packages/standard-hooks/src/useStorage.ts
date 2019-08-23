@@ -50,9 +50,16 @@ export default function useStorage<D>(
     key,
     initialKey => {
       const serializedValue = storage.getItem(initialKey);
-      return serializedValue != null
-        ? JSON.parse(serializedValue)
-        : defaultValue;
+
+      if (serializedValue != null) {
+        try {
+          return JSON.parse(serializedValue);
+        } catch {
+          return serializedValue;
+        }
+      }
+
+      return defaultValue;
     },
   );
 }
