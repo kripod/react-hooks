@@ -14,13 +14,13 @@ import { canUseDOM, managedEventListener } from './utils';
  */
 export default function useWindowScrollCoords(): Readonly<[number, number]> {
   const [coords, setCoords] = useState<Readonly<[number, number]>>(
-    canUseDOM ? [window.scrollX, window.scrollY] : [0, 0],
+    canUseDOM ? [window.pageXOffset, window.pageYOffset] : [0, 0],
   );
 
   useEffect(
     () =>
       managedEventListener(window, 'scroll', () => {
-        setCoords([window.scrollX, window.scrollY]);
+        setCoords([window.pageXOffset, window.pageYOffset]);
       }),
     [],
   );

@@ -7,8 +7,8 @@ test('change window scroll coords', () => {
   expect(result.current).toEqual([0, 0]);
 
   act(() => {
-    (window.scrollX as number) = 123;
-    (window.scrollY as number) = 456;
+    (window.pageXOffset as number) = 123;
+    (window.pageYOffset as number) = 456;
     fireEvent.scroll(window);
   });
   expect(result.current).toEqual([123, 456]);
