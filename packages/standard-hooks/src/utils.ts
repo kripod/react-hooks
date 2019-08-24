@@ -29,10 +29,7 @@ export function managedInterval(callback: () => void, delayMs: number) {
   };
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export function useEventCallback<T extends (...args: any[]) => any>(
-  callback: T,
-) {
+export function useEventCallback<T extends Function>(callback: T) {
   // Source: https://reactjs.org/docs/hooks-faq.html#how-to-read-an-often-changing-value-from-usecallback
   const ref = useRef<T>();
 
