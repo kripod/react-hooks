@@ -107,7 +107,7 @@ Tracks geolocation of the device.
 ##### Parameters
 
 - `options` **[PositionOptions](https://developer.mozilla.org/docs/Web/API/PositionOptions)?** Additional watching options.
-- `errorCallback` **function (error: [PositionError](https://developer.mozilla.org/docs/Web/API/PositionError)): void?** Method to execute in case of an error, e.g. when the user refuses location sharing permissions.
+- `errorCallback` **function (error: [PositionError](https://developer.mozilla.org/docs/Web/API/PositionError)): void?** Method to execute in case of an error, e.g. when the user denies location sharing permissions.
 
 ##### Examples
 
@@ -120,7 +120,7 @@ const Example = () => {
 };
 ```
 
-Returns **([Position](https://developer.mozilla.org/docs/Web/API/Position) \| [undefined](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/undefined))** A [`Position`](https://developer.mozilla.org/docs/Web/API/Position) instance, or `undefined` when data is unavailable.
+Returns **([Position](https://developer.mozilla.org/docs/Web/API/Position) \| [undefined](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/undefined))** Locational data, or `undefined` when unavailable.
 
 #### useMouseCoords
 
@@ -169,7 +169,7 @@ const Example = () => {
 };
 ```
 
-Returns **([NetworkInformation](https://developer.mozilla.org/docs/Web/API/NetworkInformation) \| [undefined](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/undefined))** A [`NetworkInformation`](https://developer.mozilla.org/docs/Web/API/NetworkInformation) instance, or `undefined` when data is unavailable.
+Returns **([NetworkInformation](https://developer.mozilla.org/docs/Web/API/NetworkInformation) \| [undefined](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/undefined))** Connection data, or `undefined` when unavailable.
 
 #### usePreferredLanguages
 
@@ -226,9 +226,9 @@ Listens to an event while the enclosing component is mounted.
 
 ##### Parameters
 
-- `target` **T** Target to listen on, possibly a DOM element or a remote service connector.
-- `type` **K** Name of event (case-sensitive).
-- `callback` **function (event: any): void** Method to execute whenever the event fires.
+- `target` **[EventTarget](https://developer.mozilla.org/docs/Web/API/EventTarget)** Target to listen on, possibly a DOM element or a remote service connector.
+- `type` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** Name of event (case-sensitive).
+- `callback` **[EventListener](https://developer.mozilla.org/docs/Web/API/EventListener)** Method to execute whenever the event fires.
 - `options` **AddEventListenerOptions?** Additional listener characteristics.
 
 ##### Examples
@@ -273,8 +273,8 @@ Stores a key/value pair statefully.
 ##### Parameters
 
 - `key` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** Identifier to associate the stored value with.
-- `initialValue` **(I | function (): I)?** Value used when no item exists with the given key. Lazy initialization is available by using a function which returns the desired value.
-- `storage` Storage object, which stays intact through page loads. (optional, default `localStorage`)
+- `initialValue` **(T | function (): T)?** Value used when no item exists with the given key. Lazy initialization is available by using a function which returns the desired value.
+- `storage` **Storage** Storage object, which stays intact through page loads. (optional, default `localStorage`)
 - `errorCallback` **function (error: DOMException): void?** Method to execute in case of an error, e.g. when the storage quota has been exceeded.
 
 ##### Examples
@@ -286,7 +286,7 @@ const Example = () => {
 };
 ```
 
-Returns **\[V, React.Dispatch&lt;React.SetStateAction&lt;V>>]** A statefully stored value, and a function to update it.
+Returns **\[T, React.Dispatch&lt;React.SetStateAction&lt;T>>]** A statefully stored value, and a function to update it.
 
 ## Performance tips
 
