@@ -11,8 +11,9 @@ import { useEffect, useState } from 'react';
  * const Example = () => {
  *   const geolocation = useGeolocation();
  *   if (geolocation) {
- *     // ...
+ *     const { coords } = geolocation;
  *   }
+ *   // ...
  * };
  */
 export default function useGeolocation(
