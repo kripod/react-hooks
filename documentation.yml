@@ -10,7 +10,7 @@ toc:
       - useNetworkAvailability
       - useNetworkInformation
       - usePreferredLanguages
-      - useWindowScrollPosition
+      - useWindowScrollCoords
       - useWindowSize
   - name: Utilities
     children:
