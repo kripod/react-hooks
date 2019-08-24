@@ -4,13 +4,12 @@ import { useWindowScrollPosition } from '.';
 
 test('change window scroll position', () => {
   const { result } = renderHook(() => useWindowScrollPosition());
-  expect(result.current.join()).toBe('0,0');
+  expect(result.current).toEqual([0, 0]);
 
   act(() => {
     (window.scrollX as number) = 123;
     (window.scrollY as number) = 456;
     fireEvent.scroll(window);
   });
-
-  expect(result.current.join()).toBe('123,456');
+  expect(result.current).toEqual([123, 456]);
 });
