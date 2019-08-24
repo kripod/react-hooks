@@ -34,8 +34,8 @@ export default function useStorage<I>(
 ) {
   type V = Extract<I, JSONProperty>;
 
-  return useReducer<React.Reducer<V, React.SetStateAction<V>>, typeof key>(
-    (prevValue, update) => {
+  return useReducer(
+    (prevValue: V, update: React.SetStateAction<V>) => {
       const nextValue =
         typeof update === 'function' ? update(prevValue) : update;
 
