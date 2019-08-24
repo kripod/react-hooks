@@ -16,7 +16,7 @@ const initialState: EventArgs<DeviceOrientationEvent> = {
  *
  * @example
  * const Example = () => {
- *   const { alpha, beta, gamma, absolute } = useDeviceOrientation();
+ *   const { alpha, beta, gamma } = useDeviceOrientation();
  *   // ...
  * };
  */
