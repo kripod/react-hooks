@@ -8,20 +8,20 @@ import { managedEventListener } from './utils';
  *
  * @example
  * const Example = () => {
- *   const [mouseX, mouseY] = useMousePosition();
+ *   const [mouseX, mouseY] = useMouseCoords();
  *   // ...
  * };
  */
-export default function useMousePosition(): Readonly<[number, number]> {
-  const [position, setPosition] = useState<Readonly<[number, number]>>([0, 0]);
+export default function useMouseCoords(): Readonly<[number, number]> {
+  const [coords, setCoords] = useState<Readonly<[number, number]>>([0, 0]);
 
   useEffect(
     () =>
       managedEventListener(window, 'mousemove', event => {
-        setPosition([event.clientX, event.clientY]);
+        setCoords([event.clientX, event.clientY]);
       }),
     [],
   );
 
-  return position;
+  return coords;
 }
