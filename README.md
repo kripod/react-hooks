@@ -144,7 +144,7 @@ Returns **Readonly&lt;\[[number](https://developer.mozilla.org/docs/Web/JavaScri
 
 Tracks information about the network's availability.
 
-⚠️ _This attribute is [inherently unreliable](https://html.spec.whatwg.org/multipage/offline.html#navigator.online). A computer can be connected to a network without having internet access._
+⚠️ _This attribute is inherently unreliable. A computer can be connected to a network without having internet access._
 
 ##### Examples
 
