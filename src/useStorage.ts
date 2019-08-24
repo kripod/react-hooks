@@ -1,11 +1,17 @@
 import { useReducer } from 'react';
 
-type JSONProperty = string | number | boolean | JSONArray | JSONObject | null;
+export type JSONProperty =
+  | string
+  | number
+  | boolean
+  | JSONArray
+  | JSONObject
+  | null;
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
-interface JSONArray extends Array<JSONProperty> {}
+export interface JSONArray extends Array<JSONProperty> {}
 
-interface JSONObject {
+export interface JSONObject {
   [key: string]: JSONProperty;
 }
 
