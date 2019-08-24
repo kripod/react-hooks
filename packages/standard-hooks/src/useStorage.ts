@@ -22,7 +22,7 @@ export interface JSONObject {
  * @param initialValue Value used when no item exists with the given key. Lazy initialization is available by using a function which returns the desired value.
  * @param storage Storage object, which stays intact through page loads.
  * @param errorCallback Method to execute in case of an error, e.g. when the storage quota has been exceeded.
- * @returns {[V, React.Dispatch<React.SetStateAction<V>>]} A statefully stored value, and a function to update it.
+ * @returns {[T, React.Dispatch<React.SetStateAction<T>>]} A statefully stored value, and a function to update it.
  *
  * @example
  * const Example = () => {
@@ -32,13 +32,13 @@ export interface JSONObject {
  *
  * @see [`useState` hook](https://reactjs.org/docs/hooks-reference.html#usestate), which exposes a similar interface
  */
-export default function useStorage<I>(
+export default function useStorage<T>(
   key: string,
-  initialValue?: I | (() => I),
-  storage = localStorage,
+  initialValue?: T | (() => T),
+  storage: Storage = localStorage,
   errorCallback?: (error: DOMException) => void,
 ) {
-  type V = Extract<I, JSONProperty>;
+  type V = Extract<T, JSONProperty>;
 
   return useReducer(
     (prevValue: V, update: React.SetStateAction<V>) => {

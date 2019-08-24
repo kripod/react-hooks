@@ -4,9 +4,11 @@ import { EventMap, managedEventListener, useEventCallback } from './utils';
 /**
  * Listens to an event while the enclosing component is mounted.
  *
- * @param target Target to listen on, possibly a DOM element or a remote service connector.
- * @param type Name of event (case-sensitive).
- * @param callback Method to execute whenever the event fires.
+ * @see [Event reference on MDN](https://developer.mozilla.org/en-US/docs/Web/Events)
+ *
+ * @param {EventTarget} target Target to listen on, possibly a DOM element or a remote service connector.
+ * @param {string} type Name of event (case-sensitive).
+ * @param {EventListener} callback Method to execute whenever the event fires.
  * @param options Additional listener characteristics.
  *
  * @example
@@ -16,8 +18,6 @@ import { EventMap, managedEventListener, useEventCallback } from './utils';
  *   });
  *   // ...
  * };
- *
- * @see [Event reference on MDN](https://developer.mozilla.org/en-US/docs/Web/Events)
  */
 export default function useEventListener<
   T extends EventTarget,
