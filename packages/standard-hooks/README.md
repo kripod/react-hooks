@@ -59,7 +59,7 @@ Tracks physical orientation of the device.
 
 ```javascript
 const Example = () => {
-  const { alpha, beta, gamma, absolute } = useDeviceOrientation();
+  const { alpha, beta, gamma } = useDeviceOrientation();
   // ...
 };
 ```
@@ -76,8 +76,9 @@ Tracks loading state of the page.
 const Example = () => {
   const documentReadiness = useDocumentReadiness();
   if (documentReadiness === 'interactive') {
-    // ...
+    // You may interact with any element of the document from now
   }
+  // ...
 };
 ```
 
@@ -93,8 +94,9 @@ Tracks visibility of the page.
 const Example = () => {
   const documentVisibility = useDocumentVisibility();
   if (documentVisibility === 'hidden') {
-    // ...
+    // Reduce resource utilization to aid background page performance
   }
+  // ...
 };
 ```
 
@@ -115,8 +117,9 @@ Tracks geolocation of the device.
 const Example = () => {
   const geolocation = useGeolocation();
   if (geolocation) {
-    // ...
+    const { coords } = geolocation;
   }
+  // ...
 };
 ```
 
@@ -152,7 +155,7 @@ const Example = () => {
 };
 ```
 
-Returns **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** `false` if the user agent is definitely offline, or `true` if the user agent might be online.
+Returns **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** `false` if the user agent is definitely offline, or `true` if it might be online.
 
 #### useNetworkInformation
 
@@ -164,7 +167,10 @@ Tracks information about the device's network connection.
 
 ```javascript
 const Example = () => {
-  const { effectiveType, downlink, rtt, saveData } = useNetworkInformation();
+  const networkInformation = useNetworkInformation();
+  if (networkInformation) {
+    const { effectiveType, downlink, rtt, saveData } = networkInformation;
+  }
   // ...
 };
 ```
