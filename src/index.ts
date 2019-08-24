@@ -5,7 +5,7 @@ export { default as useDocumentVisibility } from './useDocumentVisibility';
 export { default as useEventListener } from './useEventListener';
 export { default as useGeolocation } from './useGeolocation';
 export { default as useInterval } from './useInterval';
-export { default as useMousePosition } from './useMousePosition';
+export { default as useMouseCoords } from './useMouseCoords';
 export { default as useNetworkAvailability } from './useNetworkAvailability';
 export { default as useNetworkInformation } from './useNetworkInformation';
 export { default as usePreferredLanguages } from './usePreferredLanguages';
