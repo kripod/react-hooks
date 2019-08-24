@@ -12,8 +12,9 @@ type StandardVisibilityState = Exclude<VisibilityState, 'prerender'>;
  * const Example = () => {
  *   const documentVisibility = useDocumentVisibility();
  *   if (documentVisibility === 'hidden') {
- *     // ...
+ *     // Reduce resource utilization to aid background page performance
  *   }
+ *   // ...
  * };
  */
 export default function useDocumentVisibility() {

@@ -10,8 +10,9 @@ import { canUseDOM, managedEventListener } from './utils';
  * const Example = () => {
  *   const documentReadiness = useDocumentReadiness();
  *   if (documentReadiness === 'interactive') {
- *     // ...
+ *     // You may interact with any element of the document from now
  *   }
+ *   // ...
  * };
  */
 export default function useDocumentReadiness(): DocumentReadyState {
