@@ -10,7 +10,10 @@ import { canUseDOM, managedEventListener } from './utils';
  *
  * @example
  * const Example = () => {
- *   const { effectiveType, downlink, rtt, saveData } = useNetworkInformation();
+ *   const networkInformation = useNetworkInformation();
+ *   if (networkInformation) {
+ *     const { effectiveType, downlink, rtt, saveData } = networkInformation;
+ *   }
  *   // ...
  * };
  */
