@@ -55,6 +55,7 @@ export default function useStorage<I>(
         try {
           return JSON.parse(serializedValue);
         } catch {
+          // Backwards compatibility with past stored non-serialized values
           return serializedValue;
         }
       }
