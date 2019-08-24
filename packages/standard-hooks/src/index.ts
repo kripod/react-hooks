@@ -9,6 +9,12 @@ export { default as useMouseCoords } from './useMouseCoords';
 export { default as useNetworkAvailability } from './useNetworkAvailability';
 export { default as useNetworkInformation } from './useNetworkInformation';
 export { default as usePreferredLanguages } from './usePreferredLanguages';
-export { default as useStorage } from './useStorage';
+export {
+  default as useStorage,
+  JSONArray,
+  JSONObject,
+  JSONProperty,
+} from './useStorage';
 export { default as useWindowScrollCoords } from './useWindowScrollCoords';
 export { default as useWindowSize } from './useWindowSize';
+export { EventArgs, EventMap } from './utils';
