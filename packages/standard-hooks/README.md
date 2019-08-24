@@ -23,11 +23,11 @@ Essential set of [React Hooks][] for convenient [Web API][] consumption.
   - [useDocumentReadiness](#usedocumentreadiness)
   - [useDocumentVisibility](#usedocumentvisibility)
   - [useGeolocation](#usegeolocation)
-  - [useMousePosition](#usemouseposition)
+  - [useMouseCoords](#usemousecoords)
   - [useNetworkAvailability](#usenetworkavailability)
   - [useNetworkInformation](#usenetworkinformation)
   - [usePreferredLanguages](#usepreferredlanguages)
-  - [useWindowScrollPosition](#usewindowscrollposition)
+  - [useWindowScrollCoords](#usewindowscrollcoords)
   - [useWindowSize](#usewindowsize)
 - [Utilities](#utilities)
   - [useEventListener](#useeventlistener)
@@ -37,8 +37,6 @@ Essential set of [React Hooks][] for convenient [Web API][] consumption.
 ### Sensors
 
 #### useDeviceMotion
-
-[src/useDeviceMotion.ts:23-35](https://github.com/kripod/standard-hooks/blob/a4501938e2ea2e4391025f649abe3efedfd49106/src/useDeviceMotion.ts#L23-L35 'Source code on GitHub')
 
 Tracks acceleration and rotation rate of the device.
 
@@ -55,8 +53,6 @@ Returns **EventArgs&lt;[DeviceMotionEvent](https://developer.mozilla.org/docs/We
 
 #### useDeviceOrientation
 
-[src/useDeviceOrientation.ts:23-37](https://github.com/kripod/standard-hooks/blob/a4501938e2ea2e4391025f649abe3efedfd49106/src/useDeviceOrientation.ts#L23-L37 'Source code on GitHub')
-
 Tracks physical orientation of the device.
 
 ##### Examples
@@ -71,8 +67,6 @@ const Example = () => {
 Returns **EventArgs&lt;[DeviceOrientationEvent](https://developer.mozilla.org/docs/Web/API/DeviceOrientationEvent)>** Own properties of the last corresponding event.
 
 #### useDocumentReadiness
-
-[src/useDocumentReadiness.ts:17-31](https://github.com/kripod/standard-hooks/blob/a4501938e2ea2e4391025f649abe3efedfd49106/src/useDocumentReadiness.ts#L17-L31 'Source code on GitHub')
 
 Tracks loading state of the page.
 
@@ -91,8 +85,6 @@ Returns **[DocumentReadyState](https://developer.mozilla.org/docs/Web/API/Docume
 
 #### useDocumentVisibility
 
-[src/useDocumentVisibility.ts:19-35](https://github.com/kripod/standard-hooks/blob/a4501938e2ea2e4391025f649abe3efedfd49106/src/useDocumentVisibility.ts#L19-L35 'Source code on GitHub')
-
 Tracks visibility of the page.
 
 ##### Examples
@@ -109,8 +101,6 @@ const Example = () => {
 Returns **[VisibilityState](https://developer.mozilla.org/docs/Web/API/Document/visibilityState)** Visibility state of the [`document`](https://developer.mozilla.org/docs/Web/API/Document), which is `'visible'` by default.
 
 #### useGeolocation
-
-[src/useGeolocation.ts:18-36](https://github.com/kripod/standard-hooks/blob/a4501938e2ea2e4391025f649abe3efedfd49106/src/useGeolocation.ts#L18-L36 'Source code on GitHub')
 
 Tracks geolocation of the device.
 
@@ -132,9 +122,7 @@ const Example = () => {
 
 Returns **([Position](https://developer.mozilla.org/docs/Web/API/Position) \| [undefined](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/undefined))** A [`Position`](https://developer.mozilla.org/docs/Web/API/Position) instance, or `undefined` when data is unavailable.
 
-#### useMousePosition
-
-[src/useMousePosition.ts:15-27](https://github.com/kripod/standard-hooks/blob/a4501938e2ea2e4391025f649abe3efedfd49106/src/useMousePosition.ts#L15-L27 'Source code on GitHub')
+#### useMouseCoords
 
 Tracks mouse position.
 
@@ -142,7 +130,7 @@ Tracks mouse position.
 
 ```javascript
 const Example = () => {
-  const [mouseX, mouseY] = useMousePosition();
+  const [mouseX, mouseY] = useMouseCoords();
   // ...
 };
 ```
@@ -150,8 +138,6 @@ const Example = () => {
 Returns **Readonly&lt;\[[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number), [number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)]>** Coordinates `[x, y]`, falling back to `[0, 0]` when unavailable.
 
 #### useNetworkAvailability
-
-[src/useNetworkAvailability.ts:17-38](https://github.com/kripod/standard-hooks/blob/a4501938e2ea2e4391025f649abe3efedfd49106/src/useNetworkAvailability.ts#L17-L38 'Source code on GitHub')
 
 Tracks information about the network's availability.
 
@@ -170,8 +156,6 @@ Returns **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/
 
 #### useNetworkInformation
 
-[src/useNetworkInformation.ts:17-35](https://github.com/kripod/standard-hooks/blob/a4501938e2ea2e4391025f649abe3efedfd49106/src/useNetworkInformation.ts#L17-L35 'Source code on GitHub')
-
 Tracks information about the device's network connection.
 
 ⚗️ _The underlying technology is experimental. Please be aware about browser compatibility before using this in production._
@@ -189,8 +173,6 @@ Returns **([NetworkInformation](https://developer.mozilla.org/docs/Web/API/Netwo
 
 #### usePreferredLanguages
 
-[src/usePreferredLanguages.ts:21-35](https://github.com/kripod/standard-hooks/blob/a4501938e2ea2e4391025f649abe3efedfd49106/src/usePreferredLanguages.ts#L21-L35 'Source code on GitHub')
-
 Tracks preferred languages of the user.
 
 ##### Examples
@@ -204,9 +186,7 @@ const Example = () => {
 
 Returns **ReadonlyArray&lt;[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>** An array of [BCP 47](https://tools.ietf.org/html/bcp47) language tags, ordered by preference with the most preferred language first.
 
-#### useWindowScrollPosition
-
-[src/useWindowScrollPosition.ts:15-29](https://github.com/kripod/standard-hooks/blob/a4501938e2ea2e4391025f649abe3efedfd49106/src/useWindowScrollPosition.ts#L15-L29 'Source code on GitHub')
+#### useWindowScrollCoords
 
 Tracks window scroll position.
 
@@ -214,7 +194,7 @@ Tracks window scroll position.
 
 ```javascript
 const Example = () => {
-  const [windowScrollX, windowScrollY] = useWindowScrollPosition();
+  const [windowScrollX, windowScrollY] = useWindowScrollCoords();
   // ...
 };
 ```
@@ -222,8 +202,6 @@ const Example = () => {
 Returns **Readonly&lt;\[[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number), [number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)]>** Coordinates `[x, y]`, falling back to `[0, 0]` when unavailable.
 
 #### useWindowSize
-
-[src/useWindowSize.ts:15-29](https://github.com/kripod/standard-hooks/blob/a4501938e2ea2e4391025f649abe3efedfd49106/src/useWindowSize.ts#L15-L29 'Source code on GitHub')
 
 Tracks window size.
 
@@ -241,8 +219,6 @@ Returns **Readonly&lt;\[[number](https://developer.mozilla.org/docs/Web/JavaScri
 ### Utilities
 
 #### useEventListener
-
-[src/useEventListener.ts:22-40](https://github.com/kripod/standard-hooks/blob/a4501938e2ea2e4391025f649abe3efedfd49106/src/useEventListener.ts#L22-L40 'Source code on GitHub')
 
 - **See: [Event reference on MDN](https://developer.mozilla.org/en-US/docs/Web/Events)**
 
@@ -268,8 +244,6 @@ const Example = () => {
 
 #### useInterval
 
-[src/useInterval.ts:20-32](https://github.com/kripod/standard-hooks/blob/a4501938e2ea2e4391025f649abe3efedfd49106/src/useInterval.ts#L20-L32 'Source code on GitHub')
-
 Repeatedly calls a function with a fixed time delay between each call.
 
 📝 _Timings may be inherently inaccurate, due to the implementation of [`setInterval`](https://developer.mozilla.org/docs/Web/API/WindowOrWorkerGlobalScope/setInterval) under the hood._
@@ -292,8 +266,6 @@ const Example = () => {
 
 #### useStorage
 
-[src/useStorage.ts:29-63](https://github.com/kripod/standard-hooks/blob/a4501938e2ea2e4391025f649abe3efedfd49106/src/useStorage.ts#L29-L63 'Source code on GitHub')
-
 - **See: [`useState` hook](https://reactjs.org/docs/hooks-reference.html#usestate), which exposes a similar interface**
 
 Stores a key/value pair statefully.
@@ -301,7 +273,7 @@ Stores a key/value pair statefully.
 ##### Parameters
 
 - `key` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** Identifier to associate the stored value with.
-- `defaultValue` **(D | null)** Value used when no item exists with the given key. (optional, default `null`)
+- `initialValue` **(I | function (): I)?** Value used when no item exists with the given key. Lazy initialization is available by using a function which returns the desired value.
 - `storage` Storage object, which stays intact through page loads. (optional, default `localStorage`)
 - `errorCallback` **function (error: DOMException): void?** Method to execute in case of an error, e.g. when the storage quota has been exceeded.
 
@@ -314,7 +286,7 @@ const Example = () => {
 };
 ```
 
-Returns **\[D, React.Dispatch&lt;React.SetStateAction&lt;D>>]** A statefully stored value, and a function to update it. Update value to `null` for removal from the storage object and resetting it to `defaultValue`.
+Returns **\[V, React.Dispatch&lt;React.SetStateAction&lt;V>>]** A statefully stored value, and a function to update it.
 
 ## Performance tips
 
