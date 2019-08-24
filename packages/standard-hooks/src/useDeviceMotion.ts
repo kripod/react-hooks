@@ -23,6 +23,8 @@ const initialState: EventArgs<DeviceMotionEvent> = {
 export default function useDeviceMotion(): EventArgs<DeviceMotionEvent> {
   const [motion, setMotion] = useState(initialState);
 
+  // TODO: Request permission if necessary, see https://github.com/w3c/deviceorientation/issues/57
+
   useEffect(
     () =>
       managedEventListener(window, 'devicemotion', event => {
