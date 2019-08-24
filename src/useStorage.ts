@@ -18,6 +18,8 @@ export interface JSONObject {
 /**
  * Stores a key/value pair statefully.
  *
+ * @see [`useState` hook](https://reactjs.org/docs/hooks-reference.html#usestate), which exposes a similar interface
+ *
  * @param key Identifier to associate the stored value with.
  * @param initialValue Value used when no item exists with the given key. Lazy initialization is available by using a function which returns the desired value.
  * @param storage Storage object, which stays intact through page loads.
@@ -29,8 +31,6 @@ export interface JSONObject {
  *   const [name, setName] = useStorage('name', 'Anonymous');
  *   // ...
  * };
- *
- * @see [`useState` hook](https://reactjs.org/docs/hooks-reference.html#usestate), which exposes a similar interface
  */
 export default function useStorage<T>(
   key: string,
