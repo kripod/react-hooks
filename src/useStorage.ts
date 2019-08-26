@@ -1,6 +1,7 @@
 // TODO: Consider splitting this into `useLocalStorage` and `useSessionStorage`
 
-import { useReducer, useState } from 'react';
+import { useReducer } from 'react';
+import { Nullable } from './utils';
 
 export type JSONProperty =
   | string
@@ -17,7 +18,7 @@ export interface JSONObject {
   [key: string]: JSONProperty;
 }
 
-function getLazyInstance<T>(value: T | (() => T) | undefined) {
+function getLazyInstance<T>(value: Nullable<T | (() => T)>) {
   return typeof value === 'function' ? (value as () => T)() : value;
 }
 
@@ -41,7 +42,7 @@ function getLazyInstance<T>(value: T | (() => T) | undefined) {
 export default function useStorage<T>(
   storage: Storage,
   key: string,
-  initialValue?: T | (() => T),
+  initialValue: T | (() => T) | null = null,
   errorCallback?: (error: DOMException) => void,
 ) {
   type V = Extract<T, JSONProperty>;
