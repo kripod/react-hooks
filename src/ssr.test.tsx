@@ -21,7 +21,11 @@ test.each(
     // Provide dummy parameters for hooks which need them
     ...hooks,
     useEventListener: () =>
-      hooks.useEventListener(new EventTarget(), 'foo', () => {}),
+      hooks.useEventListener(
+        (undefined as unknown) as EventTarget,
+        'foo',
+        () => {},
+      ),
     useGeolocation: () => hooks.useGeolocation(),
     useInterval: () => hooks.useInterval(() => {}, 0),
     useStorage: () => hooks.useStorage('foo'),
