@@ -27,13 +27,13 @@ test('pausing the timer', () => {
 test('passing a new handler does not restart the timer', () => {
   const handler1 = jest.fn();
   const handler2 = jest.fn();
-  let handler = handler1;
 
-  const { rerender } = renderHook(() => useInterval(handler, 1000));
+  const { rerender } = renderHook(({ handler }) => useInterval(handler, 1000), {
+    initialProps: { handler: handler1 },
+  });
   jest.advanceTimersByTime(500);
 
-  handler = handler2;
-  rerender();
+  rerender({ handler: handler2 });
 
   jest.advanceTimersByTime(500);
   expect(handler1).toHaveBeenCalledTimes(0);
@@ -42,14 +42,14 @@ test('passing a new handler does not restart the timer', () => {
 
 test('passing a new delay cancels the timer and starts a new one', () => {
   const handler = jest.fn();
-  let delay = 500;
 
-  const { rerender } = renderHook(() => useInterval(handler, delay));
+  const { rerender } = renderHook(({ delay }) => useInterval(handler, delay), {
+    initialProps: { delay: 500 },
+  });
   jest.advanceTimersByTime(1000);
   expect(handler).toHaveBeenCalledTimes(2);
 
-  delay = 1000;
-  rerender();
+  rerender({ delay: 1000 });
 
   jest.advanceTimersByTime(5000);
   expect(handler).toHaveBeenCalledTimes(7);
