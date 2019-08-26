@@ -22,9 +22,9 @@ export interface JSONObject {
  *
  * @see [`useState` hook](https://reactjs.org/docs/hooks-reference.html#usestate), which exposes a similar interface
  *
+ * @param storage Storage object, which stays intact through page loads.
  * @param key Identifier to associate the stored value with.
  * @param initialValue Value used when no item exists with the given key. Lazy initialization is available by using a function which returns the desired value.
- * @param storage Storage object, which stays intact through page loads.
  * @param errorCallback Method to execute in case of an error, e.g. when the storage quota has been exceeded.
  * @returns {[T, React.Dispatch<React.SetStateAction<T>>]} A statefully stored value, and a function to update it.
  *
@@ -35,9 +35,9 @@ export interface JSONObject {
  * };
  */
 export default function useStorage<T>(
+  storage: Storage,
   key: string,
   initialValue?: T | (() => T),
-  storage?: Storage,
   errorCallback?: (error: DOMException) => void,
 ) {
   type V = Extract<T, JSONProperty>;
@@ -51,8 +51,6 @@ export default function useStorage<T>(
   // eslint-disable-next-line react-hooks/rules-of-hooks
   if (typeof window === 'undefined') return useState(getInitialValue());
 
-  const clientSideStorage = storage || localStorage;
-
   // eslint-disable-next-line react-hooks/rules-of-hooks
   return useReducer(
     (prevValue: V, update: React.SetStateAction<V>) => {
@@ -60,7 +58,7 @@ export default function useStorage<T>(
         typeof update === 'function' ? update(prevValue) : update;
 
       try {
-        clientSideStorage.setItem(key, JSON.stringify(nextValue));
+        storage.setItem(key, JSON.stringify(nextValue));
       } catch (error) {
         if (errorCallback) errorCallback(error);
       }
@@ -69,7 +67,7 @@ export default function useStorage<T>(
 
     key,
     initialKey => {
-      const serializedValue = clientSideStorage.getItem(initialKey);
+      const serializedValue = storage.getItem(initialKey);
 
       if (serializedValue != null) {
         try {
