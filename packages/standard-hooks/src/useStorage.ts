@@ -1,4 +1,6 @@
-import { useReducer } from 'react';
+// TODO: Consider splitting this into `useLocalStorage` and `useSessionStorage`
+
+import { useReducer, useState } from 'react';
 
 export type JSONProperty =
   | string
@@ -35,18 +37,30 @@ export interface JSONObject {
 export default function useStorage<T>(
   key: string,
   initialValue?: T | (() => T),
-  storage: Storage = localStorage,
+  storage?: Storage,
   errorCallback?: (error: DOMException) => void,
 ) {
   type V = Extract<T, JSONProperty>;
 
+  function getInitialValue() {
+    return typeof initialValue === 'function'
+      ? (initialValue as () => V)()
+      : (initialValue as V);
+  }
+
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  if (typeof window === 'undefined') return useState(getInitialValue());
+
+  const clientSideStorage = storage || localStorage;
+
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   return useReducer(
     (prevValue: V, update: React.SetStateAction<V>) => {
       const nextValue =
         typeof update === 'function' ? update(prevValue) : update;
 
       try {
-        storage.setItem(key, JSON.stringify(nextValue));
+        clientSideStorage.setItem(key, JSON.stringify(nextValue));
       } catch (error) {
         if (errorCallback) errorCallback(error);
       }
@@ -55,7 +69,7 @@ export default function useStorage<T>(
 
     key,
     initialKey => {
-      const serializedValue = storage.getItem(initialKey);
+      const serializedValue = clientSideStorage.getItem(initialKey);
 
       if (serializedValue != null) {
         try {
@@ -66,9 +80,7 @@ export default function useStorage<T>(
         }
       }
 
-      return typeof initialValue === 'function'
-        ? (initialValue as () => V)()
-        : initialValue;
+      return getInitialValue();
     },
   );
 }
