@@ -17,6 +17,10 @@ export interface JSONObject {
   [key: string]: JSONProperty;
 }
 
+function getLazyInstance<T>(value: T | (() => T) | undefined) {
+  return typeof value === 'function' ? (value as () => T)() : value;
+}
+
 /**
  * Stores a key/value pair statefully.
  *
@@ -42,16 +46,6 @@ export default function useStorage<T>(
 ) {
   type V = Extract<T, JSONProperty>;
 
-  function getInitialValue() {
-    return typeof initialValue === 'function'
-      ? (initialValue as () => V)()
-      : (initialValue as V);
-  }
-
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  if (typeof window === 'undefined') return useState(getInitialValue());
-
-  // eslint-disable-next-line react-hooks/rules-of-hooks
   return useReducer(
     (prevValue: V, update: React.SetStateAction<V>) => {
       const nextValue =
@@ -78,7 +72,7 @@ export default function useStorage<T>(
         }
       }
 
-      return getInitialValue();
+      return getLazyInstance(initialValue);
     },
   );
 }
