@@ -2,8 +2,6 @@ import { useCallback, useEffect, useRef } from 'react';
 
 export const canUseDOM = typeof window !== 'undefined';
 
-export type Nullable<T> = T | null | undefined;
-
 export type EventArgs<T> = Omit<T, keyof Event>;
 export type EventMap<T> = T extends Window
   ? WindowEventMap
