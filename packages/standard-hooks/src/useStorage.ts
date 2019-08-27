@@ -43,9 +43,9 @@ export default function useStorage<T extends JSONProperty>(
   key: string,
   initialValue: T | (() => T) | null = null,
   errorCallback?: (error: DOMException) => void,
-): [T, React.Dispatch<React.SetStateAction<T>>] {
+): [T | null, React.Dispatch<React.SetStateAction<T | null>>] {
   return useReducer(
-    (prevValue: T, update: React.SetStateAction<T>) => {
+    (prevValue: T | null, update: React.SetStateAction<T | null>) => {
       const nextValue =
         typeof update === 'function' ? update(prevValue) : update;
 
@@ -79,7 +79,7 @@ export function useLocalStorage<T extends JSONProperty>(
   key: string,
   initialValue: T | (() => T) | null = null,
   errorCallback?: (error: DOMException) => void,
-) {
+): [T | null, React.Dispatch<React.SetStateAction<T | null>>] {
   /* eslint-disable react-hooks/rules-of-hooks */
   return typeof window !== 'undefined'
     ? useStorage(localStorage, key, initialValue, errorCallback)
