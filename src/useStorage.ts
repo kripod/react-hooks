@@ -2,7 +2,7 @@
 
 import { useReducer, useState } from 'react';
 
-export type JSONProperty =
+export type JSONValue =
   | string
   | number
   | boolean
@@ -11,10 +11,10 @@ export type JSONProperty =
   | null;
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
-export interface JSONArray extends Array<JSONProperty> {}
+export interface JSONArray extends Array<JSONValue> {}
 
 export interface JSONObject {
-  [key: string]: JSONProperty;
+  [key: string]: JSONValue;
 }
 
 function getLazyInstance<T>(value: T | (() => T) | null) {
@@ -38,7 +38,7 @@ function getLazyInstance<T>(value: T | (() => T) | null) {
  *   // ...
  * };
  */
-export default function useStorage<T extends JSONProperty>(
+export default function useStorage<T extends JSONValue>(
   storage: Storage,
   key: string,
   initialValue: T | (() => T) | null = null,
@@ -75,7 +75,7 @@ export default function useStorage<T extends JSONProperty>(
   );
 }
 
-export function useLocalStorage<T extends JSONProperty>(
+export function useLocalStorage<T extends JSONValue>(
   key: string,
   initialValue: T | (() => T) | null = null,
   errorCallback?: (error: DOMException) => void,
