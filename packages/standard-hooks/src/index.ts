@@ -13,7 +13,7 @@ export {
   default as useStorage,
   JSONArray,
   JSONObject,
-  JSONProperty,
+  JSONValue,
 } from './useStorage';
 export { default as useWindowScrollCoords } from './useWindowScrollCoords';
 export { default as useWindowSize } from './useWindowSize';
