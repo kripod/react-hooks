@@ -1,7 +1,6 @@
 // TODO: Consider splitting this into `useLocalStorage` and `useSessionStorage`
 
-import { useReducer } from 'react';
-import { Nullable } from './utils';
+import { useReducer, useState } from 'react';
 
 export type JSONProperty =
   | string
@@ -18,7 +17,7 @@ export interface JSONObject {
   [key: string]: JSONProperty;
 }
 
-function getLazyInstance<T>(value: Nullable<T | (() => T)>) {
+function getLazyInstance<T>(value: T | (() => T) | null) {
   return typeof value === 'function' ? (value as () => T)() : value;
 }
 
@@ -31,7 +30,7 @@ function getLazyInstance<T>(value: Nullable<T | (() => T)>) {
  * @param key Identifier to associate the stored value with.
  * @param initialValue Value used when no item exists with the given key. Lazy initialization is available by using a function which returns the desired value.
  * @param errorCallback Method to execute in case of an error, e.g. when the storage quota has been exceeded.
- * @returns {[T, React.Dispatch<React.SetStateAction<T>>]} A statefully stored value, and a function to update it.
+ * @returns A statefully stored value, and a function to update it.
  *
  * @example
  * const Example = () => {
@@ -39,16 +38,14 @@ function getLazyInstance<T>(value: Nullable<T | (() => T)>) {
  *   // ...
  * };
  */
-export default function useStorage<T>(
+export default function useStorage<T extends JSONProperty>(
   storage: Storage,
   key: string,
   initialValue: T | (() => T) | null = null,
   errorCallback?: (error: DOMException) => void,
-) {
-  type V = Extract<T, JSONProperty>;
-
+): [T, React.Dispatch<React.SetStateAction<T>>] {
   return useReducer(
-    (prevValue: V, update: React.SetStateAction<V>) => {
+    (prevValue: T, update: React.SetStateAction<T>) => {
       const nextValue =
         typeof update === 'function' ? update(prevValue) : update;
 
@@ -76,4 +73,16 @@ export default function useStorage<T>(
       return getLazyInstance(initialValue);
     },
   );
+}
+
+export function useLocalStorage<T extends JSONProperty>(
+  key: string,
+  initialValue: T | (() => T) | null = null,
+  errorCallback?: (error: DOMException) => void,
+) {
+  /* eslint-disable react-hooks/rules-of-hooks */
+  return typeof window !== 'undefined'
+    ? useStorage(localStorage, key, initialValue, errorCallback)
+    : useState(getLazyInstance(initialValue));
+  /* eslint-enable react-hooks/rules-of-hooks */
 }
