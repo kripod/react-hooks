@@ -39,7 +39,7 @@ function getLazyInstance<T>(value: T | (() => T) | null | undefined) {
 export default function useStorage<T extends JSONValue>(
   storage: Storage,
   key: string,
-  initialValue?: T | (() => T),
+  initialValue: T | (() => T) | null = null,
   errorCallback?: (error: DOMException) => void,
 ): [T, React.Dispatch<React.SetStateAction<T>>] {
   return useReducer(
@@ -94,7 +94,7 @@ export default function useStorage<T extends JSONValue>(
  */
 export function useLocalStorage<T extends JSONValue>(
   key: string,
-  initialValue?: T | (() => T),
+  initialValue: T | (() => T) | null = null,
   errorCallback?: (error: DOMException) => void,
 ): [T, React.Dispatch<React.SetStateAction<T>>] {
   /* eslint-disable react-hooks/rules-of-hooks */
@@ -122,7 +122,7 @@ export function useLocalStorage<T extends JSONValue>(
  */
 export function useSessionStorage<T extends JSONValue>(
   key: string,
-  initialValue?: T | (() => T),
+  initialValue: T | (() => T) | null = null,
   errorCallback?: (error: DOMException) => void,
 ): [T, React.Dispatch<React.SetStateAction<T>>] {
   /* eslint-disable react-hooks/rules-of-hooks */
