@@ -10,7 +10,6 @@ export { default as useNetworkAvailability } from './useNetworkAvailability';
 export { default as useNetworkInformation } from './useNetworkInformation';
 export { default as usePreferredLanguages } from './usePreferredLanguages';
 export {
-  default as useStorage,
   useLocalStorage,
   useSessionStorage,
   JSONArray,

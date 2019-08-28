@@ -19,24 +19,7 @@ function getLazyInstance<T>(value: T | (() => T) | null | undefined) {
   return typeof value === 'function' ? (value as () => T)() : (value as T);
 }
 
-/**
- * Stores a key/value pair statefully.
- *
- * @see [`useState` hook](https://reactjs.org/docs/hooks-reference.html#usestate), which exposes a similar interface
- *
- * @param storage Storage object, which stays intact through page loads.
- * @param key Identifier to associate the stored value with.
- * @param initialValue Value used when no item exists with the given key. Lazy initialization is available by using a function which returns the desired value.
- * @param errorCallback Method to execute in case of an error, e.g. when the storage quota has been exceeded.
- * @returns A statefully stored value, and a function to update it.
- *
- * @example
- * const Example = () => {
- *   const [name, setName] = useStorage<string>('name', 'Anonymous');
- *   // ...
- * };
- */
-export default function useStorage<T extends JSONValue>(
+function useStorage<T extends JSONValue>(
   storage: Storage,
   key: string,
   initialValue: T | (() => T) | null = null,
