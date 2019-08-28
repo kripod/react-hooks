@@ -15,8 +15,8 @@ export interface JSONObject {
   [key: string]: JSONValue;
 }
 
-function getLazyInstance<T>(value: T | (() => T) | null) {
-  return typeof value === 'function' ? (value as () => T)() : value;
+function getLazyInstance<T>(value: T | (() => T) | null | undefined) {
+  return typeof value === 'function' ? (value as () => T)() : (value as T);
 }
 
 /**
@@ -39,11 +39,11 @@ function getLazyInstance<T>(value: T | (() => T) | null) {
 export default function useStorage<T extends JSONValue>(
   storage: Storage,
   key: string,
-  initialValue: T | (() => T) | null = null,
+  initialValue?: T | (() => T),
   errorCallback?: (error: DOMException) => void,
-): [T | null, React.Dispatch<React.SetStateAction<T | null>>] {
+): [T, React.Dispatch<React.SetStateAction<T>>] {
   return useReducer(
-    (prevValue: T | null, update: React.SetStateAction<T | null>) => {
+    (prevValue: T, update: React.SetStateAction<T>) => {
       const nextValue =
         typeof update === 'function' ? update(prevValue) : update;
 
@@ -94,9 +94,9 @@ export default function useStorage<T extends JSONValue>(
  */
 export function useLocalStorage<T extends JSONValue>(
   key: string,
-  initialValue: T | (() => T) | null = null,
+  initialValue?: T | (() => T),
   errorCallback?: (error: DOMException) => void,
-): [T | null, React.Dispatch<React.SetStateAction<T | null>>] {
+): [T, React.Dispatch<React.SetStateAction<T>>] {
   /* eslint-disable react-hooks/rules-of-hooks */
   return typeof window !== 'undefined'
     ? useStorage(localStorage, key, initialValue, errorCallback)
@@ -122,9 +122,9 @@ export function useLocalStorage<T extends JSONValue>(
  */
 export function useSessionStorage<T extends JSONValue>(
   key: string,
-  initialValue: T | (() => T) | null = null,
+  initialValue?: T | (() => T),
   errorCallback?: (error: DOMException) => void,
-): [T | null, React.Dispatch<React.SetStateAction<T | null>>] {
+): [T, React.Dispatch<React.SetStateAction<T>>] {
   /* eslint-disable react-hooks/rules-of-hooks */
   return typeof window !== 'undefined'
     ? useStorage(sessionStorage, key, initialValue, errorCallback)
