@@ -1,5 +1,3 @@
-// TODO: Consider splitting this into `useLocalStorage` and `useSessionStorage`
-
 import { useReducer, useState } from 'react';
 
 export type JSONValue =
@@ -34,7 +32,7 @@ function getLazyInstance<T>(value: T | (() => T) | null) {
  *
  * @example
  * const Example = () => {
- *   const [name, setName] = useStorage('name', 'Anonymous');
+ *   const [name, setName] = useStorage<string>('name', 'Anonymous');
  *   // ...
  * };
  */
@@ -75,6 +73,25 @@ export default function useStorage<T extends JSONValue>(
   );
 }
 
+/**
+ * Stores a key/value pair statefully in [`localStorage`](https://developer.mozilla.org/docs/Web/API/Window/localStorage).
+ *
+ * @see [`useState` hook](https://reactjs.org/docs/hooks-reference.html#usestate), which exposes a similar interface
+ *
+ * @param key Identifier to associate the stored value with.
+ * @param initialValue Value used when no item exists with the given key. Lazy initialization is available by using a function which returns the desired value.
+ * @param errorCallback Method to execute in case of an error, e.g. when the storage quota has been exceeded.
+ * @returns A statefully stored value, and a function to update it.
+ *
+ * @example
+ * const Example = () => {
+ *   const [visitCount, setVisitCount] = useLocalStorage<number>('visitCount', 0);
+ *   useEffect(() => {
+ *     setVisitCount(count => count + 1);
+ *   }, []);
+ *   // ...
+ * };
+ */
 export function useLocalStorage<T extends JSONValue>(
   key: string,
   initialValue: T | (() => T) | null = null,
@@ -83,6 +100,34 @@ export function useLocalStorage<T extends JSONValue>(
   /* eslint-disable react-hooks/rules-of-hooks */
   return typeof window !== 'undefined'
     ? useStorage(localStorage, key, initialValue, errorCallback)
+    : useState(getLazyInstance(initialValue));
+  /* eslint-enable react-hooks/rules-of-hooks */
+}
+
+/**
+ * Stores a key/value pair statefully in [`sessionStorage`](https://developer.mozilla.org/docs/Web/API/Window/sessionStorage).
+ *
+ * @see [`useState` hook](https://reactjs.org/docs/hooks-reference.html#usestate), which exposes a similar interface
+ *
+ * @param key Identifier to associate the stored value with.
+ * @param initialValue Value used when no item exists with the given key. Lazy initialization is available by using a function which returns the desired value.
+ * @param errorCallback Method to execute in case of an error, e.g. when the storage quota has been exceeded.
+ * @returns A statefully stored value, and a function to update it.
+ *
+ * @example
+ * const Example = () => {
+ *   const [name, setName] = useSessionStorage<string>('name', 'Anonymous');
+ *   // ...
+ * };
+ */
+export function useSessionStorage<T extends JSONValue>(
+  key: string,
+  initialValue: T | (() => T) | null = null,
+  errorCallback?: (error: DOMException) => void,
+): [T | null, React.Dispatch<React.SetStateAction<T | null>>] {
+  /* eslint-disable react-hooks/rules-of-hooks */
+  return typeof window !== 'undefined'
+    ? useStorage(sessionStorage, key, initialValue, errorCallback)
     : useState(getLazyInstance(initialValue));
   /* eslint-enable react-hooks/rules-of-hooks */
 }
