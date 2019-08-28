@@ -12,8 +12,11 @@ toc:
       - usePreferredLanguages
       - useWindowScrollCoords
       - useWindowSize
+  - name: Storages
+    children:
+      - useLocalStorage
+      - useSessionStorage
   - name: Utilities
     children:
       - useEventListener
       - useInterval
-      - useStorage
