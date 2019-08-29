@@ -1,5 +1,4 @@
-export { JSONArray, JSONObject, JSONValue } from './useStorage';
-export { EventArgs, EventMap } from './utils';
+export { EventArgs, EventMap, JSONArray, JSONObject, JSONValue } from './types';
 
 export { default as useDeviceMotion } from './useDeviceMotion';
 export { default as useDeviceOrientation } from './useDeviceOrientation';

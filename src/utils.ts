@@ -1,11 +1,7 @@
 import { useCallback, useEffect, useRef } from 'react';
+import { EventMap } from './types';
 
 export const canUseDOM = typeof window !== 'undefined';
-
-export type EventArgs<T> = Omit<T, keyof Event>;
-export type EventMap<T> = T extends Window
-  ? WindowEventMap
-  : (T extends Document ? DocumentEventMap : { [key: string]: Event });
 
 export function managedEventListener<
   T extends EventTarget,
