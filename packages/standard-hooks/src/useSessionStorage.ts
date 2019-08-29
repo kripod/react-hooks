@@ -1,5 +1,9 @@
+import { useState } from 'react';
 import { JSONValue } from './types';
 import useStorage from './useStorage';
+import { canUseDOM, getLazyValue } from './utils';
+
+const canUseSessionStorage = canUseDOM && sessionStorage;
 
 /**
  * Stores a key/value pair statefully in [`sessionStorage`](https://developer.mozilla.org/docs/Web/API/Window/sessionStorage).
@@ -8,7 +12,7 @@ import useStorage from './useStorage';
  *
  * @param key Identifier to associate the stored value with.
  * @param initialValue Value used when no item exists with the given key. Lazy initialization is available by using a function which returns the desired value.
- * @param errorCallback Method to execute in case of an error, e.g. when the storage quota has been exceeded or the user has denied permission to persist data.
+ * @param errorCallback Method to execute in case of an error, e.g. when the storage quota has been exceeded or trying to store a circular data structure.
  * @returns A statefully stored value, and a function to update it.
  *
  * @example
@@ -22,5 +26,9 @@ export default function useSessionStorage<T extends JSONValue>(
   initialValue: T | (() => T) | null = null,
   errorCallback?: (error: DOMException) => void,
 ): [T, React.Dispatch<React.SetStateAction<T>>] {
-  return useStorage(() => sessionStorage, key, initialValue, errorCallback);
+  /* eslint-disable react-hooks/rules-of-hooks */
+  return canUseSessionStorage
+    ? useStorage(sessionStorage, key, initialValue, errorCallback)
+    : useState(getLazyValue(initialValue));
+  /* eslint-enable react-hooks/rules-of-hooks */
 }

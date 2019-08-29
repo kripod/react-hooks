@@ -1,29 +1,13 @@
-import { useReducer, useState } from 'react';
+import { useReducer } from 'react';
 import { JSONValue } from './types';
 import { getLazyValue } from './utils';
 
 export default function useStorage<T extends JSONValue>(
-  getStorage: () => Storage,
+  storage: Storage,
   key: string,
   initialValue: T | (() => T) | null = null,
   errorCallback?: (error: DOMException) => void,
 ): [T, React.Dispatch<React.SetStateAction<T>>] {
-  let storage: Storage;
-  try {
-    storage = getStorage();
-    if (!storage)
-      // Since Firefox 67, `window.localStorage` no longer throws `SecurityError` when blocked due to privacy settings
-      // Source: https://www.fxsitecompat.dev/en-CA/docs/2019/window-localstorage-no-longer-throws-securityerror-when-blocked-due-to-privacy-settings/
-      throw new DOMException(
-        'Failed to read storage object: Access is denied for this document.',
-        'SecurityError',
-      );
-  } catch (error) {
-    if (errorCallback) errorCallback(error);
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    return useState(getLazyValue(initialValue));
-  }
-
   // eslint-disable-next-line react-hooks/rules-of-hooks
   return useReducer(
     (prevValue: T, update: React.SetStateAction<T>) => {
