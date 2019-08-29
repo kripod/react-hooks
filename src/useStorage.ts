@@ -1,9 +1,6 @@
 import { useReducer, useState } from 'react';
 import { JSONValue } from './types';
-
-function getLazyValue<T>(value: T | (() => T) | null | undefined) {
-  return typeof value === 'function' ? (value as () => T)() : (value as T);
-}
+import { getLazyValue } from './utils';
 
 export default function useStorage<T extends JSONValue>(
   getStorage: () => Storage,
