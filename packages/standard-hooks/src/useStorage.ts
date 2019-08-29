@@ -6,7 +6,7 @@ export default function useStorage<T extends JSONValue>(
   storage: Storage,
   key: string,
   initialValue: T | (() => T) | null = null,
-  errorCallback?: (error: DOMException) => void,
+  errorCallback?: (error: DOMException | TypeError) => void,
 ): [T, React.Dispatch<React.SetStateAction<T>>] {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   return useReducer(
