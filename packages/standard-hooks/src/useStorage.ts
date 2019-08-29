@@ -1,19 +1,5 @@
 import { useReducer, useState } from 'react';
-
-export type JSONValue =
-  | string
-  | number
-  | boolean
-  | JSONArray
-  | JSONObject
-  | null;
-
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
-export interface JSONArray extends Array<JSONValue> {}
-
-export interface JSONObject {
-  [key: string]: JSONValue;
-}
+import { JSONValue } from './types';
 
 function getLazyInstance<T>(value: T | (() => T) | null | undefined) {
   return typeof value === 'function' ? (value as () => T)() : (value as T);

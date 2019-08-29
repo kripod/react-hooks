@@ -1,4 +1,5 @@
-import useStorage, { JSONValue } from './useStorage';
+import { JSONValue } from './types';
+import useStorage from './useStorage';
 
 /**
  * Stores a key/value pair statefully in [`localStorage`](https://developer.mozilla.org/docs/Web/API/Window/localStorage).

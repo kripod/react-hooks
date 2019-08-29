@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
-import { EventMap, managedEventListener, useEventCallback } from './utils';
+import { EventMap } from './types';
+import { managedEventListener, useEventCallback } from './utils';
 
 /**
  * Listens to an event while the enclosing component is mounted.

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
-import { EventArgs, managedEventListener } from './utils';
+import { EventArgs } from './types';
+import { managedEventListener } from './utils';
 
 // Source: https://w3c.github.io/deviceorientation/#dictdef-deviceorientationeventinit
 const initialState: EventArgs<DeviceOrientationEvent> = {
