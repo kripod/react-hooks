@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { JSONValue } from './types';
-import useStorage from './useStorage';
-import { canUseDOM, getLazyValue } from './utils';
+import useStorage, { canAccessStorage } from './useStorage';
+import { getLazyValue } from './utils';
 
-const canUseSessionStorage = canUseDOM && sessionStorage;
+const canAccessSessionStorage = canAccessStorage(() => sessionStorage);
 
 /**
  * Stores a key/value pair statefully in [`sessionStorage`](https://developer.mozilla.org/docs/Web/API/Window/sessionStorage).
@@ -27,7 +27,7 @@ export default function useSessionStorage<T extends JSONValue>(
   errorCallback?: (error: DOMException | TypeError) => void,
 ): [T, React.Dispatch<React.SetStateAction<T>>] {
   /* eslint-disable react-hooks/rules-of-hooks */
-  return canUseSessionStorage
+  return canAccessSessionStorage
     ? useStorage(sessionStorage, key, initialValue, errorCallback)
     : useState(getLazyValue(initialValue));
   /* eslint-enable react-hooks/rules-of-hooks */
