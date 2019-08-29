@@ -1,7 +1,7 @@
 import { useReducer, useState } from 'react';
 import { JSONValue } from './types';
 
-function getLazyInstance<T>(value: T | (() => T) | null | undefined) {
+function getLazyValue<T>(value: T | (() => T) | null | undefined) {
   return typeof value === 'function' ? (value as () => T)() : (value as T);
 }
 
@@ -24,7 +24,7 @@ export default function useStorage<T extends JSONValue>(
   } catch (error) {
     if (errorCallback) errorCallback(error);
     // eslint-disable-next-line react-hooks/rules-of-hooks
-    return useState(getLazyInstance(initialValue));
+    return useState(getLazyValue(initialValue));
   }
 
   // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -54,7 +54,7 @@ export default function useStorage<T extends JSONValue>(
         }
       }
 
-      return getLazyInstance(initialValue);
+      return getLazyValue(initialValue);
     },
   );
 }
