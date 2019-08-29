@@ -3,6 +3,10 @@ import { EventMap } from './types';
 
 export const canUseDOM = typeof window !== 'undefined';
 
+export function getLazyValue<T>(value: T | (() => T) | null | undefined) {
+  return typeof value === 'function' ? (value as () => T)() : (value as T);
+}
+
 export function managedEventListener<
   T extends EventTarget,
   K extends keyof EventMap<T> & string
