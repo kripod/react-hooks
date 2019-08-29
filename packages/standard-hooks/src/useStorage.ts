@@ -20,40 +20,51 @@ function getLazyInstance<T>(value: T | (() => T) | null | undefined) {
 }
 
 function useStorage<T extends JSONValue>(
-  storage: Storage,
+  getStorage: () => Storage,
   key: string,
   initialValue: T | (() => T) | null = null,
   errorCallback?: (error: DOMException) => void,
 ): [T, React.Dispatch<React.SetStateAction<T>>] {
-  return useReducer(
-    (prevValue: T, update: React.SetStateAction<T>) => {
-      const nextValue =
-        typeof update === 'function' ? update(prevValue) : update;
+  let storage!: Storage;
+  try {
+    storage = getStorage();
+  } catch (error) {
+    if (errorCallback) errorCallback(error);
+  }
 
-      try {
-        storage.setItem(key, JSON.stringify(nextValue));
-      } catch (error) {
-        if (errorCallback) errorCallback(error);
-      }
-      return nextValue;
-    },
+  return storage
+    ? // eslint-disable-next-line react-hooks/rules-of-hooks
+      useReducer(
+        (prevValue: T, update: React.SetStateAction<T>) => {
+          const nextValue =
+            typeof update === 'function' ? update(prevValue) : update;
 
-    key,
-    initialKey => {
-      const serializedValue = storage.getItem(initialKey);
+          try {
+            storage.setItem(key, JSON.stringify(nextValue));
+          } catch (error) {
+            if (errorCallback) errorCallback(error);
+          }
+          return nextValue;
+        },
 
-      if (serializedValue != null) {
-        try {
-          return JSON.parse(serializedValue);
-        } catch {
-          // Backwards compatibility with past stored non-serialized values
-          return serializedValue;
-        }
-      }
+        key,
+        initialKey => {
+          const serializedValue = storage.getItem(initialKey);
 
-      return getLazyInstance(initialValue);
-    },
-  );
+          if (serializedValue != null) {
+            try {
+              return JSON.parse(serializedValue);
+            } catch {
+              // Backwards compatibility with past stored non-serialized values
+              return serializedValue;
+            }
+          }
+
+          return getLazyInstance(initialValue);
+        },
+      )
+    : // eslint-disable-next-line react-hooks/rules-of-hooks
+      useState(getLazyInstance(initialValue));
 }
 
 /**
@@ -63,7 +74,7 @@ function useStorage<T extends JSONValue>(
  *
  * @param key Identifier to associate the stored value with.
  * @param initialValue Value used when no item exists with the given key. Lazy initialization is available by using a function which returns the desired value.
- * @param errorCallback Method to execute in case of an error, e.g. when the storage quota has been exceeded.
+ * @param errorCallback Method to execute in case of an error, e.g. when the storage quota has been exceeded or the user has denied permission to persist data.
  * @returns A statefully stored value, and a function to update it.
  *
  * @example
@@ -80,11 +91,7 @@ export function useLocalStorage<T extends JSONValue>(
   initialValue: T | (() => T) | null = null,
   errorCallback?: (error: DOMException) => void,
 ): [T, React.Dispatch<React.SetStateAction<T>>] {
-  /* eslint-disable react-hooks/rules-of-hooks */
-  return typeof window !== 'undefined'
-    ? useStorage(localStorage, key, initialValue, errorCallback)
-    : useState(getLazyInstance(initialValue));
-  /* eslint-enable react-hooks/rules-of-hooks */
+  return useStorage(() => localStorage, key, initialValue, errorCallback);
 }
 
 /**
@@ -94,7 +101,7 @@ export function useLocalStorage<T extends JSONValue>(
  *
  * @param key Identifier to associate the stored value with.
  * @param initialValue Value used when no item exists with the given key. Lazy initialization is available by using a function which returns the desired value.
- * @param errorCallback Method to execute in case of an error, e.g. when the storage quota has been exceeded.
+ * @param errorCallback Method to execute in case of an error, e.g. when the storage quota has been exceeded or the user has denied permission to persist data.
  * @returns A statefully stored value, and a function to update it.
  *
  * @example
@@ -108,9 +115,5 @@ export function useSessionStorage<T extends JSONValue>(
   initialValue: T | (() => T) | null = null,
   errorCallback?: (error: DOMException) => void,
 ): [T, React.Dispatch<React.SetStateAction<T>>] {
-  /* eslint-disable react-hooks/rules-of-hooks */
-  return typeof window !== 'undefined'
-    ? useStorage(sessionStorage, key, initialValue, errorCallback)
-    : useState(getLazyInstance(initialValue));
-  /* eslint-enable react-hooks/rules-of-hooks */
+  return useStorage(() => sessionStorage, key, initialValue, errorCallback);
 }
