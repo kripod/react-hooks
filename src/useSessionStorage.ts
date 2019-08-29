@@ -24,7 +24,7 @@ const canUseSessionStorage = canUseDOM && sessionStorage;
 export default function useSessionStorage<T extends JSONValue>(
   key: string,
   initialValue: T | (() => T) | null = null,
-  errorCallback?: (error: DOMException) => void,
+  errorCallback?: (error: DOMException | TypeError) => void,
 ): [T, React.Dispatch<React.SetStateAction<T>>] {
   /* eslint-disable react-hooks/rules-of-hooks */
   return canUseSessionStorage
