@@ -2,6 +2,14 @@ import { useReducer } from 'react';
 import { JSONValue } from './types';
 import { getLazyValue } from './utils';
 
+export function canAccessStorage(getStorage: () => Storage) {
+  try {
+    if (getStorage()) return true;
+    // eslint-disable-next-line no-empty
+  } catch {}
+  return false;
+}
+
 export default function useStorage<T extends JSONValue>(
   storage: Storage,
   key: string,
