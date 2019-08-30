@@ -4,6 +4,8 @@ import { getLazyValue } from './utils';
 
 export function canAccessStorage(getStorage: () => Storage) {
   try {
+    // Check if the storage object is defined and available
+    // Prior to Firefox 70, localStorage may be null
     if (getStorage()) return true;
     // eslint-disable-next-line no-empty
   } catch {}
