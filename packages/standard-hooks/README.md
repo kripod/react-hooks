@@ -29,10 +29,12 @@ Essential set of [React Hooks][] for convenient [Web API][] consumption.
   - [usePreferredLanguages](#usepreferredlanguages)
   - [useWindowScrollCoords](#usewindowscrollcoords)
   - [useWindowSize](#usewindowsize)
-- [Utilities](#utilities)
+- [Storage](#storage)
+  - [useLocalStorage](#uselocalstorage)
+  - [useSessionStorage](#usesessionstorage)
+- [Scheduling](#scheduling)
   - [useEventListener](#useeventlistener)
   - [useInterval](#useinterval)
-  - [useStorage](#usestorage)
 
 ### Sensors
 
@@ -222,7 +224,59 @@ const Example = () => {
 
 Returns **Readonly&lt;\[[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number), [number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)]>** Dimensions `[width, height]`, falling back to `[0, 0]` when unavailable.
 
-### Utilities
+### Storage
+
+#### useLocalStorage
+
+- **See: [`useState` hook](https://reactjs.org/docs/hooks-reference.html#usestate), which exposes a similar interface**
+
+Stores a key/value pair statefully in [`localStorage`](https://developer.mozilla.org/docs/Web/API/Window/localStorage).
+
+##### Parameters
+
+- `key` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** Identifier to associate the stored value with.
+- `initialValue` **(T | function (): T | null)** Value used when no item exists with the given key. Lazy initialization is available by using a function which returns the desired value. (optional, default `null`)
+- `errorCallback` **function (error: (DOMException | [TypeError](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypeError))): void?** Method to execute in case of an error, e.g. when the storage quota has been exceeded or trying to store a circular data structure.
+
+##### Examples
+
+```javascript
+const Example = () => {
+  const [visitCount, setVisitCount] =
+    useLocalStorage < number > ('visitCount', 0);
+  useEffect(() => {
+    setVisitCount(count => count + 1);
+  }, []);
+  // ...
+};
+```
+
+Returns **\[T, React.Dispatch&lt;React.SetStateAction&lt;T>>]** A statefully stored value, and a function to update it.
+
+#### useSessionStorage
+
+- **See: [`useState` hook](https://reactjs.org/docs/hooks-reference.html#usestate), which exposes a similar interface**
+
+Stores a key/value pair statefully in [`sessionStorage`](https://developer.mozilla.org/docs/Web/API/Window/sessionStorage).
+
+##### Parameters
+
+- `key` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** Identifier to associate the stored value with.
+- `initialValue` **(T | function (): T | null)** Value used when no item exists with the given key. Lazy initialization is available by using a function which returns the desired value. (optional, default `null`)
+- `errorCallback` **function (error: (DOMException | [TypeError](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypeError))): void?** Method to execute in case of an error, e.g. when the storage quota has been exceeded or trying to store a circular data structure.
+
+##### Examples
+
+```javascript
+const Example = () => {
+  const [name, setName] = useSessionStorage < string > ('name', 'Anonymous');
+  // ...
+};
+```
+
+Returns **\[T, React.Dispatch&lt;React.SetStateAction&lt;T>>]** A statefully stored value, and a function to update it.
+
+### Scheduling
 
 #### useEventListener
 
@@ -269,30 +323,6 @@ const Example = () => {
   // ...
 };
 ```
-
-#### useStorage
-
-- **See: [`useState` hook](https://reactjs.org/docs/hooks-reference.html#usestate), which exposes a similar interface**
-
-Stores a key/value pair statefully.
-
-##### Parameters
-
-- `key` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** Identifier to associate the stored value with.
-- `initialValue` **(T | function (): T)?** Value used when no item exists with the given key. Lazy initialization is available by using a function which returns the desired value.
-- `storage` **Storage** Storage object, which stays intact through page loads. (optional, default `localStorage`)
-- `errorCallback` **function (error: DOMException): void?** Method to execute in case of an error, e.g. when the storage quota has been exceeded.
-
-##### Examples
-
-```javascript
-const Example = () => {
-  const [name, setName] = useStorage('name', 'Anonymous');
-  // ...
-};
-```
-
-Returns **\[T, React.Dispatch&lt;React.SetStateAction&lt;T>>]** A statefully stored value, and a function to update it.
 
 ## Performance tips
 
