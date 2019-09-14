@@ -28,6 +28,7 @@ jobs:
     needs: lint-and-test
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix:
         include:
           - registry_url: 'https://registry.npmjs.org'
