@@ -11,9 +11,10 @@ jobs:
 
     steps:
       - uses: actions/checkout@master
-      - uses: actions/setup-node@v1.1.0
+      - uses: actions/setup-node@master
         with:
           version: ${{ matrix.node }}
+          registry-url: 'https://registry.npmjs.org'
       - run: |
           yarn
           yarn test --coverage
@@ -24,12 +25,12 @@ jobs:
           token: ${{ secrets.CODECOV_TOKEN }}
 
       - run: yarn build
-      - run: cd pkg && npm publish
+      - run: cd pkg && yarn publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-      - uses: actions/setup-node@v1.1.0
+      - uses: actions/setup-node@master
         with:
           registry-url: 'https://npm.pkg.github.com'
-      - run: cd pkg && npm publish
+      - run: cd pkg && yarn publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
