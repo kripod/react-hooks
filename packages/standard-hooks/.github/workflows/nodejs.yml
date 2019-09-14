@@ -2,12 +2,13 @@ name: Node CI
 on: [push, pull_request]
 
 jobs:
-  test:
+  test-and-publish:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
         node: [10, 12]
         os: [ubuntu-latest] # TODO: windows-latest, macOS-latest with Codecov
+
     steps:
       - uses: actions/checkout@master
       - uses: actions/setup-node@master
@@ -20,4 +21,15 @@ jobs:
           CI: true
       - uses: codecov/codecov-action@master
         with:
-          token: ${{secrets.CODECOV_TOKEN}}
+          token: ${{ secrets.CODECOV_TOKEN }}
+
+      - run: yarn build
+      - run: yarn pika publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - uses: actions/setup-node@master
+        with:
+          registry-url: 'https://npm.pkg.github.com'
+      - run: yarn pika publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
