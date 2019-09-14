@@ -31,7 +31,8 @@ jobs:
       - uses: actions/setup-node@master
         with:
           registry-url: 'https://registry.npmjs.org'
-      - run: cd pkg && yarn publish
+      - if: github.event_name == 'push'
+        run: cd pkg && yarn publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
@@ -42,6 +43,7 @@ jobs:
       - uses: actions/setup-node@master
         with:
           registry-url: 'https://npm.pkg.github.com'
-      - run: cd pkg && yarn publish
+      - if: github.event_name == 'push'
+        run: cd pkg && yarn publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
