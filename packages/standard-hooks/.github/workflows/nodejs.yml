@@ -8,7 +8,6 @@ jobs:
       matrix:
         node: [10, 12]
         os: [ubuntu-latest, windows-latest, macOS-latest]
-
     steps:
       - uses: actions/checkout@master
       - uses: actions/setup-node@master
@@ -19,6 +18,11 @@ jobs:
           yarn test --coverage
         env:
           CI: true
+
+  coverage-report:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
       - uses: codecov/codecov-action@v1.0.2
         with:
           token: ${{secrets.CODECOV_TOKEN}}
