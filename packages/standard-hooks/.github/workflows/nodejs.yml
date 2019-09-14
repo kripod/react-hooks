@@ -24,26 +24,32 @@ jobs:
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
 
-  build-and-publish:
+  publish-npm:
     needs: lint-and-test
     runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        include:
-          - registry_url: 'https://registry.npmjs.org'
-            auth_token: ${{ secrets.NPM_TOKEN }}
-          - registry_url: 'https://npm.pkg.github.com'
-            auth_token: ${{ secrets.GITHUB_TOKEN }}
-
     steps:
       - uses: actions/checkout@master
       - uses: actions/setup-node@master
         with:
-          registry-url: ${{ matrix.registry_url }}
+          registry-url: https://registry.npmjs.org
       - run: |
           yarn
           yarn build
       - run: yarn publish pkg
         env:
-          NODE_AUTH_TOKEN: ${{ matrix.auth_token }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+  publish-gpr:
+    needs: lint-and-test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - uses: actions/setup-node@master
+        with:
+          registry-url: https://npm.pkg.github.com
+      - run: |
+          yarn
+          yarn build
+      - run: yarn publish pkg
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
