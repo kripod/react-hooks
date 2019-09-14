@@ -25,6 +25,7 @@ jobs:
           token: ${{ secrets.CODECOV_TOKEN }}
 
   build-and-publish:
+    needs: lint-and-test
     runs-on: ubuntu-latest
 
     steps:
