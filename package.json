@@ -37,6 +37,7 @@
     "@types/react": "^16.9.2",
     "@typescript-eslint/eslint-plugin": "^2.1.0",
     "@typescript-eslint/parser": "^2.1.0",
+    "all-contributors-cli": "^6.9.0",
     "documentation": "^12.1.1",
     "eslint": "^6.3.0",
     "eslint-config-airbnb": "^18.0.1",
