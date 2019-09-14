@@ -26,12 +26,12 @@ jobs:
       - run: |
           yarn build
           cd pkg
-      - run: yarn publish
+      - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       - uses: actions/setup-node@master
         with:
           registry-url: 'https://npm.pkg.github.com'
-      - run: yarn publish
+      - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
