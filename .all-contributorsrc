@@ -2,15 +2,33 @@
   "projectName": "standard-hooks",
   "projectOwner": "kripod",
   "repoType": "github",
-  "commitConvention": "none"
+  "commitConvention": "none",
   "contributors": [
+    {
+      "login": "kripod",
+      "name": "Kristóf Poduszló",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/14854048?v=4",
+      "profile": "https://github.com/kripod",
+      "contributions": [
+        "maintenance",
+        "code",
+        "test",
+        "doc",
+        "example",
+        "ideas",
+        "infra"
+      ]
+    },
     {
       "login": "gaearon",
       "name": "Dan Abramov",
       "avatar_url": "https://avatars0.githubusercontent.com/u/810438?v=4",
       "profile": "http://twitter.com/dan_abramov",
       "contributions": [
-        "ideas"
+        "code",
+        "blog",
+        "ideas",
+        "tutorial"
       ]
     },
     {
