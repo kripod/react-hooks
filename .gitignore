@@ -1,4 +1,5 @@
 *.log*
+.eslintcache
 coverage/
 node_modules/
 pkg/
