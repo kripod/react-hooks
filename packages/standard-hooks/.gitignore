@@ -6,3 +6,6 @@ node_modules/
 
 # Build output
 pkg/
+
+# Test coverage output
+coverage/
