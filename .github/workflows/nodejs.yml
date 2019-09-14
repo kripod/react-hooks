@@ -27,23 +27,22 @@ jobs:
   build-and-publish:
     needs: lint-and-test
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        include:
+          - registry_url: 'https://registry.npmjs.org'
+            auth_token: ${{ secrets.NPM_TOKEN }}
+          - registry_url: 'https://npm.pkg.github.com'
+            auth_token: ${{ secrets.GITHUB_TOKEN }}
 
     steps:
       - uses: actions/checkout@master
-
       - uses: actions/setup-node@master
         with:
-          registry-url: 'https://registry.npmjs.org'
+          registry-url: ${{ matrix.registry_url }}
       - run: |
           yarn
           yarn build
       - run: yarn publish pkg
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-      - uses: actions/setup-node@master
-        with:
-          registry-url: 'https://npm.pkg.github.com'
-      - run: yarn publish pkg
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ matrix.auth_token }}
