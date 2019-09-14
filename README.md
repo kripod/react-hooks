@@ -12,8 +12,8 @@ Essential set of [React Hooks][] for convenient [Web API][] consumption.
 
 ## Key features
 
-- 📚 **Well-documented** and type-safe interfaces
 - 🌳 **Bundler-friendly** with tree shaking support
+- 📚 **Well-documented** and type-safe interfaces
 - ⚛️ **Zero-config** server-side rendering capability
 - 📦 **Self-contained**, free of runtime dependencies
 
