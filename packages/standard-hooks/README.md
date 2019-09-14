@@ -343,7 +343,11 @@ const Example = () => {
   };
   ```
 
-## Contributors ✨
+## Contributing
+
+Thanks for being interested in contributing! Please read our [contribution guidelines](./CONTRIBUTING.md) to get started.
+
+### Contributors ✨
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 
