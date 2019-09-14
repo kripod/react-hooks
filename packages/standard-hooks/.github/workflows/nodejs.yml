@@ -2,93 +2,54 @@ name: Node CI
 on: [push, pull_request]
 
 jobs:
-  install-dependencies:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@master
-      - uses: actions/setup-node@master
-      - run: yarn
-      - uses: actions/upload-artifact@master
-        with:
-          name: node_modules
-          path: node_modules
-
-  lint:
-    needs: install-dependencies
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@master
-      - uses: actions/setup-node@master
-      - uses: actions/download-artifact@master
-        with:
-          name: node_modules
-      - run: yarn lint
-
-  build:
-    needs: install-dependencies
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@master
-      - uses: actions/setup-node@master
-      - uses: actions/download-artifact@master
-        with:
-          name: node_modules
-      - run: yarn build
-      - uses: actions/upload-artifact@master
-        with:
-          name: pkg
-          path: pkg
-
-  test:
-    needs: install-dependencies
+  lint-and-test:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
         node: [10, 12]
         os: [ubuntu-latest] # TODO: windows-latest, macOS-latest with Codecov
+
     steps:
       - uses: actions/checkout@master
       - uses: actions/setup-node@master
-      - uses: actions/download-artifact@master
         with:
-          name: node_modules
-      - run: yarn test --coverage
+          version: ${{ matrix.node }}
+      - run: |
+          yarn
+          yarn lint
+          yarn test --coverage
         env:
           CI: true
-      - uses: actions/upload-artifact@master
-        with:
-          name: coverage
-          path: coverage
       - uses: codecov/codecov-action@master
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
 
   publish-npm:
-    needs: [lint, build, test]
+    needs: lint-and-test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
       - uses: actions/setup-node@master
         with:
           registry-url: https://registry.npmjs.org
-      - uses: actions/download-artifact@master
-        with:
-          name: pkg
+      - run: |
+          yarn
+          yarn build
       - run: yarn publish pkg
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
   publish-gpr:
-    needs: [lint, build, test]
+    needs: lint-and-test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
       - uses: actions/setup-node@master
         with:
           registry-url: https://npm.pkg.github.com
-      - uses: actions/download-artifact@master
-        with:
-          name: pkg
+      - run: |
+          yarn
+          yarn build
       - run: yarn publish pkg
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
