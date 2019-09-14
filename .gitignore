@@ -1,11 +1,4 @@
-# Logs
 *.log*
-
-# Dependency directories
-node_modules/
-
-# Build output
-pkg/
-
-# Test coverage output
 coverage/
+node_modules/
+pkg/
