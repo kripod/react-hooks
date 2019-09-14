@@ -16,6 +16,9 @@ jobs:
           version: ${{ matrix.node }}
       - run: |
           yarn
-          yarn test
+          yarn test --coverage
         env:
           CI: true
+      - uses: codecov/codecov-action@master
+        with:
+          token: ${{secrets.CODECOV_TOKEN}}
