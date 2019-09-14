@@ -11,7 +11,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@master
-      - uses: actions/setup-node@master
+      - uses: actions/setup-node@v1.1.0
         with:
           version: ${{ matrix.node }}
       - run: |
@@ -23,15 +23,13 @@ jobs:
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
 
-      - run: |
-          yarn build
-          cd pkg
-      - run: npm publish
+      - run: yarn build
+      - run: cd pkg && npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-      - uses: actions/setup-node@master
+      - uses: actions/setup-node@v1.1.0
         with:
           registry-url: 'https://npm.pkg.github.com'
-      - run: npm publish
+      - run: cd pkg && npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
