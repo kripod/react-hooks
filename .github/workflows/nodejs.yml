@@ -2,7 +2,7 @@ name: Node CI
 on: [push, pull_request]
 
 jobs:
-  test-and-publish:
+  build-and-test:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
@@ -14,9 +14,9 @@ jobs:
       - uses: actions/setup-node@master
         with:
           version: ${{ matrix.node }}
-          registry-url: 'https://registry.npmjs.org'
       - run: |
           yarn
+          yarn build
           yarn test --coverage
         env:
           CI: true
@@ -24,10 +24,21 @@ jobs:
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
 
-      - run: yarn build
+  publish-npm:
+    needs: build-and-test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-node@master
+        with:
+          registry-url: 'https://registry.npmjs.org'
       - run: cd pkg && yarn publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+  publish-gpr:
+    needs: build-and-test
+    runs-on: ubuntu-latest
+    steps:
       - uses: actions/setup-node@master
         with:
           registry-url: 'https://npm.pkg.github.com'
