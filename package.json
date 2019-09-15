@@ -1,6 +1,6 @@
 {
   "name": "standard-hooks",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Essential set of React Hooks for convenient Web API consumption.",
   "repository": "github:kripod/standard-hooks",
   "author": "Kristóf Poduszló <kripod@protonmail.com>",
