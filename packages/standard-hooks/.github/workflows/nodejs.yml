@@ -38,6 +38,7 @@ jobs:
       - run: yarn publish pkg
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        continue-on-error: true
   # publish-gpr:
   #   needs: lint-and-test
   #   runs-on: ubuntu-latest
@@ -52,3 +53,4 @@ jobs:
   #     - run: yarn publish pkg
   #       env:
   #         NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  #       continue-on-error: true
