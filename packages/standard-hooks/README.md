@@ -2,7 +2,7 @@
 
 Essential set of [React Hooks][] for convenient [Web API][] consumption.
 
-[![CI status](https://badgen.net/github/status/kripod/standard-hooks)](https://github.com/kripod/standard-hooks/actions)
+![CI status](https://badgen.net/github/status/kripod/standard-hooks)
 [![Code quality](https://badgen.net/lgtm/grade/g/kripod/standard-hooks)](https://lgtm.com/projects/g/kripod/standard-hooks)
 [![Coverage status](https://badgen.net/codecov/c/github/kripod/standard-hooks)](https://codecov.io/gh/kripod/standard-hooks)
 [![Package version](https://badgen.net/npm/v/standard-hooks)](https://yarnpkg.com/package/standard-hooks)
