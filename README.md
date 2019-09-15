@@ -41,6 +41,8 @@ Essential set of [React Hooks][] for convenient [Web API][] consumption.
 - [Scheduling](#scheduling)
   - [useEventListener](#useeventlistener)
   - [useInterval](#useinterval)
+- [State](#state)
+  - [useToggle](#usetoggle)
 
 ### Sensors
 
@@ -329,6 +331,33 @@ const Example = () => {
   // ...
 };
 ```
+
+### State
+
+#### useToggle
+
+- **See: [`useState` hook](https://reactjs.org/docs/hooks-reference.html#usestate), which exposes a similar interface**
+
+Tracks state of a boolean value.
+
+##### Parameters
+
+- `initialValue` Initial value. (optional, default `false`)
+
+##### Examples
+
+```javascript
+const Example = () => {
+  const [isPressed, togglePressed] = useToggle();
+  return (
+    <button type="button" aria-pressed={isPressed} onClick={togglePressed}>
+      Toggle
+    </button>
+  );
+};
+```
+
+Returns **\[[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean), function (nextValue: any): void]** A statefully stored value, and a function to update it. The latter may be called without a boolean argument to negate the value.
 
 ## Performance tips
 
