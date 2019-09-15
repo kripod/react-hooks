@@ -20,3 +20,6 @@ toc:
     children:
       - useEventListener
       - useInterval
+  - name: State
+    children:
+      - useToggle
