@@ -38,18 +38,17 @@ jobs:
       - run: yarn publish pkg
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-  publish-gpr:
-    needs: lint-and-test
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@master
-      - uses: actions/setup-node@master
-        with:
-          registry-url: https://npm.pkg.github.com
-      - run: |
-          yarn
-          yarn build
-      - run: yarn publish pkg
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  # publish-gpr:
+  #   needs: lint-and-test
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@master
+  #     - uses: actions/setup-node@master
+  #       with:
+  #         registry-url: https://npm.pkg.github.com
+  #     - run: |
+  #         yarn
+  #         yarn build
+  #     - run: yarn publish pkg
+  #       env:
+  #         NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
