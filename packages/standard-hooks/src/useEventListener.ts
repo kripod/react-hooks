@@ -13,12 +13,12 @@ import { managedEventListener, useEventCallback } from './utils';
  * @param options Additional listener characteristics.
  *
  * @example
- * const Example = () => {
+ * function Example() {
  *   useEventListener(window, 'error', () => {
  *     console.log('A resource failed to load.');
  *   });
  *   // ...
- * };
+ * }
  */
 export default function useEventListener<
   T extends EventTarget,

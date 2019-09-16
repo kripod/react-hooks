@@ -9,10 +9,10 @@ import { canUseDOM, managedEventListener } from './utils';
  * @returns `false` if the user agent is definitely offline, or `true` if it might be online.
  *
  * @example
- * const Example = () => {
+ * function Example() {
  *   const isOnline = useNetworkAvailability();
  *   // ...
- * };
+ * }
  */
 export default function useNetworkAvailability(): boolean {
   const [online, setOnline] = useState(canUseDOM ? navigator.onLine : true);

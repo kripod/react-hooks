@@ -16,10 +16,10 @@ const initialState: EventArgs<DeviceMotionEvent> = {
  * @returns Own properties of the last corresponding event.
  *
  * @example
- * const Example = () => {
+ * function Example() {
  *   const { acceleration, rotationRate, interval } = useDeviceMotion();
  *   // ...
- * };
+ * }
  */
 export default function useDeviceMotion(): EventArgs<DeviceMotionEvent> {
   const [motion, setMotion] = useState(initialState);

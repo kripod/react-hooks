@@ -9,7 +9,7 @@ import { useCallback, useState } from 'react';
  * @returns {[boolean, function (nextValue: boolean?): void]} A statefully stored value, and a function to update it. The latter may be called without a boolean argument to negate the value.
  *
  * @example
- * const Example = () => {
+ * function Example() {
  *   const [isPressed, togglePressed] = useToggle();
  *   // ...
  *   return (
@@ -17,7 +17,7 @@ import { useCallback, useState } from 'react';
  *       Toggle state
  *     </button>
  *   );
- * };
+ * }
  */
 export default function useToggle(initialValue = false) {
   const [value, setValue] = useState(initialValue);

@@ -16,10 +16,10 @@ const initialState: EventArgs<DeviceOrientationEvent> = {
  * @returns Own properties of the last corresponding event.
  *
  * @example
- * const Example = () => {
+ * function Example() {
  *   const { alpha, beta, gamma } = useDeviceOrientation();
  *   // ...
- * };
+ * }
  */
 export default function useDeviceOrientation(): EventArgs<
   DeviceOrientationEvent

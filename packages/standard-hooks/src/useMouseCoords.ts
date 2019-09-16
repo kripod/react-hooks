@@ -7,10 +7,10 @@ import { managedEventListener } from './utils';
  * @returns Coordinates `[x, y]`, falling back to `[0, 0]` when unavailable.
  *
  * @example
- * const Example = () => {
+ * function Example() {
  *   const [mouseX, mouseY] = useMouseCoords();
  *   // ...
- * };
+ * }
  */
 export default function useMouseCoords(): Readonly<[number, number]> {
   const [coords, setCoords] = useState<Readonly<[number, number]>>([0, 0]);
