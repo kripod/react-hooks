@@ -14,7 +14,7 @@ import { managedEventListener, useEventCallback } from './utils';
  *
  * @example
  * const Example = () => {
- *   useEventListener('error', () => {
+ *   useEventListener(window,'error', () => {
  *     console.log('A resource failed to load.');
  *   });
  *   // ...
