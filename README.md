@@ -372,6 +372,11 @@ Returns **\[[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Referenc
     // ...
   }
   ```
+  
+## Code Sandbox
+
+[**👉  Explore the standard-hooks api with working examples**](https://codesandbox.io/s/focused-cookies-gt5rt?fontsize=14) 
+ 
 
 ## Contributing
 
