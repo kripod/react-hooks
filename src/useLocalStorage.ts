@@ -33,5 +33,5 @@ export default function useLocalStorage<T extends JSONValue>(
   return canAccessLocalStorage
     ? useStorage(localStorage, key, initialValue, errorCallback)
     : useState(getLazyValue(initialValue));
-  /* eslint-enable react-hooks/rules-of-hooks */
+  /* eslint-enable */
 }

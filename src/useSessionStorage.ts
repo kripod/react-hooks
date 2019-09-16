@@ -30,5 +30,5 @@ export default function useSessionStorage<T extends JSONValue>(
   return canAccessSessionStorage
     ? useStorage(sessionStorage, key, initialValue, errorCallback)
     : useState(getLazyValue(initialValue));
-  /* eslint-enable react-hooks/rules-of-hooks */
+  /* eslint-enable */
 }
