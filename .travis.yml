@@ -19,3 +19,9 @@ deploy:
     edge: true
     on:
       tags: true
+  - provider: npm
+    edge: true
+    registry: https://npm.pkg.github.com/@kripod
+    api_token: $GPR_API_TOKEN
+    on:
+      tags: true
