@@ -349,15 +349,16 @@ Tracks state of a boolean value.
 ```javascript
 const Example = () => {
   const [isPressed, togglePressed] = useToggle();
+  // ...
   return (
     <button type="button" aria-pressed={isPressed} onClick={togglePressed}>
-      Toggle
+      Toggle state
     </button>
   );
 };
 ```
 
-Returns **\[[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean), function (nextValue: any): void]** A statefully stored value, and a function to update it. The latter may be called without a boolean argument to negate the value.
+Returns **\[[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean), function (nextValue: [boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)?): void]** A statefully stored value, and a function to update it. The latter may be called without a boolean argument to negate the value.
 
 ## Performance tips
 
