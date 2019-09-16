@@ -6,21 +6,20 @@ import { useCallback, useState } from 'react';
  * @see [`useState` hook](https://reactjs.org/docs/hooks-reference.html#usestate), which exposes a similar interface
  *
  * @param initialValue Initial value.
- * @returns A statefully stored value, and a function to update it. The latter may be called without a boolean argument to negate the value.
+ * @returns {[boolean, function (nextValue: boolean?): void]} A statefully stored value, and a function to update it. The latter may be called without a boolean argument to negate the value.
  *
  * @example
  * const Example = () => {
  *   const [isPressed, togglePressed] = useToggle();
+ *   // ...
  *   return (
  *     <button type="button" aria-pressed={isPressed} onClick={togglePressed}>
- *       Toggle
+ *       Toggle state
  *     </button>
  *   );
  * };
  */
-export default function useToggle(
-  initialValue = false,
-): [boolean, (nextValue?: unknown) => void] {
+export default function useToggle(initialValue = false) {
   const [value, setValue] = useState(initialValue);
 
   const toggleValue = useCallback((nextValue?: unknown) => {
