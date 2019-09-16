@@ -39,6 +39,20 @@
       "contributions": [
         "test"
       ]
+    },
+    {
+      "login": "Jordan-Gilliam",
+      "name": "Nolansym",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/25993686?v=4",
+      "profile": "https://github.com/Jordan-Gilliam",
+      "contributions": [
+        "example"
+      ]
     }
-  ]
+  ],
+  "repoHost": "https://github.com",
+  "files": [
+    "README.md"
+  ],
+  "contributorsPerLine": 7
 }
