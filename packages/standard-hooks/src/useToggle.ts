@@ -1,5 +1,6 @@
 import { useCallback, useState } from 'react';
 
+/* eslint-disable jsdoc/valid-types */
 /**
  * Tracks state of a boolean value.
  *
@@ -19,6 +20,7 @@ import { useCallback, useState } from 'react';
  *   );
  * }
  */
+/* eslint-enable */
 export default function useToggle(initialValue = false) {
   const [value, setValue] = useState(initialValue);
 
