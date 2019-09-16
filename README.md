@@ -2,10 +2,10 @@
 
 Essential set of [React Hooks][] for convenient [Web API][] consumption.
 
-![CI status](https://badgen.net/github/status/kripod/standard-hooks)
+[![CI status](https://badgen.net/travis/kripod/standard-hooks)](https://travis-ci.org/kripod/standard-hooks)
 [![Code quality](https://badgen.net/lgtm/grade/g/kripod/standard-hooks)](https://lgtm.com/projects/g/kripod/standard-hooks)
 [![Coverage status](https://badgen.net/codecov/c/github/kripod/standard-hooks)](https://codecov.io/gh/kripod/standard-hooks)
-[![Package version](https://badgen.net/npm/v/standard-hooks)](https://yarnpkg.com/package/standard-hooks)
+[![Package version](https://badgen.net/npm/v/standard-hooks)](https://www.npmjs.com/package/standard-hooks)
 
 [react hooks]: https://reactjs.org/docs/hooks-intro.html
 [web api]: https://developer.mozilla.org/docs/Web/API
