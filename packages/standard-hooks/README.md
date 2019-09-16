@@ -303,7 +303,7 @@ Listens to an event while the enclosing component is mounted.
 
 ```javascript
 const Example = () => {
-  useEventListener('error', () => {
+  useEventListener(window, 'error', () => {
     console.log('A resource failed to load.');
   });
   // ...
