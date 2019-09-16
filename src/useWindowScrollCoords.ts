@@ -7,10 +7,10 @@ import { canUseDOM, managedEventListener } from './utils';
  * @returns Coordinates `[x, y]`, falling back to `[0, 0]` when unavailable.
  *
  * @example
- * const Example = () => {
+ * function Example() {
  *   const [windowScrollX, windowScrollY] = useWindowScrollCoords();
  *   // ...
- * };
+ * }
  */
 export default function useWindowScrollCoords(): Readonly<[number, number]> {
   const [coords, setCoords] = useState<Readonly<[number, number]>>(

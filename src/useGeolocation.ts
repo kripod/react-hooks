@@ -8,13 +8,13 @@ import { useEffect, useState } from 'react';
  * @returns Locational data, or `undefined` when unavailable.
  *
  * @example
- * const Example = () => {
+ * function Example() {
  *   const geolocation = useGeolocation();
  *   if (geolocation) {
  *     const { coords } = geolocation;
  *   }
  *   // ...
- * };
+ * }
  */
 export default function useGeolocation(
   options?: PositionOptions,

@@ -16,10 +16,10 @@ const canAccessSessionStorage = canAccessStorage(() => sessionStorage);
  * @returns A statefully stored value, and a function to update it.
  *
  * @example
- * const Example = () => {
+ * function Example() {
  *   const [name, setName] = useSessionStorage<string>('name', 'Anonymous');
  *   // ...
- * };
+ * }
  */
 export default function useSessionStorage<T extends JSONValue>(
   key: string,

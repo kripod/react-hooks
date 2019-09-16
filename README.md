@@ -53,10 +53,10 @@ Tracks acceleration and rotation rate of the device.
 ##### Examples
 
 ```javascript
-const Example = () => {
+function Example() {
   const { acceleration, rotationRate, interval } = useDeviceMotion();
   // ...
-};
+}
 ```
 
 Returns **EventArgs&lt;[DeviceMotionEvent](https://developer.mozilla.org/docs/Web/API/DeviceMotionEvent)>** Own properties of the last corresponding event.
@@ -68,10 +68,10 @@ Tracks physical orientation of the device.
 ##### Examples
 
 ```javascript
-const Example = () => {
+function Example() {
   const { alpha, beta, gamma } = useDeviceOrientation();
   // ...
-};
+}
 ```
 
 Returns **EventArgs&lt;[DeviceOrientationEvent](https://developer.mozilla.org/docs/Web/API/DeviceOrientationEvent)>** Own properties of the last corresponding event.
@@ -83,13 +83,13 @@ Tracks loading state of the page.
 ##### Examples
 
 ```javascript
-const Example = () => {
+function Example() {
   const documentReadiness = useDocumentReadiness();
   if (documentReadiness === 'interactive') {
     // You may interact with any element of the document from now
   }
   // ...
-};
+}
 ```
 
 Returns **[DocumentReadyState](https://developer.mozilla.org/docs/Web/API/Document/readyState)** Readiness of the [`document`](https://developer.mozilla.org/docs/Web/API/Document), which is `'loading'` by default.
@@ -101,13 +101,13 @@ Tracks visibility of the page.
 ##### Examples
 
 ```javascript
-const Example = () => {
+function Example() {
   const documentVisibility = useDocumentVisibility();
   if (documentVisibility === 'hidden') {
     // Reduce resource utilization to aid background page performance
   }
   // ...
-};
+}
 ```
 
 Returns **[VisibilityState](https://developer.mozilla.org/docs/Web/API/Document/visibilityState)** Visibility state of the [`document`](https://developer.mozilla.org/docs/Web/API/Document), which is `'visible'` by default.
@@ -124,13 +124,13 @@ Tracks geolocation of the device.
 ##### Examples
 
 ```javascript
-const Example = () => {
+function Example() {
   const geolocation = useGeolocation();
   if (geolocation) {
     const { coords } = geolocation;
   }
   // ...
-};
+}
 ```
 
 Returns **([Position](https://developer.mozilla.org/docs/Web/API/Position) \| [undefined](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/undefined))** Locational data, or `undefined` when unavailable.
@@ -142,10 +142,10 @@ Tracks mouse position.
 ##### Examples
 
 ```javascript
-const Example = () => {
+function Example() {
   const [mouseX, mouseY] = useMouseCoords();
   // ...
-};
+}
 ```
 
 Returns **Readonly&lt;\[[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number), [number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)]>** Coordinates `[x, y]`, falling back to `[0, 0]` when unavailable.
@@ -159,10 +159,10 @@ Tracks information about the network's availability.
 ##### Examples
 
 ```javascript
-const Example = () => {
+function Example() {
   const isOnline = useNetworkAvailability();
   // ...
-};
+}
 ```
 
 Returns **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** `false` if the user agent is definitely offline, or `true` if it might be online.
@@ -176,13 +176,13 @@ Tracks information about the device's network connection.
 ##### Examples
 
 ```javascript
-const Example = () => {
+function Example() {
   const networkInformation = useNetworkInformation();
   if (networkInformation) {
     const { effectiveType, downlink, rtt, saveData } = networkInformation;
   }
   // ...
-};
+}
 ```
 
 Returns **([NetworkInformation](https://developer.mozilla.org/docs/Web/API/NetworkInformation) \| [undefined](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/undefined))** Connection data, or `undefined` when unavailable.
@@ -194,10 +194,10 @@ Tracks preferred languages of the user.
 ##### Examples
 
 ```javascript
-const Example = () => {
+function Example() {
   const preferredLanguages = usePreferredLanguages();
   // ...
-};
+}
 ```
 
 Returns **ReadonlyArray&lt;[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>** An array of [BCP 47](https://tools.ietf.org/html/bcp47) language tags, ordered by preference with the most preferred language first.
@@ -209,10 +209,10 @@ Tracks window scroll position.
 ##### Examples
 
 ```javascript
-const Example = () => {
+function Example() {
   const [windowScrollX, windowScrollY] = useWindowScrollCoords();
   // ...
-};
+}
 ```
 
 Returns **Readonly&lt;\[[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number), [number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)]>** Coordinates `[x, y]`, falling back to `[0, 0]` when unavailable.
@@ -224,10 +224,10 @@ Tracks window size.
 ##### Examples
 
 ```javascript
-const Example = () => {
+function Example() {
   const [windowWidth, windowHeight] = useWindowSize();
   // ...
-};
+}
 ```
 
 Returns **Readonly&lt;\[[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number), [number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)]>** Dimensions `[width, height]`, falling back to `[0, 0]` when unavailable.
@@ -249,14 +249,14 @@ Stores a key/value pair statefully in [`localStorage`](https://developer.mozilla
 ##### Examples
 
 ```javascript
-const Example = () => {
+function Example() {
   const [visitCount, setVisitCount] =
     useLocalStorage < number > ('visitCount', 0);
   useEffect(() => {
     setVisitCount(count => count + 1);
   }, []);
   // ...
-};
+}
 ```
 
 Returns **\[T, React.Dispatch&lt;React.SetStateAction&lt;T>>]** A statefully stored value, and a function to update it.
@@ -276,10 +276,10 @@ Stores a key/value pair statefully in [`sessionStorage`](https://developer.mozil
 ##### Examples
 
 ```javascript
-const Example = () => {
+function Example() {
   const [name, setName] = useSessionStorage < string > ('name', 'Anonymous');
   // ...
-};
+}
 ```
 
 Returns **\[T, React.Dispatch&lt;React.SetStateAction&lt;T>>]** A statefully stored value, and a function to update it.
@@ -302,12 +302,12 @@ Listens to an event while the enclosing component is mounted.
 ##### Examples
 
 ```javascript
-const Example = () => {
+function Example() {
   useEventListener(window, 'error', () => {
     console.log('A resource failed to load.');
   });
   // ...
-};
+}
 ```
 
 #### useInterval
@@ -324,12 +324,12 @@ Repeatedly calls a function with a fixed time delay between each call.
 ##### Examples
 
 ```javascript
-const Example = () => {
+function Example() {
   useInterval(() => {
     // Custom logic to execute each second
   }, 1000);
   // ...
-};
+}
 ```
 
 ### State
@@ -347,7 +347,7 @@ Tracks state of a boolean value.
 ##### Examples
 
 ```javascript
-const Example = () => {
+function Example() {
   const [isPressed, togglePressed] = useToggle();
   // ...
   return (
@@ -355,7 +355,7 @@ const Example = () => {
       Toggle state
     </button>
   );
-};
+}
 ```
 
 Returns **\[[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean), function (nextValue: [boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)?): void]** A statefully stored value, and a function to update it. The latter may be called without a boolean argument to negate the value.
@@ -367,10 +367,10 @@ Returns **\[[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Referenc
 
   ```tsx
   const geolocationOptions = { enableHighAccuracy: true };
-  const Example = () => {
+  function Example() {
     const geolocation = useGeolocation(geolocationOptions);
     // ...
-  };
+  }
   ```
 
 ## Contributing

@@ -16,13 +16,13 @@ const canAccessLocalStorage = canAccessStorage(() => localStorage);
  * @returns A statefully stored value, and a function to update it.
  *
  * @example
- * const Example = () => {
+ * function Example() {
  *   const [visitCount, setVisitCount] = useLocalStorage<number>('visitCount', 0);
  *   useEffect(() => {
  *     setVisitCount(count => count + 1);
  *   }, []);
  *   // ...
- * };
+ * }
  */
 export default function useLocalStorage<T extends JSONValue>(
   key: string,

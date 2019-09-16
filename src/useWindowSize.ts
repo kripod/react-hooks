@@ -7,10 +7,10 @@ import { canUseDOM, managedEventListener } from './utils';
  * @returns Dimensions `[width, height]`, falling back to `[0, 0]` when unavailable.
  *
  * @example
- * const Example = () => {
+ * function Example() {
  *   const [windowWidth, windowHeight] = useWindowSize();
  *   // ...
- * };
+ * }
  */
 export default function useWindowSize(): Readonly<[number, number]> {
   const [size, setSize] = useState<Readonly<[number, number]>>(
