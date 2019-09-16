@@ -11,3 +11,11 @@ node_js:
 script:
   - yarn lint
   - yarn test --coverage
+  - yarn build
+
+before_deploy: cd pkg
+deploy:
+  - provider: npm
+    edge: true
+    on:
+      tags: true
