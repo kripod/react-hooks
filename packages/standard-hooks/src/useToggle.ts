@@ -21,7 +21,9 @@ import { useCallback, useState } from 'react';
  *   );
  * }
  */
-export default function useToggle(initialValue = false) {
+export default function useToggle(
+  initialValue = false,
+): [boolean, (nextValue?: boolean) => void] {
   const [value, setValue] = useState(initialValue);
 
   const toggleValue = useCallback((nextValue?: unknown) => {
