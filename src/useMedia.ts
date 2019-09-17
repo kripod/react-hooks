@@ -1,4 +1,5 @@
 import { useEffect, useState, useRef } from 'react';
+import { canUseDOM, mockMediaQueryList } from './utils';
 
 /**
  * Tracks media query match state.
@@ -14,8 +15,12 @@ import { useEffect, useState, useRef } from 'react';
  * }
  */
 export default function useMedia(query: string): boolean {
-  const queryListRef = useRef(window.matchMedia(query));
-  const [isMatch, setIsMatch] = useState<boolean>(queryListRef.current.matches);
+  const queryListRef = useRef<MediaQueryList>(
+    canUseDOM ? window.matchMedia(query) : mockMediaQueryList,
+  );
+  const [isMatch, setIsMatch] = useState<boolean>(
+    () => queryListRef.current.matches,
+  );
 
   useEffect(() => {
     const queryList = queryListRef.current;
