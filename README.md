@@ -136,6 +136,25 @@ function Example() {
 
 Returns **([Position](https://developer.mozilla.org/docs/Web/API/Position) \| [undefined](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/undefined))** Locational data, or `undefined` when unavailable.
 
+#### useMedia
+
+Tracks match state of a media query.
+
+##### Parameters
+
+- `query` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** Media query to parse.
+
+##### Examples
+
+```javascript
+function Example() {
+  const isWidescreen = useMedia('(min-aspect-ratio: 16/9)');
+  // ...
+}
+```
+
+Returns **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** `true` if the associated media query list matches the state of the [`document`](https://developer.mozilla.org/docs/Web/API/Document), or `false` otherwise.
+
 #### useMouseCoords
 
 Tracks mouse position.
@@ -232,25 +251,6 @@ function Example() {
 ```
 
 Returns **Readonly&lt;\[[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number), [number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)]>** Dimensions `[width, height]`, falling back to `[0, 0]` when unavailable.
-
-#### useMedia
-
-Tracks match state of a media query.
-
-##### Parameters
-
-- `query` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** Media query to parse.
-
-##### Examples
-
-```javascript
-function Example() {
-  const isWidescreen = useMedia('(min-aspect-ratio: 16/9)');
-  // ...
-}
-```
-
-Returns **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** `true` if the associated media query list matches the state of the [`document`](https://developer.mozilla.org/docs/Web/API/Document), or `false` otherwise.
 
 ### Storage
 
