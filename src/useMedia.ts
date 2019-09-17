@@ -2,15 +2,15 @@ import { useEffect, useState, useRef } from 'react';
 import { canUseDOM, mockMediaQueryList } from './utils';
 
 /**
- * Tracks media query match state.
+ * Tracks match state of a media query.
  *
- * @param query media query string for evaluation
+ * @param query Media query to parse.
  *
- * @returns {boolean} isMatch
+ * @returns {boolean} `true` if the associated media query list matches the state of the [`document`](https://developer.mozilla.org/docs/Web/API/Document), or `false` otherwise.
  *
  * @example
  * function Example() {
- *   const isWidescreen = useMedia('(min-width: 400px)');
+ *   const isWidescreen = useMedia('(min-aspect-ratio: 16/9)');
  *   // ...
  * }
  */
