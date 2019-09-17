@@ -40,14 +40,3 @@ export function useEventCallback<T extends Function>(callback: T) {
   // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
   return useCallback((...args) => ref.current!(...args) as T, [ref]);
 }
-
-export const mockMediaQueryList: MediaQueryList = {
-  matches: false,
-  addListener: () => {},
-  removeListener: () => {},
-  media: '',
-  onchange: null,
-  addEventListener: () => {},
-  removeEventListener: () => {},
-  dispatchEvent: () => false,
-};

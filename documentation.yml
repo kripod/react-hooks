@@ -12,6 +12,7 @@ toc:
       - usePreferredLanguages
       - useWindowScrollCoords
       - useWindowSize
+      - useMedia
   - name: Storage
     children:
       - useLocalStorage

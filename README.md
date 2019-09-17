@@ -35,6 +35,7 @@ Essential set of [React Hooks][] for convenient [Web API][] consumption.
   - [usePreferredLanguages](#usepreferredlanguages)
   - [useWindowScrollCoords](#usewindowscrollcoords)
   - [useWindowSize](#usewindowsize)
+  - [useMedia](#usemedia)
 - [Storage](#storage)
   - [useLocalStorage](#uselocalstorage)
   - [useSessionStorage](#usesessionstorage)
@@ -43,9 +44,6 @@ Essential set of [React Hooks][] for convenient [Web API][] consumption.
   - [useInterval](#useinterval)
 - [State](#state)
   - [useToggle](#usetoggle)
-- [useMedia](#usemedia)
-  - [Parameters](#parameters)
-  - [Examples](#examples)
 
 ### Sensors
 
@@ -235,6 +233,25 @@ function Example() {
 
 Returns **Readonly&lt;\[[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number), [number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)]>** Dimensions `[width, height]`, falling back to `[0, 0]` when unavailable.
 
+#### useMedia
+
+Tracks match state of a media query.
+
+##### Parameters
+
+- `query` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** Media query to parse.
+
+##### Examples
+
+```javascript
+function Example() {
+  const isWidescreen = useMedia('(min-aspect-ratio: 16/9)');
+  // ...
+}
+```
+
+Returns **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** `true` if the associated media query list matches the state of the [`document`](https://developer.mozilla.org/docs/Web/API/Document), or `false` otherwise.
+
 ### Storage
 
 #### useLocalStorage
@@ -362,25 +379,6 @@ function Example() {
 ```
 
 Returns **\[[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean), function (nextValue: [boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)?): void]** A statefully stored value, and a function to update it. The latter may be called without a boolean argument to negate the value.
-
-### useMedia
-
-Tracks media query match state.
-
-#### Parameters
-
-- `query` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** media query string for evalution
-
-#### Examples
-
-```javascript
-function Example() {
-  const isWidescreen = useMedia('(min-width: 400px)');
-  // ...
-}
-```
-
-Returns **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** isMatch
 
 ## Performance tips
 
