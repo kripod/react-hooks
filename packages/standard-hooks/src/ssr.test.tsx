@@ -30,6 +30,7 @@ test.each(
     useInterval: () => hooks.useInterval(() => {}, 0),
     useLocalStorage: () => hooks.useLocalStorage('foo'),
     useSessionStorage: () => hooks.useSessionStorage('foo'),
+    useMedia: () => hooks.useMedia('(max-width: 300px)'),
   }),
 )('%s supports SSR', (_name, callback) => {
   renderHookToString(callback);

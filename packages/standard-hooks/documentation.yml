@@ -6,6 +6,7 @@ toc:
       - useDocumentReadiness
       - useDocumentVisibility
       - useGeolocation
+      - useMedia
       - useMouseCoords
       - useNetworkAvailability
       - useNetworkInformation

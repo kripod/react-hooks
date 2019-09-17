@@ -29,6 +29,7 @@ Essential set of [React Hooks][] for convenient [Web API][] consumption.
   - [useDocumentReadiness](#usedocumentreadiness)
   - [useDocumentVisibility](#usedocumentvisibility)
   - [useGeolocation](#usegeolocation)
+  - [useMedia](#usemedia)
   - [useMouseCoords](#usemousecoords)
   - [useNetworkAvailability](#usenetworkavailability)
   - [useNetworkInformation](#usenetworkinformation)
@@ -134,6 +135,25 @@ function Example() {
 ```
 
 Returns **([Position](https://developer.mozilla.org/docs/Web/API/Position) \| [undefined](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/undefined))** Locational data, or `undefined` when unavailable.
+
+#### useMedia
+
+Tracks match state of a media query.
+
+##### Parameters
+
+- `query` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** Media query to parse.
+
+##### Examples
+
+```javascript
+function Example() {
+  const isWidescreen = useMedia('(min-aspect-ratio: 16/9)');
+  // ...
+}
+```
+
+Returns **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** `true` if the associated media query list matches the state of the [`document`](https://developer.mozilla.org/docs/Web/API/Document), or `false` otherwise.
 
 #### useMouseCoords
 
@@ -372,11 +392,10 @@ Returns **\[[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Referenc
     // ...
   }
   ```
-  
+
 ## Code Sandbox
 
-[**👉  Explore the standard-hooks api with working examples**](https://codesandbox.io/s/focused-cookies-gt5rt?fontsize=14) 
- 
+[**👉 Explore the standard-hooks api with working examples**](https://codesandbox.io/s/focused-cookies-gt5rt?fontsize=14)
 
 ## Contributing
 
@@ -387,7 +406,8 @@ Thanks for being interested in contributing! Please read our [contribution guide
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
 <table>
   <tr>
     <td align="center"><a href="https://github.com/kripod"><img src="https://avatars3.githubusercontent.com/u/14854048?v=4" width="100px;" alt="Kristóf Poduszló"/><br /><sub><b>Kristóf Poduszló</b></sub></a><br /><a href="#maintenance-kripod" title="Maintenance">🚧</a> <a href="https://github.com/kripod/standard-hooks/commits?author=kripod" title="Code">💻</a> <a href="https://github.com/kripod/standard-hooks/commits?author=kripod" title="Tests">⚠️</a> <a href="https://github.com/kripod/standard-hooks/commits?author=kripod" title="Documentation">📖</a> <a href="#example-kripod" title="Examples">💡</a> <a href="#ideas-kripod" title="Ideas, Planning, & Feedback">🤔</a> <a href="#infra-kripod" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a></td>
@@ -397,6 +417,9 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/Jordan-Gilliam"><img src="https://avatars0.githubusercontent.com/u/25993686?v=4" width="100px;" alt="Nolansym"/><br /><sub><b>Nolansym</b></sub></a><br /><a href="#example-Jordan-Gilliam" title="Examples">💡</a></td>
   </tr>
 </table>
+
+<!-- markdownlint-enable -->
+<!-- prettier-ignore-end -->
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
