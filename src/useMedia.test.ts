@@ -1,5 +1,5 @@
 import { renderHook } from '@testing-library/react-hooks';
-import useMedia from './useMedia';
+import { useMedia } from '.';
 
 test('evaluates media query', () => {
   const addListener = jest.fn();

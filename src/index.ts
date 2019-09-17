@@ -15,3 +15,4 @@ export { default as usePreferredLanguages } from './usePreferredLanguages';
 export { default as useSessionStorage } from './useSessionStorage';
 export { default as useWindowScrollCoords } from './useWindowScrollCoords';
 export { default as useWindowSize } from './useWindowSize';
+export { default as useMedia } from './useMedia';
