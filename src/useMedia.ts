@@ -3,7 +3,7 @@ import { useEffect, useState, useRef } from 'react';
 /**
  * Tracks media query match state.
  *
- * @param query media query string for evalution
+ * @param query media query string for evaluation
  *
  * @returns {boolean} isMatch
  *
