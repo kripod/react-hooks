@@ -31,11 +31,11 @@ Before making a non-trivial change, please discuss it via [issues][]. You should
 1. If you made documentation changes, then update `documentation.yml` and run `yarn doc`
 1. Open a new pull request, [referencing corresponding issues][] if available
 
+## License
+
+As a collaborator, you agree to license your contributions under the project's [MIT license](./LICENSE).
+
 [issues]: https://github.com/kripod/standard-hooks/issues
 [prettier]: https://prettier.io/
 [airbnb javascript style guide]: https://github.com/airbnb/javascript
 [referencing corresponding issues]: https://help.github.com/en/articles/closing-issues-using-keywords
-
-## License
-
-As a collaborator, you agree to license your contributions under the project's [MIT license](./LICENSE).
