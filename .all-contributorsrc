@@ -2,7 +2,10 @@
   "projectName": "standard-hooks",
   "projectOwner": "kripod",
   "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": ["README.md"],
   "commitConvention": "none",
+  "contributorsPerLine": 7,
   "contributors": [
     {
       "login": "kripod",
@@ -58,10 +61,5 @@
         "example"
       ]
     }
-  ],
-  "repoHost": "https://github.com",
-  "files": [
-    "README.md"
-  ],
-  "contributorsPerLine": 7
+  ]
 }
