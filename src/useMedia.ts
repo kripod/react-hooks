@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { canUseDOM, managedEventListener } from './utils';
 
 /**
@@ -15,20 +15,21 @@ import { canUseDOM, managedEventListener } from './utils';
  * }
  */
 export default function useMedia(query: string): boolean {
-  const mediaQueryListRef = useRef(canUseDOM && matchMedia(query));
-
+  const mediaQueryList = useMemo(() => canUseDOM && matchMedia(query), [query]);
   const [matches, setMatches] = useState(
-    mediaQueryListRef.current && mediaQueryListRef.current.matches,
+    mediaQueryList && mediaQueryList.matches,
   );
 
-  useEffect(() =>
-    mediaQueryListRef.current
-      ? managedEventListener(mediaQueryListRef.current, 'change', ((
-          event: MediaQueryListEvent,
-        ) => {
-          setMatches(event.matches);
-        }) as EventListener)
-      : undefined,
+  useEffect(
+    () =>
+      mediaQueryList
+        ? managedEventListener(mediaQueryList, 'change', ((
+            event: MediaQueryListEvent,
+          ) => {
+            setMatches(event.matches);
+          }) as EventListener)
+        : undefined,
+    [mediaQueryList],
   );
 
   return matches;

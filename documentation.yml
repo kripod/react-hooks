@@ -6,13 +6,13 @@ toc:
       - useDocumentReadiness
       - useDocumentVisibility
       - useGeolocation
+      - useMedia
       - useMouseCoords
       - useNetworkAvailability
       - useNetworkInformation
       - usePreferredLanguages
       - useWindowScrollCoords
       - useWindowSize
-      - useMedia
   - name: Storage
     children:
       - useLocalStorage

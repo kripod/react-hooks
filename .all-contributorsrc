@@ -2,7 +2,12 @@
   "projectName": "standard-hooks",
   "projectOwner": "kripod",
   "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": [
+    "README.md"
+  ],
   "commitConvention": "none",
+  "contributorsPerLine": 7,
   "contributors": [
     {
       "login": "kripod",
@@ -48,11 +53,27 @@
       "contributions": [
         "doc"
       ]
+    },
+    {
+      "login": "Jordan-Gilliam",
+      "name": "Nolansym",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/25993686?v=4",
+      "profile": "https://github.com/Jordan-Gilliam",
+      "contributions": [
+        "example"
+      ]
+    },
+    {
+      "login": "cmoog",
+      "name": "Charles Moog",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/7585078?v=4",
+      "profile": "https://github.com/cmoog",
+      "contributions": [
+        "code",
+        "test",
+        "doc",
+        "example"
+      ]
     }
-  ],
-  "repoHost": "https://github.com",
-  "files": [
-    "README.md"
-  ],
-  "contributorsPerLine": 7
+  ]
 }
