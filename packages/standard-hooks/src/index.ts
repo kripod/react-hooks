@@ -13,5 +13,6 @@ export { default as useNetworkAvailability } from './useNetworkAvailability';
 export { default as useNetworkInformation } from './useNetworkInformation';
 export { default as usePreferredLanguages } from './usePreferredLanguages';
 export { default as useSessionStorage } from './useSessionStorage';
+export { default as useToggle } from './useToggle';
 export { default as useWindowScrollCoords } from './useWindowScrollCoords';
 export { default as useWindowSize } from './useWindowSize';
