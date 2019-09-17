@@ -10,6 +10,7 @@ toc:
       - useMouseCoords
       - useNetworkAvailability
       - useNetworkInformation
+      - usePreferredColorScheme
       - usePreferredLanguages
       - useWindowScrollCoords
       - useWindowSize
