@@ -17,3 +17,4 @@ export { default as useToggle } from './useToggle';
 export { default as useWindowScrollCoords } from './useWindowScrollCoords';
 export { default as useWindowSize } from './useWindowSize';
 export { default as useMedia } from './useMedia';
+export { default as usePreferredColorScheme } from './usePreferredColorScheme';
