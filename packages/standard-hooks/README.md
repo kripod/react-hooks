@@ -394,6 +394,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="http://twitter.com/dan_abramov"><img src="https://avatars0.githubusercontent.com/u/810438?v=4" width="100px;" alt="Dan Abramov"/><br /><sub><b>Dan Abramov</b></sub></a><br /><a href="https://github.com/kripod/standard-hooks/commits?author=gaearon" title="Code">💻</a> <a href="#blog-gaearon" title="Blogposts">📝</a> <a href="#ideas-gaearon" title="Ideas, Planning, & Feedback">🤔</a> <a href="#tutorial-gaearon" title="Tutorials">✅</a></td>
     <td align="center"><a href="https://donavon.com"><img src="https://avatars3.githubusercontent.com/u/887639?v=4" width="100px;" alt="Donavon West"/><br /><sub><b>Donavon West</b></sub></a><br /><a href="https://github.com/kripod/standard-hooks/commits?author=donavon" title="Tests">⚠️</a></td>
     <td align="center"><a href="https://github.com/prsnnami"><img src="https://avatars1.githubusercontent.com/u/11041007?v=4" width="100px;" alt="Prasanna Mishra"/><br /><sub><b>Prasanna Mishra</b></sub></a><br /><a href="https://github.com/kripod/standard-hooks/commits?author=prsnnami" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://github.com/Jordan-Gilliam"><img src="https://avatars0.githubusercontent.com/u/25993686?v=4" width="100px;" alt="Nolansym"/><br /><sub><b>Nolansym</b></sub></a><br /><a href="#example-Jordan-Gilliam" title="Examples">💡</a></td>
   </tr>
 </table>
 
