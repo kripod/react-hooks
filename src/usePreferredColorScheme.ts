@@ -3,7 +3,7 @@ import useMedia from './useMedia';
 /**
  * Tracks color scheme preference.
  *
- * @returns {'light' | 'dark' | 'no-preference' | null} isMatch
+ * @returns {'light' | 'dark' | 'no-preference' | null} preferred color scheme
  *
  * @example
  * function Example() {
