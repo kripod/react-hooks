@@ -2,6 +2,22 @@ import { renderHook } from '@testing-library/react-hooks';
 import useMedia from './useMedia';
 
 test('evaluates media query', () => {
-  const isWidescreen = renderHook(() => useMedia('(min-width: 400px)'));
-  expect(isWidescreen).toEqual(true);
+  const addListener = jest.fn();
+  const removeListener = jest.fn();
+  window.matchMedia = jest.fn().mockImplementation(query => {
+    return {
+      matches: false,
+      media: query,
+      onchange: null,
+      addListener,
+      removeListener,
+    };
+  });
+
+  const { result, unmount } = renderHook(() => useMedia('(min-width: 400px)'));
+
+  expect(result.current).toEqual(false);
+  expect(addListener).toHaveBeenCalled();
+  unmount();
+  expect(removeListener).toHaveBeenCalled();
 });

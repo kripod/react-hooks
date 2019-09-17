@@ -1,5 +1,4 @@
-import { useEffect, useState } from 'react';
-import { managedEventListener } from './utils';
+import { useEffect, useState, useRef } from 'react';
 
 /**
  * Tracks media query match state.
@@ -15,17 +14,20 @@ import { managedEventListener } from './utils';
  * }
  */
 export default function useMedia(query: string): boolean {
-  const [isMatch, setIsMatch] = useState<boolean>(
-    window.matchMedia(query).matches,
-  );
+  const queryListRef = useRef(window.matchMedia(query));
+  const [isMatch, setIsMatch] = useState<boolean>(queryListRef.current.matches);
 
-  useEffect(
-    () =>
-      managedEventListener(window, 'resize', () => {
-        setIsMatch(window.matchMedia(query).matches);
-      }),
-    [query],
-  );
+  useEffect(() => {
+    const queryList = queryListRef.current;
+    const handler = () => {
+      setIsMatch(window.matchMedia(query).matches);
+    };
+
+    queryList.addListener(handler);
+    return () => {
+      queryList.removeListener(handler);
+    };
+  }, [query]);
 
   return isMatch;
 }
