@@ -1,4 +1,4 @@
-import { useMedia } from '.';
+import useMedia from './useMedia';
 
 /**
  * Tracks color scheme preference.
