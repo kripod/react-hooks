@@ -2,22 +2,28 @@ import { renderHook } from '@testing-library/react-hooks';
 import { useMedia } from '.';
 
 test('evaluates media query', () => {
-  const addListener = jest.fn();
-  const removeListener = jest.fn();
-  window.matchMedia = jest.fn().mockImplementation(query => {
+  const addEventListener = jest.fn();
+  const removeEventListener = jest.fn();
+
+  window.matchMedia = query => {
     return {
       matches: false,
       media: query,
       onchange: null,
-      addListener,
-      removeListener,
+      addEventListener,
+      removeEventListener,
+      addListener: () => {},
+      removeListener: () => {},
+      dispatchEvent: () => false,
     };
-  });
+  };
 
-  const { result, unmount } = renderHook(() => useMedia('(min-width: 400px)'));
+  const { result, unmount } = renderHook(() => useMedia('(min-width: 600px)'));
+
+  expect(addEventListener).toHaveBeenCalled();
 
   expect(result.current).toEqual(false);
-  expect(addListener).toHaveBeenCalled();
+
   unmount();
-  expect(removeListener).toHaveBeenCalled();
+  expect(removeEventListener).toHaveBeenCalled();
 });
