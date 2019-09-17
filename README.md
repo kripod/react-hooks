@@ -33,6 +33,7 @@ Essential set of [React Hooks][] for convenient [Web API][] consumption.
   - [useMouseCoords](#usemousecoords)
   - [useNetworkAvailability](#usenetworkavailability)
   - [useNetworkInformation](#usenetworkinformation)
+  - [usePreferredColorScheme](#usepreferredcolorscheme)
   - [usePreferredLanguages](#usepreferredlanguages)
   - [useWindowScrollCoords](#usewindowscrollcoords)
   - [useWindowSize](#usewindowsize)
@@ -44,8 +45,6 @@ Essential set of [React Hooks][] for convenient [Web API][] consumption.
   - [useInterval](#useinterval)
 - [State](#state)
   - [useToggle](#usetoggle)
-- [usePreferredColorScheme](#usepreferredcolorscheme)
-  - [Examples](#examples)
 
 ### Sensors
 
@@ -208,6 +207,22 @@ function Example() {
 ```
 
 Returns **([NetworkInformation](https://developer.mozilla.org/docs/Web/API/NetworkInformation) \| [undefined](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/undefined))** Connection data, or `undefined` when unavailable.
+
+#### usePreferredColorScheme
+
+Tracks color scheme preference.
+
+##### Examples
+
+```javascript
+function Example() {
+  const const preferredColorScheme = usePreferredColorScheme();
+  const isDarkMode = usePreferredColorScheme() === 'dark';
+  // ...
+}
+```
+
+Returns **(`"light"` \| `"dark"` \| `"no-preference"` | null)** preferred color scheme
 
 #### usePreferredLanguages
 
@@ -381,22 +396,6 @@ function Example() {
 ```
 
 Returns **\[[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean), function (nextValue: [boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)?): void]** A statefully stored value, and a function to update it. The latter may be called without a boolean argument to negate the value.
-
-### usePreferredColorScheme
-
-Tracks color scheme preference.
-
-#### Examples
-
-```javascript
-function Example() {
-  const const preferredColorScheme = usePreferredColorScheme();
-  const isDarkMode = usePreferredColorScheme() === 'dark';
-  // ...
-}
-```
-
-Returns **(`"light"` \| `"dark"` \| `"no-preference"` | null)** preferred color scheme
 
 ## Performance tips
 
