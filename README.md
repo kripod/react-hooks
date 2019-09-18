@@ -210,23 +210,23 @@ Returns **([NetworkInformation](https://developer.mozilla.org/docs/Web/API/Netwo
 
 #### usePreferredColorScheme
 
-Tracks color scheme preference.
+Tracks color scheme preference of the user.
 
 ##### Examples
 
 ```javascript
 function Example() {
-  const const preferredColorScheme = usePreferredColorScheme();
+  const preferredColorScheme = usePreferredColorScheme();
   const isDarkMode = usePreferredColorScheme() === 'dark';
   // ...
 }
 ```
 
-Returns **(`"light"` \| `"dark"` \| `"no-preference"` | null)** preferred color scheme
+Returns **(`"no-preference"` \| `"light"` \| `"dark"`)** Preferred color scheme.
 
 #### usePreferredLanguages
 
-Tracks preferred languages of the user.
+Tracks language preferences of the user.
 
 ##### Examples
 
@@ -423,8 +423,8 @@ Thanks for being interested in contributing! Please read our [contribution guide
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore-start -->
-<!-- markdownlint-disable -->
+
+<!-- prettier-ignore -->
 <table>
   <tr>
     <td align="center"><a href="https://github.com/kripod"><img src="https://avatars3.githubusercontent.com/u/14854048?v=4" width="100px;" alt="Kristóf Poduszló"/><br /><sub><b>Kristóf Poduszló</b></sub></a><br /><a href="#maintenance-kripod" title="Maintenance">🚧</a> <a href="https://github.com/kripod/standard-hooks/commits?author=kripod" title="Code">💻</a> <a href="https://github.com/kripod/standard-hooks/commits?author=kripod" title="Tests">⚠️</a> <a href="https://github.com/kripod/standard-hooks/commits?author=kripod" title="Documentation">📖</a> <a href="#example-kripod" title="Examples">💡</a> <a href="#ideas-kripod" title="Ideas, Planning, & Feedback">🤔</a> <a href="#infra-kripod" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a></td>
@@ -435,9 +435,6 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/cmoog"><img src="https://avatars1.githubusercontent.com/u/7585078?v=4" width="100px;" alt="Charles Moog"/><br /><sub><b>Charles Moog</b></sub></a><br /><a href="https://github.com/kripod/standard-hooks/commits?author=cmoog" title="Code">💻</a> <a href="https://github.com/kripod/standard-hooks/commits?author=cmoog" title="Tests">⚠️</a> <a href="https://github.com/kripod/standard-hooks/commits?author=cmoog" title="Documentation">📖</a> <a href="#example-cmoog" title="Examples">💡</a></td>
   </tr>
 </table>
-
-<!-- markdownlint-enable -->
-<!-- prettier-ignore-end -->
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 

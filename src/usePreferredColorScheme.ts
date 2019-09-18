@@ -1,21 +1,21 @@
 import useMedia from './useMedia';
 
 /**
- * Tracks color scheme preference.
+ * Tracks color scheme preference of the user.
  *
- * @returns {'light' | 'dark' | 'no-preference'} preferred color scheme
+ * @returns Preferred color scheme.
  *
  * @example
  * function Example() {
- *   const const preferredColorScheme = usePreferredColorScheme();
+ *   const preferredColorScheme = usePreferredColorScheme();
  *   const isDarkMode = usePreferredColorScheme() === 'dark';
  *   // ...
  * }
  */
 export default function usePreferredColorScheme():
-  | 'dark'
+  | 'no-preference'
   | 'light'
-  | 'no-preference' {
+  | 'dark' {
   const isLight = useMedia('(prefers-color-scheme: light)');
   const isDark = useMedia('(prefers-color-scheme: dark)');
 
