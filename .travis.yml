@@ -22,7 +22,7 @@ deploy:
     edge: true
     on:
       os: linux
-      node: 12
+      node: lts/*
   - provider: npm
     edge:
       branch: master
