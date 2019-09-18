@@ -16,6 +16,7 @@ script:
   - yarn build
 
 before_deploy: cd pkg
+after_deploy: cd ..
 deploy:
   - provider: npm
     edge: true
