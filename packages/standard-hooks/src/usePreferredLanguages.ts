@@ -8,7 +8,7 @@ function getPreferredLanguages() {
 // TODO: Use `readonly string[]` instead of `ReadonlyArray<string>`
 
 /**
- * Tracks preferred languages of the user.
+ * Tracks language preferences of the user.
  *
  * @returns An array of [BCP 47](https://tools.ietf.org/html/bcp47) language tags, ordered by preference with the most preferred language first.
  *
