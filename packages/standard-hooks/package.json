@@ -26,6 +26,9 @@
         "@pika/plugin-ts-standard-pkg"
       ],
       [
+        "@pika/plugin-build-node"
+      ],
+      [
         "@pika/plugin-build-web"
       ]
     ]
@@ -38,6 +41,7 @@
   },
   "devDependencies": {
     "@pika/pack": "^0.5.0",
+    "@pika/plugin-build-node": "^0.6.1",
     "@pika/plugin-build-web": "^0.6.0",
     "@pika/plugin-ts-standard-pkg": "^0.6.0",
     "@testing-library/react": "^9.1.4",
