@@ -21,7 +21,6 @@ deploy:
   - provider: npm
     edge: true
     on:
-      tags: true
       os: linux
       node: 12
   - provider: npm
