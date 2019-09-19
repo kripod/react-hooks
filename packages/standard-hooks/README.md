@@ -394,7 +394,7 @@ Tracks state of a boolean value.
 
 ##### Parameters
 
-- `initialValue` Initial value. (optional, default `false`)
+- `initialValue` **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)?** Initial value. (optional, default `false`)
 
 ##### Examples
 
