@@ -2,11 +2,17 @@ import { useState } from 'react';
 import usePrevious from './usePrevious';
 import { MAX_ARRAY_INDEX } from './utils';
 
+/**
+ * Records states of a value over time.
+ *
+ * @param value Props, state or any other calculated value.
+ * @param maxLength Maximum amount of states to store. Should be an integer more than 1.
+ * @returns Results of state updates in chronological order.
+ */
 export default function useTimeline<T>(
   value: T,
   maxLength: number = MAX_ARRAY_INDEX,
-): T[] {
-  // TODO: Consider logging a warning if maxLength <= 1
+): ReadonlyArray<T> {
   const [values, setValues] = useState(maxLength > 0 ? [value] : []);
   const prevValue = usePrevious(value);
 
