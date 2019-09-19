@@ -49,6 +49,7 @@ Essential set of [React Hooks][] for convenient [Web API][] consumption.
   - [useInterval](#useinterval)
 - [State](#state)
   - [usePrevious](#useprevious)
+  - [useTimeline](#usetimeline)
   - [useToggle](#usetoggle)
 
 ### Sensors
@@ -385,6 +386,17 @@ Tracks previous state of a value.
 - `value` **T** Props, state or any other calculated value.
 
 Returns **T** Value from the previous render of the enclosing component.
+
+#### useTimeline
+
+Records states of a value over time.
+
+##### Parameters
+
+- `value` **T** Props, state or any other calculated value.
+- `maxLength` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** Maximum amount of states to store. Should be an integer more than 1. (optional, default `MAX_ARRAY_INDEX`)
+
+Returns **ReadonlyArray&lt;T>** Results of state updates in chronological order.
 
 #### useToggle
 
