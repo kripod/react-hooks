@@ -48,6 +48,7 @@ Essential set of [React Hooks][] for convenient [Web API][] consumption.
   - [useEventListener](#useeventlistener)
   - [useInterval](#useinterval)
 - [State](#state)
+  - [usePrevious](#useprevious)
   - [useToggle](#usetoggle)
 
 ### Sensors
@@ -374,6 +375,16 @@ function Example() {
 ```
 
 ### State
+
+#### usePrevious
+
+Tracks previous state of a value.
+
+##### Parameters
+
+- `value` **T** Props, state or any other calculated value.
+
+Returns **T** Value from the previous render of the enclosing component.
 
 #### useToggle
 

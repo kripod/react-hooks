@@ -24,4 +24,5 @@ toc:
       - useInterval
   - name: State
     children:
+      - usePrevious
       - useToggle
