@@ -21,6 +21,7 @@ deploy:
   - provider: npm
     edge: true
     on:
+      tags: true
       os: linux
       node: lts/*
   - provider: npm
@@ -31,4 +32,4 @@ deploy:
     on:
       tags: true
       os: linux
-      node: 12
+      node: lts/*
