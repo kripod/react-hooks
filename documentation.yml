@@ -25,4 +25,5 @@ toc:
   - name: State
     children:
       - usePrevious
+      - useTimeline
       - useToggle
