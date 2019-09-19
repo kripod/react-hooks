@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- [usePrevious](https://github.com/kripod/standard-hooks/blob/master/src/usePrevious.ts) hook (#18)
+
 ## [1.1.2] - 2019-09-19
 
 ### Fixed
