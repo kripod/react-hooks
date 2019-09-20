@@ -7,7 +7,7 @@ import { useCallback, useState } from 'react';
  *
  * @see [`useState` hook](https://reactjs.org/docs/hooks-reference.html#usestate), which exposes a similar interface
  *
- * @param {boolean?} initialValue Initial value.
+ * @param {boolean} initialValue Initial value.
  * @returns {[boolean, function (nextValue: boolean?): void]} A statefully stored value, and a function to update it. The latter may be called without a boolean argument to negate the value.
  *
  * @example
