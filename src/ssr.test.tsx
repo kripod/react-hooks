@@ -29,8 +29,10 @@ test.each(
     useGeolocation: () => hooks.useGeolocation(),
     useInterval: () => hooks.useInterval(() => {}, 0),
     useLocalStorage: () => hooks.useLocalStorage('foo'),
-    useSessionStorage: () => hooks.useSessionStorage('foo'),
     useMedia: () => hooks.useMedia('(max-width: 300px)'),
+    usePrevious: () => hooks.usePrevious(0),
+    useSessionStorage: () => hooks.useSessionStorage('foo'),
+    useTimeline: () => hooks.useTimeline(0),
   }),
 )('%s supports SSR', (_name, callback) => {
   renderHookToString(callback);
