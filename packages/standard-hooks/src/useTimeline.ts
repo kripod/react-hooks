@@ -21,7 +21,7 @@ export default function useTimeline<T>(
   value: T,
   maxLength: number = MAX_ARRAY_INDEX,
 ): ReadonlyArray<T> {
-  const valuesRef = useRef(maxLength > 0 ? [value] : []);
+  const valuesRef = useRef<T[]>([]);
   const prevValue = usePrevious(value);
 
   if (!Object.is(value, prevValue)) {
