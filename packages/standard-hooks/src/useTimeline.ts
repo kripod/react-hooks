@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useRef } from 'react';
 import usePrevious from './usePrevious';
 import { MAX_ARRAY_INDEX } from './utils';
 
@@ -21,14 +21,13 @@ export default function useTimeline<T>(
   value: T,
   maxLength: number = MAX_ARRAY_INDEX,
 ): ReadonlyArray<T> {
-  const [values, setValues] = useState(maxLength > 0 ? [value] : []);
+  const valuesRef = useRef(maxLength > 0 ? [value] : []);
   const prevValue = usePrevious(value);
 
   if (!Object.is(value, prevValue)) {
-    setValues(prevValues =>
-      [...prevValues, value].splice(-maxLength, maxLength),
-    );
+    valuesRef.current.push(value);
+    valuesRef.current.splice(0, valuesRef.current.length - maxLength);
   }
 
-  return values;
+  return valuesRef.current;
 }
