@@ -21,13 +21,16 @@ export default function useTimeline<T>(
   value: T,
   maxLength: number = MAX_ARRAY_INDEX,
 ): ReadonlyArray<T> {
-  const values = useRef<T[]>([]).current;
+  const valuesRef = useRef<T[]>([]);
   const prevValue = usePrevious(value);
 
   if (!Object.is(value, prevValue)) {
-    values.push(value);
-    values.splice(0, values.length - maxLength);
+    // Use immutable refs to behave like state variables
+    valuesRef.current = [...valuesRef.current, value].splice(
+      -maxLength,
+      maxLength,
+    );
   }
 
-  return values;
+  return valuesRef.current;
 }
