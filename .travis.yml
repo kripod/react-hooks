@@ -27,7 +27,7 @@ deploy:
   - provider: npm
     edge:
       branch: master
-    registry: npm.pkg.github.com/@kripod
+    registry: https://npm.pkg.github.com/@kripod
     api_token: $GPR_API_TOKEN
     on:
       tags: true
