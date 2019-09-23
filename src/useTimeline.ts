@@ -26,10 +26,11 @@ export default function useTimeline<T>(
 
   if (!Object.is(value, prevValue)) {
     // Use immutable refs to behave like state variables
-    valuesRef.current = [...valuesRef.current, value].splice(
-      -maxLength,
-      maxLength,
-    );
+    valuesRef.current = [...valuesRef.current, value];
+  }
+
+  if (valuesRef.current.length > maxLength) {
+    valuesRef.current.splice(0, valuesRef.current.length - maxLength);
   }
 
   return valuesRef.current;

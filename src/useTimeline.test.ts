@@ -67,3 +67,28 @@ test('immutability of timeline values', () => {
   expect(result.current.counts).toEqual([123, 456]);
   expect(result.current.prevCounts).toEqual([0, 123]);
 });
+
+test('change timeline capacity', () => {
+  const { result } = renderHook(() => {
+    const [count, setCount] = useState(0);
+    const [capacity, setCapacity] = useState(10);
+    const counts = useTimeline(count, capacity);
+    return { count, setCount, setCapacity, counts };
+  });
+  expect(result.current.counts).toEqual([0]);
+
+  act(() => {
+    result.current.setCount(123);
+  });
+  expect(result.current.counts).toEqual([0, 123]);
+
+  act(() => {
+    result.current.setCount(456);
+  });
+  expect(result.current.counts).toEqual([0, 123, 456]);
+
+  act(() => {
+    result.current.setCapacity(2);
+  });
+  expect(result.current.counts).toEqual([123, 456]);
+});
