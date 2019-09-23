@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Make callback signature of [useToggle](https://github.com/kripod/standard-hooks/blob/master/src/useToggle.ts) compatible with the example provided
+
 ### Fixed
 
 - Type declaration of [usePrevious](https://github.com/kripod/standard-hooks/blob/master/src/usePrevious.ts) hook
