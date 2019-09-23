@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import { JSONValue } from './types';
-import { getLazyValue } from './utils';
+import { getThunkValue } from './utils';
 
 export default function useStorage<T extends JSONValue>(
   getStorage: () => Storage | null,
@@ -30,7 +30,7 @@ export default function useStorage<T extends JSONValue>(
         }
       }
     }
-    return getLazyValue(initialValue);
+    return getThunkValue(initialValue);
   });
 
   useEffect(() => {
