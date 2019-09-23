@@ -396,7 +396,7 @@ function Example() {
 }
 ```
 
-Returns **T** Value from the previous render of the enclosing component.
+Returns **(T | [undefined](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/undefined))** Value from the previous render of the enclosing component.
 
 #### useTimeline
 
@@ -405,7 +405,7 @@ Records states of a value over time.
 ##### Parameters
 
 - `value` **T** Props, state or any other calculated value.
-- `maxLength` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** Maximum amount of states to store. Should be an integer more than 1. (optional, default `MAX_ARRAY_INDEX`)
+- `maxLength` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** Maximum amount of states to store. Should be an integer greater than 1. (optional, default `MAX_ARRAY_INDEX`)
 
 ##### Examples
 
