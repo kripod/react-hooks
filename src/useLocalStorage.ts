@@ -1,9 +1,7 @@
-import { useState } from 'react';
 import { JSONValue } from './types';
-import useStorage, { canAccessStorage } from './useStorage';
-import { getLazyValue } from './utils';
+import useStorage from './useStorage';
 
-const canAccessLocalStorage = canAccessStorage(() => localStorage);
+const getLocalStorage = () => localStorage;
 
 /**
  * Stores a key/value pair statefully in [`localStorage`](https://developer.mozilla.org/docs/Web/API/Window/localStorage).
@@ -29,9 +27,5 @@ export default function useLocalStorage<T extends JSONValue>(
   initialValue: T | (() => T) | null = null,
   errorCallback?: (error: DOMException | TypeError) => void,
 ): [T, React.Dispatch<React.SetStateAction<T>>] {
-  /* eslint-disable react-hooks/rules-of-hooks */
-  return canAccessLocalStorage
-    ? useStorage(localStorage, key, initialValue, errorCallback)
-    : useState(getLazyValue(initialValue));
-  /* eslint-enable */
+  return useStorage(getLocalStorage, key, initialValue, errorCallback);
 }
