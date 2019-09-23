@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { JSONValue } from './types';
 import { getLazyValue } from './utils';
 
@@ -8,13 +8,15 @@ export default function useStorage<T extends JSONValue>(
   initialValue: T | (() => T) | null = null,
   errorCallback?: (error: DOMException | TypeError) => void,
 ): [T, React.Dispatch<React.SetStateAction<T>>] {
-  let storage: Storage | null | undefined;
-  try {
-    // Check if the storage object is defined and available
-    // Prior to Firefox 70, localStorage may be null
-    storage = getStorage();
-    // eslint-disable-next-line no-empty
-  } catch {}
+  const storage = useMemo(() => {
+    try {
+      // Check if the storage object is defined and available
+      // Prior to Firefox 70, localStorage may be null
+      return getStorage();
+      // eslint-disable-next-line no-empty
+    } catch {}
+    return null;
+  }, [getStorage]);
 
   const [value, setValue] = useState(() => {
     if (storage) {
