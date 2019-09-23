@@ -6,8 +6,8 @@ export const canUseDOM = typeof window !== 'undefined';
 // Source: https://www.ecma-international.org/ecma-262/#array-index
 export const MAX_ARRAY_INDEX = 2 ** 32 - 1;
 
-export function getThunkValue<T>(thunk: T | (() => T)) {
-  return typeof thunk === 'function' ? (thunk as () => T)() : (thunk as T);
+export function dethunkify<T>(value: T | (() => T)) {
+  return typeof value === 'function' ? (value as () => T)() : (value as T);
 }
 
 export function managedEventListener<

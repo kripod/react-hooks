@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import { JSONValue } from './types';
-import { getThunkValue } from './utils';
+import { dethunkify } from './utils';
 
 export default function useStorage<T extends JSONValue>(
   getStorage: () => Storage | null,
@@ -30,7 +30,7 @@ export default function useStorage<T extends JSONValue>(
         }
       }
     }
-    return getThunkValue(initialValue);
+    return dethunkify(initialValue);
   });
 
   useEffect(() => {
