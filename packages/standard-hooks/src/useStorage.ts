@@ -18,7 +18,7 @@ export default function useStorage<T extends JSONValue>(
     return null;
   }, [getStorage]);
 
-  const [value, setValue] = useState(() => {
+  const [value, setValue] = useState<T>(() => {
     if (storage) {
       const serializedValue = storage.getItem(key);
       if (serializedValue != null) {
