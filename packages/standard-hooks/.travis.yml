@@ -14,6 +14,7 @@ script:
   - yarn lint
   - yarn test --coverage
   - yarn build
+  - bash <(curl -s https://codecov.io/bash)
 
 before_deploy: cd pkg
 after_deploy: cd ..
