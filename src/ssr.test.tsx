@@ -1,6 +1,6 @@
 /** @jest-environment node */
 
-import React from 'react';
+import React, { useState } from 'react';
 import { renderToString } from 'react-dom/server';
 import * as hooks from '.';
 
@@ -33,6 +33,7 @@ test.each(
     usePrevious: () => hooks.usePrevious(0),
     useSessionStorage: () => hooks.useSessionStorage('foo'),
     useTimeline: () => hooks.useTimeline(0),
+    useUndoable: () => hooks.useUndoable(useState()),
   }),
 )('%s supports SSR', (_name, callback) => {
   renderHookToString(callback);
