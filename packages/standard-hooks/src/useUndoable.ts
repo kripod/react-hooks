@@ -4,9 +4,7 @@ import { extendSetStateAction } from './utils';
 export default function useUndoable<T>([value, setValue]: [
   T,
   React.Dispatch<React.SetStateAction<T>>,
-  () => void,
-  () => void,
-]) {
+]): [T, React.Dispatch<React.SetStateAction<T>>, () => void, () => void] {
   // Source: https://github.com/mjackson/react-loop-2019
   const valuesRef = useRef([value]);
   const [index, setIndex] = useState(0);
