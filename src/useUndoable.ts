@@ -1,4 +1,5 @@
 import { useCallback, useRef, useState } from 'react';
+import { extendSetStateAction } from './utils';
 
 export default function useUndoable<T>([value, setValue]: [
   T,
@@ -13,18 +14,13 @@ export default function useUndoable<T>([value, setValue]: [
   function newSetValue(update: React.SetStateAction<T>) {
     const nextIndex = index + 1;
 
-    setValue(prevValue => {
-      const nextValue =
-        typeof update === 'function'
-          ? (update as (prevValue: T) => T)(prevValue)
-          : update;
-
-      // Truncate any future redos
-      valuesRef.current = valuesRef.current.slice(0, nextIndex);
-      valuesRef.current.push(nextValue);
-
-      return nextValue;
-    });
+    setValue(
+      extendSetStateAction(update, nextValue => {
+        // Truncate any future redos
+        valuesRef.current = valuesRef.current.slice(0, nextIndex);
+        valuesRef.current.push(nextValue);
+      }),
+    );
 
     setIndex(nextIndex);
   }

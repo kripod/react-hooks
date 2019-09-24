@@ -32,6 +32,20 @@ export function managedInterval(callback: () => void, delayMs: number) {
   };
 }
 
+export function extendSetStateAction<T>(
+  action: React.SetStateAction<T>,
+  extension: (nextValue: T) => void,
+): React.SetStateAction<T> {
+  return prevValue => {
+    const nextValue =
+      typeof action === 'function'
+        ? (action as (prevValue: T) => T)(prevValue)
+        : action;
+    extension(nextValue);
+    return nextValue;
+  };
+}
+
 export function useEventCallback<T extends Function>(callback: T) {
   // Source: https://reactjs.org/docs/hooks-faq.html#how-to-read-an-often-changing-value-from-usecallback
   const ref = useRef<T>();
