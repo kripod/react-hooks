@@ -10,6 +10,20 @@ export function dethunkify<T>(value: T | (() => T)) {
   return typeof value === 'function' ? (value as () => T)() : (value as T);
 }
 
+export function extendSetStateAction<T>(
+  action: React.SetStateAction<T>,
+  extension: (nextValue: T) => void,
+): React.SetStateAction<T> {
+  return prevValue => {
+    const nextValue =
+      typeof action === 'function'
+        ? (action as (prevValue: T) => T)(prevValue)
+        : action;
+    extension(nextValue);
+    return nextValue;
+  };
+}
+
 export function managedEventListener<
   T extends EventTarget,
   K extends keyof EventMap<T> & string
@@ -29,20 +43,6 @@ export function managedInterval(callback: () => void, delayMs: number) {
   const id = setInterval(callback, delayMs);
   return () => {
     clearInterval(id);
-  };
-}
-
-export function extendSetStateAction<T>(
-  action: React.SetStateAction<T>,
-  extension: (nextValue: T) => void,
-): React.SetStateAction<T> {
-  return prevValue => {
-    const nextValue =
-      typeof action === 'function'
-        ? (action as (prevValue: T) => T)(prevValue)
-        : action;
-    extension(nextValue);
-    return nextValue;
   };
 }
 
