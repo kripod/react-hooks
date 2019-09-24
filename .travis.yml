@@ -27,8 +27,7 @@ deploy:
       os: linux
       node: lts/*
   - provider: npm
-    edge:
-      branch: master
+    edge: true
     registry: https://npm.pkg.github.com
     api_token: $GPR_API_TOKEN
     on:
