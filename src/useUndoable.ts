@@ -11,7 +11,7 @@ export default function useUndoable<T>([value, setValue]: [
   const valuesRef = useRef([value]);
   const [index, setIndex] = useState(0);
 
-  function newSetValue(update: React.SetStateAction<T>) {
+  const newSetValue = useRef((update: React.SetStateAction<T>) => {
     const nextIndex = index + 1;
 
     setValue(
@@ -23,7 +23,7 @@ export default function useUndoable<T>([value, setValue]: [
     );
 
     setIndex(nextIndex);
-  }
+  }).current;
 
   const undo = useCallback(() => {
     setIndex(prevIndex => Math.max(0, prevIndex - 1));
