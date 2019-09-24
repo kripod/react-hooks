@@ -12,16 +12,22 @@ test('basic undo/redo functionality', () => {
     setValue(456);
   });
   expect(result.current[0]).toBe(456);
+  expect(result.current[4]).toBe(true);
+  expect(result.current[5]).toBe(false);
 
   act(() => {
     undo();
   });
   expect(result.current[0]).toBe(123);
+  expect(result.current[4]).toBe(false);
+  expect(result.current[5]).toBe(true);
 
   act(() => {
     redo();
   });
   expect(result.current[0]).toBe(456);
+  expect(result.current[4]).toBe(true);
+  expect(result.current[5]).toBe(false);
 });
 
 test('apply state updater function on undoable state', () => {
