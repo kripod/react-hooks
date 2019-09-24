@@ -1,5 +1,5 @@
 import { useCallback } from 'react';
-import { extendSetStateAction } from './utils';
+import { modifySetStateAction } from './utils';
 
 export default function useCounter(
   [value, setValue]: [number, React.Dispatch<React.SetStateAction<number>>],
@@ -8,12 +8,11 @@ export default function useCounter(
 ) {
   const newSetValue = useCallback(
     (update: React.SetStateAction<number>) => {
-      setValue(prevValue => {
-        const nextValue =
-          typeof update === 'function' ? update(prevValue) : update;
-
-        return Math.max(minValue, Math.min(maxValue, nextValue));
-      });
+      setValue(
+        modifySetStateAction(update, nextValue =>
+          Math.max(minValue, Math.min(maxValue, nextValue)),
+        ),
+      );
     },
     [maxValue, minValue, setValue],
   );

@@ -1,5 +1,5 @@
 import { useCallback, useRef, useState } from 'react';
-import { extendSetStateAction } from './utils';
+import { modifySetStateAction } from './utils';
 
 /**
  * Wraps a state hook to add undo/redo functionality.
@@ -48,10 +48,11 @@ export default function useUndoable<T>([value, setValue]: [
       const nextIndex = index + 1;
 
       setValue(
-        extendSetStateAction(update, nextValue => {
+        modifySetStateAction(update, nextValue => {
           // Truncate any future redos
           valuesRef.current = valuesRef.current.slice(0, nextIndex);
           valuesRef.current.push(nextValue);
+          return nextValue;
         }),
       );
 
