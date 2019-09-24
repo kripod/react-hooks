@@ -16,8 +16,9 @@ script:
   - yarn test --coverage
   - bash <(curl -s https://codecov.io/bash)
 
+# TODO: Remove temporary fix for GPR
 before_deploy: cd pkg
-after_deploy: cd ..
+after_deploy: echo 'registry=https://npm.pkg.github.com/@kripod' > .npmrc && cd ..
 deploy:
   - provider: npm
     edge: true
@@ -28,7 +29,7 @@ deploy:
   - provider: npm
     edge:
       branch: master
-    registry: https://npm.pkg.github.com/@kripod
+    registry: https://npm.pkg.github.com
     api_token: $GPR_API_TOKEN
     on:
       tags: true
