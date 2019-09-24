@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- [useUndoable](https://github.com/kripod/standard-hooks/blob/master/src/useUndoable.ts) hook ([#30][])
+
 ## [1.2.1] - 2019-09-24
 
 ### Changed
@@ -81,4 +85,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#23]: https://github.com/kripod/standard-hooks/issues/23
 [#25]: https://github.com/kripod/standard-hooks/issues/25
 [#29]: https://github.com/kripod/standard-hooks/issues/29
+[#30]: https://github.com/kripod/standard-hooks/issues/30
 [#31]: https://github.com/kripod/standard-hooks/issues/31
