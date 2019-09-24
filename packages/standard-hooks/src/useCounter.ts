@@ -17,5 +17,19 @@ export default function useCounter(
     [maxValue, minValue, setValue],
   );
 
-  return [value, newSetValue];
+  const incrementValue = useCallback(
+    (amount = 1) => {
+      newSetValue(prevValue => prevValue + amount);
+    },
+    [newSetValue],
+  );
+
+  const decrementValue = useCallback(
+    (amount = 1) => {
+      incrementValue(-amount);
+    },
+    [incrementValue],
+  );
+
+  return [value, newSetValue, incrementValue, decrementValue];
 }
