@@ -1,5 +1,6 @@
 export { EventArgs, EventMap, JSONArray, JSONObject, JSONValue } from './types';
 
+export { default as useCounter } from './useCounter';
 export { default as useDeviceMotion } from './useDeviceMotion';
 export { default as useDeviceOrientation } from './useDeviceOrientation';
 export { default as useDocumentReadiness } from './useDocumentReadiness';
