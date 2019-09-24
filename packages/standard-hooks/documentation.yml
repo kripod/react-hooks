@@ -27,3 +27,4 @@ toc:
       - usePrevious
       - useTimeline
       - useToggle
+      - useUndoable
