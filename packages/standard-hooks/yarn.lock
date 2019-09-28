@@ -6496,14 +6496,14 @@ react-is@^16.8.1, react-is@^16.8.4, react-is@^16.8.6:
   integrity sha512-WRki2sBb7MTpYp7FtDEmSeGKX2vamYyq3rc9o7fKUG+/DHVyJu69NnvJsiSwwhh2Tt8XN40MQHkDBEXwyfxncQ==
 
 react-test-renderer@^16.9.0:
-  version "16.10.0"
-  resolved "https://registry.yarnpkg.com/react-test-renderer/-/react-test-renderer-16.10.0.tgz#33dddd71e4f43d58a4e1dfa332d4b8e683084baf"
-  integrity sha512-lO8zoAWiEpNKfQvup7b36gsVwcPJxswL9a6IrVloOHwvsB6bhrlQVYH4Wqfhhp/oXOyDNvPnQU1g6xLglPqAJA==
+  version "16.10.1"
+  resolved "https://registry.yarnpkg.com/react-test-renderer/-/react-test-renderer-16.10.1.tgz#75b8e8ce152e00eadd303e9fa514a2ca917ee049"
+  integrity sha512-VT8nd7XrrUV7MQPxeIuH7WstfrK2A8kgcMwGUtVXa0ja+CiYkxdmLYNjwX1L7irRF7ydzJJWiSLsQf2xBj4Xaw==
   dependencies:
     object-assign "^4.1.1"
     prop-types "^15.6.2"
     react-is "^16.8.6"
-    scheduler "^0.16.0"
+    scheduler "^0.16.1"
 
 react@^16.9.0:
   version "16.10.1"
