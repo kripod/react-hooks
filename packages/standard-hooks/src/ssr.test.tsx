@@ -29,7 +29,7 @@ test.each(
     useGeolocation: () => hooks.useGeolocation(),
     useInterval: () => hooks.useInterval(() => {}, 0),
     useLocalStorage: () => hooks.useLocalStorage('foo'),
-    useMedia: () => hooks.useMedia('(max-width: 300px)'),
+    useMedia: () => hooks.useMedia('(min-width: 600px)'),
     usePrevious: () => hooks.usePrevious(0),
     useSessionStorage: () => hooks.useSessionStorage('foo'),
     useTimeline: () => hooks.useTimeline(0),
