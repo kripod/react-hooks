@@ -11,6 +11,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - [useUndoable](https://github.com/kripod/standard-hooks/blob/master/src/useUndoable.ts) hook ([#30][])
 
+### Changed
+
+- Use regular 'VisibilityState' type ([#33][])
+
 ## [1.2.1] - 2019-09-24
 
 ### Changed
@@ -87,3 +91,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#29]: https://github.com/kripod/standard-hooks/issues/29
 [#30]: https://github.com/kripod/standard-hooks/issues/30
 [#31]: https://github.com/kripod/standard-hooks/issues/31
+[#33]: https://github.com/kripod/standard-hooks/issues/33
