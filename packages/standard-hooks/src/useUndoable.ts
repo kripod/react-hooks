@@ -16,11 +16,11 @@ import { useCallback, useRef } from 'react';
  *   // ...
  *   return (
  *     <>
- *       <button type="button" disabled={pastValues.length === 0} onClick={undo}>
+ *       <button type="button" onClick={undo} disabled={pastValues.length === 0}>
  *         Undo
  *       </button>
  *       <input value={value} onChange={e => setValue(e.target.value)} />
- *       <button type="button" disabled={futureValues.length === 0} onClick={redo}>
+ *       <button type="button" onClick={redo} disabled={futureValues.length === 0}>
  *         Redo
  *       </button>
  *     </>
@@ -38,7 +38,7 @@ export default function useUndoable<T>([value, setValue]: [
   T[],
   T[],
 ] {
-  // Source: https://github.com/mjackson/react-loop-2019
+  // Source: https://redux.js.org/recipes/implementing-undo-history
   const pastValuesRef = useRef<T[]>([]);
   const futureValuesRef = useRef<T[]>([]);
 
@@ -60,8 +60,8 @@ export default function useUndoable<T>([value, setValue]: [
       setValue(prevValue => {
         const nextValue =
           pastValuesRef.current[pastValuesRef.current.length - 1];
-        futureValuesRef.current = [prevValue, ...futureValuesRef.current];
         pastValuesRef.current = pastValuesRef.current.slice(0, -1);
+        futureValuesRef.current = [prevValue, ...futureValuesRef.current];
         return nextValue;
       });
     }
@@ -71,8 +71,8 @@ export default function useUndoable<T>([value, setValue]: [
     if (futureValuesRef.current.length > 0) {
       setValue(prevValue => {
         const nextValue = futureValuesRef.current[0];
-        pastValuesRef.current = [...pastValuesRef.current, prevValue];
         futureValuesRef.current = futureValuesRef.current.slice(1);
+        pastValuesRef.current = [...pastValuesRef.current, prevValue];
         return nextValue;
       });
     }
