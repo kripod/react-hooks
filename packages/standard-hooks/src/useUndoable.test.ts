@@ -12,22 +12,22 @@ test('basic undo/redo functionality', () => {
     setValue(456);
   });
   expect(result.current[0]).toBe(456);
-  expect(result.current[4]).toBe(true);
-  expect(result.current[5]).toBe(false);
+  expect(result.current[4]).toEqual([123]);
+  expect(result.current[5]).toEqual([]);
 
   act(() => {
     undo();
   });
   expect(result.current[0]).toBe(123);
-  expect(result.current[4]).toBe(false);
-  expect(result.current[5]).toBe(true);
+  expect(result.current[4]).toEqual([]);
+  expect(result.current[5]).toEqual([456]);
 
   act(() => {
     redo();
   });
   expect(result.current[0]).toBe(456);
-  expect(result.current[4]).toBe(true);
-  expect(result.current[5]).toBe(false);
+  expect(result.current[4]).toEqual([123]);
+  expect(result.current[5]).toEqual([]);
 });
 
 test('apply state updater function on undoable state', () => {
