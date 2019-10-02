@@ -51,6 +51,7 @@ Essential set of [React Hooks][] for convenient [Web API][] consumption.
   - [usePrevious](#useprevious)
   - [useTimeline](#usetimeline)
   - [useToggle](#usetoggle)
+  - [useUndoable](#useundoable)
 
 ### Sensors
 
@@ -446,6 +447,40 @@ function Example() {
 
 Returns **\[[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean), function (nextValue: [boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)?): void]** A statefully stored value, and a function to update it. The latter may be called without a boolean argument to negate the value.
 
+#### useUndoable
+
+Wraps a state hook to add undo/redo functionality.
+
+##### Parameters
+
+- `useStateResult` **\[T, React.Dispatch&lt;React.SetStateAction&lt;T>>]** Return value of a state hook.
+  - `useStateResult.0` Current state.
+  - `useStateResult.1` State updater function.
+
+##### Examples
+
+```javascript
+function Example() {
+  const [value, setValue, undo, redo, pastValues, futureValues] = useUndoable(
+    useState(''),
+  );
+  // ...
+  return (
+    <>
+      <button type="button" onClick={undo} disabled={pastValues.length === 0}>
+        Undo
+      </button>
+      <input value={value} onChange={e => setValue(e.target.value)} />
+      <button type="button" onClick={redo} disabled={futureValues.length === 0}>
+        Redo
+      </button>
+    </>
+  );
+}
+```
+
+Returns **\[T, React.Dispatch&lt;React.SetStateAction&lt;T>>, function (): void, function (): void, [Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;T>, [Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;T>]** State hook result extended with `undo`, `redo`, `pastValues` and `futureValues`.
+
 ## Performance tips
 
 - Avoid layout thrashing by [debouncing or throttling](https://css-tricks.com/debouncing-throttling-explained-examples/) high frequency events, e.g. scrolling or mouse movements
@@ -478,7 +513,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/prsnnami"><img src="https://avatars1.githubusercontent.com/u/11041007?v=4" width="100px;" alt="Prasanna Mishra"/><br /><sub><b>Prasanna Mishra</b></sub></a><br /><a href="https://github.com/kripod/standard-hooks/commits?author=prsnnami" title="Documentation">📖</a></td>
     <td align="center"><a href="https://github.com/Jordan-Gilliam"><img src="https://avatars0.githubusercontent.com/u/25993686?v=4" width="100px;" alt="Nolansym"/><br /><sub><b>Nolansym</b></sub></a><br /><a href="#example-Jordan-Gilliam" title="Examples">💡</a></td>
     <td align="center"><a href="https://github.com/cmoog"><img src="https://avatars1.githubusercontent.com/u/7585078?v=4" width="100px;" alt="Charles Moog"/><br /><sub><b>Charles Moog</b></sub></a><br /><a href="https://github.com/kripod/standard-hooks/commits?author=cmoog" title="Code">💻</a> <a href="https://github.com/kripod/standard-hooks/commits?author=cmoog" title="Tests">⚠️</a> <a href="https://github.com/kripod/standard-hooks/commits?author=cmoog" title="Documentation">📖</a> <a href="#example-cmoog" title="Examples">💡</a></td>
-    <td align="center"><a href="https://mjackson.me"><img src="https://avatars0.githubusercontent.com/u/92839?v=4" width="100px;" alt="Michael Jackson"/><br /><sub><b>Michael Jackson</b></sub></a><br /><a href="https://github.com/kripod/standard-hooks/commits?author=mjackson" title="Code">💻</a> <a href="#ideas-mjackson" title="Ideas, Planning, & Feedback">🤔</a></td>
+    <td align="center"><a href="https://mjackson.me"><img src="https://avatars0.githubusercontent.com/u/92839?v=4" width="100px;" alt="Michael Jackson"/><br /><sub><b>Michael Jackson</b></sub></a><br /><a href="#ideas-mjackson" title="Ideas, Planning, & Feedback">🤔</a></td>
   </tr>
 </table>
 
