@@ -1,5 +1,4 @@
-import { useCallback, useRef, useState } from 'react';
-import { modifySetStateAction } from './utils';
+import { useCallback, useRef } from 'react';
 
 /**
  * Wraps a state hook to add undo/redo functionality.
@@ -7,7 +6,7 @@ import { modifySetStateAction } from './utils';
  * @param useStateResult Return value of a state hook.
  * @param useStateResult.0 Current state.
  * @param useStateResult.1 State updater function.
- * @returns State hook result extended with `undo`, `redo`, `canUndo` and `canRedo`.
+ * @returns State hook result extended with `undo`, `redo`, `pastValues` and `futureValues`.
  *
  * @example
  * function Example() {
@@ -36,43 +35,55 @@ export default function useUndoable<T>([value, setValue]: [
   React.Dispatch<React.SetStateAction<T>>,
   () => void,
   () => void,
-  boolean,
-  boolean,
+  T[],
+  T[],
 ] {
   // Source: https://github.com/mjackson/react-loop-2019
-  const valuesRef = useRef([value]);
-  const [index, setIndex] = useState(0);
+  const pastValuesRef = useRef<T[]>([]);
+  const futureValuesRef = useRef<T[]>([]);
 
   const newSetValue = useCallback(
     (update: React.SetStateAction<T>) => {
-      const nextIndex = index + 1;
-
-      setValue(
-        modifySetStateAction(update, nextValue => {
-          // Truncate any future redos
-          valuesRef.current = valuesRef.current.slice(0, nextIndex);
-          valuesRef.current.push(nextValue);
-          return nextValue;
-        }),
-      );
-
-      setIndex(nextIndex);
+      setValue(prevValue => {
+        futureValuesRef.current = [];
+        pastValuesRef.current = [...pastValuesRef.current, prevValue];
+        return typeof update === 'function'
+          ? (update as (prevValue: T) => T)(prevValue)
+          : update;
+      });
     },
-    [index, setValue],
+    [setValue],
   );
 
   const undo = useCallback(() => {
-    setIndex(prevIndex => Math.max(0, prevIndex - 1));
-  }, []);
+    if (pastValuesRef.current.length > 0) {
+      setValue(prevValue => {
+        const nextValue =
+          pastValuesRef.current[pastValuesRef.current.length - 1];
+        futureValuesRef.current = [prevValue, ...futureValuesRef.current];
+        pastValuesRef.current = pastValuesRef.current.slice(0, -1);
+        return nextValue;
+      });
+    }
+  }, [setValue]);
 
   const redo = useCallback(() => {
-    setIndex(prevIndex =>
-      Math.min(valuesRef.current.length - 1, prevIndex + 1),
-    );
-  }, []);
+    if (futureValuesRef.current.length > 0) {
+      setValue(prevValue => {
+        const nextValue = futureValuesRef.current[0];
+        pastValuesRef.current = [...pastValuesRef.current, prevValue];
+        futureValuesRef.current = futureValuesRef.current.slice(1);
+        return nextValue;
+      });
+    }
+  }, [setValue]);
 
-  const canUndo = index > 0;
-  const canRedo = index < valuesRef.current.length - 1;
-
-  return [valuesRef.current[index], newSetValue, undo, redo, canUndo, canRedo];
+  return [
+    value,
+    newSetValue,
+    undo,
+    redo,
+    pastValuesRef.current,
+    futureValuesRef.current,
+  ];
 }

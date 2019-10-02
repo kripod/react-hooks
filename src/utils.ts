@@ -10,19 +10,6 @@ export function dethunkify<T>(value: T | (() => T)) {
   return typeof value === 'function' ? (value as () => T)() : (value as T);
 }
 
-export function modifySetStateAction<T>(
-  action: React.SetStateAction<T>,
-  modifier: (nextValue: T) => T,
-): React.SetStateAction<T> {
-  return prevValue => {
-    const nextValue =
-      typeof action === 'function'
-        ? (action as (prevValue: T) => T)(prevValue)
-        : action;
-    return modifier(nextValue);
-  };
-}
-
 export function managedEventListener<
   T extends EventTarget,
   K extends keyof EventMap<T> & string
