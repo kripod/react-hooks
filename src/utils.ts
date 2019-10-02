@@ -7,7 +7,7 @@ export const canUseDOM = typeof window !== 'undefined';
 export const MAX_ARRAY_INDEX = 2 ** 32 - 1;
 
 export function dethunkify<T>(value: T | (() => T)) {
-  return typeof value === 'function' ? (value as () => T)() : (value as T);
+  return typeof value === 'function' ? (value as () => T)() : value;
 }
 
 export function managedEventListener<
