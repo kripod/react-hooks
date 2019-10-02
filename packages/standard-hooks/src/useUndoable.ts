@@ -10,17 +10,17 @@ import { useCallback, useRef } from 'react';
  *
  * @example
  * function Example() {
- *   const [value, setValue, undo, redo, canUndo, canRedo] = useUndoable(
+ *   const [value, setValue, undo, redo, pastValues, futureValues] = useUndoable(
  *     useState(''),
  *   );
  *   // ...
  *   return (
  *     <>
- *       <button type="button" disabled={!canUndo} onClick={undo}>
+ *       <button type="button" disabled={pastValues.length === 0} onClick={undo}>
  *         Undo
  *       </button>
  *       <input value={value} onChange={e => setValue(e.target.value)} />
- *       <button type="button" disabled={!canRedo} onClick={redo}>
+ *       <button type="button" disabled={futureValues.length === 0} onClick={redo}>
  *         Redo
  *       </button>
  *     </>
