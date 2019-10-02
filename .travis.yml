@@ -14,7 +14,8 @@ script:
   - yarn lint
   - yarn build
   - yarn test --coverage
-  - bash <(curl -s https://codecov.io/bash)
+after_success:
+  - npx codecov
 
 # TODO: Remove temporary fix for GPR
 before_deploy: cd pkg
