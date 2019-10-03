@@ -17,9 +17,6 @@ script:
 after_success:
   - npx codecov
 
-# TODO: Remove temporary fix for GPR
-before_deploy: cd pkg
-after_deploy: echo 'registry=https://npm.pkg.github.com/@kripod' > .npmrc && cd ..
 deploy:
   - provider: npm
     edge: true
@@ -28,8 +25,9 @@ deploy:
       os: linux
       node: lts/*
   - provider: npm
-    edge: true
-    registry: https://npm.pkg.github.com
+    edge:
+      branch: master
+    registry: https://npm.pkg.github.com/@kripod
     api_token: $GPR_API_TOKEN
     on:
       tags: true
