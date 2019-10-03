@@ -18,16 +18,16 @@ export default function useNetworkAvailability(): boolean {
   const [online, setOnline] = useState(canUseDOM ? navigator.onLine : true);
 
   useEffect(() => {
-    const destructor1 = managedEventListener(window, 'offline', () => {
+    const cleanup1 = managedEventListener(window, 'offline', () => {
       setOnline(false);
     });
-    const destructor2 = managedEventListener(window, 'online', () => {
+    const cleanup2 = managedEventListener(window, 'online', () => {
       setOnline(true);
     });
 
     return () => {
-      destructor1();
-      destructor2();
+      cleanup1();
+      cleanup2();
     };
   }, []);
 
