@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 import usePrevious from './usePrevious';
-import { MAX_ARRAY_INDEX } from './utils';
+import { MAX_SMALL_INTEGER } from './utils';
 
 /**
  * Records states of a value over time.
@@ -19,7 +19,7 @@ import { MAX_ARRAY_INDEX } from './utils';
  */
 export default function useTimeline<T>(
   value: T,
-  maxLength: number = MAX_ARRAY_INDEX,
+  maxLength: number = MAX_SMALL_INTEGER,
 ): ReadonlyArray<T> {
   const valuesRef = useRef<T[]>([]);
   const prevValue = usePrevious(value);
