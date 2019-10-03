@@ -406,7 +406,7 @@ Records states of a value over time.
 ##### Parameters
 
 - `value` **T** Props, state or any other calculated value.
-- `maxLength` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** Maximum amount of states to store. Should be an integer greater than 1. (optional, default `MAX_SMALL_INTEGER`)
+- `maxLength` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** Maximum amount of states to store. Should be an integer greater than 1. (optional, default `MAX_ARRAY_INDEX`)
 
 ##### Examples
 
