@@ -6,7 +6,7 @@ import { MAX_ARRAY_INDEX } from './utils';
  * Records states of a value over time.
  *
  * @param value Props, state or any other calculated value.
- * @param maxLength Maximum amount of states to store. Should be an integer greater than 1.
+ * @param maxLength Maximum amount of states to store at once. Should be an integer greater than 1.
  * @returns Results of state updates in chronological order.
  *
  * @example
