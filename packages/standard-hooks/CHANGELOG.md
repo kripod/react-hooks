@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Improve performance of [`useNetworkAvailability`](https://github.com/kripod/standard-hooks/blob/master/src/useNetworkAvailability.ts) by avoiding array allocation during side effect cleanup
+
 ## [1.3.0] - 2019-10-02
 
 ### Added
