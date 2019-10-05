@@ -12,6 +12,9 @@ toc:
       - useNetworkInformation
       - usePreferredColorScheme
       - usePreferredLanguages
+      - useViewportScale
+      - useViewportScrollCoords
+      - useViewportSize
       - useWindowScrollCoords
       - useWindowSize
   - name: Storage

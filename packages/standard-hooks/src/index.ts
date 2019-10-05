@@ -19,5 +19,8 @@ export { default as useSessionStorage } from './useSessionStorage';
 export { default as useTimeline } from './useTimeline';
 export { default as useToggle } from './useToggle';
 export { default as useUndoable } from './useUndoable';
+export { default as useViewportScale } from './useViewportScale';
+export { default as useViewportScrollCoords } from './useViewportScrollCoords';
+export { default as useViewportSize } from './useViewportSize';
 export { default as useWindowScrollCoords } from './useWindowScrollCoords';
 export { default as useWindowSize } from './useWindowSize';
