@@ -1,6 +1,6 @@
 # standard-hooks 🎣
 
-Essential set of [React Hooks][] for convenient [Web API][] consumption.
+Essential set of [React Hooks] for convenient [Web API] consumption.
 
 [![CI status](https://badgen.net/travis/kripod/standard-hooks)](https://travis-ci.org/kripod/standard-hooks)
 [![Code quality](https://badgen.net/lgtm/grade/g/kripod/standard-hooks)](https://lgtm.com/projects/g/kripod/standard-hooks)
