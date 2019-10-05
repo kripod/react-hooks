@@ -1,4 +1,5 @@
 import { useCallback, useRef } from 'react';
+import { MAX_SMALL_INTEGER } from './utils';
 
 /**
  * Wraps a state hook to add undo/redo functionality.
@@ -6,6 +7,7 @@ import { useCallback, useRef } from 'react';
  * @param useStateResult Return value of a state hook.
  * @param useStateResult.0 Current state.
  * @param useStateResult.1 State updater function.
+ * @param maxDeltas Maximum amount of state differences to store at once. Should be a positive integer.
  * @returns State hook result extended with `undo`, `redo`, `pastValues` and `futureValues`.
  *
  * @example
@@ -27,10 +29,10 @@ import { useCallback, useRef } from 'react';
  *   );
  * }
  */
-export default function useUndoable<T>([value, setValue]: [
-  T,
-  React.Dispatch<React.SetStateAction<T>>,
-]): [
+export default function useUndoable<T>(
+  [value, setValue]: [T, React.Dispatch<React.SetStateAction<T>>],
+  maxDeltas: number = MAX_SMALL_INTEGER,
+): [
   T,
   React.Dispatch<React.SetStateAction<T>>,
   () => void,
@@ -77,6 +79,10 @@ export default function useUndoable<T>([value, setValue]: [
       });
     }
   }, [setValue]);
+
+  if (pastValuesRef.current.length > maxDeltas) {
+    pastValuesRef.current.splice(0, pastValuesRef.current.length - maxDeltas);
+  }
 
   return [
     value,
