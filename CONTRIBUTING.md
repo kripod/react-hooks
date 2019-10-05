@@ -8,7 +8,7 @@ This project is governed by the [Contributor Covenant Code of Conduct](./CODE_OF
 
 ## Proposing a change
 
-Before making a non-trivial change, please discuss it via [issues][]. You should begin the title with _[useHookName]_ if applicable.
+Before making a non-trivial change, please discuss it via [issues]. You should begin the title with _[useHookName]_ if applicable.
 
 ## Development process
 
@@ -19,17 +19,17 @@ Before making a non-trivial change, please discuss it via [issues][]. You should
 
 ### Workflow
 
-0. Assign related [issues][] to yourself
+0. Assign related [issues] to yourself
 1. Clone a fork of the `master` branch and install all the required dependencies with `yarn`
 1. Make changes to the codebase
 1. Before pushing, fix any errors possibly emitted by the following commands:
 
-   - `yarn format` fixes stylistic issues using [Prettier][]
-   - `yarn lint` enforces coding rules based on the [Airbnb JavaScript Style Guide][]
+   - `yarn format` fixes stylistic issues using [Prettier]
+   - `yarn lint` enforces coding rules based on the [Airbnb JavaScript Style Guide]
    - `yarn test` runs tests found in '\*.test.ts(x)' files
 
 1. If you made documentation changes, then update `documentation.yml` and run `yarn doc`
-1. Open a new pull request, [referencing corresponding issues][] if available
+1. Open a new pull request, [referencing corresponding issues] if available
 
 ## License
 
