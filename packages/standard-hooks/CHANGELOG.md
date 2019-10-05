@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - [`useViewportScale`](https://github.com/kripod/standard-hooks/blob/master/src/useViewportScale.ts), [`useViewportScrollCoords`](https://github.com/kripod/standard-hooks/blob/master/src/useViewportScrollCoords.ts) and [`useViewportSize`](https://github.com/kripod/standard-hooks/blob/master/src/useViewportSize.ts) hooks ([#66])
+- Optional `maxDeltas` parameter for [`useUndoable`](https://github.com/kripod/standard-hooks/blob/master/src/useUndoable.ts) to limit amount of history entries ([#67])
 
 ### Changed
 
@@ -104,3 +105,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#31]: https://github.com/kripod/standard-hooks/issues/31
 [#33]: https://github.com/kripod/standard-hooks/issues/33
 [#66]: https://github.com/kripod/standard-hooks/issues/66
+[#67]: https://github.com/kripod/standard-hooks/issues/67
