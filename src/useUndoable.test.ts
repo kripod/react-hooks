@@ -100,3 +100,49 @@ test('truncates redos on undoable state update', () => {
   });
   expect(result.current[0]).toBe(123);
 });
+
+test('limits amount of deltas available', () => {
+  const { result, rerender } = renderHook(
+    ({ maxDeltas }) => useUndoable(useState(123), maxDeltas),
+    { initialProps: { maxDeltas: 2 } },
+  );
+  expect(result.current[0]).toBe(123);
+
+  const [, setValue, undo] = result.current;
+
+  act(() => {
+    setValue(456);
+  });
+  act(() => {
+    setValue(789);
+  });
+  expect(result.current[4]).toEqual([123, 456]);
+
+  act(() => {
+    setValue(10);
+  });
+  expect(result.current[4]).toEqual([456, 789]);
+
+  rerender({ maxDeltas: 1 });
+  expect(result.current[4]).toEqual([789]);
+
+  rerender({ maxDeltas: 2 });
+  act(() => {
+    setValue(11);
+  });
+  expect(result.current[4]).toEqual([789, 10]);
+
+  act(() => {
+    undo();
+  });
+  expect(result.current[4]).toEqual([789]);
+  expect(result.current[5]).toEqual([11]);
+
+  rerender({ maxDeltas: 1 });
+  expect(result.current[4]).toEqual([789]);
+  expect(result.current[5]).toEqual([]);
+
+  rerender({ maxDeltas: 0 });
+  expect(result.current[4]).toEqual([]);
+  expect(result.current[5]).toEqual([]);
+});
