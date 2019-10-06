@@ -5,22 +5,15 @@ test('evaluates media query', () => {
   const addEventListener = jest.fn();
   const removeEventListener = jest.fn();
 
-  window.matchMedia = query => ({
+  window.matchMedia = jest.fn().mockImplementation(() => ({
     matches: false,
-    media: query,
-    onchange: null,
     addEventListener,
     removeEventListener,
-    addListener: () => {},
-    removeListener: () => {},
-    dispatchEvent: () => false,
-  });
+  }));
 
   const { result, unmount } = renderHook(() => useMedia('(min-width: 600px)'));
-
+  expect(result.current).toBe(false);
   expect(addEventListener).toHaveBeenCalled();
-
-  expect(result.current).toEqual(false);
 
   unmount();
   expect(removeEventListener).toHaveBeenCalled();

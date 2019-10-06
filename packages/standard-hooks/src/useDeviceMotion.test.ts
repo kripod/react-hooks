@@ -12,35 +12,31 @@ class DeviceMotionEvent extends Event {
 
   readonly interval: number;
 
-  constructor(type: string, eventInitDict?: DeviceMotionEventInit) {
+  constructor(type: string, eventInitDict: DeviceMotionEventInit = {}) {
     super(type, eventInitDict);
 
-    if (eventInitDict) {
-      this.acceleration = {
-        x: null,
-        y: null,
-        z: null,
-        ...eventInitDict.acceleration,
-      };
-      this.accelerationIncludingGravity = {
-        x: null,
-        y: null,
-        z: null,
-        ...eventInitDict.accelerationIncludingGravity,
-      };
-      this.rotationRate = {
-        alpha: null,
-        beta: null,
-        gamma: null,
-        ...eventInitDict.rotationRate,
-      };
-      this.interval = eventInitDict.interval || 0;
-    } else {
-      this.acceleration = null;
-      this.accelerationIncludingGravity = null;
-      this.rotationRate = null;
-      this.interval = 0;
-    }
+    this.acceleration = {
+      x: null,
+      y: null,
+      z: null,
+      ...eventInitDict.acceleration,
+    };
+
+    this.accelerationIncludingGravity = {
+      x: null,
+      y: null,
+      z: null,
+      ...eventInitDict.accelerationIncludingGravity,
+    };
+
+    this.rotationRate = {
+      alpha: null,
+      beta: null,
+      gamma: null,
+      ...eventInitDict.rotationRate,
+    };
+
+    this.interval = eventInitDict.interval || 0;
   }
 }
 
