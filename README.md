@@ -39,6 +39,9 @@ Essential set of [React Hooks] for convenient [Web API] consumption.
   - [useNetworkInformation](#usenetworkinformation)
   - [usePreferredColorScheme](#usepreferredcolorscheme)
   - [usePreferredLanguages](#usepreferredlanguages)
+  - [useViewportScale](#useviewportscale)
+  - [useViewportScrollCoords](#useviewportscrollcoords)
+  - [useViewportSize](#useviewportsize)
   - [useWindowScrollCoords](#usewindowscrollcoords)
   - [useWindowSize](#usewindowsize)
 - [Storage](#storage)
@@ -246,6 +249,57 @@ function Example() {
 
 Returns **ReadonlyArray&lt;[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>** An array of [BCP 47](https://tools.ietf.org/html/bcp47) language tags, ordered by preference with the most preferred language first.
 
+#### useViewportScale
+
+Tracks visual viewport scale.
+
+⚗️ _The underlying technology is experimental. Please be aware about browser compatibility before using this in production._
+
+##### Examples
+
+```javascript
+function Example() {
+  const viewportScale = useViewportScale();
+  // ...
+}
+```
+
+Returns **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** Pinch-zoom scaling factor, falling back to `0` when unavailable.
+
+#### useViewportScrollCoords
+
+Tracks visual viewport scroll position.
+
+⚗️ _The underlying technology is experimental. Please be aware about browser compatibility before using this in production._
+
+##### Examples
+
+```javascript
+function Example() {
+  const [viewportScrollX, viewportScrollY] = useViewportScrollCoords();
+  // ...
+}
+```
+
+Returns **Readonly&lt;\[[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number), [number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)]>** Coordinates `[x, y]`, falling back to `[0, 0]` when unavailable.
+
+#### useViewportSize
+
+Tracks visual viewport size.
+
+⚗️ _The underlying technology is experimental. Please be aware about browser compatibility before using this in production._
+
+##### Examples
+
+```javascript
+function Example() {
+  const [viewportWidth, viewportHeight] = useViewportSize();
+  // ...
+}
+```
+
+Returns **Readonly&lt;\[[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number), [number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)]>** Dimensions `[width, height]`, falling back to `[0, 0]` when unavailable.
+
 #### useWindowScrollCoords
 
 Tracks window scroll position.
@@ -406,7 +460,7 @@ Records states of a value over time.
 ##### Parameters
 
 - `value` **T** Props, state or any other calculated value.
-- `maxLength` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** Maximum amount of states to store. Should be an integer greater than 1. (optional, default `MAX_ARRAY_INDEX`)
+- `maxLength` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** Maximum amount of states to store at once. Should be an integer greater than 1. (optional, default `MAX_ARRAY_INDEX`)
 
 ##### Examples
 
@@ -456,6 +510,7 @@ Wraps a state hook to add undo/redo functionality.
 - `useStateResult` **\[T, React.Dispatch&lt;React.SetStateAction&lt;T>>]** Return value of a state hook.
   - `useStateResult.0` Current state.
   - `useStateResult.1` State updater function.
+- `maxDeltas` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** Maximum amount of state differences to store at once. Should be a positive integer. (optional, default `MAX_SMALL_INTEGER`)
 
 ##### Examples
 
