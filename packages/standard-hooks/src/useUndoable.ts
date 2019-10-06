@@ -80,7 +80,12 @@ export default function useUndoable<T>(
     }
   }, [setValue]);
 
-  if (pastValuesRef.current.length > maxDeltas) {
+  const deltas = pastValuesRef.current.length + futureValuesRef.current.length;
+  if (deltas > maxDeltas) {
+    futureValuesRef.current.splice(
+      futureValuesRef.current.length - (deltas - maxDeltas),
+      MAX_SMALL_INTEGER,
+    );
     pastValuesRef.current.splice(0, pastValuesRef.current.length - maxDeltas);
   }
 
