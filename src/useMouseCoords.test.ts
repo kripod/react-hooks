@@ -7,10 +7,7 @@ test('change window mouse coords', () => {
   expect(result.current).toEqual([0, 0]);
 
   act(() => {
-    fireEvent.mouseMove(window, {
-      clientX: 123,
-      clientY: 456,
-    });
+    fireEvent.mouseMove(window, { clientX: 11, clientY: 22 });
   });
-  expect(result.current).toEqual([123, 456]);
+  expect(result.current).toEqual([11, 22]);
 });

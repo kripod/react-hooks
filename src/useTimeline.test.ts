@@ -11,14 +11,14 @@ test('store previous states indefinitely', () => {
   expect(result.current.counts).toEqual([0]);
 
   act(() => {
-    result.current.setCount(123);
+    result.current.setCount(11);
   });
-  expect(result.current.counts).toEqual([0, 123]);
+  expect(result.current.counts).toEqual([0, 11]);
 
   act(() => {
-    result.current.setCount(456);
+    result.current.setCount(22);
   });
-  expect(result.current.counts).toEqual([0, 123, 456]);
+  expect(result.current.counts).toEqual([0, 11, 22]);
 });
 
 test('store previous states with a space limit', () => {
@@ -30,19 +30,14 @@ test('store previous states with a space limit', () => {
   expect(result.current.counts).toEqual([0]);
 
   act(() => {
-    result.current.setCount(123);
+    result.current.setCount(11);
   });
-  expect(result.current.counts).toEqual([0, 123]);
+  expect(result.current.counts).toEqual([0, 11]);
 
   act(() => {
-    result.current.setCount(456);
+    result.current.setCount(22);
   });
-  expect(result.current.counts).toEqual([123, 456]);
-
-  act(() => {
-    result.current.setCount(789);
-  });
-  expect(result.current.counts).toEqual([456, 789]);
+  expect(result.current.counts).toEqual([11, 22]);
 });
 
 test('immutability of timeline values', () => {
@@ -52,43 +47,41 @@ test('immutability of timeline values', () => {
     const prevCounts = usePrevious(counts);
     return { count, setCount, counts, prevCounts };
   });
-  expect(result.current.counts).toEqual([0]);
   expect(result.current.prevCounts).toBe(undefined);
 
   act(() => {
-    result.current.setCount(123);
+    result.current.setCount(11);
   });
-  expect(result.current.counts).toEqual([0, 123]);
+  expect(result.current.counts).toEqual([0, 11]);
   expect(result.current.prevCounts).toEqual([0]);
 
   act(() => {
-    result.current.setCount(456);
+    result.current.setCount(22);
   });
-  expect(result.current.counts).toEqual([123, 456]);
-  expect(result.current.prevCounts).toEqual([0, 123]);
+  expect(result.current.counts).toEqual([11, 22]);
+  expect(result.current.prevCounts).toEqual([0, 11]);
 });
 
-test('change timeline capacity', () => {
+test('change timeline length limit', () => {
   const { result } = renderHook(() => {
     const [count, setCount] = useState(0);
-    const [capacity, setCapacity] = useState(10);
-    const counts = useTimeline(count, capacity);
-    return { count, setCount, setCapacity, counts };
+    const [maxLength, setMaxLength] = useState(10);
+    const counts = useTimeline(count, maxLength);
+    return { count, setCount, setMaxLength, counts };
   });
-  expect(result.current.counts).toEqual([0]);
 
   act(() => {
-    result.current.setCount(123);
+    result.current.setCount(11);
   });
-  expect(result.current.counts).toEqual([0, 123]);
+  expect(result.current.counts).toEqual([0, 11]);
 
   act(() => {
-    result.current.setCount(456);
+    result.current.setCount(22);
   });
-  expect(result.current.counts).toEqual([0, 123, 456]);
+  expect(result.current.counts).toEqual([0, 11, 22]);
 
   act(() => {
-    result.current.setCapacity(2);
+    result.current.setMaxLength(2);
   });
-  expect(result.current.counts).toEqual([123, 456]);
+  expect(result.current.counts).toEqual([11, 22]);
 });

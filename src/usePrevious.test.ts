@@ -14,12 +14,12 @@ test('get previous state', () => {
   expect(result.current.prevCount).toBe(undefined);
 
   act(() => {
-    result.current.setCount(123);
+    result.current.setCount(11);
   });
   expect(result.current.prevCount).toBe(0);
 
   act(() => {
-    result.current.setCount(456);
+    result.current.setCount(22);
   });
-  expect(result.current.prevCount).toBe(123);
+  expect(result.current.prevCount).toBe(11);
 });
