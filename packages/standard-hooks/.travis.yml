@@ -23,7 +23,7 @@ deploy:
     on:
       tags: true
       condition: $TRAVIS_OS_NAME = linux
-      node: lts/*
+      node_js: lts/*
   - provider: npm
     edge:
       branch: master
@@ -32,4 +32,4 @@ deploy:
     on:
       tags: true
       condition: $TRAVIS_OS_NAME = linux
-      node: lts/*
+      node_js: lts/*
