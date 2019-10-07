@@ -22,7 +22,7 @@ deploy:
     edge: true
     on:
       tags: true
-      os: linux
+      condition: $TRAVIS_OS_NAME = linux
       node: lts/*
   - provider: npm
     edge:
@@ -31,5 +31,5 @@ deploy:
     api_token: $GPR_API_TOKEN
     on:
       tags: true
-      os: linux
+      condition: $TRAVIS_OS_NAME = linux
       node: lts/*
