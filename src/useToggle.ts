@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react';
+import { useCallback } from 'react';
 
 /* eslint-disable jsdoc/valid-types */
 
@@ -21,18 +21,13 @@ import { useCallback, useState } from 'react';
  *   );
  * }
  */
-export default function useToggle(
-  initialValue = false,
-): [boolean, (nextValue?: unknown) => void] {
-  const [value, setValue] = useState(initialValue);
+export default function useToggle([value, setValue]: [
+  boolean,
+  React.Dispatch<React.SetStateAction<boolean>>,
+]): [boolean, React.Dispatch<React.SetStateAction<boolean>>, () => void] {
+  const toggleValue = useCallback(() => {
+    setValue(prevValue => !prevValue);
+  }, [setValue]);
 
-  const toggleValue = useCallback((nextValue?: unknown) => {
-    if (typeof nextValue === 'boolean') {
-      setValue(nextValue);
-    } else {
-      setValue(prevValue => !prevValue);
-    }
-  }, []);
-
-  return [value, toggleValue];
+  return [value, setValue, toggleValue];
 }
