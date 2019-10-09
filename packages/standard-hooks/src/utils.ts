@@ -3,10 +3,6 @@ import { EventMap } from './types';
 
 export const canUseDOM = typeof window !== 'undefined';
 
-// Source: https://www.ecma-international.org/ecma-262/#array-index
-// TODO: Deprecate in favor of MAX_SMALL_INTEGER
-export const MAX_ARRAY_INDEX = 2 ** 32 - 1;
-
 // Source: https://v8.dev/blog/react-cliff#value-representation
 export const MAX_SMALL_INTEGER = 2 ** 30 - 1;
 
