@@ -3,12 +3,12 @@ import { useCallback } from 'react';
 /* eslint-disable jsdoc/valid-types */
 
 /**
- * Tracks state of a boolean value.
+ * Wraps a state hook to add boolean toggle functionality.
  *
- * @see [`useState` hook](https://reactjs.org/docs/hooks-reference.html#usestate), which exposes a similar interface
- *
- * @param {boolean} initialValue Initial value.
- * @returns {[boolean, function (nextValue: boolean?): void]} A statefully stored value, and a function to update it. The latter may be called without a boolean argument to negate the value.
+ * @param useStateResult Return value of a state hook.
+ * @param useStateResult.0 Current state.
+ * @param useStateResult.1 State updater function.
+ * @returns State hook result extended with a `toggle` function.
  *
  * @example
  * function Example() {
@@ -28,6 +28,5 @@ export default function useToggle([value, setValue]: [
   const toggleValue = useCallback(() => {
     setValue(prevValue => !prevValue);
   }, [setValue]);
-
   return [value, setValue, toggleValue];
 }
