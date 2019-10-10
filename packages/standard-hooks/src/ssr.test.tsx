@@ -34,7 +34,7 @@ test.each(
     useSessionStorage: () => hooks.useSessionStorage('foo'),
     useTimeline: () => hooks.useTimeline(0),
     useUndoable: () => hooks.useUndoable(useState()),
-    useToggle: () => hooks.useToggle(useState(false)),
+    useToggle: () => hooks.useToggle(useState<boolean>(false)),
   }),
 )('%s supports SSR', (_name, callback) => {
   renderHookToString(callback);
