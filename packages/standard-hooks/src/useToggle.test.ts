@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useToggle } from '.';
 
 test('negate toggle state', () => {
-  const { result } = renderHook(() => useToggle(useState(false)));
+  const { result } = renderHook(() => useToggle(useState<boolean>(false)));
   expect(result.current[0]).toBe(false);
 
   act(() => {
@@ -18,7 +18,7 @@ test('negate toggle state', () => {
 });
 
 test('set toggle state', () => {
-  const { result } = renderHook(() => useToggle(useState(true)));
+  const { result } = renderHook(() => useToggle(useState<boolean>(true)));
   expect(result.current[0]).toBe(true);
 
   act(() => {
