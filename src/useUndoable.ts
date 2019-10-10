@@ -8,7 +8,7 @@ import { MAX_SMALL_INTEGER } from './utils';
  * @param useStateResult.0 Current state.
  * @param useStateResult.1 State updater function.
  * @param maxDeltas Maximum amount of state differences to store at once. Should be a positive integer.
- * @returns State hook result extended with an object containing `undo`, `redo`, `past` and `future`.
+ * @returns State hook result extended with an object containing `undo`, `redo`, `past`, `future` and `jump`.
  *
  * @example
  * function Example() {
@@ -40,6 +40,7 @@ export default function useUndoable<T>(
     redo: () => void;
     past: T[];
     future: T[];
+    jump: (delta: number) => void;
   },
 ] {
   // Source: https://redux.js.org/recipes/implementing-undo-history
@@ -82,6 +83,40 @@ export default function useUndoable<T>(
     }
   }, [setValue]);
 
+  const jump = useCallback(
+    (delta: number) => {
+      if (delta !== 0) {
+        if (pastValuesRef.current.length >= -delta) {
+          // Undo
+          setValue(prevValue => {
+            const nextValueIndex = pastValuesRef.current.length + delta;
+            const nextValue = pastValuesRef.current[nextValueIndex];
+            futureValuesRef.current = [
+              ...pastValuesRef.current.slice(nextValueIndex + 1),
+              prevValue,
+              ...futureValuesRef.current,
+            ];
+            pastValuesRef.current = pastValuesRef.current.slice(0, delta);
+            return nextValue;
+          });
+        } else if (futureValuesRef.current.length >= delta) {
+          // Redo
+          setValue(prevValue => {
+            const nextValue = futureValuesRef.current[delta - 1];
+            pastValuesRef.current = [
+              ...pastValuesRef.current,
+              prevValue,
+              ...futureValuesRef.current.slice(0, delta - 1),
+            ];
+            futureValuesRef.current = futureValuesRef.current.slice(delta);
+            return nextValue;
+          });
+        }
+      }
+    },
+    [setValue],
+  );
+
   const deltas = pastValuesRef.current.length + futureValuesRef.current.length;
   if (deltas > maxDeltas) {
     futureValuesRef.current.splice(maxDeltas - deltas, MAX_SMALL_INTEGER);
@@ -96,6 +131,7 @@ export default function useUndoable<T>(
       redo,
       past: pastValuesRef.current,
       future: futureValuesRef.current,
+      jump,
     },
   ];
 }
