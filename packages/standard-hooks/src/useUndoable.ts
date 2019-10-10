@@ -8,21 +8,21 @@ import { MAX_SMALL_INTEGER } from './utils';
  * @param useStateResult.0 Current state.
  * @param useStateResult.1 State updater function.
  * @param maxDeltas Maximum amount of state differences to store at once. Should be a positive integer.
- * @returns State hook result extended with `undo`, `redo`, `pastValues` and `futureValues`.
+ * @returns State hook result extended with an object containing `undo`, `redo`, `past` and `future`.
  *
  * @example
  * function Example() {
- *   const [value, setValue, undo, redo, pastValues, futureValues] = useUndoable(
+ *   const [value, setValue, { undo, redo, past, future }] = useUndoable(
  *     useState(''),
  *   );
  *   // ...
  *   return (
  *     <>
- *       <button type="button" onClick={undo} disabled={pastValues.length === 0}>
+ *       <button type="button" onClick={undo} disabled={past.length === 0}>
  *         Undo
  *       </button>
  *       <input value={value} onChange={e => setValue(e.target.value)} />
- *       <button type="button" onClick={redo} disabled={futureValues.length === 0}>
+ *       <button type="button" onClick={redo} disabled={future.length === 0}>
  *         Redo
  *       </button>
  *     </>
@@ -35,10 +35,12 @@ export default function useUndoable<T>(
 ): [
   T,
   React.Dispatch<React.SetStateAction<T>>,
-  () => void,
-  () => void,
-  T[],
-  T[],
+  {
+    undo: () => void;
+    redo: () => void;
+    past: T[];
+    future: T[];
+  },
 ] {
   // Source: https://redux.js.org/recipes/implementing-undo-history
   const pastValuesRef = useRef<T[]>([]);
@@ -89,9 +91,11 @@ export default function useUndoable<T>(
   return [
     value,
     newSetValue,
-    undo,
-    redo,
-    pastValuesRef.current,
-    futureValuesRef.current,
+    {
+      undo,
+      redo,
+      past: pastValuesRef.current,
+      future: futureValuesRef.current,
+    },
   ];
 }
