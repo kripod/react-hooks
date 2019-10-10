@@ -60,29 +60,6 @@ export default function useUndoable<T>(
     [setValue],
   );
 
-  const undo = useCallback(() => {
-    if (pastValuesRef.current.length > 0) {
-      setValue(prevValue => {
-        const nextValue =
-          pastValuesRef.current[pastValuesRef.current.length - 1];
-        pastValuesRef.current = pastValuesRef.current.slice(0, -1);
-        futureValuesRef.current = [prevValue, ...futureValuesRef.current];
-        return nextValue;
-      });
-    }
-  }, [setValue]);
-
-  const redo = useCallback(() => {
-    if (futureValuesRef.current.length > 0) {
-      setValue(prevValue => {
-        const nextValue = futureValuesRef.current[0];
-        futureValuesRef.current = futureValuesRef.current.slice(1);
-        pastValuesRef.current = [...pastValuesRef.current, prevValue];
-        return nextValue;
-      });
-    }
-  }, [setValue]);
-
   const jump = useCallback(
     (delta: number) => {
       if (delta !== 0) {
@@ -116,6 +93,29 @@ export default function useUndoable<T>(
     },
     [setValue],
   );
+
+  const undo = useCallback(() => {
+    if (pastValuesRef.current.length > 0) {
+      setValue(prevValue => {
+        const nextValue =
+          pastValuesRef.current[pastValuesRef.current.length - 1];
+        pastValuesRef.current = pastValuesRef.current.slice(0, -1);
+        futureValuesRef.current = [prevValue, ...futureValuesRef.current];
+        return nextValue;
+      });
+    }
+  }, [setValue]);
+
+  const redo = useCallback(() => {
+    if (futureValuesRef.current.length > 0) {
+      setValue(prevValue => {
+        const nextValue = futureValuesRef.current[0];
+        futureValuesRef.current = futureValuesRef.current.slice(1);
+        pastValuesRef.current = [...pastValuesRef.current, prevValue];
+        return nextValue;
+      });
+    }
+  }, [setValue]);
 
   const deltas = pastValuesRef.current.length + futureValuesRef.current.length;
   if (deltas > maxDeltas) {
