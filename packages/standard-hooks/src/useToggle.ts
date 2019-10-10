@@ -1,14 +1,14 @@
-import { useCallback, useState } from 'react';
+import { useCallback } from 'react';
 
 /* eslint-disable jsdoc/valid-types */
 
 /**
- * Tracks state of a boolean value.
+ * Wraps a state hook to add boolean toggle functionality.
  *
- * @see [`useState` hook](https://reactjs.org/docs/hooks-reference.html#usestate), which exposes a similar interface
- *
- * @param {boolean} initialValue Initial value.
- * @returns {[boolean, function (nextValue: boolean?): void]} A statefully stored value, and a function to update it. The latter may be called without a boolean argument to negate the value.
+ * @param useStateResult Return value of a state hook.
+ * @param useStateResult.0 Current state.
+ * @param useStateResult.1 State updater function.
+ * @returns State hook result extended with a `toggle` function.
  *
  * @example
  * function Example() {
@@ -21,18 +21,12 @@ import { useCallback, useState } from 'react';
  *   );
  * }
  */
-export default function useToggle(
-  initialValue = false,
-): [boolean, (nextValue?: unknown) => void] {
-  const [value, setValue] = useState(initialValue);
-
-  const toggleValue = useCallback((nextValue?: unknown) => {
-    if (typeof nextValue === 'boolean') {
-      setValue(nextValue);
-    } else {
-      setValue(prevValue => !prevValue);
-    }
-  }, []);
-
-  return [value, toggleValue];
+export default function useToggle([value, setValue]: [
+  boolean,
+  React.Dispatch<React.SetStateAction<boolean>>,
+]): [boolean, React.Dispatch<React.SetStateAction<boolean>>, () => void] {
+  const toggleValue = useCallback(() => {
+    setValue(prevValue => !prevValue);
+  }, [setValue]);
+  return [value, setValue, toggleValue];
 }
