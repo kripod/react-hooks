@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - Use `MAX_SMALL_INTEGER` instead of `MAX_ARRAY_INDEX` as default `maxLength` in [`useTimeline`](https://github.com/kripod/standard-hooks/blob/master/src/useTimeline.ts) for better performance
+- Return state hook result extensions as an object in [`useUndoable`](https://github.com/kripod/standard-hooks/blob/master/src/useUndoable.ts)
 
 ## [1.4.0] - 2019-10-06
 
