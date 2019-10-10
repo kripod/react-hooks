@@ -24,8 +24,6 @@ Before making a non-trivial change, please discuss it via [issues]. You should b
 1. Make changes to the codebase
 1. Before pushing, fix any errors possibly emitted by the following commands:
 
-   - `yarn format` fixes stylistic issues using [Prettier]
-   - `yarn lint` enforces coding rules based on the [Airbnb JavaScript Style Guide]
    - `yarn test` runs tests found in '\*.test.ts(x)' files
 
 1. If you made documentation changes, then update `documentation.yml` and run `yarn doc`
