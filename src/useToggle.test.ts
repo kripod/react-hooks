@@ -1,35 +1,33 @@
-import { useState } from 'react';
 import { act, renderHook } from '@testing-library/react-hooks';
+import { useState } from 'react';
 import { useToggle } from '.';
 
 test('negate toggle state', () => {
-  const { result: stateResult } = renderHook(() => useState(false));
-  const { result } = renderHook(() => useToggle(stateResult.current));
+  const { result } = renderHook(() => useToggle(useState(false)));
   expect(result.current[0]).toBe(false);
 
   act(() => {
     result.current[2]();
   });
-  expect(stateResult.current[0]).toBe(true);
+  expect(result.current[0]).toBe(true);
 
   act(() => {
     result.current[2]();
   });
-  expect(stateResult.current[0]).toBe(false);
+  expect(result.current[0]).toBe(false);
 });
 
 test('set toggle state', () => {
-  const { result: stateResult } = renderHook(() => useState(true));
-  const { result } = renderHook(() => useToggle(stateResult.current));
+  const { result } = renderHook(() => useToggle(useState(true)));
   expect(result.current[0]).toBe(true);
 
   act(() => {
     result.current[1](true);
   });
-  expect(stateResult.current[0]).toBe(true);
+  expect(result.current[0]).toBe(true);
 
   act(() => {
     result.current[1](false);
   });
-  expect(stateResult.current[0]).toBe(false);
+  expect(result.current[0]).toBe(false);
 });
