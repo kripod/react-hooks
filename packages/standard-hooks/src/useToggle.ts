@@ -12,7 +12,9 @@ import { useCallback } from 'react';
  *
  * @example
  * function Example() {
- *   const [isPressed, togglePressed] = useToggle();
+ *   const [isPressed, setPressed, togglePressed] = useToggle(
+ *     useState<boolean>(false),
+ *   );
  *   // ...
  *   return (
  *     <button type="button" aria-pressed={isPressed} onClick={togglePressed}>
