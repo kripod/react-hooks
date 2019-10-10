@@ -10,6 +10,8 @@ node_js:
 env:
   - YARN_GPG=no
 
+before_script:
+  - yarn bootstrap
 script:
   - yarn lint
   - yarn build
