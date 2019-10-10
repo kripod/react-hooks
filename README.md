@@ -570,7 +570,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://mjackson.me"><img src="https://avatars0.githubusercontent.com/u/92839?v=4" width="100px;" alt="Michael Jackson"/><br /><sub><b>Michael Jackson</b></sub></a><br /><a href="#ideas-mjackson" title="Ideas, Planning, & Feedback">🤔</a></td>
   </tr>
   <tr>
-    <td align="center"><a href="http://jfelix.info"><img src="https://avatars2.githubusercontent.com/u/21092519?v=4" width="100px;" alt="Jose Felix "/><br /><sub><b>Jose Felix </b></sub></a><br /><a href="#infra-Jfelix61" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a></td>
+    <td align="center"><a href="http://jfelix.info"><img src="https://avatars2.githubusercontent.com/u/21092519?v=4" width="100px;" alt="Jose Felix "/><br /><sub><b>Jose Felix </b></sub></a><br /><a href="#infra-Jfelix61" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="https://github.com/kripod/standard-hooks/commits?author=Jfelix61" title="Code">💻</a></td>
   </tr>
 </table>
 
