@@ -30,6 +30,33 @@ test('basic undo/redo functionality', () => {
   expect(result.current[2].future).toEqual([]);
 });
 
+test('jump between deltas', () => {
+  const { result } = renderHook(() => useUndoable(useState(11)));
+
+  const [, setValue, { jump }] = result.current;
+
+  act(() => {
+    setValue(22);
+  });
+  act(() => {
+    setValue(33);
+  });
+
+  act(() => {
+    jump(-2);
+  });
+  expect(result.current[0]).toBe(11);
+  expect(result.current[2].past).toEqual([]);
+  expect(result.current[2].future).toEqual([22, 33]);
+
+  act(() => {
+    jump(+2);
+  });
+  expect(result.current[0]).toBe(33);
+  expect(result.current[2].past).toEqual([11, 22]);
+  expect(result.current[2].future).toEqual([]);
+});
+
 test('apply state updater function on undoable state', () => {
   const { result } = renderHook(() => useUndoable(useState(11)));
 
