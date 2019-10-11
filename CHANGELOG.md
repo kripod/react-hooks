@@ -9,13 +9,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Jump functionality for [`useUndoable`](https://github.com/kripod/standard-hooks/blob/master/src/useUndoable.ts) to undo/redo multiple deltas at once
+- Jump functionality for [`useUndoable`](https://github.com/kripod/standard-hooks/blob/master/packages/standard-hooks/src/useUndoable.ts) to undo/redo multiple deltas at once
 
 ### Changed
 
-- Use `MAX_SMALL_INTEGER` instead of `MAX_ARRAY_INDEX` as default `maxLength` in [`useTimeline`](https://github.com/kripod/standard-hooks/blob/master/src/useTimeline.ts) for better performance
-- Return state hook result extensions as an object in [`useUndoable`](https://github.com/kripod/standard-hooks/blob/master/src/useUndoable.ts)
-- Rewrite [`useToggle`](https://github.com/kripod/standard-hooks/blob/master/src/useToggle.ts) as a wrapper hook ([#36])
+- Use `MAX_SMALL_INTEGER` instead of `MAX_ARRAY_INDEX` as default `maxLength` in [`useTimeline`](https://github.com/kripod/standard-hooks/blob/master/packages/standard-hooks/src/useTimeline.ts) for better performance
+- Return state hook result extensions as an object in [`useUndoable`](https://github.com/kripod/standard-hooks/blob/master/packages/standard-hooks/src/useUndoable.ts)
+- Rewrite [`useToggle`](https://github.com/kripod/standard-hooks/blob/master/packages/standard-hooks/src/useToggle.ts) as a wrapper hook ([#36])
 
 ## [1.4.0] - 2019-10-06
 
@@ -98,7 +98,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Initial public release, featuring 15 hooks
 
 [unreleased]: https://github.com/kripod/standard-hooks/compare/v1.4.0...HEAD
-[1.3.0]: https://github.com/kripod/standard-hooks/compare/v1.3.0...v1.4.0
+[1.4.0]: https://github.com/kripod/standard-hooks/compare/v1.3.0...v1.4.0
 [1.3.0]: https://github.com/kripod/standard-hooks/compare/v1.2.1...v1.3.0
 [1.2.1]: https://github.com/kripod/standard-hooks/compare/v1.2.0...v1.2.1
 [1.2.0]: https://github.com/kripod/standard-hooks/compare/v1.1.2...v1.2.0
