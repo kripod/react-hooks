@@ -8,6 +8,5 @@
     "esModuleInterop": true,
     "types": ["jest", "network-information-types"]
   },
-  "include": ["src"],
   "exclude": ["**/*.test.{ts,tsx}"]
 }
