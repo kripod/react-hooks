@@ -13,12 +13,7 @@
   "license": "MIT",
   "scripts": {
     "build": "pika build",
-    "clean": "git clean --force -dX",
-    "doc": "documentation readme src --section Reference --config documentation.yml --markdown-toc-max-depth 3 --parse-extension ts && prettier --write README.md && all-contributors generate",
-    "format": "prettier --ignore-path .gitignore --write \"**/*.{ts,tsx,js,json,yml,md}\"",
-    "lint": "eslint --ignore-path .gitignore \"**/*.{ts,tsx,js}\"",
-    "test": "jest",
-    "type-check": "tsc --noEmit"
+    "doc": "documentation readme src --section Reference --config documentation.yml --markdown-toc-max-depth 3 --parse-extension ts && prettier --write README.md && all-contributors generate"
   },
   "@pika/pack": {
     "pipeline": [

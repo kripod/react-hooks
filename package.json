@@ -4,7 +4,14 @@
     "packages/*"
   ],
   "scripts": {
-    "postinstall": "lerna bootstrap"
+    "build": "lerna run build",
+    "clean": "git clean --force -dX",
+    "doc": "lerna run doc",
+    "format": "prettier --ignore-path .gitignore --write \"**/*.{ts,tsx,js,json,yml,md}\"",
+    "lint": "eslint --ignore-path .gitignore \"**/*.{ts,tsx,js}\"",
+    "postinstall": "lerna bootstrap",
+    "test": "jest",
+    "type-check": "tsc --noEmit"
   },
   "devDependencies": {
     "@pika/pack": "^0.5.0",
