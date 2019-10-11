@@ -2,20 +2,19 @@
 
 Essential set of [React Hooks] for convenient [Web API] consumption.
 
-[![CI status](https://badgen.net/travis/kripod/react-hooks)](https://travis-ci.org/kripod/react-hooks)
-[![Code quality](https://badgen.net/lgtm/grade/g/kripod/react-hooks)](https://lgtm.com/projects/g/kripod/react-hooks)
-[![Coverage status](https://badgen.net/codecov/c/github/kripod/react-hooks)](https://codecov.io/gh/kripod/react-hooks)
-[![Package version](https://badgen.net/npm/v/web-api-hooks)](https://www.npmjs.com/package/web-api-hooks)
-
 [react hooks]: https://reactjs.org/docs/hooks-intro.html
 [web api]: https://developer.mozilla.org/docs/Web/API
 
 ## Key features
 
+Being part of the [@kripod/react-hooks] project, this package is:
+
 - 🌳 **Bundler-friendly** with tree shaking support
 - 📚 **Well-documented** and type-safe interfaces
 - ⚛️ **Zero-config** server-side rendering capability
 - 📦 **Self-contained**, free of runtime dependencies
+
+[@kripod/react-hooks]: https://github.com/kripod/react-hooks
 
 ## Sandbox
 
