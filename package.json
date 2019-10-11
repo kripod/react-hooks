@@ -8,6 +8,7 @@
   "scripts": {
     "build": "lerna run build",
     "clean": "git clean --force -dX",
+    "commit": "git-cz",
     "doc": "lerna run doc",
     "format": "prettier --ignore-path .gitignore --write \"**/*.{ts,tsx,js,json,yml,md}\"",
     "lint": "eslint --ignore-path .gitignore \"**/*.{ts,tsx,js}\"",
@@ -17,6 +18,9 @@
     "type-check": "tsc --noEmit"
   },
   "devDependencies": {
+    "@commitlint/cli": "^8.2.0",
+    "@commitlint/config-conventional": "^8.2.0",
+    "@commitlint/prompt": "^8.2.0",
     "@pika/pack": "^0.5.0",
     "@pika/plugin-build-node": "^0.6.1",
     "@pika/plugin-build-web": "^0.6.1",
@@ -28,6 +32,7 @@
     "@typescript-eslint/eslint-plugin": "^2.3.3",
     "@typescript-eslint/parser": "^2.3.3",
     "all-contributors-cli": "^6.9.1",
+    "commitizen": "^4.0.3",
     "documentation": "^12.1.2",
     "eslint": "^6.4.0",
     "eslint-config-airbnb": "^18.0.1",
