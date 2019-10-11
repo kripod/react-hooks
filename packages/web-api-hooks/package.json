@@ -13,7 +13,7 @@
   "license": "MIT",
   "scripts": {
     "build": "pika build",
-    "doc": "documentation readme src --section Reference --config documentation.yml --markdown-toc-max-depth 3 --parse-extension ts && prettier --write README.md && all-contributors generate"
+    "doc": "documentation readme src --section Reference --config documentation.yml --markdown-toc-max-depth 3 --parse-extension ts && prettier --write README.md"
   },
   "@pika/pack": {
     "pipeline": [
