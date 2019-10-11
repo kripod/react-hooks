@@ -1,10 +1,10 @@
-# standard-hooks 🎣
+# @kripod/react-hooks 🎣
 
-Essential set of [React Hooks] for convenient [Web API] consumption.
+Essential set of [React Hooks] for convenient [Web API] consumption and state management.
 
-[![CI status](https://badgen.net/travis/kripod/standard-hooks)](https://travis-ci.org/kripod/standard-hooks)
-[![Code quality](https://badgen.net/lgtm/grade/g/kripod/standard-hooks)](https://lgtm.com/projects/g/kripod/standard-hooks)
-[![Coverage status](https://badgen.net/codecov/c/github/kripod/standard-hooks)](https://codecov.io/gh/kripod/standard-hooks)
+[![CI status](https://badgen.net/travis/kripod/react-hooks)](https://travis-ci.org/kripod/react-hooks)
+[![Code quality](https://badgen.net/lgtm/grade/g/kripod/react-hooks)](https://lgtm.com/projects/g/kripod/react-hooks)
+[![Coverage status](https://badgen.net/codecov/c/github/kripod/react-hooks)](https://codecov.io/gh/kripod/react-hooks)
 [![Package version](https://badgen.net/npm/v/standard-hooks)](https://www.npmjs.com/package/standard-hooks)
 
 [react hooks]: https://reactjs.org/docs/hooks-intro.html
@@ -561,16 +561,16 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- prettier-ignore -->
 <table>
   <tr>
-    <td align="center"><a href="https://github.com/kripod"><img src="https://avatars3.githubusercontent.com/u/14854048?v=4" width="100px;" alt="Kristóf Poduszló"/><br /><sub><b>Kristóf Poduszló</b></sub></a><br /><a href="#maintenance-kripod" title="Maintenance">🚧</a> <a href="https://github.com/kripod/standard-hooks/commits?author=kripod" title="Code">💻</a> <a href="https://github.com/kripod/standard-hooks/commits?author=kripod" title="Tests">⚠️</a> <a href="https://github.com/kripod/standard-hooks/commits?author=kripod" title="Documentation">📖</a> <a href="#example-kripod" title="Examples">💡</a> <a href="#ideas-kripod" title="Ideas, Planning, & Feedback">🤔</a> <a href="#infra-kripod" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a></td>
-    <td align="center"><a href="http://twitter.com/dan_abramov"><img src="https://avatars0.githubusercontent.com/u/810438?v=4" width="100px;" alt="Dan Abramov"/><br /><sub><b>Dan Abramov</b></sub></a><br /><a href="https://github.com/kripod/standard-hooks/commits?author=gaearon" title="Code">💻</a> <a href="#blog-gaearon" title="Blogposts">📝</a> <a href="#ideas-gaearon" title="Ideas, Planning, & Feedback">🤔</a> <a href="#tutorial-gaearon" title="Tutorials">✅</a></td>
-    <td align="center"><a href="https://donavon.com"><img src="https://avatars3.githubusercontent.com/u/887639?v=4" width="100px;" alt="Donavon West"/><br /><sub><b>Donavon West</b></sub></a><br /><a href="https://github.com/kripod/standard-hooks/commits?author=donavon" title="Tests">⚠️</a></td>
-    <td align="center"><a href="https://github.com/prsnnami"><img src="https://avatars1.githubusercontent.com/u/11041007?v=4" width="100px;" alt="Prasanna Mishra"/><br /><sub><b>Prasanna Mishra</b></sub></a><br /><a href="https://github.com/kripod/standard-hooks/commits?author=prsnnami" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://github.com/kripod"><img src="https://avatars3.githubusercontent.com/u/14854048?v=4" width="100px;" alt="Kristóf Poduszló"/><br /><sub><b>Kristóf Poduszló</b></sub></a><br /><a href="#maintenance-kripod" title="Maintenance">🚧</a> <a href="https://github.com/kripod/react-hooks/commits?author=kripod" title="Code">💻</a> <a href="https://github.com/kripod/react-hooks/commits?author=kripod" title="Tests">⚠️</a> <a href="https://github.com/kripod/react-hooks/commits?author=kripod" title="Documentation">📖</a> <a href="#example-kripod" title="Examples">💡</a> <a href="#ideas-kripod" title="Ideas, Planning, & Feedback">🤔</a> <a href="#infra-kripod" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a></td>
+    <td align="center"><a href="http://twitter.com/dan_abramov"><img src="https://avatars0.githubusercontent.com/u/810438?v=4" width="100px;" alt="Dan Abramov"/><br /><sub><b>Dan Abramov</b></sub></a><br /><a href="https://github.com/kripod/react-hooks/commits?author=gaearon" title="Code">💻</a> <a href="#blog-gaearon" title="Blogposts">📝</a> <a href="#ideas-gaearon" title="Ideas, Planning, & Feedback">🤔</a> <a href="#tutorial-gaearon" title="Tutorials">✅</a></td>
+    <td align="center"><a href="https://donavon.com"><img src="https://avatars3.githubusercontent.com/u/887639?v=4" width="100px;" alt="Donavon West"/><br /><sub><b>Donavon West</b></sub></a><br /><a href="https://github.com/kripod/react-hooks/commits?author=donavon" title="Tests">⚠️</a></td>
+    <td align="center"><a href="https://github.com/prsnnami"><img src="https://avatars1.githubusercontent.com/u/11041007?v=4" width="100px;" alt="Prasanna Mishra"/><br /><sub><b>Prasanna Mishra</b></sub></a><br /><a href="https://github.com/kripod/react-hooks/commits?author=prsnnami" title="Documentation">📖</a></td>
     <td align="center"><a href="https://github.com/Jordan-Gilliam"><img src="https://avatars0.githubusercontent.com/u/25993686?v=4" width="100px;" alt="Nolansym"/><br /><sub><b>Nolansym</b></sub></a><br /><a href="#example-Jordan-Gilliam" title="Examples">💡</a></td>
-    <td align="center"><a href="https://github.com/cmoog"><img src="https://avatars1.githubusercontent.com/u/7585078?v=4" width="100px;" alt="Charles Moog"/><br /><sub><b>Charles Moog</b></sub></a><br /><a href="https://github.com/kripod/standard-hooks/commits?author=cmoog" title="Code">💻</a> <a href="https://github.com/kripod/standard-hooks/commits?author=cmoog" title="Tests">⚠️</a> <a href="https://github.com/kripod/standard-hooks/commits?author=cmoog" title="Documentation">📖</a> <a href="#example-cmoog" title="Examples">💡</a></td>
+    <td align="center"><a href="https://github.com/cmoog"><img src="https://avatars1.githubusercontent.com/u/7585078?v=4" width="100px;" alt="Charles Moog"/><br /><sub><b>Charles Moog</b></sub></a><br /><a href="https://github.com/kripod/react-hooks/commits?author=cmoog" title="Code">💻</a> <a href="https://github.com/kripod/react-hooks/commits?author=cmoog" title="Tests">⚠️</a> <a href="https://github.com/kripod/react-hooks/commits?author=cmoog" title="Documentation">📖</a> <a href="#example-cmoog" title="Examples">💡</a></td>
     <td align="center"><a href="https://mjackson.me"><img src="https://avatars0.githubusercontent.com/u/92839?v=4" width="100px;" alt="Michael Jackson"/><br /><sub><b>Michael Jackson</b></sub></a><br /><a href="#ideas-mjackson" title="Ideas, Planning, & Feedback">🤔</a></td>
   </tr>
   <tr>
-    <td align="center"><a href="http://jfelix.info"><img src="https://avatars2.githubusercontent.com/u/21092519?v=4" width="100px;" alt="Jose Felix "/><br /><sub><b>Jose Felix </b></sub></a><br /><a href="#infra-Jfelix61" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="https://github.com/kripod/standard-hooks/commits?author=Jfelix61" title="Code">💻</a></td>
+    <td align="center"><a href="http://jfelix.info"><img src="https://avatars2.githubusercontent.com/u/21092519?v=4" width="100px;" alt="Jose Felix "/><br /><sub><b>Jose Felix </b></sub></a><br /><a href="#infra-Jfelix61" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="https://github.com/kripod/react-hooks/commits?author=Jfelix61" title="Code">💻</a></td>
   </tr>
 </table>
 

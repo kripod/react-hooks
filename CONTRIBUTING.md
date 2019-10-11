@@ -1,4 +1,4 @@
-# Contributing to standard-hooks
+# Contributing
 
 Thank you for taking the time to contribute! Guidelines below are meant to help you along the way. All contributions are welcome, including ideas, tweaks and more.
 
@@ -35,7 +35,7 @@ Before making a non-trivial change, please discuss it via [issues]. You should b
 
 As a collaborator, you agree to license your contributions under the project's [MIT license](./LICENSE).
 
-[issues]: https://github.com/kripod/standard-hooks/issues
+[issues]: https://github.com/kripod/react-hooks/issues
 [prettier]: https://prettier.io/
 [airbnb javascript style guide]: https://github.com/airbnb/javascript
 [referencing corresponding issues]: https://help.github.com/en/articles/closing-issues-using-keywords

@@ -8,7 +8,7 @@
     "react-hooks",
     "essential"
   ],
-  "repository": "github:kripod/standard-hooks",
+  "repository": "github:kripod/react-hooks",
   "author": "Kristóf Poduszló <kripod@protonmail.com>",
   "license": "MIT",
   "scripts": {

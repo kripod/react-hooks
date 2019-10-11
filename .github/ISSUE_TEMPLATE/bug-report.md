@@ -22,4 +22,4 @@ labels: bug
 
 ## Environment
 
-<!-- Please run `npx envinfo --system --browsers --binaries --npmPackages standard-hooks,react --markdown | npx clipboard-cli` in your project directory and paste the output here. -->
+<!-- Please run `npx envinfo --system --browsers --binaries --npmPackages "?(*-hooks|react)" --markdown | npx clipboard-cli` in your project directory and paste the output here. -->
