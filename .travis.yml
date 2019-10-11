@@ -17,13 +17,15 @@ script:
 after_success:
   - npx codecov
 
+before_deploy: cd pkg
+after_deploy: cd ..
 deploy:
   - provider: npm
     edge: true
     on:
       tags: true
-      os: linux
-      node: lts/*
+      condition: $TRAVIS_OS_NAME = linux
+      node_js: lts/*
   - provider: npm
     edge:
       branch: master
@@ -31,5 +33,5 @@ deploy:
     api_token: $GPR_API_TOKEN
     on:
       tags: true
-      os: linux
-      node: lts/*
+      condition: $TRAVIS_OS_NAME = linux
+      node_js: lts/*
