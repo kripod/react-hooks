@@ -1,0 +1,37 @@
+{
+  "name": "state-hooks",
+  "version": "2.0.0",
+  "description": "Essential set of React Hooks for convenient state management.",
+  "keywords": [
+    "react",
+    "hooks",
+    "react-hooks",
+    "essential"
+  ],
+  "repository": "github:kripod/react-hooks",
+  "author": "Kristóf Poduszló <kripod@protonmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "pika build",
+    "doc": "documentation readme src --section Reference --config documentation.yml --markdown-toc-max-depth 2 --parse-extension ts && prettier --write README.md"
+  },
+  "@pika/pack": {
+    "pipeline": [
+      [
+        "@pika/plugin-ts-standard-pkg"
+      ],
+      [
+        "@pika/plugin-build-node"
+      ],
+      [
+        "@pika/plugin-build-web"
+      ]
+    ]
+  },
+  "peerDependencies": {
+    "react": ">=16.8"
+  },
+  "devDependencies": {
+    "typescript": "^3.7.0-beta"
+  }
+}

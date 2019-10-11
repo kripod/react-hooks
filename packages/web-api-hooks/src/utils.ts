@@ -3,9 +3,6 @@ import { EventMap } from './types';
 
 export const canUseDOM = typeof window !== 'undefined';
 
-// Source: https://v8.dev/blog/react-cliff#value-representation
-export const MAX_SMALL_INTEGER = 2 ** 30 - 1;
-
 export function dethunkify<T>(value: T | (() => T)) {
   return typeof value === 'function' ? (value as () => T)() : value;
 }
