@@ -9,7 +9,7 @@ import { canUseDOM, managedEventListener } from './utils';
  * @returns `true` if the associated media query list matches the state of the [`document`](https://developer.mozilla.org/docs/Web/API/Document), or `false` otherwise.
  *
  * @example
- * function Example() {
+ * function Component() {
  *   const isWidescreen = useMedia('(min-aspect-ratio: 16/9)');
  *   // ...
  * }

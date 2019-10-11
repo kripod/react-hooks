@@ -14,7 +14,7 @@ const getLocalStorage = () => localStorage;
  * @returns A statefully stored value, and a function to update it.
  *
  * @example
- * function Example() {
+ * function Component() {
  *   const [visitCount, setVisitCount] = useLocalStorage<number>('visitCount', 0);
  *   useEffect(() => {
  *     setVisitCount(count => count + 1);

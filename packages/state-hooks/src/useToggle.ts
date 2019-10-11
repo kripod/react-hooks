@@ -11,7 +11,7 @@ import { useCallback } from 'react';
  * @returns State hook result extended with a `toggle` function.
  *
  * @example
- * function Example() {
+ * function Component() {
  *   const [isPressed, setPressed, togglePressed] = useToggle(
  *     useState<boolean>(false),
  *   );

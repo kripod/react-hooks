@@ -9,7 +9,7 @@ import { canUseDOM, managedEventListener } from './utils';
  * @returns Connection data, or `undefined` when unavailable.
  *
  * @example
- * function Example() {
+ * function Component() {
  *   const networkInformation = useNetworkInformation();
  *   if (networkInformation) {
  *     const { effectiveType, downlink, rtt, saveData } = networkInformation;

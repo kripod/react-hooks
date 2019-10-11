@@ -10,7 +10,7 @@ import { MAX_SMALL_INTEGER } from './utils';
  * @returns Results of state updates in chronological order.
  *
  * @example
- * function Example() {
+ * function Component() {
  *   const [count, setCount] = useState(0);
  *   const counts = useTimeline(count);
  *   // ...

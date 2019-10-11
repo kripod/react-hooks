@@ -9,7 +9,7 @@ import { canUseDOM, managedEventListener } from './utils';
  * @returns `false` if the user agent is definitely offline, or `true` if it might be online.
  *
  * @example
- * function Example() {
+ * function Component() {
  *   const isOnline = useNetworkAvailability();
  *   // ...
  * }

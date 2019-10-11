@@ -7,7 +7,7 @@ import { useEffect, useRef } from 'react';
  * @returns Value from the previous render of the enclosing component.
  *
  * @example
- * function Example() {
+ * function Component() {
  *   const [count, setCount] = useState(0);
  *   const prevCount = usePrevious(count);
  *   // ...

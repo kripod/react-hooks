@@ -59,7 +59,7 @@ Tracks acceleration and rotation rate of the device.
 ##### Examples
 
 ```javascript
-function Example() {
+function Component() {
   const { acceleration, rotationRate, interval } = useDeviceMotion();
   // ...
 }
@@ -74,7 +74,7 @@ Tracks physical orientation of the device.
 ##### Examples
 
 ```javascript
-function Example() {
+function Component() {
   const { alpha, beta, gamma } = useDeviceOrientation();
   // ...
 }
@@ -89,7 +89,7 @@ Tracks loading state of the page.
 ##### Examples
 
 ```javascript
-function Example() {
+function Component() {
   const documentReadiness = useDocumentReadiness();
   if (documentReadiness === 'interactive') {
     // You may interact with any element of the document from now
@@ -107,7 +107,7 @@ Tracks visibility of the page.
 ##### Examples
 
 ```javascript
-function Example() {
+function Component() {
   const documentVisibility = useDocumentVisibility();
   if (documentVisibility === 'hidden') {
     // Reduce resource utilization to aid background page performance
@@ -130,7 +130,7 @@ Tracks geolocation of the device.
 ##### Examples
 
 ```javascript
-function Example() {
+function Component() {
   const geolocation = useGeolocation();
   if (geolocation) {
     const { coords } = geolocation;
@@ -152,7 +152,7 @@ Tracks match state of a media query.
 ##### Examples
 
 ```javascript
-function Example() {
+function Component() {
   const isWidescreen = useMedia('(min-aspect-ratio: 16/9)');
   // ...
 }
@@ -167,7 +167,7 @@ Tracks mouse position.
 ##### Examples
 
 ```javascript
-function Example() {
+function Component() {
   const [mouseX, mouseY] = useMouseCoords();
   // ...
 }
@@ -184,7 +184,7 @@ Tracks information about the network's availability.
 ##### Examples
 
 ```javascript
-function Example() {
+function Component() {
   const isOnline = useNetworkAvailability();
   // ...
 }
@@ -201,7 +201,7 @@ Tracks information about the device's network connection.
 ##### Examples
 
 ```javascript
-function Example() {
+function Component() {
   const networkInformation = useNetworkInformation();
   if (networkInformation) {
     const { effectiveType, downlink, rtt, saveData } = networkInformation;
@@ -219,7 +219,7 @@ Tracks color scheme preference of the user.
 ##### Examples
 
 ```javascript
-function Example() {
+function Component() {
   const preferredColorScheme = usePreferredColorScheme();
   const isDarkMode = usePreferredColorScheme() === 'dark';
   // ...
@@ -235,7 +235,7 @@ Tracks language preferences of the user.
 ##### Examples
 
 ```javascript
-function Example() {
+function Component() {
   const preferredLanguages = usePreferredLanguages();
   // ...
 }
@@ -252,7 +252,7 @@ Tracks visual viewport scale.
 ##### Examples
 
 ```javascript
-function Example() {
+function Component() {
   const viewportScale = useViewportScale();
   // ...
 }
@@ -269,7 +269,7 @@ Tracks visual viewport scroll position.
 ##### Examples
 
 ```javascript
-function Example() {
+function Component() {
   const [viewportScrollX, viewportScrollY] = useViewportScrollCoords();
   // ...
 }
@@ -286,7 +286,7 @@ Tracks visual viewport size.
 ##### Examples
 
 ```javascript
-function Example() {
+function Component() {
   const [viewportWidth, viewportHeight] = useViewportSize();
   // ...
 }
@@ -301,7 +301,7 @@ Tracks window scroll position.
 ##### Examples
 
 ```javascript
-function Example() {
+function Component() {
   const [windowScrollX, windowScrollY] = useWindowScrollCoords();
   // ...
 }
@@ -316,7 +316,7 @@ Tracks window size.
 ##### Examples
 
 ```javascript
-function Example() {
+function Component() {
   const [windowWidth, windowHeight] = useWindowSize();
   // ...
 }
@@ -341,7 +341,7 @@ Stores a key/value pair statefully in [`localStorage`](https://developer.mozilla
 ##### Examples
 
 ```javascript
-function Example() {
+function Component() {
   const [visitCount, setVisitCount] =
     useLocalStorage < number > ('visitCount', 0);
   useEffect(() => {
@@ -368,7 +368,7 @@ Stores a key/value pair statefully in [`sessionStorage`](https://developer.mozil
 ##### Examples
 
 ```javascript
-function Example() {
+function Component() {
   const [name, setName] = useSessionStorage < string > ('name', 'Anonymous');
   // ...
 }
@@ -394,7 +394,7 @@ Listens to an event while the enclosing component is mounted.
 ##### Examples
 
 ```javascript
-function Example() {
+function Component() {
   useEventListener(window, 'error', () => {
     console.log('A resource failed to load.');
   });
@@ -416,7 +416,7 @@ Repeatedly calls a function with a fixed time delay between each call.
 ##### Examples
 
 ```javascript
-function Example() {
+function Component() {
   useInterval(() => {
     // Custom logic to execute each second
   }, 1000);
@@ -431,7 +431,7 @@ function Example() {
 
   ```tsx
   const geolocationOptions = { enableHighAccuracy: true };
-  function Example() {
+  function Component() {
     const geolocation = useGeolocation(geolocationOptions);
     // ...
   }

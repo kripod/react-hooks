@@ -14,7 +14,7 @@ const getSessionStorage = () => sessionStorage;
  * @returns A statefully stored value, and a function to update it.
  *
  * @example
- * function Example() {
+ * function Component() {
  *   const [name, setName] = useSessionStorage<string>('name', 'Anonymous');
  *   // ...
  * }

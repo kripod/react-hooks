@@ -16,7 +16,7 @@ const initialState: EventArgs<DeviceMotionEvent> = {
  * @returns Own properties of the last corresponding event.
  *
  * @example
- * function Example() {
+ * function Component() {
  *   const { acceleration, rotationRate, interval } = useDeviceMotion();
  *   // ...
  * }

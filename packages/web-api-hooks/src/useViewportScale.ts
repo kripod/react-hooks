@@ -9,7 +9,7 @@ import { canUseDOM, managedEventListener } from './utils';
  * @returns Pinch-zoom scaling factor, falling back to `0` when unavailable.
  *
  * @example
- * function Example() {
+ * function Component() {
  *   const viewportScale = useViewportScale();
  *   // ...
  * }

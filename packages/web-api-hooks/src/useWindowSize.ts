@@ -7,7 +7,7 @@ import { canUseDOM, managedEventListener } from './utils';
  * @returns Dimensions `[width, height]`, falling back to `[0, 0]` when unavailable.
  *
  * @example
- * function Example() {
+ * function Component() {
  *   const [windowWidth, windowHeight] = useWindowSize();
  *   // ...
  * }

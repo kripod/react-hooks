@@ -13,7 +13,7 @@ import { managedEventListener, useEventCallback } from './utils';
  * @param options Additional listener characteristics.
  *
  * @example
- * function Example() {
+ * function Component() {
  *   useEventListener(window, 'error', () => {
  *     console.log('A resource failed to load.');
  *   });

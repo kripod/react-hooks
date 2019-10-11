@@ -37,7 +37,7 @@ Tracks previous state of a value.
 #### Examples
 
 ```javascript
-function Example() {
+function Component() {
   const [count, setCount] = useState(0);
   const prevCount = usePrevious(count);
   // ...
@@ -59,7 +59,7 @@ Records states of a value over time.
 #### Examples
 
 ```javascript
-function Example() {
+function Component() {
   const [count, setCount] = useState(0);
   const counts = useTimeline(count);
   // ...
@@ -82,7 +82,7 @@ Wraps a state hook to add boolean toggle functionality.
 #### Examples
 
 ```javascript
-function Example() {
+function Component() {
   const [isPressed, setPressed, togglePressed] = useToggle(
     useState < boolean > false,
   );
@@ -111,7 +111,7 @@ Wraps a state hook to add undo/redo functionality.
 #### Examples
 
 ```javascript
-function Example() {
+function Component() {
   const [value, setValue, { undo, redo, past, future }] = useUndoable(
     useState(''),
   );

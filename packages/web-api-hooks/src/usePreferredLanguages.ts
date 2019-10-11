@@ -13,7 +13,7 @@ function getPreferredLanguages() {
  * @returns An array of [BCP 47](https://tools.ietf.org/html/bcp47) language tags, ordered by preference with the most preferred language first.
  *
  * @example
- * function Example() {
+ * function Component() {
  *   const preferredLanguages = usePreferredLanguages();
  *   // ...
  * }

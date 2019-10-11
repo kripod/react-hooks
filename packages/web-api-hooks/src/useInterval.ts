@@ -10,7 +10,7 @@ import { managedInterval, useEventCallback } from './utils';
  * @param delayMs Time, in milliseconds, to wait between executions of the specified function. Set to `null` for pausing.
  *
  * @example
- * function Example() {
+ * function Component() {
  *   useInterval(() => {
  *     // Custom logic to execute each second
  *   }, 1000);

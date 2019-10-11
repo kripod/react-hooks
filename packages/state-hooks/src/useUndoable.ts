@@ -11,7 +11,7 @@ import { MAX_SMALL_INTEGER } from './utils';
  * @returns State hook result extended with an object containing `undo`, `redo`, `past`, `future` and `jump`.
  *
  * @example
- * function Example() {
+ * function Component() {
  *   const [value, setValue, { undo, redo, past, future }] = useUndoable(
  *     useState(''),
  *   );
