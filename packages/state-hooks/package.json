@@ -6,7 +6,8 @@
     "react",
     "hooks",
     "react-hooks",
-    "essential"
+    "essential",
+    "state-management"
   ],
   "repository": "github:kripod/react-hooks",
   "author": "Kristóf Poduszló <kripod@protonmail.com>",
