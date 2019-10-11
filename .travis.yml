@@ -18,6 +18,8 @@ after_success:
 
 deploy:
   - provider: npm
+    dry_run: true
+    run: yarn run publish
     edge: true
     on:
       tags: true
@@ -26,6 +28,8 @@ deploy:
   - provider: npm
     edge:
       branch: master
+    dry_run: true
+    run: yarn run publish
     registry: https://npm.pkg.github.com/@kripod
     api_token: $GPR_API_TOKEN
     on:
