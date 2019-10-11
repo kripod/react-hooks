@@ -4,7 +4,6 @@ os:
   - windows
   - osx
 node_js:
-  - 10
   - lts/*
   - node
 env:
