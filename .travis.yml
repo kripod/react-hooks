@@ -6,8 +6,6 @@ os:
 node_js:
   - lts/*
   - node
-env:
-  - YARN_GPG=no
 
 script:
   - yarn lint
@@ -15,24 +13,3 @@ script:
   - yarn test --coverage
 after_success:
   - npx codecov
-
-deploy:
-  - provider: npm
-    dry_run: true
-    run: yarn run publish
-    edge: true
-    on:
-      tags: true
-      condition: $TRAVIS_OS_NAME = linux
-      node_js: lts/*
-  - provider: npm
-    edge:
-      branch: master
-    dry_run: true
-    run: yarn run publish
-    registry: https://npm.pkg.github.com/@kripod
-    api_token: $GPR_API_TOKEN
-    on:
-      tags: true
-      condition: $TRAVIS_OS_NAME = linux
-      node_js: lts/*
