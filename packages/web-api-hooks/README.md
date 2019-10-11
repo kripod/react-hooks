@@ -16,6 +16,14 @@ Being part of the [@kripod/react-hooks] project, this package is:
 
 [@kripod/react-hooks]: https://github.com/kripod/react-hooks
 
+## Usage
+
+After installing the package, import individual hooks as shown below:
+
+```javascript
+import { useGeolocation, useLocalStorage } from 'web-api-hooks';
+```
+
 ## Sandbox
 
 [👉 Explore the API with working examples](https://codesandbox.io/s/focused-cookies-gt5rt)
