@@ -1,6 +1,6 @@
 /** @jest-environment node */
 
-import React, { useState } from 'react';
+import React from 'react';
 import { renderToString } from 'react-dom/server';
 import * as hooks from '.';
 
@@ -30,11 +30,7 @@ test.each(
     useInterval: () => hooks.useInterval(() => {}, 0),
     useLocalStorage: () => hooks.useLocalStorage('foo'),
     useMedia: () => hooks.useMedia('(min-width: 600px)'),
-    usePrevious: () => hooks.usePrevious(0),
     useSessionStorage: () => hooks.useSessionStorage('foo'),
-    useTimeline: () => hooks.useTimeline(0),
-    useUndoable: () => hooks.useUndoable(useState()),
-    useToggle: () => hooks.useToggle(useState<boolean>(false)),
   }),
 )('%s supports SSR', (_name, callback) => {
   renderHookToString(callback);

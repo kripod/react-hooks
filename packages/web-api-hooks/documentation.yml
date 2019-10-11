@@ -25,9 +25,3 @@ toc:
     children:
       - useEventListener
       - useInterval
-  - name: State
-    children:
-      - usePrevious
-      - useTimeline
-      - useToggle
-      - useUndoable
