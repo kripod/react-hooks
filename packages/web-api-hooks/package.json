@@ -1,5 +1,5 @@
 {
-  "name": "standard-hooks",
+  "name": "web-api-hooks",
   "version": "1.4.0",
   "description": "Essential set of React Hooks for convenient Web API consumption.",
   "keywords": [

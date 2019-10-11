@@ -9,13 +9,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Jump functionality for [`useUndoable`](https://github.com/kripod/react-hooks/blob/master/packages/standard-hooks/src/useUndoable.ts) to undo/redo multiple deltas at once
+- Jump functionality for [`useUndoable`](https://github.com/kripod/react-hooks/blob/master/packages/web-api-hooks/src/useUndoable.ts) to undo/redo multiple deltas at once
 
 ### Changed
 
-- Use `MAX_SMALL_INTEGER` instead of `MAX_ARRAY_INDEX` as default `maxLength` in [`useTimeline`](https://github.com/kripod/react-hooks/blob/master/packages/standard-hooks/src/useTimeline.ts) for better performance
-- Return state hook result extensions as an object in [`useUndoable`](https://github.com/kripod/react-hooks/blob/master/packages/standard-hooks/src/useUndoable.ts)
-- Rewrite [`useToggle`](https://github.com/kripod/react-hooks/blob/master/packages/standard-hooks/src/useToggle.ts) as a wrapper hook ([#36])
+- Use `MAX_SMALL_INTEGER` instead of `MAX_ARRAY_INDEX` as default `maxLength` in [`useTimeline`](https://github.com/kripod/react-hooks/blob/master/packages/web-api-hooks/src/useTimeline.ts) for better performance
+- Return state hook result extensions as an object in [`useUndoable`](https://github.com/kripod/react-hooks/blob/master/packages/web-api-hooks/src/useUndoable.ts)
+- Rewrite [`useToggle`](https://github.com/kripod/react-hooks/blob/master/packages/web-api-hooks/src/useToggle.ts) as a wrapper hook ([#36])
 
 ## [1.4.1] - 2019-10-11
 
