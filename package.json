@@ -31,7 +31,6 @@
     "@typescript-eslint/parser": "^2.3.3",
     "all-contributors-cli": "^6.9.1",
     "commitizen": "^4.0.3",
-    "conventional-changelog-conventionalcommits": "^4.2.1",
     "documentation": "^12.1.2",
     "eslint": "^6.4.0",
     "eslint-config-airbnb": "^18.0.1",
