@@ -1,6 +1,6 @@
 {
   "name": "state-hooks",
-  "version": "1.4.1",
+  "version": "2.0.0",
   "description": "Essential set of React Hooks for convenient state management.",
   "keywords": [
     "react",
