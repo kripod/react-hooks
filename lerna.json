@@ -3,6 +3,7 @@
   "npmClient": "yarn",
   "useWorkspaces": true,
   "conventionalCommits": true,
+  "changelogPreset": "conventionalcommits",
   "command": {
     "version": {
       "message": "chore(release): publish"
