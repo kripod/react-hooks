@@ -46,7 +46,7 @@ export default function useClipboard() {
   };
 
   const copy = (text: string) => {
-    checkForPermission('clipboard-read' as PermissionName)
+    checkForPermission('clipboard-write' as PermissionName)
       .then(() => {
         if (navigator.clipboard) {
           navigator.clipboard.writeText(text);
