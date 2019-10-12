@@ -2,7 +2,7 @@
 
 Essential set of [React Hooks] for convenient [Web API] consumption and state management.
 
-[![CI status](https://badgen.net/travis/kripod/react-hooks)](https://travis-ci.org/kripod/react-hooks)
+[![CI status](https://badgen.net/travis/kripod/react-hooks)](https://www.travis-ci.com/kripod/react-hooks)
 [![Code quality](https://badgen.net/lgtm/grade/g/kripod/react-hooks)](https://lgtm.com/projects/g/kripod/react-hooks)
 [![Coverage status](https://badgen.net/codecov/c/github/kripod/react-hooks)](https://codecov.io/gh/kripod/react-hooks)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
