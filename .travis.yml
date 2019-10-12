@@ -6,6 +6,8 @@ os:
 node_js:
   - lts/*
   - node
+env:
+  - YARN_GPG=no
 
 script:
   - yarn lint
