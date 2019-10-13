@@ -33,6 +33,6 @@
     "react": ">=16.8"
   },
   "devDependencies": {
-    "typescript": "^3.7.0-beta"
+    "typescript": "^3.6.4"
   }
 }
