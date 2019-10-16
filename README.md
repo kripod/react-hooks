@@ -49,6 +49,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   </tr>
   <tr>
     <td align="center"><a href="http://jfelix.info"><img src="https://avatars2.githubusercontent.com/u/21092519?v=4" width="100px;" alt="Jose Felix "/><br /><sub><b>Jose Felix </b></sub></a><br /><a href="#infra-Jfelix61" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="https://github.com/kripod/react-hooks/commits?author=Jfelix61" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/Davide-Gheri"><img src="https://avatars2.githubusercontent.com/u/24524678?v=4" width="100px;" alt="Davide Gheri"/><br /><sub><b>Davide Gheri</b></sub></a><br /><a href="https://github.com/kripod/react-hooks/issues?q=author%3ADavide-Gheri" title="Bug reports">🐛</a></td>
   </tr>
 </table>
 

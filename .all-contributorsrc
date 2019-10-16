@@ -93,6 +93,15 @@
         "infra",
         "code"
       ]
+    },
+    {
+      "login": "Davide-Gheri",
+      "name": "Davide Gheri",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/24524678?v=4",
+      "profile": "https://github.com/Davide-Gheri",
+      "contributions": [
+        "bug"
+      ]
     }
   ]
 }
