@@ -8,6 +8,8 @@
     "plugin:import/typescript",
     "plugin:jest/recommended",
     "plugin:jsdoc/recommended",
+    "plugin:testing-library/recommended",
+    "plugin:testing-library/react",
     "plugin:prettier/recommended",
     "prettier/@typescript-eslint",
     "prettier/react"
