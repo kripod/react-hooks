@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.1](https://github.com/kripod/react-hooks/compare/web-api-hooks@2.0.0...web-api-hooks@2.0.1) (2019-10-16)
+
+### Bug Fixes
+
+- **useMedia:** improve compatibility by using deprecated listener syntax ([8f76bab](https://github.com/kripod/react-hooks/commit/8f76bab19efce5f5ef377451d2df737973787186)), closes [#91](https://github.com/kripod/react-hooks/issues/91)
+
 # 2.0.0 (2019-10-13)
 
 ### Features

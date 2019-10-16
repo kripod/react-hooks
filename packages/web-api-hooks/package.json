@@ -1,6 +1,6 @@
 {
   "name": "web-api-hooks",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Essential set of React Hooks for convenient Web API consumption.",
   "keywords": [
     "react",

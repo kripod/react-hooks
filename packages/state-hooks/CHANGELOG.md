@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.1](https://github.com/kripod/react-hooks/compare/state-hooks@2.0.0...state-hooks@2.0.1) (2019-10-16)
+
+**Note:** Version bump only for package state-hooks
+
 # 2.0.0 (2019-10-13)
 
 ### BREAKING CHANGES
