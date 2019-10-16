@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
-import { canUseDOM, managedEventListener } from './utils';
+import { canUseDOM } from './utils';
 
 /**
  * Tracks match state of a media query.
@@ -20,17 +20,19 @@ export default function useMedia(query: string): boolean {
     mediaQueryList && mediaQueryList.matches,
   );
 
-  useEffect(
-    () =>
-      mediaQueryList
-        ? managedEventListener(mediaQueryList, 'change', ((
-            event: MediaQueryListEvent,
-          ) => {
-            setMatches(event.matches);
-          }) as EventListener)
-        : undefined,
-    [mediaQueryList],
-  );
+  useEffect(() => {
+    if (!mediaQueryList) return undefined;
+
+    function handleChange(event: MediaQueryListEvent) {
+      setMatches(event.matches);
+    }
+
+    // TODO: Refactor to `managedEventListener` when `change` event is supported
+    mediaQueryList.addListener(handleChange);
+    return () => {
+      mediaQueryList.removeListener(handleChange);
+    };
+  }, [mediaQueryList]);
 
   return matches;
 }
