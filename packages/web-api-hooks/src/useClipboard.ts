@@ -1,28 +1,54 @@
 import { checkForPermission } from './utils';
 
-  const cut = (element: HTMLInputElement) => {
-    checkForPermission('clipboard-write' as PermissionName)
-      .then(() => {
+export default function useClipboard() {
+  const cut = async (
+    element: HTMLInputElement,
+    permissionErrorCallback: Function = () => {},
+  ): Promise<void | Error> => {
+    const permissionGranted = await checkForPermission(
+      'clipboard-write' as PermissionName,
+      permissionErrorCallback,
+    );
+    try {
+      if (permissionGranted) {
         element.select();
         document.execCommand('cut');
         element.value = '';
         element.blur();
-      })
-      .catch((error: string) => console.error(error));
+      }
+    } catch (error) {
+      return error;
+    }
   };
 
-  const paste = (element: HTMLInputElement) => {
-    checkForPermission('clipboard-read' as PermissionName)
-      .then(() => {
+  const paste = async (
+    element: HTMLInputElement,
+    permissionErrorCallback: Function = () => {},
+  ): Promise<void | Error> => {
+    const permissionGranted = await checkForPermission(
+      'clipboard-read' as PermissionName,
+      permissionErrorCallback,
+    );
+    try {
+      if (permissionGranted) {
         element.focus();
         document.execCommand('paste');
-      })
-      .catch((error: string) => console.error(error));
+      }
+    } catch (error) {
+      return error;
+    }
   };
 
-  const copy = (text: string) => {
-    checkForPermission('clipboard-write' as PermissionName)
-      .then(() => {
+  const copy = async (
+    text: string,
+    permissionErrorCallback: Function = () => {},
+  ): Promise<void | Error> => {
+    const permissionGranted = await checkForPermission(
+      'clipboard-write' as PermissionName,
+      permissionErrorCallback,
+    );
+    try {
+      if (permissionGranted) {
         if (navigator.clipboard) {
           navigator.clipboard.writeText(text);
         } else {
@@ -36,8 +62,10 @@ import { checkForPermission } from './utils';
           document.execCommand('copy');
           document.body.removeChild(tempInput);
         }
-      })
-      .catch((error: string) => console.error(error));
+      }
+    } catch (error) {
+      return error;
+    }
   };
   return {
     copy,
