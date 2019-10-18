@@ -1,29 +1,4 @@
-export default function useClipboard() {
-  const checkForPermission = (type: PermissionName): Promise<string> => {
-    return new Promise((resolve, reject) => {
-      if (!navigator.permissions) {
-        resolve('Permission granted.');
-      } else {
-        navigator.permissions
-          .query({
-            name: type,
-          })
-
-          /* Permission API is still a working draft, and Typescript types for it
-          are still not correct, hence 'any' type as an argument. Similar situation
-          in lines where checkForPermission function is invoked. */
-          .then((permissionStatus: any) => {
-            // Will be 'granted', 'denied' or 'prompt':
-            if (permissionStatus.state === 'granted') {
-              resolve('Permission granted.');
-            } else {
-              reject('Permission deined'); // eslint-disable-line
-            }
-          })
-          .catch(error => reject(error));
-      }
-    });
-  };
+import { checkForPermission } from './utils';
 
   const cut = (element: HTMLInputElement) => {
     checkForPermission('clipboard-write' as PermissionName)
