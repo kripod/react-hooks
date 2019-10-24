@@ -7,8 +7,7 @@ import useMedia from './useMedia';
  *
  * @example
  * function Component() {
- *   const preferredColorScheme = usePreferredColorScheme();
- *   const isDarkMode = usePreferredColorScheme() === 'dark';
+ *   const preferDarkMode = usePreferredColorScheme() === 'dark';
  *   // ...
  * }
  */
