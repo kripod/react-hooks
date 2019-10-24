@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0](https://github.com/kripod/react-hooks/compare/web-api-hooks@2.0.1...web-api-hooks@2.1.0) (2019-10-24)
+
+### Features
+
+- add usePreferredMotionIntensity ([eaed758](https://github.com/kripod/react-hooks/commit/eaed758a41a7a84e2c906782ff255ddb57fe4234))
+
 ## [2.0.1](https://github.com/kripod/react-hooks/compare/web-api-hooks@2.0.0...web-api-hooks@2.0.1) (2019-10-16)
 
 ### Bug Fixes
