@@ -1,3 +1,5 @@
+/* eslint consistent-return: 0 */
+/* eslint no-param-reassign: 0 */
 import { checkForPermission } from './utils';
 
 export default function useClipboard() {
