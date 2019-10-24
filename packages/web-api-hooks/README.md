@@ -46,6 +46,7 @@ import { useGeolocation, useLocalStorage } from 'web-api-hooks';
   - [useNetworkInformation](#usenetworkinformation)
   - [usePreferredColorScheme](#usepreferredcolorscheme)
   - [usePreferredLanguages](#usepreferredlanguages)
+  - [usePreferredMotionIntensity](#usepreferredmotionintensity)
   - [useViewportScale](#useviewportscale)
   - [useViewportScrollCoords](#useviewportscrollcoords)
   - [useViewportSize](#useviewportsize)
@@ -228,8 +229,7 @@ Tracks color scheme preference of the user.
 
 ```javascript
 function Component() {
-  const preferredColorScheme = usePreferredColorScheme();
-  const isDarkMode = usePreferredColorScheme() === 'dark';
+  const preferDarkMode = usePreferredColorScheme() === 'dark';
   // ...
 }
 ```
@@ -250,6 +250,21 @@ function Component() {
 ```
 
 Returns **ReadonlyArray&lt;[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>** An array of [BCP 47](https://tools.ietf.org/html/bcp47) language tags, ordered by preference with the most preferred language first.
+
+#### usePreferredMotionIntensity
+
+Tracks motion intensity preference of the user.
+
+##### Examples
+
+```javascript
+function Component() {
+  const preferReducedMotion = usePreferredMotionIntensity() === 'reduce';
+  // ...
+}
+```
+
+Returns **(`"no-preference"` \| `"reduce"`)** Preferred motion intensity.
 
 #### useViewportScale
 

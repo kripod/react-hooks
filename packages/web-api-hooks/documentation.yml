@@ -12,6 +12,7 @@ toc:
       - useNetworkInformation
       - usePreferredColorScheme
       - usePreferredLanguages
+      - usePreferredMotionIntensity
       - useViewportScale
       - useViewportScrollCoords
       - useViewportSize

@@ -14,6 +14,9 @@ export { default as useNetworkAvailability } from './useNetworkAvailability';
 export { default as useNetworkInformation } from './useNetworkInformation';
 export { default as usePreferredColorScheme } from './usePreferredColorScheme';
 export { default as usePreferredLanguages } from './usePreferredLanguages';
+export {
+  default as usePreferredMotionIntensity,
+} from './usePreferredMotionIntensity';
 export { default as useSessionStorage } from './useSessionStorage';
 export { default as useViewportScale } from './useViewportScale';
 export { default as useViewportScrollCoords } from './useViewportScrollCoords';
