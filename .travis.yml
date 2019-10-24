@@ -15,3 +15,23 @@ script:
   - yarn test --coverage
 after_success:
   - npx codecov
+
+deploy:
+  - provider: npm
+    edge:
+      branch: master
+    run_script: publish
+    on:
+      tags: true
+      condition: $TRAVIS_OS_NAME = linux
+      node_js: lts/*
+  - provider: npm
+    edge:
+      branch: master
+    run_script: publish
+    registry: https://npm.pkg.github.com/@kripod
+    api_token: $GH_TOKEN
+    on:
+      tags: true
+      condition: $TRAVIS_OS_NAME = linux
+      node_js: lts/*

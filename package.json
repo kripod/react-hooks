@@ -11,7 +11,8 @@
     "format": "prettier --ignore-path .gitignore --write \"**/*.{ts,tsx,js,json,yml,md}\"",
     "lint": "eslint --ignore-path .gitignore \"**/*.{ts,tsx,js}\"",
     "postinstall": "lerna bootstrap",
-    "publish": "dotenv -- lerna publish from-package --contents pkg",
+    "publish": "lerna publish from-git --contents pkg --yes",
+    "release": "dotenv -- lerna version --create-release github",
     "test": "jest",
     "type-check": "tsc --noEmit"
   },
