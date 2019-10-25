@@ -7,6 +7,7 @@ export { default as useDocumentVisibility } from './useDocumentVisibility';
 export { default as useEventListener } from './useEventListener';
 export { default as useFocus } from './useFocus';
 export { default as useGeolocation } from './useGeolocation';
+export { default as useHover } from './useHover';
 export { default as useInterval } from './useInterval';
 export { default as useLocalStorage } from './useLocalStorage';
 export { default as useMedia } from './useMedia';
