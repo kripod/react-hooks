@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { canUseDOM } from './utils';
 
 /**
@@ -15,16 +15,15 @@ import { canUseDOM } from './utils';
  * }
  */
 export default function useMedia(query: string): boolean {
-  const mediaQueryList = useMemo(() => canUseDOM && matchMedia(query), [query]);
-  const [matches, setMatches] = useState(
-    mediaQueryList && mediaQueryList.matches,
+  const [matches, setMatches] = useState(() =>
+    canUseDOM ? matchMedia(query).matches : false,
   );
 
   useEffect(() => {
-    if (!mediaQueryList) return undefined;
+    const mediaQueryList = matchMedia(query);
 
-    function handleChange(event: MediaQueryListEvent) {
-      setMatches(event.matches);
+    function handleChange() {
+      setMatches(mediaQueryList.matches);
     }
 
     // TODO: Refactor to `managedEventListener` when `change` event is supported
@@ -32,7 +31,7 @@ export default function useMedia(query: string): boolean {
     return () => {
       mediaQueryList.removeListener(handleChange);
     };
-  }, [mediaQueryList]);
+  }, [query]);
 
   return matches;
 }
