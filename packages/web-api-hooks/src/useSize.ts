@@ -25,10 +25,10 @@ export default function useSize(
   const [size, setSize] = useState<Readonly<[number, number]>>([0, 0]);
 
   useEffect(() => {
-    const CustomResizeObserver = ResizeObserverOverride || ResizeObserver;
-    if (!CustomResizeObserver || !ref.current) return undefined;
+    const ResizeObserver = ResizeObserverOverride || window.ResizeObserver;
+    if (!ResizeObserver || !ref.current) return undefined;
 
-    const observer = new CustomResizeObserver(([entry]) => {
+    const observer = new ResizeObserver(([entry]) => {
       const { width, height } = entry.contentRect;
       setSize([width, height]);
     });
