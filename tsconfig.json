@@ -7,5 +7,5 @@
     "esModuleInterop": true,
     "jsx": "react"
   },
-  "exclude": ["**/*.test.{ts,tsx}"]
+  "exclude": ["**/pkg/", "**/*.test.*"]
 }

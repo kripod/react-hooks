@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { canUseDOM } from './utils';
 
 /**
  * Tracks size of an element.
@@ -25,21 +24,21 @@ export default function useSize(
 ): Readonly<[number, number]> {
   const [size, setSize] = useState<Readonly<[number, number]>>([0, 0]);
 
-  const ResizeObserver =
-    ResizeObserverOverride || (canUseDOM ? window.ResizeObserver : undefined);
   useEffect(() => {
-    if (!ResizeObserver || !ref.current) return undefined;
+    if (!ResizeObserverOverride || !ref.current) return undefined;
 
-    const observer = new ResizeObserver(([entry]) => {
-      const { width, height } = entry.contentRect;
-      setSize([width, height]);
-    });
+    const observer = new (ResizeObserverOverride || ResizeObserver)(
+      ([entry]) => {
+        const { width, height } = entry.contentRect;
+        setSize([width, height]);
+      },
+    );
     observer.observe(ref.current);
 
     return () => {
       observer.disconnect();
     };
-  }, [ResizeObserver, ref]);
+  }, [ResizeObserverOverride, ref]);
 
   return size;
 }
