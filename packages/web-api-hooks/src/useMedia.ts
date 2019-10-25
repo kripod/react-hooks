@@ -26,6 +26,9 @@ export default function useMedia(query: string): boolean {
       setMatches(mediaQueryList.matches);
     }
 
+    // Handle `query` param changes immediately
+    handleChange();
+
     // TODO: Refactor to `managedEventListener` when `change` event is supported
     mediaQueryList.addListener(handleChange);
     return () => {
