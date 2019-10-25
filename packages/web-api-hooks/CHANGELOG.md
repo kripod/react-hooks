@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.2.0](https://github.com/kripod/react-hooks/compare/web-api-hooks@2.1.0...web-api-hooks@2.2.0) (2019-10-25)
+
+### Bug Fixes
+
+- **useMedia:** handle query param changes immediately ([ccedf58](https://github.com/kripod/react-hooks/commit/ccedf58726b89ce962d80cb2ebbf0c2bbc218e3d))
+- **useMedia:** server-side rendering behavior ([0b7de89](https://github.com/kripod/react-hooks/commit/0b7de8941f33efa2f8ea409b72f5f19f57643f67)), closes [#114](https://github.com/kripod/react-hooks/issues/114)
+- **useSize:** make observer work without override ([b5884d8](https://github.com/kripod/react-hooks/commit/b5884d8af0a69da7f5509c1103fe422a294ebc07))
+
+### Features
+
+- add useFocus sensor ([026f04c](https://github.com/kripod/react-hooks/commit/026f04cb00e2e8fd143b3c2c8ff6b44f8c6747e5))
+- add useHover sensor ([888a5cb](https://github.com/kripod/react-hooks/commit/888a5cb4b27a1472284cc6eb2a2266b60e00c72a))
+- add useSize for observing the dimensions of an element ([bb74f0b](https://github.com/kripod/react-hooks/commit/bb74f0bbd6404e7d654f62f2b887403ccaf16afa))
+
 # [2.1.0](https://github.com/kripod/react-hooks/compare/web-api-hooks@2.0.1...web-api-hooks@2.1.0) (2019-10-24)
 
 ### Features
