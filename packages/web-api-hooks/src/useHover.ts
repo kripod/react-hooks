@@ -3,7 +3,7 @@ import { useState } from 'react';
 /**
  * Tracks hover state of an element.
  *
- * @param disallowTouch Determines whether touch gestures should be ignored.
+ * @param {boolean?} disallowTouch Determines whether touch gestures should be ignored.
  * @returns Whether the element is hovered, and props to be spread over the element under observation.
  *
  * @example

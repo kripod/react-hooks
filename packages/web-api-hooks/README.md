@@ -39,7 +39,9 @@ import { useGeolocation, useLocalStorage } from 'web-api-hooks';
   - [useDeviceOrientation](#usedeviceorientation)
   - [useDocumentReadiness](#usedocumentreadiness)
   - [useDocumentVisibility](#usedocumentvisibility)
+  - [useFocus](#usefocus)
   - [useGeolocation](#usegeolocation)
+  - [useHover](#usehover)
   - [useMedia](#usemedia)
   - [useMouseCoords](#usemousecoords)
   - [useNetworkAvailability](#usenetworkavailability)
@@ -128,6 +130,22 @@ function Component() {
 
 Returns **[VisibilityState](https://developer.mozilla.org/docs/Web/API/Document/visibilityState)** Visibility state of the [`document`](https://developer.mozilla.org/docs/Web/API/Document), which is `'visible'` by default.
 
+#### useFocus
+
+Tracks focus state of an element.
+
+##### Examples
+
+```javascript
+function Component() {
+  const [hasFocus, bindFocus] = useFocus();
+  // ...
+  return <ElementToObserve {...bindFocus} />;
+}
+```
+
+Returns **\[[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean), Readonly&lt;{onFocus: function (): void, onBlur: function (): void}>]** Whether the element has focus, and props to be spread over the element under observation.
+
 #### useGeolocation
 
 Tracks geolocation of the device.
@@ -150,6 +168,26 @@ function Component() {
 ```
 
 Returns **([Position](https://developer.mozilla.org/docs/Web/API/Position) \| [undefined](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/undefined))** Locational data, or `undefined` when unavailable.
+
+#### useHover
+
+Tracks hover state of an element.
+
+##### Parameters
+
+- `disallowTouch` **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)?** Determines whether touch gestures should be ignored. (optional, default `false`)
+
+##### Examples
+
+```javascript
+function Component() {
+  const [isHovered, bindHover] = useHover();
+  // ...
+  return <ElementToObserve {...bindHover} />;
+}
+```
+
+Returns **\[[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean), Readonly&lt;{onMouseEnter: function (): void, onMouseLeave: function (): void, onTouchStart: function (): void, onTouchEnd: function (): void}>]** Whether the element is hovered, and props to be spread over the element under observation.
 
 #### useMedia
 

@@ -5,7 +5,9 @@ toc:
       - useDeviceOrientation
       - useDocumentReadiness
       - useDocumentVisibility
+      - useFocus
       - useGeolocation
+      - useHover
       - useMedia
       - useMouseCoords
       - useNetworkAvailability
