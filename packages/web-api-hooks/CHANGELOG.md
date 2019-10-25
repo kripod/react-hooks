@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.1](https://github.com/kripod/react-hooks/compare/web-api-hooks@2.2.0...web-api-hooks@2.2.1) (2019-10-25)
+
+### Bug Fixes
+
+- **useSize:** possible ReferenceError caused by accessing ResizeObserver ([b708153](https://github.com/kripod/react-hooks/commit/b708153b3347ecf1c08c71f841be6e432669c7ff))
+
 # [2.2.0](https://github.com/kripod/react-hooks/compare/web-api-hooks@2.1.0...web-api-hooks@2.2.0) (2019-10-25)
 
 ### Bug Fixes
