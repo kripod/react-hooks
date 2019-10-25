@@ -1,6 +1,6 @@
 /** @jest-environment node */
 
-import React from 'react';
+import React, { useRef } from 'react';
 import { renderToString } from 'react-dom/server';
 import * as hooks from '.';
 
@@ -30,6 +30,7 @@ test.each(
     useInterval: () => hooks.useInterval(() => {}, 0),
     useLocalStorage: () => hooks.useLocalStorage('foo'),
     useMedia: () => hooks.useMedia('(min-width: 600px)'),
+    useSize: () => hooks.useSize(useRef<HTMLElement>(null)),
     useSessionStorage: () => hooks.useSessionStorage('foo'),
   }),
 )('%s supports SSR', (_name, callback) => {

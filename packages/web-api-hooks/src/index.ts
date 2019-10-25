@@ -18,6 +18,7 @@ export {
   default as usePreferredMotionIntensity,
 } from './usePreferredMotionIntensity';
 export { default as useSessionStorage } from './useSessionStorage';
+export { default as useSize } from './useSize';
 export { default as useViewportScale } from './useViewportScale';
 export { default as useViewportScrollCoords } from './useViewportScrollCoords';
 export { default as useViewportSize } from './useViewportSize';

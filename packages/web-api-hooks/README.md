@@ -47,6 +47,7 @@ import { useGeolocation, useLocalStorage } from 'web-api-hooks';
   - [usePreferredColorScheme](#usepreferredcolorscheme)
   - [usePreferredLanguages](#usepreferredlanguages)
   - [usePreferredMotionIntensity](#usepreferredmotionintensity)
+  - [useSize](#usesize)
   - [useViewportScale](#useviewportscale)
   - [useViewportScrollCoords](#useviewportscrollcoords)
   - [useViewportSize](#useviewportsize)
@@ -265,6 +266,30 @@ function Component() {
 ```
 
 Returns **(`"no-preference"` \| `"reduce"`)** Preferred motion intensity.
+
+#### useSize
+
+Tracks size of an element.
+
+⚗️ _The underlying technology is experimental. Please be aware about browser compatibility before using this in production._
+
+##### Parameters
+
+- `ref` **React.RefObject&lt;[HTMLElement](https://developer.mozilla.org/docs/Web/HTML/Element)>** Attribute attached to the element under observation.
+- `ResizeObserverOverride` **TypeOf&lt;ResizeObserver>** Replacement for `window.ResizeObserver`, e.g. [a polyfill](https://github.com/juggle/resize-observer).
+
+##### Examples
+
+```javascript
+function Component() {
+  const ref = useRef < HTMLElement > null;
+  const [width, height] = useSize(ref);
+  // ...
+  return <ElementToObserve ref={ref} />;
+}
+```
+
+Returns **Readonly&lt;\[[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number), [number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)]>** Dimensions `[width, height]`, falling back to `[0, 0]` when unavailable.
 
 #### useViewportScale
 

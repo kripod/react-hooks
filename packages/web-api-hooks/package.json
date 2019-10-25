@@ -32,6 +32,7 @@
     "react": ">=16.8"
   },
   "dependencies": {
+    "@types/resize-observer-browser": "^0.1.2",
     "network-information-types": "^0.1.0"
   },
   "devDependencies": {
