@@ -29,10 +29,32 @@ import { usePrevious, useUndoable } from 'state-hooks';
 
 #### Table of Contents
 
+- [useChanging](#usechanging)
 - [usePrevious](#useprevious)
 - [useTimeline](#usetimeline)
 - [useToggle](#usetoggle)
 - [useUndoable](#useundoable)
+
+### useChanging
+
+Tracks whether a value has changed over a relatively given period of time.
+
+#### Parameters
+
+- `value` **T** Props, state or any other calculated value.
+- `groupingIntervalMs` **[number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number)** Time interval, in milliseconds, to group a batch of changes by. (optional, default `150`)
+
+#### Examples
+
+```javascript
+function Component() {
+  const scrollCoords = useWindowScrollCoords();
+  const isScrolling = useChanging(scrollCoords);
+  // ...
+}
+```
+
+Returns **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** `true` if the value has changed at least once over the given interval, or `false` otherwise.
 
 ### usePrevious
 

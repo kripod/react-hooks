@@ -1,4 +1,5 @@
 toc:
+  - useChanging
   - usePrevious
   - useTimeline
   - useToggle
