@@ -175,7 +175,7 @@ Tracks hover state of an element.
 
 ##### Parameters
 
-- `disallowTouch` **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)?** Determines whether touch gestures should be ignored. (optional, default `false`)
+- `disallowTouch` **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** Determines whether touch gestures should be ignored. (optional, default `false`)
 
 ##### Examples
 
