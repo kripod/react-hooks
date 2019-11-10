@@ -22,7 +22,6 @@
     "jsdoc/require-param-type": "off",
     "jsdoc/require-returns-type": "off",
     "jsdoc/no-undefined-types": "off",
-    "jsdoc/check-tag-names": ["warn", { "definedTags": ["jest-environment"] }],
-    "@typescript-eslint/explicit-function-return-type": "off"
+    "jsdoc/check-tag-names": ["warn", { "definedTags": ["jest-environment"] }]
   }
 }
