@@ -138,7 +138,7 @@ Tracks focus state of an element.
 
 ```javascript
 function Component() {
-  const [hasFocus, bindFocus] = useFocus();
+  const [isFocused, bindFocus] = useFocus();
   // ...
   return <ElementToObserve {...bindFocus} />;
 }
@@ -488,6 +488,8 @@ function Component() {
 }
 ```
 
+Returns **void**
+
 #### useInterval
 
 Repeatedly calls a function with a fixed time delay between each call.
@@ -509,6 +511,8 @@ function Component() {
   // ...
 }
 ```
+
+Returns **void**
 
 ## Performance tips
 
