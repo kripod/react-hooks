@@ -8,11 +8,11 @@ interface HookProps<T> {
   callback: () => T;
 }
 
-function Hook<T>({ callback }: HookProps<T>) {
+function Hook<T>({ callback }: HookProps<T>): JSX.Element {
   return <>{JSON.stringify(callback())}</>;
 }
 
-function renderHookToString<T>(callback: () => T) {
+function renderHookToString<T>(callback: () => T): string {
   return renderToString(<Hook callback={callback} />);
 }
 

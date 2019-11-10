@@ -30,7 +30,7 @@ export default function useChanging<T>(
     }
 
     const timeoutID = setTimeout(() => setChanging(false), groupingIntervalMs);
-    return () => {
+    return (): void => {
       clearTimeout(timeoutID);
     };
   }, [groupingIntervalMs, value]);

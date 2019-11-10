@@ -3,7 +3,7 @@ import { EventMap } from './types';
 
 export const canUseDOM = typeof window !== 'undefined';
 
-export function dethunkify<T>(value: T | (() => T)) {
+export function dethunkify<T>(value: T | (() => T)): T {
   return typeof value === 'function' ? (value as () => T)() : value;
 }
 
@@ -15,21 +15,26 @@ export function managedEventListener<
   type: K,
   callback: (event: EventMap<T>[K]) => void,
   options?: AddEventListenerOptions,
-) {
+): () => void {
   target.addEventListener(type, callback as EventListener, options);
-  return () => {
+  return (): void => {
     target.removeEventListener(type, callback as EventListener, options);
   };
 }
 
-export function managedInterval(callback: () => void, delayMs: number) {
+export function managedInterval(
+  callback: () => void,
+  delayMs: number,
+): () => void {
   const id = setInterval(callback, delayMs);
-  return () => {
+  return (): void => {
     clearInterval(id);
   };
 }
 
-export function useEventCallback<T extends Function>(callback: T) {
+export function useEventCallback<T extends Function>(
+  callback: T,
+): (...args: unknown[]) => T {
   // Source: https://reactjs.org/docs/hooks-faq.html#how-to-read-an-often-changing-value-from-usecallback
   const ref = useRef<T>();
 
@@ -38,5 +43,5 @@ export function useEventCallback<T extends Function>(callback: T) {
   }, [callback]);
 
   // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-  return useCallback((...args) => ref.current!(...args) as T, [ref]);
+  return useCallback((...args): T => ref.current!(...args), [ref]);
 }

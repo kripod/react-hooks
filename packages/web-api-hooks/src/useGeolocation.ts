@@ -28,7 +28,7 @@ export default function useGeolocation(
       errorCallback,
       options,
     );
-    return () => {
+    return (): void => {
       navigator.geolocation.clearWatch(id);
     };
   }, [errorCallback, options]);

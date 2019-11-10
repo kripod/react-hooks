@@ -20,7 +20,7 @@ import { managedInterval, useEventCallback } from './utils';
 export default function useInterval(
   callback: () => void,
   delayMs: number | null,
-) {
+): void {
   // Source: https://overreacted.io/making-setinterval-declarative-with-react-hooks/
   const savedCallback = useEventCallback(callback);
 

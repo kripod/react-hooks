@@ -29,17 +29,17 @@ export default function useHover(
   return [
     isHovered,
     {
-      onMouseEnter() {
+      onMouseEnter(): void {
         setHovered(true);
       },
-      onMouseLeave() {
+      onMouseLeave(): void {
         setHovered(false);
       },
 
-      onTouchStart() {
+      onTouchStart(): void {
         setHovered(!disallowTouch);
       },
-      onTouchEnd() {
+      onTouchEnd(): void {
         setHovered(false);
       },
     },

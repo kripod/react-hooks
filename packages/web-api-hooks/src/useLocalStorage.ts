@@ -1,7 +1,7 @@
 import { JSONValue } from './types';
 import useStorage from './useStorage';
 
-const getLocalStorage = () => localStorage;
+const getLocalStorage = (): Storage => localStorage;
 
 /**
  * Stores a key/value pair statefully in [`localStorage`](https://developer.mozilla.org/docs/Web/API/Window/localStorage).

@@ -25,7 +25,7 @@ export default function useNetworkAvailability(): boolean {
       setOnline(true);
     });
 
-    return () => {
+    return (): void => {
       cleanup1();
       cleanup2();
     };

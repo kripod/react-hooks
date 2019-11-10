@@ -34,7 +34,7 @@ export default function useSize(
     });
     observer.observe(ref.current);
 
-    return () => {
+    return (): void => {
       observer.disconnect();
     };
   }, [ResizeObserverOverride, ref]);

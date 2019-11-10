@@ -22,7 +22,7 @@ export default function useMedia(query: string): boolean {
   useEffect(() => {
     const mediaQueryList = matchMedia(query);
 
-    function handleChange() {
+    function handleChange(): void {
       setMatches(mediaQueryList.matches);
     }
 
@@ -31,7 +31,7 @@ export default function useMedia(query: string): boolean {
 
     // TODO: Refactor to `managedEventListener` when `change` event is supported
     mediaQueryList.addListener(handleChange);
-    return () => {
+    return (): void => {
       mediaQueryList.removeListener(handleChange);
     };
   }, [query]);

@@ -1,7 +1,7 @@
 import { JSONValue } from './types';
 import useStorage from './useStorage';
 
-const getSessionStorage = () => sessionStorage;
+const getSessionStorage = (): Storage => sessionStorage;
 
 /**
  * Stores a key/value pair statefully in [`sessionStorage`](https://developer.mozilla.org/docs/Web/API/Window/sessionStorage).

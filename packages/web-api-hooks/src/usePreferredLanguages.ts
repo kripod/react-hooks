@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
 import { canUseDOM, managedEventListener } from './utils';
 
-function getPreferredLanguages() {
+// TODO: Use `readonly string[]` instead of `ReadonlyArray<string>`
+
+function getPreferredLanguages(): ReadonlyArray<string> {
   return navigator.languages || [navigator.language];
 }
-
-// TODO: Use `readonly string[]` instead of `ReadonlyArray<string>`
 
 /**
  * Tracks language preferences of the user.

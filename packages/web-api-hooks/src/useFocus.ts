@@ -24,10 +24,10 @@ export default function useFocus(): [
   return [
     isFocused,
     {
-      onFocus() {
+      onFocus(): void {
         setFocused(true);
       },
-      onBlur() {
+      onBlur(): void {
         setFocused(false);
       },
     },

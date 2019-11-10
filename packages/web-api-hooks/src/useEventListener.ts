@@ -28,7 +28,7 @@ export default function useEventListener<
   type: K,
   callback: (event: EventMap<T>[K]) => void,
   options?: AddEventListenerOptions,
-) {
+): void {
   // Based on the implementation of `useInterval`
   const savedCallback = useEventCallback(callback);
 
