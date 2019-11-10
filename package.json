@@ -36,6 +36,7 @@
     "dotenv-cli": "^3.0.0",
     "eslint": "^6.4.0",
     "eslint-config-airbnb": "^18.0.1",
+    "eslint-config-airbnb-typescript": "^6.1.0",
     "eslint-config-prettier": "^6.3.0",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-jest": "^23.0.0",

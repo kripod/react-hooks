@@ -2465,7 +2465,7 @@
     "@typescript-eslint/typescript-estree" "2.6.1"
     eslint-scope "^5.0.0"
 
-"@typescript-eslint/parser@^2.3.3":
+"@typescript-eslint/parser@^2.3.0", "@typescript-eslint/parser@^2.3.3":
   version "2.6.1"
   resolved "https://registry.yarnpkg.com/@typescript-eslint/parser/-/parser-2.6.1.tgz#3c00116baa0d696bc334ca18ac5286b34793993c"
   integrity sha512-PDPkUkZ4c7yA+FWqigjwf3ngPUgoLaGjMlFh6TRtbjhqxFBnkElDfckSjm98q9cMr4xRzZ15VrS/xKm6QHYf0w==
@@ -4461,6 +4461,15 @@ eslint-config-airbnb-base@^14.0.0:
     confusing-browser-globals "^1.0.7"
     object.assign "^4.1.0"
     object.entries "^1.1.0"
+
+eslint-config-airbnb-typescript@^6.1.0:
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/eslint-config-airbnb-typescript/-/eslint-config-airbnb-typescript-6.1.0.tgz#a1c737c64ac69152c876086d87548bab40009adc"
+  integrity sha512-T6AZmASFOmr3P3qE9ygj/uUfSXe7RxOHjUl0ccsLxJ6O3CbCJ2H4cOWI4e6M0OFA/zyeWM3XDSH0KDWLCjotUg==
+  dependencies:
+    "@typescript-eslint/parser" "^2.3.0"
+    eslint-config-airbnb "^18.0.1"
+    eslint-config-airbnb-base "^14.0.0"
 
 eslint-config-airbnb@^18.0.1:
   version "18.0.1"

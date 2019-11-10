@@ -2,10 +2,10 @@
   "root": true,
   "plugins": ["jsdoc"],
   "extends": [
-    "airbnb",
+    "airbnb-typescript",
     "airbnb/hooks",
+    "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended",
-    "plugin:import/typescript",
     "plugin:jest/recommended",
     "plugin:jsdoc/recommended",
     "plugin:testing-library/recommended",
@@ -23,7 +23,6 @@
     "jsdoc/require-returns-type": "off",
     "jsdoc/no-undefined-types": "off",
     "jsdoc/check-tag-names": ["warn", { "definedTags": ["jest-environment"] }],
-    "@typescript-eslint/explicit-function-return-type": "off",
-    "react/jsx-filename-extension": ["error", { "extensions": [".tsx"] }]
+    "@typescript-eslint/explicit-function-return-type": "off"
   }
 }
