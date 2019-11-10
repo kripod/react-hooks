@@ -18,10 +18,10 @@
     "browser": true
   },
   "rules": {
+    "jsdoc/check-tag-names": ["warn", { "definedTags": ["jest-environment"] }],
+    "jsdoc/no-undefined-types": "off",
     "jsdoc/require-jsdoc": "off",
     "jsdoc/require-param-type": "off",
-    "jsdoc/require-returns-type": "off",
-    "jsdoc/no-undefined-types": "off",
-    "jsdoc/check-tag-names": ["warn", { "definedTags": ["jest-environment"] }]
+    "jsdoc/require-returns-type": "off"
   }
 }
