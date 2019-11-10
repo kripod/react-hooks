@@ -7,7 +7,7 @@ import { useState } from 'react';
  *
  * @example
  * function Component() {
- *   const [hasFocus, bindFocus] = useFocus();
+ *   const [isFocused, bindFocus] = useFocus();
  *   // ...
  *   return <ElementToObserve {...bindFocus} />;
  * }
