@@ -4527,17 +4527,19 @@ eslint-plugin-jest@^23.0.0:
   dependencies:
     "@typescript-eslint/experimental-utils" "^2.5.0"
 
-eslint-plugin-jsdoc@^17.0.0:
-  version "17.1.1"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-jsdoc/-/eslint-plugin-jsdoc-17.1.1.tgz#5bc84fcdde7c93165f3af9c7be0361d2e3bdb998"
-  integrity sha512-astLOTsj87UIzvDyiuAKbkgQgtChutazTDVxdG254tAtcvIVlWnPmlN7/dLnMYld/aHBhB4SWiUalMuKwTaynQ==
+eslint-plugin-jsdoc@^18.0.0:
+  version "18.0.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-jsdoc/-/eslint-plugin-jsdoc-18.0.0.tgz#3bfffc819795f019e819627cc21c440f531ecd63"
+  integrity sha512-uRGHKFYWjyvpHz7AiYJwmzi0lrIAKGyO7qZfIyYNI5XYBTwEoxQKdR/upf4Pd3hXWumBGvp2dn7OuuxCB2dBtw==
   dependencies:
     comment-parser "^0.7.0"
     debug "^4.1.1"
-    jsdoctypeparser "^5.1.1"
+    jsdoctypeparser "^6.0.0"
     lodash "^4.17.15"
     object.entries-ponyfill "^1.0.1"
     regextras "^0.6.1"
+    semver "^6.3.0"
+    spdx-license-list "^6.1.0"
 
 eslint-plugin-jsx-a11y@^6.2.3:
   version "6.2.3"
@@ -6834,10 +6836,10 @@ jsbn@~0.1.0:
   resolved "https://registry.yarnpkg.com/jsbn/-/jsbn-0.1.1.tgz#a5e654c2e5a2deb5f201d96cefbca80c0ef2f513"
   integrity sha1-peZUwuWi3rXyAdls77yoDA7y9RM=
 
-jsdoctypeparser@^5.1.1:
-  version "5.1.1"
-  resolved "https://registry.yarnpkg.com/jsdoctypeparser/-/jsdoctypeparser-5.1.1.tgz#99c57412fe736c70024bf54204ed1bb93cf4a49f"
-  integrity sha512-APGygIJrT5bbz5lsVt8vyLJC0miEbQf/z9ZBfTr4RYvdia8AhWMRlYgivvwHG5zKD/VW3d6qpChCy64hpQET3A==
+jsdoctypeparser@^6.0.0:
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/jsdoctypeparser/-/jsdoctypeparser-6.0.0.tgz#b6778772339138cbddb6c7b0d182d105afe1d8ae"
+  integrity sha512-61VtBXLkHfOFSIdp/VDVNMksxK0ID0cPTNvxDR92tPA6K7r2AX0OcJegYxhJIwtpWKU4p3D9L3U02hhlP1kQLQ==
 
 jsdom@^11.5.1:
   version "11.12.0"
@@ -10026,6 +10028,11 @@ spdx-license-ids@^3.0.0:
   version "3.0.5"
   resolved "https://registry.yarnpkg.com/spdx-license-ids/-/spdx-license-ids-3.0.5.tgz#3694b5804567a458d3c8045842a6358632f62654"
   integrity sha512-J+FWzZoynJEXGphVIS+XEh3kFSjZX/1i9gFBaWQcB+/tmpe2qUsSBABpcxqxnAxFdiUFEgAX1bjYGQvIZmoz9Q==
+
+spdx-license-list@^6.1.0:
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/spdx-license-list/-/spdx-license-list-6.1.0.tgz#a79cf9fb0222db69dfef067f61c52f0eb3ad36bb"
+  integrity sha512-xiaE3KtBiylVmZrlux8tHR28HZgZ921HTXbx2fEZaDloRjbBOro79LeKttcQJ5MSDYFKG7in9v2GTAEhcR9/Qg==
 
 split-string@^3.0.1, split-string@^3.0.2:
   version "3.1.0"
