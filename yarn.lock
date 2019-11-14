@@ -4523,9 +4523,9 @@ eslint-plugin-jest@^23.0.0:
     "@typescript-eslint/experimental-utils" "^2.5.0"
 
 eslint-plugin-jsdoc@^18.0.0:
-  version "18.0.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-jsdoc/-/eslint-plugin-jsdoc-18.0.0.tgz#3bfffc819795f019e819627cc21c440f531ecd63"
-  integrity sha512-uRGHKFYWjyvpHz7AiYJwmzi0lrIAKGyO7qZfIyYNI5XYBTwEoxQKdR/upf4Pd3hXWumBGvp2dn7OuuxCB2dBtw==
+  version "18.0.1"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-jsdoc/-/eslint-plugin-jsdoc-18.0.1.tgz#c437d5f6ffa98a67b0755c4a4273444b9039f425"
+  integrity sha512-ofNW3JmuZD9Gqn+qp/M6vPUfyaWHtfiNdmuoYmjyBcf5Xh2SMe1dnFa+gTGpfZLrjvBCdIbjxryRiF2QdqlQ0g==
   dependencies:
     comment-parser "^0.7.0"
     debug "^4.1.1"
@@ -4534,7 +4534,7 @@ eslint-plugin-jsdoc@^18.0.0:
     object.entries-ponyfill "^1.0.1"
     regextras "^0.6.1"
     semver "^6.3.0"
-    spdx-license-list "^6.1.0"
+    spdx-expression-parse "^3.0.0"
 
 eslint-plugin-jsx-a11y@^6.2.3:
   version "6.2.3"
@@ -10023,11 +10023,6 @@ spdx-license-ids@^3.0.0:
   version "3.0.5"
   resolved "https://registry.yarnpkg.com/spdx-license-ids/-/spdx-license-ids-3.0.5.tgz#3694b5804567a458d3c8045842a6358632f62654"
   integrity sha512-J+FWzZoynJEXGphVIS+XEh3kFSjZX/1i9gFBaWQcB+/tmpe2qUsSBABpcxqxnAxFdiUFEgAX1bjYGQvIZmoz9Q==
-
-spdx-license-list@^6.1.0:
-  version "6.1.0"
-  resolved "https://registry.yarnpkg.com/spdx-license-list/-/spdx-license-list-6.1.0.tgz#a79cf9fb0222db69dfef067f61c52f0eb3ad36bb"
-  integrity sha512-xiaE3KtBiylVmZrlux8tHR28HZgZ921HTXbx2fEZaDloRjbBOro79LeKttcQJ5MSDYFKG7in9v2GTAEhcR9/Qg==
 
 split-string@^3.0.1, split-string@^3.0.2:
   version "3.1.0"
