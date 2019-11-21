@@ -4315,9 +4315,9 @@ dot-prop@^4.1.0, dot-prop@^4.2.0:
     is-obj "^1.0.0"
 
 dotenv-cli@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/dotenv-cli/-/dotenv-cli-3.0.0.tgz#8d27ab95376d316e0d0f31e365535e99fb9734bf"
-  integrity sha512-1YfwRa9HEdbYy84tcUDTrMEALx+aFVRzvED2sAmMbv1wezSw3gvclCOn2IUK/Yko+IIVXYbNB/WbBJYuipHMNQ==
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/dotenv-cli/-/dotenv-cli-3.1.0.tgz#489f78b58bcc6971be2362ba27be73c5c08fd86f"
+  integrity sha512-sT16Zg7m71IVP/MX2ZBm6JBu6fy8aEgN9kJPywaYhBZnmq7MSQbpvCEhuiGPI08X8G+CQ1Gj/oZZUH1lGvGmqA==
   dependencies:
     cross-spawn "^7.0.1"
     dotenv "^8.1.0"
