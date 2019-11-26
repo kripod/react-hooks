@@ -2172,12 +2172,12 @@
     "@types/node" "^10.12.18"
     rollup "^1.1.0"
 
-"@pika/plugin-ts-standard-pkg@^0.7.0":
-  version "0.7.1"
-  resolved "https://registry.yarnpkg.com/@pika/plugin-ts-standard-pkg/-/plugin-ts-standard-pkg-0.7.1.tgz#fb4bdd6f6b386d640b7a18254c99ad0d896926ac"
-  integrity sha512-xIeY1xw89/s0WQ3oskdXcuaCOQt1ECQ+IwYtv1cgVwJeWQXChTTXYO46Eoi3lTYQ2AZQ6bQN+VtrHy5Rd/YxbQ==
+"@pika/plugin-ts-standard-pkg@^0.8.1":
+  version "0.8.1"
+  resolved "https://registry.yarnpkg.com/@pika/plugin-ts-standard-pkg/-/plugin-ts-standard-pkg-0.8.1.tgz#a7bfc303a89e1c31512afe5fdaf1707a14303173"
+  integrity sha512-5uTdQECX4hlxDEx1O8po9oReGfgfYxNRnZixaeVkiSlTMMRXvoiumI2T28YKRc6V0qGecaHe96hcbkoSp6Tbbg==
   dependencies:
-    "@pika/types" "^0.7.1"
+    "@pika/types" "^0.8.1"
     execa "^2.0.0"
     standard-pkg "^0.5.0"
 
@@ -2461,15 +2461,6 @@
     regexpp "^3.0.0"
     tsutils "^3.17.1"
 
-"@typescript-eslint/experimental-utils@2.8.0":
-  version "2.8.0"
-  resolved "https://registry.yarnpkg.com/@typescript-eslint/experimental-utils/-/experimental-utils-2.8.0.tgz#208b4164d175587e9b03ce6fea97d55f19c30ca9"
-  integrity sha512-jZ05E4SxCbbXseQGXOKf3ESKcsGxT8Ucpkp1jiVp55MGhOvZB2twmWKf894PAuVQTCgbPbJz9ZbRDqtUWzP8xA==
-  dependencies:
-    "@types/json-schema" "^7.0.3"
-    "@typescript-eslint/typescript-estree" "2.8.0"
-    eslint-scope "^5.0.0"
-
 "@typescript-eslint/experimental-utils@2.9.0", "@typescript-eslint/experimental-utils@^2.5.0":
   version "2.9.0"
   resolved "https://registry.yarnpkg.com/@typescript-eslint/experimental-utils/-/experimental-utils-2.9.0.tgz#bbe99a8d9510240c055fc4b17230dd0192ba3c7f"
@@ -2488,19 +2479,6 @@
     "@typescript-eslint/experimental-utils" "2.9.0"
     "@typescript-eslint/typescript-estree" "2.9.0"
     eslint-visitor-keys "^1.1.0"
-
-"@typescript-eslint/typescript-estree@2.8.0":
-  version "2.8.0"
-  resolved "https://registry.yarnpkg.com/@typescript-eslint/typescript-estree/-/typescript-estree-2.8.0.tgz#fcc3fe6532840085d29b75432c8a59895876aeca"
-  integrity sha512-ksvjBDTdbAQ04cR5JyFSDX113k66FxH1tAXmi+dj6hufsl/G0eMc/f1GgLjEVPkYClDbRKv+rnBFuE5EusomUw==
-  dependencies:
-    debug "^4.1.1"
-    eslint-visitor-keys "^1.1.0"
-    glob "^7.1.6"
-    is-glob "^4.0.1"
-    lodash.unescape "4.0.1"
-    semver "^6.3.0"
-    tsutils "^3.17.1"
 
 "@typescript-eslint/typescript-estree@2.9.0":
   version "2.9.0"
