@@ -4523,9 +4523,9 @@ eslint-config-airbnb-base@^14.0.0:
     object.entries "^1.1.0"
 
 eslint-config-airbnb-typescript@^6.1.0:
-  version "6.3.0"
-  resolved "https://registry.yarnpkg.com/eslint-config-airbnb-typescript/-/eslint-config-airbnb-typescript-6.3.0.tgz#08ccda676df59ac3e6436141b1f8b187010ee564"
-  integrity sha512-og1aGqKrsc+j+ru3bW0iE+qX9McyqI/ajbx7XpKCXHYBSedOywHoDUsaLvQksq78WBqNKuDTjORkBWQsf8OH2g==
+  version "6.3.1"
+  resolved "https://registry.yarnpkg.com/eslint-config-airbnb-typescript/-/eslint-config-airbnb-typescript-6.3.1.tgz#28bd09099355324353a074a71951dd879cce7df0"
+  integrity sha512-+tkkVysaN63zXz+oiPfkfYSRMIY5QfHI4qFeyb1ZhRGF2jR6JslqDv5GkrW/eciySNTVTigFvf9hkqHT9vklJw==
   dependencies:
     "@typescript-eslint/parser" "^2.3.0"
     eslint-config-airbnb "^18.0.1"
