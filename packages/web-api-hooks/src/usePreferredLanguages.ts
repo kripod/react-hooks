@@ -1,9 +1,7 @@
 import { useEffect, useState } from 'react';
 import { canUseDOM, managedEventListener } from './utils';
 
-// TODO: Use `readonly string[]` instead of `ReadonlyArray<string>`
-
-function getPreferredLanguages(): ReadonlyArray<string> {
+function getPreferredLanguages(): readonly string[] {
   return navigator.languages || [navigator.language];
 }
 
@@ -18,7 +16,7 @@ function getPreferredLanguages(): ReadonlyArray<string> {
  *   // ...
  * }
  */
-export default function usePreferredLanguages(): ReadonlyArray<string> {
+export default function usePreferredLanguages(): readonly string[] {
   const [languages, setLanguages] = useState(
     canUseDOM ? getPreferredLanguages() : ['en-US', 'en'],
   );

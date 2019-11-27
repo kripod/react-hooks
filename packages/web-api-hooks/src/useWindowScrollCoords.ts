@@ -12,8 +12,8 @@ import { canUseDOM, managedEventListener } from './utils';
  *   // ...
  * }
  */
-export default function useWindowScrollCoords(): Readonly<[number, number]> {
-  const [coords, setCoords] = useState<Readonly<[number, number]>>(
+export default function useWindowScrollCoords(): readonly [number, number] {
+  const [coords, setCoords] = useState<readonly [number, number]>(
     canUseDOM ? [window.pageXOffset, window.pageYOffset] : [0, 0],
   );
 

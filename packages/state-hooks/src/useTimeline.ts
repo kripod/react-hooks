@@ -20,7 +20,7 @@ import { MAX_SMALL_INTEGER } from './utils';
 export default function useTimeline<T>(
   value: T,
   maxLength: number = MAX_SMALL_INTEGER,
-): ReadonlyArray<T> {
+): readonly T[] {
   const valuesRef = useRef<T[]>([]);
   const prevValue = usePrevious(value);
 

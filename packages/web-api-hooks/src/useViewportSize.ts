@@ -14,8 +14,8 @@ import { canUseDOM, managedEventListener } from './utils';
  *   // ...
  * }
  */
-export default function useViewportSize(): Readonly<[number, number]> {
-  const [size, setSize] = useState<Readonly<[number, number]>>(
+export default function useViewportSize(): readonly [number, number] {
+  const [size, setSize] = useState<readonly [number, number]>(
     canUseDOM
       ? [window.visualViewport.width, window.visualViewport.height]
       : [0, 0],

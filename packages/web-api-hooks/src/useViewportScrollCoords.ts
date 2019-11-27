@@ -14,8 +14,8 @@ import { canUseDOM, managedEventListener } from './utils';
  *   // ...
  * }
  */
-export default function useViewportScrollCoords(): Readonly<[number, number]> {
-  const [coords, setCoords] = useState<Readonly<[number, number]>>(
+export default function useViewportScrollCoords(): readonly [number, number] {
+  const [coords, setCoords] = useState<readonly [number, number]>(
     canUseDOM
       ? [window.visualViewport.pageLeft, window.visualViewport.pageTop]
       : [0, 0],
