@@ -19,7 +19,6 @@ export default function useStorage<T extends JSONValue>(
   }, [getStorage]);
 
   const [value, setValue] = useState<T>(() => {
-    /* TODO:
     const serializedValue = storage?.getItem(key);
     if (serializedValue == null) return dethunkify(initialValue);
 
@@ -29,20 +28,6 @@ export default function useStorage<T extends JSONValue>(
       // Backwards compatibility with past stored non-serialized values
       return serializedValue;
     }
-    */
-
-    if (storage) {
-      const serializedValue = storage.getItem(key);
-      if (serializedValue != null) {
-        try {
-          return JSON.parse(serializedValue);
-        } catch {
-          // Backwards compatibility with past stored non-serialized values
-          return serializedValue;
-        }
-      }
-    }
-    return dethunkify(initialValue);
   });
 
   useEffect(() => {
@@ -50,8 +35,7 @@ export default function useStorage<T extends JSONValue>(
       try {
         storage.setItem(key, JSON.stringify(value));
       } catch (error) {
-        // TODO: errorCallback?(error);
-        if (errorCallback) errorCallback(error);
+        errorCallback?.(error);
       }
     }
   }, [errorCallback, key, storage, value]);
