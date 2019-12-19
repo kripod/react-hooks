@@ -26,7 +26,7 @@
     "@pika/plugin-ts-standard-pkg": "^0.8.1",
     "@testing-library/react": "^9.1.4",
     "@testing-library/react-hooks": "^3.1.0",
-    "@types/jest": "^24.0.18",
+    "@types/jest": "^24.0.24",
     "@types/react": "^16.9.11",
     "@typescript-eslint/eslint-plugin": "^2.12.0",
     "@typescript-eslint/parser": "^2.12.0",
