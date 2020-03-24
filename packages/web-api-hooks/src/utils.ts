@@ -45,3 +45,29 @@ export function useEventCallback<T extends Function>(
   // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
   return useCallback((...args): T => ref.current!(...args), [ref]);
 }
+
+export async function checkForPermission(
+  type: PermissionName,
+  errorCallback: Function = () => {},
+): Promise<boolean> {
+  let status = false;
+  if (!navigator.permissions) {
+    status = true;
+  } else {
+    try {
+      /* Permission API is still a working draft, and Typescript types for it
+      are still not correct, hence 'any' type as an argument. Similar situation
+      in lines where checkForPermission function is invoked. */
+      const permissions = await navigator.permissions.query({ name: type });
+      if (permissions.state === 'granted') {
+        status = true;
+      } else {
+        errorCallback();
+        status = false;
+      }
+    } catch (error) {
+      return error;
+    }
+  }
+  return status;
+}
