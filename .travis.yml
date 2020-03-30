@@ -18,16 +18,14 @@ after_success:
 
 deploy:
   - provider: npm
-    edge:
-      branch: master
+    edge: true
     run_script: publish
     on:
       tags: true
       condition: $TRAVIS_OS_NAME = linux
       node_js: lts/*
   - provider: npm
-    edge:
-      branch: master
+    edge: true
     run_script: publish
     registry: https://npm.pkg.github.com/@kripod
     api_token: $GH_TOKEN
