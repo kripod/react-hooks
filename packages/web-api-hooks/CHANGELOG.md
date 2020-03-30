@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0](https://github.com/kripod/react-hooks/compare/web-api-hooks@2.2.2...web-api-hooks@3.0.0) (2020-03-30)
+
+### Bug Fixes
+
+- importing NetworkInformation types ([54445f4](https://github.com/kripod/react-hooks/commit/54445f4a9da95854156de9338f7c39a0378f71c6))
+
 ## [2.2.2](https://github.com/kripod/react-hooks/compare/web-api-hooks@2.2.1...web-api-hooks@2.2.2) (2019-10-26)
 
 **Note:** Version bump only for package web-api-hooks
