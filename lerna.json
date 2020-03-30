@@ -5,6 +5,7 @@
   "command": {
     "version": {
       "conventionalCommits": true,
+      "changelogPreset": "conventionalcommits",
       "message": "chore(release): publish"
     }
   }
