@@ -1,5 +1,6 @@
 import { fireEvent } from '@testing-library/react';
 import { act, renderHook } from '@testing-library/react-hooks';
+
 import { useMouseCoords } from '.';
 
 test('change window mouse coords', () => {

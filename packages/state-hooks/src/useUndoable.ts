@@ -1,4 +1,5 @@
 import { useCallback, useRef } from 'react';
+
 import { MAX_SMALL_INTEGER } from './utils';
 
 /**

@@ -1,5 +1,6 @@
 import { act, renderHook } from '@testing-library/react-hooks';
 import { useState } from 'react';
+
 import { usePrevious, useTimeline } from '.';
 
 test('store previous states indefinitely', () => {

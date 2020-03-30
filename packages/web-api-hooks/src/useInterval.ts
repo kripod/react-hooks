@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+
 import { managedInterval, useEventCallback } from './utils';
 
 /**

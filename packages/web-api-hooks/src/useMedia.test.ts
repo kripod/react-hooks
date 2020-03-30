@@ -1,4 +1,5 @@
 import { renderHook } from '@testing-library/react-hooks';
+
 import { useMedia } from '.';
 
 test('evaluates media query', () => {

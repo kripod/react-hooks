@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef } from 'react';
+
 import { EventMap } from './types';
 
 export const canUseDOM = typeof window !== 'undefined';

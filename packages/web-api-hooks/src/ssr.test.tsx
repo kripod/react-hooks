@@ -2,6 +2,7 @@
 
 import React, { useRef } from 'react';
 import { renderToString } from 'react-dom/server';
+
 import * as hooks from '.';
 
 interface HookProps<T> {

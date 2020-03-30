@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+
 import { EventMap } from './types';
 import { managedEventListener, useEventCallback } from './utils';
 

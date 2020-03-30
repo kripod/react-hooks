@@ -1,5 +1,6 @@
 import { act, renderHook } from '@testing-library/react-hooks';
 import { useState } from 'react';
+
 import { useToggle } from '.';
 
 test('negate toggle state', () => {

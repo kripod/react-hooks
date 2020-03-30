@@ -1,4 +1,5 @@
 import { renderHook } from '@testing-library/react-hooks';
+
 import { useInterval } from '.';
 
 // Source: https://github.com/donavon/use-interval/blob/master/__tests__/index.test.js

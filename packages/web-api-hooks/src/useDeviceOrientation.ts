@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+
 import { EventArgs } from './types';
 import { managedEventListener } from './utils';
 

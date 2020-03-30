@@ -1,4 +1,5 @@
 import { useRef } from 'react';
+
 import usePrevious from './usePrevious';
 import { MAX_SMALL_INTEGER } from './utils';
 
