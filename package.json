@@ -8,13 +8,40 @@
     "clean": "git clean --force -dX",
     "commit": "git-cz",
     "doc": "lerna run doc && all-contributors generate",
-    "format": "prettier --ignore-path .gitignore --write \"**/*.{ts,tsx,js,json,yml,md}\"",
+    "format": "prettier --ignore-path .gitignore --write .",
     "postinstall": "lerna bootstrap",
     "lint": "eslint --ignore-path .gitignore \"**/*.{ts,tsx,js}\"",
     "publish": "lerna publish from-git --contents pkg --yes",
     "release": "dotenv -- lerna version --create-release github",
     "test": "jest",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ],
+    "rules": {
+      "scope-case": [
+        2,
+        "always",
+        "camel-case"
+      ]
+    }
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js,json,yml,md}": "prettier --write",
+    "*.{ts,tsx,js}": "eslint --fix"
+  },
+  "config": {
+    "commitizen": {
+      "path": "@commitlint/prompt"
+    }
   },
   "devDependencies": {
     "@commitlint/cli": "^8.2.0",
