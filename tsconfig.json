@@ -6,7 +6,7 @@
     "module": "ESNext",
     "moduleResolution": "Node",
     "esModuleInterop": true,
-    // TODO: "isolatedModules": true,
+    "isolatedModules": true,
     "jsx": "react"
   },
   "exclude": ["**/pkg/"]
