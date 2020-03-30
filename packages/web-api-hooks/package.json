@@ -9,11 +9,21 @@
     "essential"
   ],
   "repository": "github:kripod/react-hooks",
-  "author": "Kristóf Poduszló <kripod@protonmail.com>",
   "license": "MIT",
+  "author": "Kristóf Poduszló <kripod@protonmail.com>",
   "scripts": {
     "build": "pika build",
     "doc": "documentation readme src --section Reference --config documentation.yml --markdown-toc-max-depth 3 --parse-extension ts && prettier --write README.md"
+  },
+  "dependencies": {
+    "@types/resize-observer-browser": "^0.1.2",
+    "network-information-types": "^0.1.0"
+  },
+  "devDependencies": {
+    "typescript": "^3.8.3"
+  },
+  "peerDependencies": {
+    "react": ">=16.8"
   },
   "@pika/pack": {
     "pipeline": [
@@ -27,15 +37,5 @@
         "@pika/plugin-build-web"
       ]
     ]
-  },
-  "peerDependencies": {
-    "react": ">=16.8"
-  },
-  "dependencies": {
-    "@types/resize-observer-browser": "^0.1.2",
-    "network-information-types": "^0.1.0"
-  },
-  "devDependencies": {
-    "typescript": "^3.8.3"
   }
 }

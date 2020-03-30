@@ -1,10 +1,8 @@
 {
   // Enable automatic file formatting and fixing
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
-    "source.fixAll": true
-  },
-
-  // Use workspace version of TypeScript instead of the one built-in
-  "typescript.tsdk": "node_modules/typescript/lib"
+    "source.fixAll.eslint": true
+  }
 }

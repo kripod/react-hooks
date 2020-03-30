@@ -11,12 +11,20 @@
     "plugin:jsdoc/recommended",
     "plugin:testing-library/recommended",
     "plugin:testing-library/react",
-    "plugin:prettier/recommended",
+    "prettier",
     "prettier/@typescript-eslint",
     "prettier/react"
   ],
-  "plugins": ["jsdoc"],
+  "plugins": ["jsdoc", "simple-import-sort"],
+
   "rules": {
+    // Auto-sort imports
+    "sort-imports": "off",
+    "import/order": "off",
+    "simple-import-sort/sort": "error",
+
+    // Using a type system makes these options safe
+    "react/jsx-props-no-spreading": "off",
     "jsdoc/check-tag-names": ["warn", { "definedTags": ["jest-environment"] }],
     "jsdoc/no-undefined-types": "off",
     "jsdoc/require-jsdoc": "off",
