@@ -35,6 +35,7 @@ import { useGeolocation, useLocalStorage } from 'web-api-hooks';
 #### Table of Contents
 
 - [Sensors](#sensors)
+  - [useColorSchemePreference](#usecolorschemepreference)
   - [useDeviceMotion](#usedevicemotion)
   - [useDeviceOrientation](#usedeviceorientation)
   - [useDocumentReadiness](#usedocumentreadiness)
@@ -42,13 +43,12 @@ import { useGeolocation, useLocalStorage } from 'web-api-hooks';
   - [useFocus](#usefocus)
   - [useGeolocation](#usegeolocation)
   - [useHover](#usehover)
+  - [useLanguagePreferences](#uselanguagepreferences)
   - [useMedia](#usemedia)
+  - [useMotionPreference](#usemotionpreference)
   - [useMouseCoords](#usemousecoords)
   - [useNetworkAvailability](#usenetworkavailability)
   - [useNetworkInformation](#usenetworkinformation)
-  - [usePreferredColorScheme](#usepreferredcolorscheme)
-  - [usePreferredLanguages](#usepreferredlanguages)
-  - [usePreferredMotionIntensity](#usepreferredmotionintensity)
   - [useSize](#usesize)
   - [useViewportScale](#useviewportscale)
   - [useViewportScrollCoords](#useviewportscrollcoords)
@@ -63,6 +63,21 @@ import { useGeolocation, useLocalStorage } from 'web-api-hooks';
   - [useInterval](#useinterval)
 
 ### Sensors
+
+#### useColorSchemePreference
+
+Tracks color scheme preference of the user.
+
+##### Examples
+
+```javascript
+function Component() {
+  const preferDarkMode = useColorSchemePreference() === 'dark';
+  // ...
+}
+```
+
+Returns **(`"no-preference"` \| `"light"` \| `"dark"`)** Preferred color scheme.
 
 #### useDeviceMotion
 
@@ -189,6 +204,21 @@ function Component() {
 
 Returns **\[[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean), Readonly&lt;{onMouseEnter: function (): void, onMouseLeave: function (): void, onTouchStart: function (): void, onTouchEnd: function (): void}>]** Whether the element is hovered, and props to be spread over the element under observation.
 
+#### useLanguagePreferences
+
+Tracks language preferences of the user.
+
+##### Examples
+
+```javascript
+function Component() {
+  const preferredLanguages = useLanguagePreferences();
+  // ...
+}
+```
+
+Returns **ReadonlyArray&lt;[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>** An array of [BCP 47](https://tools.ietf.org/html/bcp47) language tags, ordered by preference with the most preferred language first.
+
 #### useMedia
 
 Tracks match state of a media query.
@@ -207,6 +237,21 @@ function Component() {
 ```
 
 Returns **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** `true` if the associated media query list matches the state of the [`document`](https://developer.mozilla.org/docs/Web/API/Document), or `false` otherwise.
+
+#### useMotionPreference
+
+Tracks motion intensity preference of the user.
+
+##### Examples
+
+```javascript
+function Component() {
+  const preferReducedMotion = useMotionPreference() === 'reduce';
+  // ...
+}
+```
+
+Returns **(`"no-preference"` \| `"reduce"`)** Preferred motion intensity.
 
 #### useMouseCoords
 
@@ -259,51 +304,6 @@ function Component() {
 ```
 
 Returns **([NetworkInformation](https://developer.mozilla.org/docs/Web/API/NetworkInformation) \| [undefined](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/undefined))** Connection data, or `undefined` when unavailable.
-
-#### usePreferredColorScheme
-
-Tracks color scheme preference of the user.
-
-##### Examples
-
-```javascript
-function Component() {
-  const preferDarkMode = usePreferredColorScheme() === 'dark';
-  // ...
-}
-```
-
-Returns **(`"no-preference"` \| `"light"` \| `"dark"`)** Preferred color scheme.
-
-#### usePreferredLanguages
-
-Tracks language preferences of the user.
-
-##### Examples
-
-```javascript
-function Component() {
-  const preferredLanguages = usePreferredLanguages();
-  // ...
-}
-```
-
-Returns **ReadonlyArray&lt;[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>** An array of [BCP 47](https://tools.ietf.org/html/bcp47) language tags, ordered by preference with the most preferred language first.
-
-#### usePreferredMotionIntensity
-
-Tracks motion intensity preference of the user.
-
-##### Examples
-
-```javascript
-function Component() {
-  const preferReducedMotion = usePreferredMotionIntensity() === 'reduce';
-  // ...
-}
-```
-
-Returns **(`"no-preference"` \| `"reduce"`)** Preferred motion intensity.
 
 #### useSize
 

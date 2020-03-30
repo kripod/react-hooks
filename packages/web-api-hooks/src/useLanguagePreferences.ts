@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 import { canUseDOM, managedEventListener } from './utils';
 
-function getPreferredLanguages(): readonly string[] {
+function getPreferredLanguages(): ReadonlyArray<string> {
   return navigator.languages || [navigator.language];
 }
 
@@ -17,7 +17,7 @@ function getPreferredLanguages(): readonly string[] {
  *   // ...
  * }
  */
-export default function useLanguagePreferences(): readonly string[] {
+export default function useLanguagePreferences(): ReadonlyArray<string> {
   const [languages, setLanguages] = useState(
     canUseDOM ? getPreferredLanguages() : ['en-US', 'en'],
   );

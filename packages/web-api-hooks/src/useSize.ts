@@ -21,8 +21,8 @@ import { useEffect, useState } from 'react';
 export default function useSize(
   ref: React.RefObject<HTMLElement>,
   ResizeObserverOverride?: typeof ResizeObserver,
-): readonly [number, number] {
-  const [size, setSize] = useState<readonly [number, number]>([0, 0]);
+): Readonly<[number, number]> {
+  const [size, setSize] = useState<Readonly<[number, number]>>([0, 0]);
 
   useEffect(() => {
     const ResizeObserver = ResizeObserverOverride || window.ResizeObserver;

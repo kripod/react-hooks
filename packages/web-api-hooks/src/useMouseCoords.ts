@@ -13,8 +13,8 @@ import { managedEventListener } from './utils';
  *   // ...
  * }
  */
-export default function useMouseCoords(): readonly [number, number] {
-  const [coords, setCoords] = useState<readonly [number, number]>([0, 0]);
+export default function useMouseCoords(): Readonly<[number, number]> {
+  const [coords, setCoords] = useState<Readonly<[number, number]>>([0, 0]);
 
   useEffect(
     () =>
