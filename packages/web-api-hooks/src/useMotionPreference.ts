@@ -7,13 +7,11 @@ import useMedia from './useMedia';
  *
  * @example
  * function Component() {
- *   const preferReducedMotion = usePreferredMotionIntensity() === 'reduce';
+ *   const preferReducedMotion = useMotionPreference() === 'reduce';
  *   // ...
  * }
  */
-export default function usePreferredMotionIntensity():
-  | 'no-preference'
-  | 'reduce' {
+export default function useMotionPreference(): 'no-preference' | 'reduce' {
   const isReduce = useMedia('(prefers-reduced-motion: reduce)');
 
   if (isReduce) return 'reduce';

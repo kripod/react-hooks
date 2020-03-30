@@ -1,10 +1,10 @@
 import { fireEvent } from '@testing-library/react';
 import { act, renderHook } from '@testing-library/react-hooks';
 
-import { usePreferredLanguages } from '.';
+import { useLanguagePreferences } from '.';
 
 test('change preferred languages', () => {
-  const { result } = renderHook(() => usePreferredLanguages());
+  const { result } = renderHook(() => useLanguagePreferences());
   expect(result.current).toEqual(['en-US', 'en']);
 
   act(() => {

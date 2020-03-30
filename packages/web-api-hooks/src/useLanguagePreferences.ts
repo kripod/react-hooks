@@ -13,11 +13,11 @@ function getPreferredLanguages(): readonly string[] {
  *
  * @example
  * function Component() {
- *   const preferredLanguages = usePreferredLanguages();
+ *   const preferredLanguages = useLanguagePreferences();
  *   // ...
  * }
  */
-export default function usePreferredLanguages(): readonly string[] {
+export default function useLanguagePreferences(): readonly string[] {
   const [languages, setLanguages] = useState(
     canUseDOM ? getPreferredLanguages() : ['en-US', 'en'],
   );

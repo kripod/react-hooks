@@ -1,6 +1,7 @@
 toc:
   - name: Sensors
     children:
+      - useColorSchemePreference
       - useDeviceMotion
       - useDeviceOrientation
       - useDocumentReadiness
@@ -8,13 +9,12 @@ toc:
       - useFocus
       - useGeolocation
       - useHover
+      - useLanguagePreferences
       - useMedia
+      - useMotionPreference
       - useMouseCoords
       - useNetworkAvailability
       - useNetworkInformation
-      - usePreferredColorScheme
-      - usePreferredLanguages
-      - usePreferredMotionIntensity
       - useSize
       - useViewportScale
       - useViewportScrollCoords
