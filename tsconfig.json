@@ -1,11 +1,13 @@
 {
   "compilerOptions": {
+    "noEmit": true,
     "strict": true,
-    "target": "es2019", // TODO: Use `esnext`
-    "module": "esnext",
-    "moduleResolution": "node",
+    "target": "ES2019",
+    "module": "ESNext",
+    "moduleResolution": "Node",
     "esModuleInterop": true,
+    // TODO: "isolatedModules": true,
     "jsx": "react"
   },
-  "exclude": ["**/pkg/", "**/*.test.*"]
+  "exclude": ["**/pkg/"]
 }

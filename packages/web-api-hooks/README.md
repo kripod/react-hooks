@@ -431,7 +431,7 @@ function Component() {
   const [visitCount, setVisitCount] =
     useLocalStorage < number > ('visitCount', 0);
   useEffect(() => {
-    setVisitCount(count => count + 1);
+    setVisitCount((count) => count + 1);
   }, []);
   // ...
 }

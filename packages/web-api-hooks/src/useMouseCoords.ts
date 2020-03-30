@@ -17,7 +17,7 @@ export default function useMouseCoords(): readonly [number, number] {
 
   useEffect(
     () =>
-      managedEventListener(window, 'mousemove', event => {
+      managedEventListener(window, 'mousemove', (event) => {
         setCoords([event.clientX, event.clientY]);
       }),
     [],

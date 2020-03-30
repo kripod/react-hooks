@@ -28,7 +28,7 @@ export default function useDeviceMotion(): EventArgs<DeviceMotionEvent> {
 
   useEffect(
     () =>
-      managedEventListener(window, 'devicemotion', event => {
+      managedEventListener(window, 'devicemotion', (event) => {
         setMotion(event);
       }),
     [],

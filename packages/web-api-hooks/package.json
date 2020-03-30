@@ -36,6 +36,6 @@
     "network-information-types": "^0.1.0"
   },
   "devDependencies": {
-    "typescript": "^3.6.4"
+    "typescript": "^3.8.3"
   }
 }

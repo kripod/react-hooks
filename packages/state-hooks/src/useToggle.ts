@@ -28,7 +28,7 @@ export default function useToggle([value, setValue]: [
   React.Dispatch<React.SetStateAction<boolean>>,
 ]): [boolean, React.Dispatch<React.SetStateAction<boolean>>, () => void] {
   const toggleValue = useCallback(() => {
-    setValue(prevValue => !prevValue);
+    setValue((prevValue) => !prevValue);
   }, [setValue]);
   return [value, setValue, toggleValue];
 }

@@ -151,7 +151,7 @@ function Component() {
       <button type="button" onClick={undo} disabled={past.length === 0}>
         Undo
       </button>
-      <input value={value} onChange={e => setValue(e.target.value)} />
+      <input value={value} onChange={(event) => setValue(event.target.value)} />
       <button type="button" onClick={redo} disabled={future.length === 0}>
         Redo
       </button>

@@ -63,7 +63,7 @@ test('apply state updater function on undoable state', () => {
   const [, setValue] = result.current;
 
   act(() => {
-    setValue(prevValue => prevValue + 1);
+    setValue((prevValue) => prevValue + 1);
   });
   expect(result.current[0]).toBe(12);
 });

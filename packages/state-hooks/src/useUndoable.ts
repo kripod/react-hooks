@@ -49,7 +49,7 @@ export default function useUndoable<T>(
 
   const newSetValue = useCallback(
     (update: React.SetStateAction<T>) => {
-      setValue(prevValue => {
+      setValue((prevValue) => {
         futureValuesRef.current = [];
         pastValuesRef.current = [...pastValuesRef.current, prevValue];
         return typeof update === 'function'
@@ -64,7 +64,7 @@ export default function useUndoable<T>(
     (delta: number) => {
       if (delta < 0 && pastValuesRef.current.length >= -delta) {
         // Undo
-        setValue(prevValue => {
+        setValue((prevValue) => {
           const nextValueIndex = pastValuesRef.current.length + delta;
           const nextValue = pastValuesRef.current[nextValueIndex];
           futureValuesRef.current = [
@@ -77,7 +77,7 @@ export default function useUndoable<T>(
         });
       } else if (delta > 0 && futureValuesRef.current.length >= delta) {
         // Redo
-        setValue(prevValue => {
+        setValue((prevValue) => {
           const nextValue = futureValuesRef.current[delta - 1];
           pastValuesRef.current = [
             ...pastValuesRef.current,

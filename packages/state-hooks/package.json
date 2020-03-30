@@ -33,6 +33,6 @@
     "react": ">=16.8"
   },
   "devDependencies": {
-    "typescript": "^3.6.4"
+    "typescript": "^3.8.3"
   }
 }
