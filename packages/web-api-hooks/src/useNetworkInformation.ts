@@ -1,3 +1,6 @@
+// eslint-disable-next-line import/no-unresolved
+import 'network-information-types';
+
 import { useEffect, useState } from 'react';
 
 import { canUseDOM, managedEventListener } from './utils';
