@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.1](https://github.com/kripod/react-hooks/compare/web-api-hooks@3.0.0...web-api-hooks@3.0.1) (2020-03-30)
+
+
+### Bug Fixes
+
+* bundle NetworkInformation properly ([2839251](https://github.com/kripod/react-hooks/commit/2839251e37ae6165bb3def0fea2d8f702cb86b86))
+
+
+
+
+
 # [3.0.0](https://github.com/kripod/react-hooks/compare/web-api-hooks@2.2.2...web-api-hooks@3.0.0) (2020-03-30)
 
 ### Bug Fixes
