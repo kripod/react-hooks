@@ -2,9 +2,9 @@
 
 Essential set of [React Hooks] for convenient [Web API] consumption and state management.
 
-[![CI status](https://badgen.net/travis/kripod/react-hooks)](https://www.travis-ci.com/kripod/react-hooks)
-[![Code quality](https://badgen.net/lgtm/grade/g/kripod/react-hooks)](https://lgtm.com/projects/g/kripod/react-hooks)
-[![Coverage status](https://badgen.net/codecov/c/github/kripod/react-hooks)](https://codecov.io/gh/kripod/react-hooks)
+[![Travis (.com)](https://img.shields.io/travis/com/kripod/react-hooks)](https://travis-ci.com/github/kripod/react-hooks)
+[![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/kripod/react-hooks.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/kripod/react-hooks/context:javascript)
+[![Codecov](https://img.shields.io/codecov/c/github/kripod/react-hooks)](https://codecov.io/gh/kripod/react-hooks)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 [![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lerna.js.org/)
 
