@@ -12,9 +12,11 @@ Before making a non-trivial change, please discuss it via [issues]. You should b
 
 ## Development process
 
+Please keep the scope of each pull request to **one** specific feature or fix.
+
 ### Prequisites
 
-- [Node.js](https://nodejs.org/) >=10
+- [Node.js](https://nodejs.org/) >=10.13
 - [Yarn](https://yarnpkg.com/) >=1
 
 ### Workflow
@@ -29,6 +31,7 @@ Before making a non-trivial change, please discuss it via [issues]. You should b
    - `yarn test` runs tests found in '\*.test.ts(x)' files
 
 1. If you made documentation changes, then update `documentation.yml` and run `yarn doc`
+1. Record your changes with `yarn commit`, adhering to the [Conventional Commits] specification
 1. Open a new pull request, [referencing corresponding issues] if available
 
 ## License
@@ -38,4 +41,5 @@ As a collaborator, you agree to license your contributions under the project's [
 [issues]: https://github.com/kripod/react-hooks/issues
 [prettier]: https://prettier.io/
 [airbnb javascript style guide]: https://github.com/airbnb/javascript
-[referencing corresponding issues]: https://help.github.com/en/articles/closing-issues-using-keywords
+[conventional commits]: https://www.conventionalcommits.org/en/v1.0.0/
+[referencing corresponding issues]: https://help.github.com/en/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue#linking-a-pull-request-to-an-issue-using-a-keyword
