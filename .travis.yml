@@ -4,8 +4,8 @@ os:
   - windows
   - osx
 node_js:
-  - lts/*
-  - node
+  - 12
+  - 14
 env:
   - YARN_GPG=no
 
@@ -23,7 +23,7 @@ deploy:
     on:
       tags: true
       condition: $TRAVIS_OS_NAME = linux
-      node_js: lts/*
+      node_js: 12
   - provider: npm
     edge: true
     run_script: publish
@@ -32,4 +32,4 @@ deploy:
     on:
       tags: true
       condition: $TRAVIS_OS_NAME = linux
-      node_js: lts/*
+      node_js: 12
