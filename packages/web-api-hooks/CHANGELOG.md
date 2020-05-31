@@ -3,6 +3,11 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## <small>3.0.2 (2020-05-31)</small>
+
+- improvement: media queries level 5 compliance ([671022a](https://github.com/kripod/react-hooks/commit/671022a))
+- chore(deps): update ([a6af6a2](https://github.com/kripod/react-hooks/commit/a6af6a2))
+
 ## [3.0.1](https://github.com/kripod/react-hooks/compare/web-api-hooks@3.0.0...web-api-hooks@3.0.1) (2020-03-30)
 
 ### Bug Fixes
