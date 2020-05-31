@@ -23,7 +23,7 @@
     "@types/resize-observer-browser": "^0.1.2"
   },
   "devDependencies": {
-    "typescript": "^3.8.3"
+    "typescript": "^3.9.3"
   },
   "peerDependencies": {
     "react": ">=16.8"
