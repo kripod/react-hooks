@@ -13,7 +13,7 @@ function Hook<T>({ callback }: HookProps<T>): JSX.Element {
   return <>{JSON.stringify(callback())}</>;
 }
 
-function renderHookToString<T>(callback: () => T): string {
+function renderHookToString(callback: () => unknown): string {
   return renderToString(<Hook callback={callback} />);
 }
 

@@ -11,14 +11,9 @@ import useMedia from './useMedia';
  *   // ...
  * }
  */
-export default function useColorSchemePreference():
-  | 'no-preference'
-  | 'light'
-  | 'dark' {
-  const isLight = useMedia('(prefers-color-scheme: light)');
+export default function useColorSchemePreference(): 'light' | 'dark' {
   const isDark = useMedia('(prefers-color-scheme: dark)');
 
-  if (isLight) return 'light';
   if (isDark) return 'dark';
-  return 'no-preference';
+  return 'light';
 }

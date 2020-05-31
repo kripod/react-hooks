@@ -77,7 +77,7 @@ function Component() {
 }
 ```
 
-Returns **(`"no-preference"` \| `"light"` \| `"dark"`)** Preferred color scheme.
+Returns **(`"light"` \| `"dark"`)** Preferred color scheme.
 
 #### useDeviceMotion
 
