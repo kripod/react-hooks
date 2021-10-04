@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import { canUseDOM, managedEventListener } from './utils';
+import { canUseVisualViewport, managedEventListener } from './utils';
 
 /**
  * Tracks visual viewport scroll position.
@@ -17,21 +17,26 @@ import { canUseDOM, managedEventListener } from './utils';
  */
 export default function useViewportScrollCoords(): Readonly<[number, number]> {
   const [coords, setCoords] = useState<Readonly<[number, number]>>(
-    canUseDOM
+    canUseVisualViewport
       ? [window.visualViewport.pageLeft, window.visualViewport.pageTop]
       : [0, 0],
   );
 
-  useEffect(
-    () =>
-      managedEventListener(window.visualViewport, 'scroll', () => {
-        setCoords([
-          window.visualViewport.pageLeft,
-          window.visualViewport.pageTop,
-        ]);
-      }),
-    [],
-  );
+  useEffect(() => {
+    if (!canUseVisualViewport) {
+      return;
+    }
+
+    function handler(): void {
+      setCoords([
+        window.visualViewport.pageLeft,
+        window.visualViewport.pageTop,
+      ]);
+    }
+
+    managedEventListener(window?.visualViewport, 'scroll', handler);
+    managedEventListener(window?.visualViewport, 'resize', handler);
+  }, []);
 
   return coords;
 }
