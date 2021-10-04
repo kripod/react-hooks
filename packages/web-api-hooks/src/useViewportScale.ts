@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react';
 
-import { canUseDOM, managedEventListener } from './utils';
+import { canUseVisualViewport, managedEventListener } from './utils';
 
 /**
  * Tracks visual viewport scale.
  *
  * ⚗️ _The underlying technology is experimental. Please be aware about browser compatibility before using this in production._
  *
- * @returns Pinch-zoom scaling factor, falling back to `0` when unavailable.
+ * @returns Pinch-zoom scaling factor, falling back to `1.0` when unavailable.
  *
  * @example
  * function Component() {
@@ -17,16 +17,18 @@ import { canUseDOM, managedEventListener } from './utils';
  */
 export default function useViewportScale(): number {
   const [scale, setScale] = useState(
-    canUseDOM ? window.visualViewport.scale : 0,
+    canUseVisualViewport ? window.visualViewport.scale : 1.0,
   );
 
-  useEffect(
-    () =>
-      managedEventListener(window.visualViewport, 'resize', () => {
-        setScale(window.visualViewport.scale);
-      }),
-    [],
-  );
+  useEffect(() => {
+    if (!canUseVisualViewport) {
+      return;
+    }
+
+    managedEventListener(window.visualViewport, 'resize', () => {
+      setScale(window.visualViewport.scale);
+    });
+  }, []);
 
   return scale;
 }

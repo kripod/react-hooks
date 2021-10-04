@@ -4,6 +4,8 @@ import { EventMap } from './types';
 
 export const canUseDOM = typeof window !== 'undefined';
 
+export const canUseVisualViewport = canUseDOM && 'visualViewport' in window;
+
 export function dethunkify<T>(value: T | (() => T)): T {
   return typeof value === 'function' ? (value as () => T)() : value;
 }
